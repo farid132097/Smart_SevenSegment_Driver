@@ -393,6 +393,11 @@
               <FileType>5</FileType>
               <FilePath>.\defs.h</FilePath>
             </File>
+            <File>
+              <FileName>wdt.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\wdt.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -407,6 +412,11 @@
               <FileName>app.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\app.c</FilePath>
+            </File>
+            <File>
+              <FileName>wdt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\wdt.c</FilePath>
             </File>
           </Files>
         </Group>

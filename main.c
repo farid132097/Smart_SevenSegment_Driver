@@ -2,17 +2,18 @@
 
 #include "stm32g030xx.h"
 #include "app.h"
+#include "wdt.h"
 
 int main(void){
 	
 	App_Config();
-	//add WDT Config
+	WDT_Init(3000);
 	
 	while(1){
 		
 		while(1){
 			
-			//reload WDT
+			WDT_Reload();
 			App_Mainloop();
 			
 		}
