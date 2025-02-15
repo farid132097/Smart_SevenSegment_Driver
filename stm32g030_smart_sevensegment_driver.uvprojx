@@ -403,6 +403,11 @@
               <FileType>5</FileType>
               <FilePath>.\dispcom.h</FilePath>
             </File>
+            <File>
+              <FileName>sevensegment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\sevensegment.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -427,6 +432,11 @@
               <FileName>dispcom.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\dispcom.c</FilePath>
+            </File>
+            <File>
+              <FileName>sevensegment.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sevensegment.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -6,6 +6,10 @@
 
 int main(void){
 	
+	for(uint32_t i=0; i<1600000; i++){
+		__NOP();
+	}
+	
 	App_Config();
 	WDT_Init(3000);
 	
