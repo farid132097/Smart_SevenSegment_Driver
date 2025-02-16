@@ -4,6 +4,10 @@
 #include "sevensegment.h"
 
 
+#define  SEVENSEGMENT_INT_PRIORITY        (   0U)
+
+
+
 static uint8_t segment_val[24] = {
 	0b00111111, //index 0, char '0'
 	0b00000110, //index 1, char '1'
@@ -15,6 +19,8 @@ static uint8_t segment_val[24] = {
 	0b00000111, //index 7, char '7'
 	0b01111111, //index 8, char '8'
 	0b01101111, //index 9, char '9'
+	0b00000000, //index 10, blank
+	0b00000000, //index 11, custom
 	
 	//inverted
 	0b00111111, //index 0, char '0'
@@ -27,13 +33,35 @@ static uint8_t segment_val[24] = {
 	0b00111000, //index 7, char '7'
 	0b01111111, //index 8, char '8'
 	0b01111101, //index 9, char '9'
+	0b00000000, //index 10, blank
+	0b00000000, //index 11, custom
 };
+
+typedef struct seven_segment_t{
+	volatile uint8_t  CurrentDigitIndex;
+	volatile uint16_t InterruptTickCount;
+	volatile uint16_t AntiGhostingCycle;
+	volatile uint16_t DigitBrightnessTopVal;
+	volatile uint16_t DigitBrightness[4];
+	volatile uint8_t  SegmentValues[4];
+}seven_segment_t;
+
+seven_segment_t SevenSegment;
 
 
 void SevenSegment_Struct_Init(void){
-	
-	
-	
+	SevenSegment.CurrentDigitIndex = 0;
+	SevenSegment.InterruptTickCount = 0;
+	SevenSegment.AntiGhostingCycle = 2;
+	SevenSegment.DigitBrightnessTopVal = 50;
+	SevenSegment.DigitBrightness[0] = 0;
+	SevenSegment.DigitBrightness[1] = 0;
+	SevenSegment.DigitBrightness[2] = 0;
+	SevenSegment.DigitBrightness[3] = 0;
+	SevenSegment.SegmentValues[0] = 0;
+	SevenSegment.SegmentValues[1] = 0;
+	SevenSegment.SegmentValues[2] = 0;
+	SevenSegment.SegmentValues[3] = 0;
 }
 
 void SevenSegment_GPIO_Init(void){
@@ -92,6 +120,32 @@ void SevenSegment_GPIO_Init(void){
 	GPIOB->MODER |= GPIO_MODER_MODE0_Msk;
 }
 
+
+void SevenSegment_Timer_Init(uint32_t update_rate){
+  RCC->APBENR2 |= RCC_APBENR2_TIM14EN;
+	TIM14->PSC    = 0;
+	//Need to update according to core clock
+	TIM14->ARR    = (16000000/update_rate);
+	TIM14->DIER  |= TIM_DIER_UIE;
+	TIM14->CR1   |= TIM_CR1_CEN;
+	NVIC_EnableIRQ(TIM14_IRQn);
+	NVIC_SetPriority(TIM14_IRQn, SEVENSEGMENT_INT_PRIORITY);
+}
+
+
+void TIM14_IRQHandler(void){
+	TIM14->SR &=~ TIM_SR_UIF;
+  SevenSegment_ISR_Executables();
+}
+
+
+
+
+
+
+
+
+
 void SevenSegment_Set_Segment_Pins(uint8_t val){
 	uint32_t temp = GPIOA->ODR;
 	temp &= 0xFF00;
@@ -99,26 +153,38 @@ void SevenSegment_Set_Segment_Pins(uint8_t val){
 	GPIOA->ODR = temp;
 }
 
+void SevenSegment_Assign_Segment_Value(uint8_t index){
+	if( (index >= 0) && (index <= 3) ){
+		//Update values from segment buffer
+	  SevenSegment_Set_Segment_Pins(SevenSegment.SegmentValues[index]);
+	}
+	else{
+		//Turn off all segments
+		SevenSegment_Set_Segment_Pins(0);
+	}
+}
+
+//Valid digit values are from 0 to 3, 4 to 255 for Anti-ghosting
 void SevenSegment_Activate_Digit(uint8_t index){
-  if(index == 1){
+  if(index == 0){
 		GPIOC->ODR   |= GPIO_ODR_OD15;
 	  GPIOA->ODR   |= GPIO_ODR_OD11;
 	  GPIOA->ODR   |= GPIO_ODR_OD12;
 		GPIOB->ODR   &=~GPIO_ODR_OD9;
 	}
-	else if(index == 2){
+	else if(index == 1){
 		GPIOB->ODR   |= GPIO_ODR_OD9;
 	  GPIOA->ODR   |= GPIO_ODR_OD11;
 	  GPIOA->ODR   |= GPIO_ODR_OD12;
 		GPIOC->ODR   &=~GPIO_ODR_OD15;
 	}
-	else if(index == 3){
+	else if(index == 2){
 		GPIOB->ODR   |= GPIO_ODR_OD9;
 	  GPIOC->ODR   |= GPIO_ODR_OD15;
 	  GPIOA->ODR   |= GPIO_ODR_OD12;
 		GPIOA->ODR   &=~GPIO_ODR_OD11;
 	}
-	else if(index == 4){
+	else if(index == 3){
 		GPIOB->ODR   |= GPIO_ODR_OD9;
 	  GPIOC->ODR   |= GPIO_ODR_OD15;
 	  GPIOA->ODR   |= GPIO_ODR_OD11;
@@ -132,7 +198,67 @@ void SevenSegment_Activate_Digit(uint8_t index){
 	}
 }
 
+void SevenSegment_Assign_Digit_Value(uint8_t index){
+	SevenSegment_Assign_Segment_Value( index );
+	SevenSegment_Activate_Digit( index );
+}
+
+void SevenSegment_Brightness_Handler(void){
+	
+	if(SevenSegment.InterruptTickCount == 0){
+		//Anti-ghosting
+		SevenSegment_Set_Segment_Pins(0);
+		SevenSegment_Activate_Digit(0);
+	}
+	else if(SevenSegment.InterruptTickCount == SevenSegment.AntiGhostingCycle){
+		//Assign new value
+		SevenSegment_Assign_Digit_Value(SevenSegment.CurrentDigitIndex);
+	}
+	else if(SevenSegment.InterruptTickCount == SevenSegment.DigitBrightness[SevenSegment.CurrentDigitIndex]){
+		//Turn off current digit
+		SevenSegment_Set_Segment_Pins(0);
+		SevenSegment_Activate_Digit(0);
+	}
+	
+	
+	SevenSegment.InterruptTickCount++;
+	if(SevenSegment.InterruptTickCount >= SevenSegment.DigitBrightnessTopVal){
+		//Switch to next digit
+		SevenSegment.CurrentDigitIndex++;
+		if(SevenSegment.CurrentDigitIndex >= 3){
+			SevenSegment.CurrentDigitIndex = 0;
+		}
+		
+		//Reset Tick Counter
+		SevenSegment.InterruptTickCount = 0;
+	}
+	
+}
 
 
+void SevenSegment_ISR_Executables(void){
+	SevenSegment_Brightness_Handler();
+}
+
+
+
+void SevenSegment_Set_Brightness(uint8_t digit, uint16_t val){
+	if( val < SevenSegment.AntiGhostingCycle){
+		SevenSegment.DigitBrightness[digit] = SevenSegment.AntiGhostingCycle;
+	}
+	else{
+	  SevenSegment.DigitBrightness[digit] = val;
+	}
+}
+
+
+
+
+
+void SevenSegment_Init(void){
+	SevenSegment_Struct_Init();
+	SevenSegment_GPIO_Init();
+	SevenSegment_Timer_Init(5000);
+}
 
 
