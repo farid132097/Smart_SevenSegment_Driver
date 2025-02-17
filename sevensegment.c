@@ -4,42 +4,43 @@
 #include "sevensegment.h"
 
 
-#define  SEVENSEGMENT_INT_PRIORITY        (   0U)
-#define  SEVENSEGMENT_VAL_OFFSET          (  12U)
+#define  SEVENSEGMENT_INT_PRIORITY      (   0U)
+#define  SEVENSEGMENT_VAL_OFFSET        (  12U)
 
 
 static uint8_t segment_val[24] = {
 	//For Non-Inverted Digits
-	0b00111111, //index 0, char '0'
-	0b00000110, //index 1, char '1'
-	0b01011011, //index 2, char '2'
-	0b01001111, //index 3, char '3'
-	0b01100110, //index 4, char '4'
-	0b01101101, //index 5, char '5'
-	0b01111101, //index 6, char '6'
-	0b00000111, //index 7, char '7'
-	0b01111111, //index 8, char '8'
-	0b01101111, //index 9, char '9'
-	0b00000000, //index 10, blank
-	0b00000000, //index 11, custom
+	0x3F, //0b00111111, //index 0, char '0'
+	0x06, //0b00000110, //index 1, char '1'
+	0x5B, //0b01011011, //index 2, char '2'
+	0x4F, //0b01001111, //index 3, char '3'
+	0x66, //0b01100110, //index 4, char '4'
+	0x6D, //0b01101101, //index 5, char '5'
+	0x7D, //0b01111101, //index 6, char '6'
+	0x07, //0b00000111, //index 7, char '7'
+	0x7F, //0b01111111, //index 8, char '8'
+	0x6F, //0b01101111, //index 9, char '9'
+	0x00, //0b00000000, //index 10, blank
+	0x00, //0b00000000, //index 11, custom
 	
 	//For Inverted Digits
-	0b00111111, //index 0, char '0'
-	0b00110000, //index 1, char '1'
-	0b01011011, //index 2, char '2'
-	0b01111001, //index 3, char '3'
-	0b01110100, //index 4, char '4'
-	0b01101101, //index 5, char '5'
-	0b01101111, //index 6, char '6'
-	0b00111000, //index 7, char '7'
-	0b01111111, //index 8, char '8'
-	0b01111101, //index 9, char '9'
-	0b00000000, //index 10, blank
-	0b00000000, //index 11, custom
+	0x3F, //0b00111111, //index 0, char '0'
+	0x30, //0b00110000, //index 1, char '1'
+	0x5B, //0b01011011, //index 2, char '2'
+	0x79, //0b01111001, //index 3, char '3'
+	0x74, //0b01110100, //index 4, char '4'
+	0x6D, //0b01101101, //index 5, char '5'
+	0x6F, //0b01101111, //index 6, char '6'
+	0x38, //0b00111000, //index 7, char '7'
+	0x7F, //0b01111111, //index 8, char '8'
+	0x7D, //0b01111101, //index 9, char '9'
+	0x00, //0b00000000, //index 10, blank
+	0x00, //0b00000000, //index 11, custom
 };
 
 typedef struct seven_segment_t{
 	volatile uint8_t  CurrentDigitIndex;
+	volatile uint8_t  Reserved0;
 	volatile uint16_t InterruptTickCount;
 	volatile uint16_t AntiGhostingCycle;
 	volatile uint16_t DigitBrightnessTopVal;
@@ -48,7 +49,7 @@ typedef struct seven_segment_t{
 	volatile uint8_t  DpValues[4];
 }seven_segment_t;
 
-seven_segment_t SevenSegment;
+static seven_segment_t SevenSegment;
 
 
 void SevenSegment_Struct_Init(void){
@@ -160,7 +161,7 @@ void SevenSegment_Set_Segment_Pins(uint8_t val){
 }
 
 void SevenSegment_Assign_Segment_Value(uint8_t index){
-	if( (index >= 0) && (index <= 3) ){
+	if( index <= 3 ){
 		//Update values from segment buffer
 	  SevenSegment_Set_Segment_Pins(SevenSegment.SegmentValues[index]);
 	}
@@ -247,15 +248,27 @@ void SevenSegment_ISR_Executables(void){
 }
 
 
-
+void SevenSegment_Set_Dp(uint8_t digit, uint8_t val){
+	if(digit <= 3){
+		if(val == 0){
+	    SevenSegment.SegmentValues[digit] &=~ (1<<7);
+		}
+		else if(val == 1){
+			SevenSegment.SegmentValues[digit] |=  (1<<7);
+		}
+	}
+}
 
 void SevenSegment_Set_Value(uint8_t digit, uint8_t val){
+	uint8_t temp;
 	if(digit <= 3){
 	  if(digit >= 2 ){
 		  //add offset for inverted digits
 			val += SEVENSEGMENT_VAL_OFFSET;
 	  }
-	  SevenSegment.SegmentValues[digit] = segment_val[val];
+		temp  = SevenSegment.SegmentValues[digit];
+		temp &= 0x80;
+	  SevenSegment.SegmentValues[digit] = segment_val[val] | temp;
 	}
 }
 
