@@ -5,10 +5,11 @@
 
 
 #define  SEVENSEGMENT_INT_PRIORITY        (   0U)
-
+#define  SEVENSEGMENT_VAL_OFFSET          (  12U)
 
 
 static uint8_t segment_val[24] = {
+	//For Non-Inverted Digits
 	0b00111111, //index 0, char '0'
 	0b00000110, //index 1, char '1'
 	0b01011011, //index 2, char '2'
@@ -22,7 +23,7 @@ static uint8_t segment_val[24] = {
 	0b00000000, //index 10, blank
 	0b00000000, //index 11, custom
 	
-	//inverted
+	//For Inverted Digits
 	0b00111111, //index 0, char '0'
 	0b00110000, //index 1, char '1'
 	0b01011011, //index 2, char '2'
@@ -44,6 +45,7 @@ typedef struct seven_segment_t{
 	volatile uint16_t DigitBrightnessTopVal;
 	volatile uint16_t DigitBrightness[4];
 	volatile uint8_t  SegmentValues[4];
+	volatile uint8_t  DpValues[4];
 }seven_segment_t;
 
 seven_segment_t SevenSegment;
@@ -62,6 +64,10 @@ void SevenSegment_Struct_Init(void){
 	SevenSegment.SegmentValues[1] = 0;
 	SevenSegment.SegmentValues[2] = 0;
 	SevenSegment.SegmentValues[3] = 0;
+	SevenSegment.DpValues[0] = 0;
+	SevenSegment.DpValues[1] = 0;
+	SevenSegment.DpValues[2] = 0;
+	SevenSegment.DpValues[3] = 0;
 }
 
 void SevenSegment_GPIO_Init(void){
@@ -242,13 +248,24 @@ void SevenSegment_ISR_Executables(void){
 
 
 
+
+void SevenSegment_Set_Value(uint8_t digit, uint8_t val){
+	if(digit <= 3){
+	  if(digit >= 2 ){
+		  //add offset for inverted digits
+			val += SEVENSEGMENT_VAL_OFFSET;
+	  }
+	  SevenSegment.SegmentValues[digit] = segment_val[val];
+	}
+}
+
 void SevenSegment_Set_Brightness(uint8_t digit, uint16_t val){
-	if( val < SevenSegment.AntiGhostingCycle){
-		SevenSegment.DigitBrightness[digit] = SevenSegment.AntiGhostingCycle;
+	uint16_t temp;
+	temp = SevenSegment.AntiGhostingCycle + val;
+	if(temp >= (SevenSegment.DigitBrightnessTopVal - 1) ){
+		temp = SevenSegment.DigitBrightnessTopVal - 1;
 	}
-	else{
-	  SevenSegment.DigitBrightness[digit] = val;
-	}
+	SevenSegment.DigitBrightness[digit] = temp;
 }
 
 
@@ -258,7 +275,7 @@ void SevenSegment_Set_Brightness(uint8_t digit, uint16_t val){
 void SevenSegment_Init(void){
 	SevenSegment_Struct_Init();
 	SevenSegment_GPIO_Init();
-	SevenSegment_Timer_Init(5000);
+	SevenSegment_Timer_Init(50000);
 }
 
 
