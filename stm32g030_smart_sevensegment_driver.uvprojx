@@ -409,6 +409,21 @@
               <FileType>5</FileType>
               <FilePath>.\sevensegment.h</FilePath>
             </File>
+            <File>
+              <FileName>adc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\adc.h</FilePath>
+            </File>
+            <File>
+              <FileName>ldr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ldr.h</FilePath>
+            </File>
+            <File>
+              <FileName>lpf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lpf.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -438,6 +453,21 @@
               <FileName>sevensegment.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\sevensegment.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>ldr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ldr.c</FilePath>
+            </File>
+            <File>
+              <FileName>lpf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lpf.c</FilePath>
             </File>
           </Files>
         </Group>

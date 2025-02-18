@@ -7,8 +7,9 @@
 #define  SEVENSEGMENT_DISP_TYPE_CA
 //#define  SEVENSEGMENT_DISP_TYPE_CC
 
-
+//Uncomment if Segments are driven by NPN BJTs
 #define  SEVENSEGMENT_SEG_DRV_INV
+//Uncomment if Common Pins are driven by PNP BJTs
 #define  SEVENSEGMENT_DIG_DRV_INV
 
 #define  SEVENSEGMENT_INT_PRIORITY      (   0U)
