@@ -3,9 +3,17 @@
 #include "stm32g030xx.h"
 #include "sevensegment.h"
 
+//Not implemented yet
+#define  SEVENSEGMENT_DISP_TYPE_CA
+//#define  SEVENSEGMENT_DISP_TYPE_CC
+
+
+#define  SEVENSEGMENT_SEG_DRV_INV
+#define  SEVENSEGMENT_DIG_DRV_INV
 
 #define  SEVENSEGMENT_INT_PRIORITY      (   0U)
 #define  SEVENSEGMENT_VAL_OFFSET        (  12U)
+
 
 
 static uint8_t segment_val[24] = {
@@ -107,6 +115,7 @@ void SevenSegment_GPIO_Init(void){
 	GPIOA->MODER |= GPIO_MODER_MODE12_0;
 	
 	//Turn off all segment transistors (NPN)
+	#ifdef SEVENSEGMENT_SEG_DRV_INV
 	GPIOA->ODR   &=~GPIO_ODR_OD0;
 	GPIOA->ODR   &=~GPIO_ODR_OD1;
 	GPIOA->ODR   &=~GPIO_ODR_OD2;
@@ -115,13 +124,29 @@ void SevenSegment_GPIO_Init(void){
 	GPIOA->ODR   &=~GPIO_ODR_OD5;
 	GPIOA->ODR   &=~GPIO_ODR_OD6;
 	GPIOA->ODR   &=~GPIO_ODR_OD7;
+	#else
+	GPIOA->ODR   |= GPIO_ODR_OD0;
+	GPIOA->ODR   |= GPIO_ODR_OD1;
+	GPIOA->ODR   |= GPIO_ODR_OD2;
+	GPIOA->ODR   |= GPIO_ODR_OD3;
+	GPIOA->ODR   |= GPIO_ODR_OD4;
+	GPIOA->ODR   |= GPIO_ODR_OD5;
+	GPIOA->ODR   |= GPIO_ODR_OD6;
+	GPIOA->ODR   |= GPIO_ODR_OD7;
+	#endif
 	
 	//Turn off all digit transistors (PNP)
+	#ifdef SEVENSEGMENT_DIG_DRV_INV
 	GPIOB->ODR   |= GPIO_ODR_OD9;
 	GPIOC->ODR   |= GPIO_ODR_OD15;
 	GPIOA->ODR   |= GPIO_ODR_OD11;
 	GPIOA->ODR   |= GPIO_ODR_OD12;
-	
+	#else
+	GPIOB->ODR   &=~GPIO_ODR_OD9;
+	GPIOC->ODR   &=~GPIO_ODR_OD15;
+	GPIOA->ODR   &=~GPIO_ODR_OD11;
+	GPIOA->ODR   &=~GPIO_ODR_OD12;
+	#endif
 	
 	//Set Analog Input ->PB0, LDR as light sensor
 	GPIOB->MODER |= GPIO_MODER_MODE0_Msk;
@@ -156,6 +181,9 @@ void TIM14_IRQHandler(void){
 void SevenSegment_Set_Segment_Pins(uint8_t val){
 	uint32_t temp = GPIOA->ODR;
 	temp &= 0xFF00;
+	#ifndef SEVENSEGMENT_SEG_DRV_INV
+	val=~val;
+  #endif
 	temp |= val;
 	GPIOA->ODR = temp;
 }
@@ -174,34 +202,69 @@ void SevenSegment_Assign_Segment_Value(uint8_t index){
 //Valid digit values are from 0 to 3, 4 to 255 for Anti-ghosting
 void SevenSegment_Activate_Digit(uint8_t index){
   if(index == 0){
+		#ifdef SEVENSEGMENT_DIG_DRV_INV
 		GPIOC->ODR   |= GPIO_ODR_OD15;
 	  GPIOA->ODR   |= GPIO_ODR_OD11;
 	  GPIOA->ODR   |= GPIO_ODR_OD12;
 		GPIOB->ODR   &=~GPIO_ODR_OD9;
+		#else
+		GPIOC->ODR   &=~GPIO_ODR_OD15;
+	  GPIOA->ODR   &=~GPIO_ODR_OD11;
+	  GPIOA->ODR   &=~GPIO_ODR_OD12;
+		GPIOB->ODR   |= GPIO_ODR_OD9;
+		#endif
 	}
 	else if(index == 1){
+		#ifdef SEVENSEGMENT_DIG_DRV_INV
 		GPIOB->ODR   |= GPIO_ODR_OD9;
 	  GPIOA->ODR   |= GPIO_ODR_OD11;
 	  GPIOA->ODR   |= GPIO_ODR_OD12;
 		GPIOC->ODR   &=~GPIO_ODR_OD15;
+		#else
+		GPIOB->ODR   &=~GPIO_ODR_OD9;
+	  GPIOA->ODR   &=~GPIO_ODR_OD11;
+	  GPIOA->ODR   &=~GPIO_ODR_OD12;
+		GPIOC->ODR   |= GPIO_ODR_OD15;
+		#endif
 	}
 	else if(index == 2){
+		#ifdef SEVENSEGMENT_DIG_DRV_INV
 		GPIOB->ODR   |= GPIO_ODR_OD9;
 	  GPIOC->ODR   |= GPIO_ODR_OD15;
 	  GPIOA->ODR   |= GPIO_ODR_OD12;
 		GPIOA->ODR   &=~GPIO_ODR_OD11;
+		#else
+		GPIOB->ODR   &=~GPIO_ODR_OD9;
+	  GPIOC->ODR   &=~GPIO_ODR_OD15;
+	  GPIOA->ODR   &=~GPIO_ODR_OD12;
+		GPIOA->ODR   |= GPIO_ODR_OD11;
+		#endif
 	}
 	else if(index == 3){
+		#ifdef SEVENSEGMENT_DIG_DRV_INV
 		GPIOB->ODR   |= GPIO_ODR_OD9;
 	  GPIOC->ODR   |= GPIO_ODR_OD15;
 	  GPIOA->ODR   |= GPIO_ODR_OD11;
 	  GPIOA->ODR   &=~GPIO_ODR_OD12;
+		#else
+		GPIOB->ODR   &=~GPIO_ODR_OD9;
+	  GPIOC->ODR   &=~GPIO_ODR_OD15;
+	  GPIOA->ODR   &=~GPIO_ODR_OD11;
+	  GPIOA->ODR   |= GPIO_ODR_OD12;
+		#endif
 	}
 	else{
+		#ifdef SEVENSEGMENT_DIG_DRV_INV
 		GPIOB->ODR   |= GPIO_ODR_OD9;
 	  GPIOC->ODR   |= GPIO_ODR_OD15;
 	  GPIOA->ODR   |= GPIO_ODR_OD11;
 	  GPIOA->ODR   |= GPIO_ODR_OD12;
+		#else
+		GPIOB->ODR   &=~GPIO_ODR_OD9;
+	  GPIOC->ODR   &=~GPIO_ODR_OD15;
+	  GPIOA->ODR   &=~GPIO_ODR_OD11;
+	  GPIOA->ODR   &=~GPIO_ODR_OD12;
+		#endif
 	}
 }
 
@@ -286,6 +349,11 @@ void SevenSegment_Set_Brightness(uint8_t digit, uint16_t val){
 
 
 void SevenSegment_Init(void){
+	#ifdef SEVENSEGMENT_DISP_TYPE_CA
+	  #ifdef SEVENSEGMENT_DISP_TYPE_CC
+	  #error define macro SEVENSEGMENT_DISP_TYPE_CA & SEVENSEGMENT_DISP_TYPE_CC cannot be true at the same time
+		#endif
+	#endif
 	SevenSegment_Struct_Init();
 	SevenSegment_GPIO_Init();
 	SevenSegment_Timer_Init(50000);
