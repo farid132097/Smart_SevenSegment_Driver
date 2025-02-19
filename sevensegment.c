@@ -65,7 +65,7 @@ void SevenSegment_Struct_Init(void){
 	SevenSegment.CurrentDigitIndex = 0;
 	SevenSegment.InterruptTickCount = 0;
 	SevenSegment.AntiGhostingCycle = 2;
-	SevenSegment.DigitBrightnessTopVal = 50;
+	SevenSegment.DigitBrightnessTopVal = 200;
 	SevenSegment.DigitBrightness[0] = 0;
 	SevenSegment.DigitBrightness[1] = 0;
 	SevenSegment.DigitBrightness[2] = 0;
@@ -276,19 +276,19 @@ void SevenSegment_Assign_Digit_Value(uint8_t index){
 
 void SevenSegment_Brightness_Handler(void){
 	
-	if(SevenSegment.InterruptTickCount == 0){
+	if(SevenSegment.InterruptTickCount <= 1){
 		//Anti-ghosting
 		SevenSegment_Set_Segment_Pins(0);
-		SevenSegment_Activate_Digit(0);
+		SevenSegment_Activate_Digit(4);
 	}
-	else if(SevenSegment.InterruptTickCount == SevenSegment.AntiGhostingCycle){
+	else if(SevenSegment.InterruptTickCount <= SevenSegment.AntiGhostingCycle){
 		//Assign new value
 		SevenSegment_Assign_Digit_Value(SevenSegment.CurrentDigitIndex);
 	}
-	else if(SevenSegment.InterruptTickCount == SevenSegment.DigitBrightness[SevenSegment.CurrentDigitIndex]){
+	else if(SevenSegment.InterruptTickCount >= SevenSegment.DigitBrightness[SevenSegment.CurrentDigitIndex]){
 		//Turn off current digit
 		SevenSegment_Set_Segment_Pins(0);
-		SevenSegment_Activate_Digit(0);
+		SevenSegment_Activate_Digit(4);
 	}
 	
 	
@@ -296,7 +296,7 @@ void SevenSegment_Brightness_Handler(void){
 	if(SevenSegment.InterruptTickCount >= SevenSegment.DigitBrightnessTopVal){
 		//Switch to next digit
 		SevenSegment.CurrentDigitIndex++;
-		if(SevenSegment.CurrentDigitIndex >= 3){
+		if(SevenSegment.CurrentDigitIndex >= 4){
 			SevenSegment.CurrentDigitIndex = 0;
 		}
 		
@@ -338,7 +338,7 @@ void SevenSegment_Set_Value(uint8_t digit, uint8_t val){
 
 void SevenSegment_Set_Brightness(uint8_t digit, uint16_t val){
 	uint16_t temp;
-	temp = SevenSegment.AntiGhostingCycle + val;
+	temp = SevenSegment.AntiGhostingCycle + 1 + val;
 	if(temp >= (SevenSegment.DigitBrightnessTopVal - 1) ){
 		temp = SevenSegment.DigitBrightnessTopVal - 1;
 	}
@@ -357,7 +357,7 @@ void SevenSegment_Init(void){
 	#endif
 	SevenSegment_Struct_Init();
 	SevenSegment_GPIO_Init();
-	SevenSegment_Timer_Init(50000);
+	SevenSegment_Timer_Init(96000);
 }
 
 
