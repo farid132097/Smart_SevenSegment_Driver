@@ -423,6 +423,11 @@
               <FileType>5</FileType>
               <FilePath>.\lpf.h</FilePath>
             </File>
+            <File>
+              <FileName>protocol.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\protocol.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -467,6 +472,11 @@
               <FileName>lpf.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lpf.c</FilePath>
+            </File>
+            <File>
+              <FileName>protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\protocol.c</FilePath>
             </File>
           </Files>
         </Group>

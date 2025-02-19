@@ -23,7 +23,7 @@
 #define  DISPCOM_INT_PRIORITY           (   1U)
 #define  DISPCOM_TIMEOUT_INT_PRIORITY   (   2U)
 
-#define  DISPCOM_BUFFER_SIZE            ( 128U)
+#define  DISPCOM_BUFFER_SIZE            (  64U)
 #define  DISPCOM_RX_PCKT_CMPLT_DELAY    (   5U)
 
 
@@ -127,26 +127,26 @@ void DispCom_RX_Packet_Struct_Init(void){
 
 void DispCom_Config_GPIO(void){
 	if((RCC->IOPENR & RCC_IOPENR_GPIOBEN) != RCC_IOPENR_GPIOBEN){
-		RCC->IOPENR |= RCC_IOPENR_GPIOBEN;
+		RCC->IOPENR |=  RCC_IOPENR_GPIOBEN;
 	}
 	//PB6 alternate function, USART1->TX
-	GPIOB->MODER  &=~GPIO_MODER_MODE6_Msk;
-	GPIOB->MODER  |= GPIO_MODER_MODE6_1;
+	GPIOB->MODER  &=~ GPIO_MODER_MODE6_Msk;
+	GPIOB->MODER  |=  GPIO_MODER_MODE6_1;
 	
 	//PB7 alternate function, USART1->RX
-	GPIOB->MODER  &=~GPIO_MODER_MODE7_Msk;
-	GPIOB->MODER  |= GPIO_MODER_MODE7_1;
+	GPIOB->MODER  &=~ GPIO_MODER_MODE7_Msk;
+	GPIOB->MODER  |=  GPIO_MODER_MODE7_1;
 }
 
 void DispCom_Config_Clock(void){
-  RCC->APBENR2  |= RCC_APBENR2_USART1EN; 
+  RCC->APBENR2  |=  RCC_APBENR2_USART1EN; 
 }
 
 void DispCom_Config_BAUD_Rate(uint32_t baud_rate){
-	if(USART1->CR1 & USART_CR1_UE){
-    USART1->CR1 &=~USART_CR1_UE;
+	if(USART1->CR1 &  USART_CR1_UE){
+    USART1->CR1 &=~ USART_CR1_UE;
 	}
-  USART1->BRR=(uint16_t)(16000000/baud_rate);
+  USART1->BRR = (uint16_t)(16000000/baud_rate);
 }
 
 
@@ -176,9 +176,11 @@ void DispCom_Clear_Interrupt_Flag(void){
 }
 
 void DispCom_Tx_Byte(uint8_t val){
-  USART1->TDR=val;
-	while((USART1->ISR & USART_ISR_TC)!=USART_ISR_TC);
-	USART1->ICR|=USART_ICR_TCCF;	                                                                                                 
+  USART1->TDR = val;
+	while((USART1->ISR & USART_ISR_TC) != USART_ISR_TC){
+		//Add timeout
+	}
+	USART1->ICR |= USART_ICR_TCCF;	                                                                                                 
 }
 
 uint8_t DispCom_Rx_Byte(void){
@@ -207,7 +209,7 @@ void USART1_IRQHandler(void){
 /********************DispCom Timer Functions Start*****************/
 
 void DispCom_Timer_Struct_Init(void){
-  DispCom.Timer.Enabled = DISPCOM_FALSE;
+  DispCom.Timer.Enabled  = DISPCOM_FALSE;
   DispCom.Timer.ResetVal = DISPCOM_NULL;
 }
 
@@ -232,11 +234,11 @@ void DispCom_Timer_Init(void){
 }
 
 void DispCom_Timer_Enable(void){
-  TIM16->CR1   |= TIM_CR1_CEN;
+  TIM16->CR1   |=  TIM_CR1_CEN;
 }
 
 void DispCom_Timer_Disable(void){
-  TIM16->CR1   &=~TIM_CR1_CEN;
+  TIM16->CR1   &=~ TIM_CR1_CEN;
 }
 
 uint8_t DispCom_Timer_Get_Status(void){

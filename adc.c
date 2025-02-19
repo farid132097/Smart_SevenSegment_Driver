@@ -26,7 +26,7 @@ void ADC_Reg_Init(void){
 	//Enable ADC Regulator
 	ADC1->CR|= ADC_CR_ADVREGEN;
 	//Wait for ADC Regulator to stabilize
-	for(uint32_t i=0; i<1600000; i++){
+	for(uint32_t i=0; i<160000; i++){
 		__NOP();
 	}
 	//Start ADC calibration
@@ -63,6 +63,7 @@ void ADC_Reg_Init(void){
 
 uint16_t ADC_Read_Channel(uint8_t channel){
 	//Select channel
+	uint16_t data;
 	if(ADC1->CHSELR != (1<<channel)){
 	  ADC1->CHSELR=(1<<channel);
 		//Wait until channel change is effective
@@ -76,7 +77,7 @@ uint16_t ADC_Read_Channel(uint8_t channel){
   while((ADC1->ISR & ADC_ISR_EOC) == 0){
 		//add timeout
 	}
-	uint16_t data=(uint16_t)ADC1->DR;
+	data = (uint16_t)ADC1->DR;
 	return data;
 }
 
@@ -85,4 +86,6 @@ void ADC_Init(void){
 	ADC_Struct_Init();
 	ADC_Reg_Init();
 }
+
+
 

@@ -12,6 +12,8 @@
 //Uncomment if Common Pins are driven by PNP BJTs
 #define  SEVENSEGMENT_DIG_DRV_INV
 
+#define  SEVENSEGMENT_TOTAL_DIGITS      (   4U)
+#define  SEVENSEGMENT_INV_DIGITS_STRT   (   2U)
 #define  SEVENSEGMENT_INT_PRIORITY      (   0U)
 #define  SEVENSEGMENT_VAL_OFFSET        (  12U)
 
@@ -65,7 +67,7 @@ void SevenSegment_Struct_Init(void){
 	SevenSegment.CurrentDigitIndex = 0;
 	SevenSegment.InterruptTickCount = 0;
 	SevenSegment.AntiGhostingCycle = 2;
-	SevenSegment.DigitBrightnessTopVal = 200;
+	SevenSegment.DigitBrightnessTopVal = 100;
 	SevenSegment.DigitBrightness[0] = 0;
 	SevenSegment.DigitBrightness[1] = 0;
 	SevenSegment.DigitBrightness[2] = 0;
@@ -296,7 +298,7 @@ void SevenSegment_Brightness_Handler(void){
 	if(SevenSegment.InterruptTickCount >= SevenSegment.DigitBrightnessTopVal){
 		//Switch to next digit
 		SevenSegment.CurrentDigitIndex++;
-		if(SevenSegment.CurrentDigitIndex >= 4){
+		if(SevenSegment.CurrentDigitIndex >= SEVENSEGMENT_TOTAL_DIGITS){
 			SevenSegment.CurrentDigitIndex = 0;
 		}
 		
@@ -313,7 +315,7 @@ void SevenSegment_ISR_Executables(void){
 
 
 void SevenSegment_Set_Dp(uint8_t digit, uint8_t val){
-	if(digit <= 3){
+	if(digit < SEVENSEGMENT_TOTAL_DIGITS){
 		if(val == 0){
 	    SevenSegment.SegmentValues[digit] &=~ (1<<7);
 		}
@@ -325,8 +327,8 @@ void SevenSegment_Set_Dp(uint8_t digit, uint8_t val){
 
 void SevenSegment_Set_Value(uint8_t digit, uint8_t val){
 	uint8_t temp;
-	if(digit <= 3){
-	  if(digit >= 2 ){
+	if(digit < SEVENSEGMENT_TOTAL_DIGITS){
+	  if(digit >= SEVENSEGMENT_INV_DIGITS_STRT ){
 		  //add offset for inverted digits
 			val += SEVENSEGMENT_VAL_OFFSET;
 	  }
@@ -339,8 +341,8 @@ void SevenSegment_Set_Value(uint8_t digit, uint8_t val){
 void SevenSegment_Set_Brightness(uint8_t digit, uint16_t val){
 	uint16_t temp;
 	temp = SevenSegment.AntiGhostingCycle + 1 + val;
-	if(temp >= (SevenSegment.DigitBrightnessTopVal - 1) ){
-		temp = SevenSegment.DigitBrightnessTopVal - 1;
+	if(temp >= (SevenSegment.DigitBrightnessTopVal - 2) ){
+		temp = SevenSegment.DigitBrightnessTopVal - 2;
 	}
 	SevenSegment.DigitBrightness[digit] = temp;
 }
@@ -357,7 +359,7 @@ void SevenSegment_Init(void){
 	#endif
 	SevenSegment_Struct_Init();
 	SevenSegment_GPIO_Init();
-	SevenSegment_Timer_Init(96000);
+	SevenSegment_Timer_Init(48000);
 }
 
 

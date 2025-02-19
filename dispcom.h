@@ -15,6 +15,9 @@
 
 #include "stm32g030xx.h"
 
+
+
+
 void     DispCom_Struct_Init(void);
 void     DispCom_RX_Packet_Struct_Init(void);
 
