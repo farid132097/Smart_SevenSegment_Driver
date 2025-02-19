@@ -2,16 +2,20 @@
 
 
 #include "stm32g030xx.h"
+#include "lpf.h"
 
 #define NUMBER_OF_LPF 2
 
 typedef struct lpf_t{
   uint8_t  Alpha ;
+	uint8_t  Reserved0 ;
+	uint8_t  Reserved1 ;
+	uint8_t  Reserved2 ;
   int32_t  Input ;
   int32_t  Output;
 }lpf_t;
 
-lpf_t LPF[NUMBER_OF_LPF];
+static lpf_t LPF[NUMBER_OF_LPF];
 
 void LPF_Struct_Init(void){
   for(uint8_t i=0; i<NUMBER_OF_LPF; i++){
@@ -42,3 +46,5 @@ int32_t LPF_Get_Filtered_Value(uint8_t lpf_index, int32_t val){
 void LPF_Init(void){
   LPF_Struct_Init();
 }
+
+

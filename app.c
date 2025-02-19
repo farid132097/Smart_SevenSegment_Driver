@@ -8,7 +8,7 @@
 #include "sevensegment.h"
 
 
-uint16_t br = 0;
+static uint16_t br = 0;
 
 void App_Config(void){
 	LDR_Init();
