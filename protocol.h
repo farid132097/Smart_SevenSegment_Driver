@@ -7,7 +7,7 @@
 
 
 void     Protocol_Struct_Init(void);
-
+void     Protocol_Build_Status_Packet(void);
 
 
 

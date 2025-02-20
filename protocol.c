@@ -8,10 +8,17 @@
 Frame Format : Header (1 byte), Len (1 byte), CMD (1 byte), Data, CRC16 (2 byte)
 Header       : 1 Byte (Master 0xA5, Slave 0x5A)
 Length       : N bytes + 3
-CMD          : 1 Byte [Query (0x00), Config (0x01), Set Digits (0x02), SetBrightness(0x03)]
+CMD          : 1 Byte [Status (0x00), Config (0x01), Set Digits (0x02), SetBrightness(0x03)]
 Data         : Variable
 CRC16        : 2 Byte
 */
+
+enum{
+	CMD_STATUS         = 0x00,
+	CMD_CONFIG         = 0x01,
+	CMD_SET_DIGIT      = 0x02,
+	CMD_SET_BRIGHTNESS = 0x03
+};
 
 typedef struct packet_t{
 	volatile uint8_t Header;
@@ -39,6 +46,17 @@ void Protocol_Struct_Init(void){
 	Protocol.TxPacket.CMD    = 0x00;
 	Protocol.TxPacket.CRC16  = 0x00;
 }
+
+void Protocol_Build_Status_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 0x05;
+	Protocol.TxBuf[2] = CMD_STATUS;
+	Protocol.TxBuf[3] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[4] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[5] = Protocol.TxPacket.Header;
+}
+
+
 
 
 

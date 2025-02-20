@@ -22,6 +22,8 @@ void     SevenSegment_Set_Dp(uint8_t digit, uint8_t val);
 void     SevenSegment_Set_Value(uint8_t digit, uint8_t val);
 void     SevenSegment_Set_Brightness(uint8_t digit, int16_t val);
 
+uint8_t  SevenSegment_Segment_Values_Get(uint8_t digit);
+uint8_t  SevenSegment_Dp_Values_Get(uint8_t digit);
 
 void     SevenSegment_Init(void);
 
