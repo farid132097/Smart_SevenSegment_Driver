@@ -30,9 +30,7 @@ void App_Mainloop(void){
 		__NOP();
 	}
 	
-	
 	LDR_Control_Brightness();
-	
 	
 	DispCom_Tx_Number_CM(LDR_Get_Calculated_Brightness());
 	DispCom_Tx_Number_NL(LDR_Get_Current_Brightness());

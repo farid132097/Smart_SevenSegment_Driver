@@ -17,7 +17,7 @@ typedef struct ldr_t{
 	int16_t AutomaticBrightness;
 }ldr_t;
 
-ldr_t LDR;
+static ldr_t LDR;
 
 void LDR_Struct_Init(void){
 	LDR.CalculatedBrightness = 0;
@@ -56,7 +56,7 @@ uint16_t LDR_Read_Brightness(void){
 
 void LDR_Control_Brightness(void){
 	if(LDR.AutomaticBrightness == TRUE){
-	  LDR.CalculatedBrightness  = LDR_Read_Brightness();
+	  LDR.CalculatedBrightness  = (int16_t)LDR_Read_Brightness();
 	  LDR.CalculatedBrightness /= 27;
 	  LDR.CalculatedBrightness -= 11;
 	  LDR.DiffBrightness = LDR.CurrentBrightness - LDR.CalculatedBrightness;

@@ -6,7 +6,7 @@
 
 /*
 Frame Format : Header (1 byte), Len (1 byte), CMD (1 byte), Data, CRC16 (2 byte)
-Header       : 1 Byte (Master 0x53, Slave 0x55)
+Header       : 1 Byte (Master 0xA5, Slave 0x5A)
 Length       : N bytes + 3
 CMD          : 1 Byte [Query (0x00), Config (0x01), Set Digits (0x02), SetBrightness(0x03)]
 Data         : Variable
@@ -34,9 +34,13 @@ void Protocol_Struct_Init(void){
 	  Protocol.RxBuf[i] = 0;
 		Protocol.TxBuf[i] = 0;
 	}
-	Protocol.TxPacket.Header = 0xA5;
-	Protocol.TxPacket.Header = 0xA5;
+	Protocol.TxPacket.Header = 0x5A;
+	Protocol.TxPacket.Len    = 0x00;
+	Protocol.TxPacket.CMD    = 0x00;
+	Protocol.TxPacket.CRC16  = 0x00;
 }
+
+
 
 
 
