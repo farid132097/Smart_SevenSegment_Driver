@@ -20,7 +20,7 @@ void     SevenSegment_ISR_Executables(void);
 
 void     SevenSegment_Set_Dp(uint8_t digit, uint8_t val);
 void     SevenSegment_Set_Value(uint8_t digit, uint8_t val);
-void     SevenSegment_Set_Brightness(uint8_t digit, uint16_t val);
+void     SevenSegment_Set_Brightness(uint8_t digit, int16_t val);
 
 
 void     SevenSegment_Init(void);

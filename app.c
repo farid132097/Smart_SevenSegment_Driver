@@ -8,7 +8,6 @@
 #include "sevensegment.h"
 
 
-static uint16_t br = 0;
 
 void App_Config(void){
 	LDR_Init();
@@ -22,29 +21,21 @@ void App_Config(void){
 	SevenSegment_Set_Dp(1, 1);
 	SevenSegment_Set_Dp(2, 1);
 	
-	/*
-	SevenSegment_Set_Brightness(0, 40);
-	SevenSegment_Set_Brightness(1, 40);
-	SevenSegment_Set_Brightness(2, 6);
-	SevenSegment_Set_Brightness(3, 40);
-	*/
 }
 
 void App_Mainloop(void){
   
 	
-	for(uint32_t i=0; i<160000; i++){
+	for(uint32_t i=0; i<40000; i++){
 		__NOP();
 	}
-	SevenSegment_Set_Brightness(0, br);
-	SevenSegment_Set_Brightness(1, br);
-	SevenSegment_Set_Brightness(2, br);
-	SevenSegment_Set_Brightness(3, br);
 	
-	br++;
-	if(br >= 198){
-		br=0;
-	}
+	
+	LDR_Control_Brightness();
+	
+	
+	DispCom_Tx_Number_CM(LDR_Get_Calculated_Brightness());
+	DispCom_Tx_Number_NL(LDR_Get_Current_Brightness());
 	
 }
 

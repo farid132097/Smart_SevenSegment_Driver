@@ -338,8 +338,11 @@ void SevenSegment_Set_Value(uint8_t digit, uint8_t val){
 	}
 }
 
-void SevenSegment_Set_Brightness(uint8_t digit, uint16_t val){
-	uint16_t temp;
+void SevenSegment_Set_Brightness(uint8_t digit, int16_t val){
+	int16_t temp;
+	if(val < 0){
+		val = 0;
+	}
 	temp = SevenSegment.AntiGhostingCycle + 1 + val;
 	if(temp >= (SevenSegment.DigitBrightnessTopVal - 2) ){
 		temp = SevenSegment.DigitBrightnessTopVal - 2;

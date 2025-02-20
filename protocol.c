@@ -13,9 +13,18 @@ Data         : Variable
 CRC16        : 2 Byte
 */
 
+typedef struct packet_t{
+	volatile uint8_t Header;
+	volatile uint8_t Len;
+	volatile uint8_t CMD;
+	volatile uint8_t CRC16;
+}packet_t;
+
 typedef struct protocol_t{
 	volatile uint8_t RxBuf[10];
+	packet_t         RxPacket;
 	volatile uint8_t TxBuf[10];
+	packet_t         TxPacket;
 }protocol_t;
 
 static protocol_t Protocol;
@@ -25,6 +34,8 @@ void Protocol_Struct_Init(void){
 	  Protocol.RxBuf[i] = 0;
 		Protocol.TxBuf[i] = 0;
 	}
+	Protocol.TxPacket.Header = 0xA5;
+	Protocol.TxPacket.Header = 0xA5;
 }
 
 
