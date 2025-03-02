@@ -75,11 +75,16 @@ void LDR_Control_Brightness(void){
 	  SevenSegment_Set_Brightness(3, LDR.CurrentBrightness);
   }
 	else{
-		SevenSegment_Set_Brightness(0, LDR.ManualBrightness);
-	  SevenSegment_Set_Brightness(1, LDR.ManualBrightness);
-	  SevenSegment_Set_Brightness(2, LDR.ManualBrightness);
-	  SevenSegment_Set_Brightness(3, LDR.ManualBrightness);
-		LDR.CurrentBrightness = LDR.ManualBrightness;
+		if(LDR.CurrentBrightness < LDR.ManualBrightness){
+		    LDR.CurrentBrightness++;
+	    }
+	    else if(LDR.CurrentBrightness > LDR.ManualBrightness){
+		    LDR.CurrentBrightness--;
+	  }
+		SevenSegment_Set_Brightness(0, LDR.CurrentBrightness);
+	  SevenSegment_Set_Brightness(1, LDR.CurrentBrightness);
+	  SevenSegment_Set_Brightness(2, LDR.CurrentBrightness);
+	  SevenSegment_Set_Brightness(3, LDR.CurrentBrightness);
 	}
 }
 
@@ -94,8 +99,17 @@ int16_t LDR_Get_Calculated_Brightness(void){
 	return LDR.CalculatedBrightness;
 }
 
+void LDR_Automic_Brightness_On(void){
+	LDR.AutomaticBrightness = TRUE;
+}
 
+void LDR_Automic_Brightness_Off(void){
+	LDR.AutomaticBrightness = FALSE;
+}
 
+void LDR_Manual_Brightness_Set(uint16_t val){
+	LDR.ManualBrightness = val;
+}
 
 
 

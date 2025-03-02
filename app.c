@@ -21,6 +21,8 @@ void App_Config(void){
 	SevenSegment_Set_Dp(1, 1);
 	SevenSegment_Set_Dp(2, 1);
 	
+	LDR_Automic_Brightness_Off();
+	LDR_Manual_Brightness_Set(0);
 }
 
 void App_Mainloop(void){
