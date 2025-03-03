@@ -21,7 +21,7 @@ int16_t  LDR_Get_Calculated_Brightness(void);
 uint8_t  LDR_Automic_Brightness_Sts_Get(void);
 void     LDR_Automic_Brightness_On(void);
 void     LDR_Automic_Brightness_Off(void);
-void     LDR_Manual_Brightness_Set(uint16_t val);
+void     LDR_Manual_Brightness_Set(int16_t val);
 uint16_t LDR_Manual_Brightness_Get(void);
 void     LDR_Max_Brightness_Set(int16_t val);
 

@@ -5,6 +5,15 @@
 
 #include "stm32g030xx.h"
 
+/*
+Frame Format : Header (1 byte), Len (1 byte), CMD (1 byte), Reg (1 Byte), Data, CRC16 (2 byte)
+Header       : 1 Byte (Master 0xA5, Slave 0x5A)
+Length       : N bytes + 3
+CMD          : 1 Byte
+Data         : Variable
+CRC16        : 2 Byte
+*/
+
 
 enum{
 	CMD_WRITE_REG                = 0x00U,
@@ -29,6 +38,10 @@ enum{
 void     Protocol_Struct_Init(void);
 
 uint8_t  Protocol_Disp_Sts_Get(void);
+uint8_t  Protocol_RxPacket_StsRead_Get(void);
+void     Protocol_RxPacket_StsRead_Set(void);
+void     Protocol_RxPacket_StsRead_Clear(void);
+
 void     Protocol_Build_Status_Packet(void);
 void     Protocol_Build_Func_En_Packet(void);
 void     Protocol_Build_Manual_Brightness_Val_Packet(void);

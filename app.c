@@ -24,7 +24,7 @@ void App_Config(void){
 	SevenSegment_Set_Dp(2, 1);
 	
 	
-	LDR_Max_Brightness_Set(90);
+	LDR_Max_Brightness_Set(100);
 	LDR_Automic_Brightness_On();
 	LDR_Manual_Brightness_Set(0);
 }
@@ -32,16 +32,18 @@ void App_Config(void){
 void App_Mainloop(void){
   
 	
-	for(uint32_t i=0; i<40000; i++){
+	for(uint32_t i=0; i<80000; i++){
 		__NOP();
 	}
-	
+	if(DispCom_Data_Available()){
+		if(Protocol_RxPacket_StsRead_Get()){
+			Protocol_Build_Status_Packet();
+			Protocol_Transmit_Packet();
+			Protocol_RxPacket_StsRead_Clear();
+		}
+	  DispCom_RX_Packet_Read_Complete();
+	}
 	LDR_Control_Brightness();
-	
-	Protocol_Build_Status_Packet();
-	Protocol_Transmit_Packet();
-	
-	
 	
 }
 
