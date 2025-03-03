@@ -14,6 +14,7 @@
 #include "dispcom.h"
 //#include "debug.h"
 #include "protocol.h"
+#include "sevensegment.h"
 
 
 #define  DISPCOM_DOUBLE_SPEED
@@ -888,37 +889,46 @@ void DispCom_RX_Packet_CRC_Check(void){
 }
 
 void DispCom_RX_Packet_Disassemble(void){
-	if(DispCom.Buf[2] == REG_DISPLAY_STATUS){
+	if(DispCom.Buf[3] == REG_DISPLAY_STATUS){
 	  
 	}
-	else if(DispCom.Buf[2] == REG_FUNC_ENABLE){
+	else if(DispCom.Buf[3] == REG_FUNC_ENABLE){
 	  
 	}
-	else if(DispCom.Buf[2] == REG_DIGIT_SINGLE){
+	else if(DispCom.Buf[3] == REG_DIGIT_SINGLE){
+	  if(DispCom.Buf[3] == CMD_WRITE_REG){
+			SevenSegment_Set_Value(DispCom.Buf[4],DispCom.Buf[5]);
+		}
+	}
+	else if(DispCom.Buf[3] == REG_DIGIT_MULTIPLE){
+		if(DispCom.Buf[3] == CMD_WRITE_REG){
+			SevenSegment_Set_Value(0,DispCom.Buf[4]);
+			SevenSegment_Set_Value(1,DispCom.Buf[5]);
+			SevenSegment_Set_Value(2,DispCom.Buf[6]);
+			SevenSegment_Set_Value(3,DispCom.Buf[7]);
+		}
+	}
+	else if(DispCom.Buf[3] == REG_DECIMAL_POINTS){
+	  if(DispCom.Buf[3] == CMD_WRITE_REG){
+			
+		}
+	}
+	else if(DispCom.Buf[3] == REG_MANUAL_BRGHTNSS_VAL){
 	  
 	}
-	else if(DispCom.Buf[2] == REG_DIGIT_MULTIPLE){
+	else if(DispCom.Buf[3] == REG_AUTO_BRGHTNSS_ADC_VAL){
 	  
 	}
-	else if(DispCom.Buf[2] == REG_DECIMAL_POINTS){
+	else if(DispCom.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_ADCH){
 	  
 	}
-	else if(DispCom.Buf[2] == REG_MANUAL_BRGHTNSS_VAL){
+	else if(DispCom.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_ADCL){
 	  
 	}
-	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_ADC_VAL){
+	else if(DispCom.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_VALH){
 	  
 	}
-	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_ADCH){
-	  
-	}
-	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_ADCL){
-	  
-	}
-	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_VALH){
-	  
-	}
-	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_VALL){
+	else if(DispCom.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_VALL){
 	  
 	}
 	
