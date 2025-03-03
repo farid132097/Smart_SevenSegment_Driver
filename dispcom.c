@@ -13,7 +13,7 @@
 //must be included
 #include "dispcom.h"
 //#include "debug.h"
-//#include "protocol.h"
+#include "protocol.h"
 
 
 #define  DISPCOM_DOUBLE_SPEED
@@ -774,7 +774,7 @@ void DispCom_Timer_ISR_Handler(void){
     DispCom_RX_Packet_CRC_Check();
     #ifdef DISPCOM_CRC_ENABLE
 	  if(DispCom.RxPacket.CRCStatus == DISPCOM_TRUE){
-		  DispCom_RX_Packet_Rough_Check_Disassemble();
+		  DispCom_RX_Packet_Disassemble();
 	    DispCom.RxPacket.DataAvailable = DISPCOM_TRUE;
 	  }
 	  else{
@@ -887,7 +887,41 @@ void DispCom_RX_Packet_CRC_Check(void){
 	}
 }
 
-void DispCom_RX_Packet_Rough_Check_Disassemble(void){
+void DispCom_RX_Packet_Disassemble(void){
+	if(DispCom.Buf[2] == REG_DISPLAY_STATUS){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_FUNC_ENABLE){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_DIGIT_SINGLE){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_DIGIT_MULTIPLE){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_DECIMAL_POINTS){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_MANUAL_BRGHTNSS_VAL){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_ADC_VAL){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_ADCH){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_ADCL){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_VALH){
+	  
+	}
+	else if(DispCom.Buf[2] == REG_AUTO_BRGHTNSS_SLOPE_VALL){
+	  
+	}
+	
 	
 }
 

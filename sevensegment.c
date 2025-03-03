@@ -2,6 +2,7 @@
 
 #include "stm32g030xx.h"
 #include "sevensegment.h"
+#include "defs.h"
 
 //Not implemented yet
 #define  SEVENSEGMENT_DISP_TYPE_CA
@@ -57,7 +58,12 @@ typedef struct seven_segment_t{
 	volatile uint16_t DigitBrightnessTopVal;
 	volatile uint16_t DigitBrightness[4];
 	volatile uint8_t  SegmentValues[4];
+	volatile uint8_t  SegmentCharValues[4];
 	volatile uint8_t  DpValues[4];
+	volatile uint8_t  BackupValues[4];
+	volatile uint8_t  BackupDpValues[4];
+	volatile uint8_t  DisplayEn;
+	volatile uint8_t  ColdStart;
 }seven_segment_t;
 
 static seven_segment_t SevenSegment;
@@ -72,14 +78,36 @@ void SevenSegment_Struct_Init(void){
 	SevenSegment.DigitBrightness[1] = 0;
 	SevenSegment.DigitBrightness[2] = 0;
 	SevenSegment.DigitBrightness[3] = 0;
+	
+	//All segments are turned off
 	SevenSegment.SegmentValues[0] = 0;
 	SevenSegment.SegmentValues[1] = 0;
 	SevenSegment.SegmentValues[2] = 0;
 	SevenSegment.SegmentValues[3] = 0;
+	
+	SevenSegment.SegmentCharValues[0] = 0;
+	SevenSegment.SegmentCharValues[1] = 0;
+	SevenSegment.SegmentCharValues[2] = 0;
+	SevenSegment.SegmentCharValues[3] = 0;
+	
 	SevenSegment.DpValues[0] = 0;
 	SevenSegment.DpValues[1] = 0;
 	SevenSegment.DpValues[2] = 0;
 	SevenSegment.DpValues[3] = 0;
+	
+	
+	SevenSegment.BackupValues[0]   = 0;
+	SevenSegment.BackupValues[1]   = 0;
+	SevenSegment.BackupValues[2]   = 0;
+	SevenSegment.BackupValues[3]   = 0;
+	
+	SevenSegment.BackupDpValues[0] = 0;
+	SevenSegment.BackupDpValues[1] = 0;
+	SevenSegment.BackupDpValues[2] = 0;
+	SevenSegment.BackupDpValues[3] = 0;
+	
+	SevenSegment.DisplayEn         = FALSE;
+	SevenSegment.ColdStart         = TRUE;
 }
 
 void SevenSegment_GPIO_Init(void){
@@ -318,9 +346,11 @@ void SevenSegment_Set_Dp(uint8_t digit, uint8_t val){
 	if(digit < SEVENSEGMENT_TOTAL_DIGITS){
 		if(val == 0){
 	    SevenSegment.SegmentValues[digit] &=~ (1<<7);
+			SevenSegment.DpValues[digit] = 0;
 		}
 		else if(val == 1){
 			SevenSegment.SegmentValues[digit] |=  (1<<7);
+			SevenSegment.DpValues[digit] = 1;
 		}
 	}
 }
@@ -328,6 +358,7 @@ void SevenSegment_Set_Dp(uint8_t digit, uint8_t val){
 void SevenSegment_Set_Value(uint8_t digit, uint8_t val){
 	uint8_t temp;
 	if(digit < SEVENSEGMENT_TOTAL_DIGITS){
+		SevenSegment.SegmentCharValues[digit] = val;
 	  if(digit >= SEVENSEGMENT_INV_DIGITS_STRT ){
 		  //add offset for inverted digits
 			val += SEVENSEGMENT_VAL_OFFSET;
@@ -356,8 +387,40 @@ uint8_t SevenSegment_Segment_Values_Get(uint8_t digit){
 	return SevenSegment.SegmentValues[digit];
 }
 
+uint8_t SevenSegment_Segment_Char_Values_Get(uint8_t digit){
+	return SevenSegment.SegmentCharValues[digit];
+}
+
 uint8_t SevenSegment_Dp_Values_Get(uint8_t digit){
 	return SevenSegment.DpValues[digit];
+}
+
+uint8_t SevenSegment_Dp_Byte_Get(void){
+	uint8_t temp = 0;
+	temp   = SevenSegment_Dp_Values_Get(3);
+	temp <<= 1;
+	temp  |= SevenSegment_Dp_Values_Get(2);
+	temp <<= 1;
+	temp  |= SevenSegment_Dp_Values_Get(1);
+	temp <<= 1;
+	temp  |= SevenSegment_Dp_Values_Get(0);
+	return temp;
+}
+
+void SevenSegment_Display_Enable_Internally(void){
+	for(uint8_t i=0; i<4; i++){
+	  SevenSegment.SegmentValues[i] = SevenSegment.BackupValues[i];
+		SevenSegment.DpValues[i] = SevenSegment.BackupDpValues[i];
+	}
+}
+
+void SevenSegment_Display_Disable_Internally(void){
+	for(uint8_t i=0; i<4; i++){
+		SevenSegment.BackupValues[i] = SevenSegment.SegmentValues[i];
+		SevenSegment.BackupDpValues[i] = SevenSegment.DpValues[i];
+		SevenSegment.SegmentValues[i] = 0;
+		SevenSegment.DpValues[i] = 0;
+	}
 }
 
 

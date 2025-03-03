@@ -9,23 +9,27 @@
 
 
 typedef struct ldr_t{
+	int16_t ADCVal;
 	int16_t CalculatedBrightness;
 	int16_t CurrentBrightness;
 	int16_t ManualBrightness;
 	int16_t DiffBrightness;
 	int16_t HystBrightness;
 	int16_t AutomaticBrightness;
+	int16_t MaxBrightness;
 }ldr_t;
 
 static ldr_t LDR;
 
 void LDR_Struct_Init(void){
+	LDR.ADCVal = 0;
 	LDR.CalculatedBrightness = 0;
 	LDR.CurrentBrightness = 0;
 	LDR.ManualBrightness = 0;
 	LDR.DiffBrightness = 0;
 	LDR.HystBrightness = 5;
 	LDR.AutomaticBrightness = 1;
+	LDR.MaxBrightness = 80;
 }
 
 
@@ -56,13 +60,16 @@ uint16_t LDR_Read_Brightness(void){
 
 void LDR_Control_Brightness(void){
 	if(LDR.AutomaticBrightness == TRUE){
-	  LDR.CalculatedBrightness  = (int16_t)LDR_Read_Brightness();
+		LDR.ADCVal = (int16_t)LDR_Read_Brightness();
+	  LDR.CalculatedBrightness  = LDR.ADCVal;
 	  LDR.CalculatedBrightness /= 27;
 	  LDR.CalculatedBrightness -= 11;
 	  LDR.DiffBrightness = LDR.CurrentBrightness - LDR.CalculatedBrightness;
 	  if( (LDR.DiffBrightness >= LDR.HystBrightness) || (LDR.DiffBrightness <= -LDR.HystBrightness)){	
 	    if(LDR.CurrentBrightness < LDR.CalculatedBrightness){
-		    LDR.CurrentBrightness++;
+				if(LDR.CurrentBrightness < LDR.MaxBrightness){
+		      LDR.CurrentBrightness++;
+				}
 	    }
 	    else if(LDR.CurrentBrightness > LDR.CalculatedBrightness){
 		    LDR.CurrentBrightness--;
@@ -76,7 +83,9 @@ void LDR_Control_Brightness(void){
   }
 	else{
 		if(LDR.CurrentBrightness < LDR.ManualBrightness){
-		    LDR.CurrentBrightness++;
+		    if(LDR.CurrentBrightness < LDR.MaxBrightness){
+		      LDR.CurrentBrightness++;
+				}
 	    }
 	    else if(LDR.CurrentBrightness > LDR.ManualBrightness){
 		    LDR.CurrentBrightness--;
@@ -89,7 +98,9 @@ void LDR_Control_Brightness(void){
 }
 
 
-
+int16_t LDR_Get_ADC_Val(void){
+	return LDR.ADCVal;
+}
 
 int16_t LDR_Get_Current_Brightness(void){
 	return LDR.CurrentBrightness;
@@ -97,6 +108,10 @@ int16_t LDR_Get_Current_Brightness(void){
 
 int16_t LDR_Get_Calculated_Brightness(void){
 	return LDR.CalculatedBrightness;
+}
+
+uint8_t LDR_Automic_Brightness_Sts_Get(void){
+	return LDR.AutomaticBrightness;
 }
 
 void LDR_Automic_Brightness_On(void){
@@ -111,7 +126,19 @@ void LDR_Manual_Brightness_Set(uint16_t val){
 	LDR.ManualBrightness = val;
 }
 
+uint16_t LDR_Manual_Brightness_Get(void){
+	return LDR.ManualBrightness;
+}
 
+void LDR_Max_Brightness_Set(int16_t val){
+	if(val > 99){
+		val = 99;
+	}
+	else if(val < 0){
+		val = 0;
+	}
+	LDR.MaxBrightness = val;
+}
 
 void LDR_Init(void){
 	LDR_Struct_Init();

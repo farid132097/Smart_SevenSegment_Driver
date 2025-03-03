@@ -126,7 +126,7 @@ uint16_t DispCom_CRC_Calculate_Byte(uint16_t crc, uint8_t data);
 uint16_t DispCom_CRC_Calculate_Block(volatile uint8_t *buf, uint8_t len);
 
 void     DispCom_RX_Packet_CRC_Check(void);
-void     DispCom_RX_Packet_Rough_Check_Disassemble(void);
+void     DispCom_RX_Packet_Disassemble(void);
 void     DispCom_RX_Packet_Read_Complete(void);
 
 void     DispCom_Init(uint32_t baud);
