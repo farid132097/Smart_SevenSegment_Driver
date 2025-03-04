@@ -12,7 +12,7 @@
 void App_Config(void){
 	LDR_Init();
 	SevenSegment_Init();
-	DispCom_Init(38400);
+	DispCom_Init(9600);
 	Protocol_Init();
 	
 	SevenSegment_Set_Value(0, 2);
@@ -36,11 +36,7 @@ void App_Mainloop(void){
 		__NOP();
 	}
 	if(DispCom_Data_Available()){
-		if(Protocol_RxPacket_StsRead_Get()){
-			Protocol_Build_Status_Packet();
-			Protocol_Transmit_Packet();
-			Protocol_RxPacket_StsRead_Clear();
-		}
+		
 	  DispCom_RX_Packet_Read_Complete();
 	}
 	LDR_Control_Brightness();

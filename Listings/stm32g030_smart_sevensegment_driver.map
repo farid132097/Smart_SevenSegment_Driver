@@ -1,4 +1,4 @@
-Component: ARM Compiler 6.16 Tool: armlink [5dfeaa00]
+Component: Arm Compiler for Embedded 6.22 Tool: armlink [5ee90200]
 
 ==============================================================================
 
@@ -20,10 +20,6 @@ Section Cross References
     app.o(.text.App_Config) refers to ldr.o(.text.LDR_Manual_Brightness_Set) for LDR_Manual_Brightness_Set
     app.o(.ARM.exidx.text.App_Config) refers to app.o(.text.App_Config) for [Anonymous Symbol]
     app.o(.text.App_Mainloop) refers to dispcom.o(.text.DispCom_Data_Available) for DispCom_Data_Available
-    app.o(.text.App_Mainloop) refers to protocol.o(.text.Protocol_RxPacket_StsRead_Get) for Protocol_RxPacket_StsRead_Get
-    app.o(.text.App_Mainloop) refers to protocol.o(.text.Protocol_Build_Status_Packet) for Protocol_Build_Status_Packet
-    app.o(.text.App_Mainloop) refers to protocol.o(.text.Protocol_Transmit_Packet) for Protocol_Transmit_Packet
-    app.o(.text.App_Mainloop) refers to protocol.o(.text.Protocol_RxPacket_StsRead_Clear) for Protocol_RxPacket_StsRead_Clear
     app.o(.text.App_Mainloop) refers to dispcom.o(.text.DispCom_RX_Packet_Read_Complete) for DispCom_RX_Packet_Read_Complete
     app.o(.text.App_Mainloop) refers to ldr.o(.text.LDR_Control_Brightness) for LDR_Control_Brightness
     app.o(.ARM.exidx.text.App_Mainloop) refers to app.o(.text.App_Mainloop) for [Anonymous Symbol]
@@ -39,25 +35,16 @@ Section Cross References
     dispcom.o(.ARM.exidx.text.DispCom_Config_BAUD_Rate) refers to dispcom.o(.text.DispCom_Config_BAUD_Rate) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Config_Tx) refers to dispcom.o(.text.DispCom_Config_Tx) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Config_Rx) refers to dispcom.o(.text.DispCom_Config_Rx) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Config_Rx_Interrupt) refers to dispcom.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
-    dispcom.o(.text.DispCom_Config_Rx_Interrupt) refers to dispcom.o(.text.__NVIC_SetPriority) for __NVIC_SetPriority
     dispcom.o(.ARM.exidx.text.DispCom_Config_Rx_Interrupt) refers to dispcom.o(.text.DispCom_Config_Rx_Interrupt) for [Anonymous Symbol]
-    dispcom.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to dispcom.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
-    dispcom.o(.ARM.exidx.text.__NVIC_SetPriority) refers to dispcom.o(.text.__NVIC_SetPriority) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Clear_Interrupt_Flag) refers to dispcom.o(.text.DispCom_Clear_Interrupt_Flag) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Byte) refers to dispcom.o(.text.DispCom_Tx_Byte) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Rx_Byte) refers to dispcom.o(.text.DispCom_Rx_Byte) for [Anonymous Symbol]
-    dispcom.o(.text.USART1_IRQHandler) refers to dispcom.o(.text.DispCom_ISR_Handler) for DispCom_ISR_Handler
+    dispcom.o(.text.USART1_IRQHandler) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.USART1_IRQHandler) refers to dispcom.o(.text.USART1_IRQHandler) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_ISR_Handler) refers to dispcom.o(.text.DispCom_Rx_Byte) for DispCom_Rx_Byte
-    dispcom.o(.text.DispCom_ISR_Handler) refers to dispcom.o(.text.DispCom_Timer_Value_Reset) for DispCom_Timer_Value_Reset
-    dispcom.o(.text.DispCom_ISR_Handler) refers to dispcom.o(.text.DispCom_Timer_Enable) for DispCom_Timer_Enable
     dispcom.o(.text.DispCom_ISR_Handler) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_ISR_Handler) refers to dispcom.o(.text.DispCom_ISR_Handler) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Timer_Struct_Init) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Timer_Struct_Init) refers to dispcom.o(.text.DispCom_Timer_Struct_Init) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Timer_Init) refers to dispcom.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
-    dispcom.o(.text.DispCom_Timer_Init) refers to dispcom.o(.text.__NVIC_SetPriority) for __NVIC_SetPriority
     dispcom.o(.ARM.exidx.text.DispCom_Timer_Init) refers to dispcom.o(.text.DispCom_Timer_Init) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Timer_Enable) refers to dispcom.o(.text.DispCom_Timer_Enable) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Timer_Disable) refers to dispcom.o(.text.DispCom_Timer_Disable) for [Anonymous Symbol]
@@ -68,109 +55,57 @@ Section Cross References
     dispcom.o(.ARM.exidx.text.DispCom_Timer_Clear_Interrupt_Flag) refers to dispcom.o(.text.DispCom_Timer_Clear_Interrupt_Flag) for [Anonymous Symbol]
     dispcom.o(.text.TIM16_IRQHandler) refers to dispcom.o(.text.DispCom_Timer_ISR_Handler) for DispCom_Timer_ISR_Handler
     dispcom.o(.ARM.exidx.text.TIM16_IRQHandler) refers to dispcom.o(.text.TIM16_IRQHandler) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.text.DispCom_Timer_Clear_Interrupt_Flag) for DispCom_Timer_Clear_Interrupt_Flag
-    dispcom.o(.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.text.DispCom_Timer_Disable) for DispCom_Timer_Disable
-    dispcom.o(.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.text.DispCom_Buf_Get_Index) for DispCom_Buf_Get_Index
-    dispcom.o(.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.text.DispCom_RX_Packet_CRC_Check) for DispCom_RX_Packet_CRC_Check
     dispcom.o(.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.text.DispCom_RX_Packet_Disassemble) for DispCom_RX_Packet_Disassemble
-    dispcom.o(.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.text.DispCom_Buf_Flush) for DispCom_Buf_Flush
     dispcom.o(.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Timer_ISR_Handler) refers to dispcom.o(.text.DispCom_Timer_ISR_Handler) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Buf) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Buf) refers to dispcom.o(.text.DispCom_Tx_Buf) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_NL) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.ARM.exidx.text.DispCom_Tx_NL) refers to dispcom.o(.text.DispCom_Tx_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_SP) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.ARM.exidx.text.DispCom_Tx_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_CM) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.ARM.exidx.text.DispCom_Tx_CM) refers to dispcom.o(.text.DispCom_Tx_CM) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Text) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Text) refers to dispcom.o(.text.DispCom_Tx_Text) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Text_NL) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Text_NL) refers to dispcom.o(.text.DispCom_Tx_NL) for DispCom_Tx_NL
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Text_NL) refers to dispcom.o(.text.DispCom_Tx_Text_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Text_SP) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Text_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Text_SP) refers to dispcom.o(.text.DispCom_Tx_Text_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Text_CM) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Text_CM) refers to dispcom.o(.text.DispCom_Tx_CM) for DispCom_Tx_CM
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Text_CM) refers to dispcom.o(.text.DispCom_Tx_Text_CM) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Determine_Digit_Numbers) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
     dispcom.o(.text.DispCom_Determine_Digit_Numbers) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Determine_Digit_Numbers) refers to dispcom.o(.text.DispCom_Determine_Digit_Numbers) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Digits) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.text.DispCom_Tx_Number_Digits) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Digits) refers to dispcom.o(.text.DispCom_Tx_Number_Digits) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
-    dispcom.o(.text.DispCom_Tx_Number) refers to dispcom.o(.text.DispCom_Determine_Digit_Numbers) for DispCom_Determine_Digit_Numbers
-    dispcom.o(.text.DispCom_Tx_Number) refers to dispcom.o(.text.DispCom_Tx_Number_Digits) for DispCom_Tx_Number_Digits
+    dispcom.o(.text.DispCom_Tx_Number) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
+    dispcom.o(.text.DispCom_Tx_Number) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number) refers to dispcom.o(.text.DispCom_Tx_Number) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Hex) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex) refers to dispcom.o(.text.DispCom_Tx_Number_Hex) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Bin) refers to dispcom.o(.text.DispCom_Tx_Byte) for DispCom_Tx_Byte
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin) refers to dispcom.o(.text.DispCom_Tx_Number_Bin) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_NL) refers to dispcom.o(.text.DispCom_Tx_Number) for DispCom_Tx_Number
-    dispcom.o(.text.DispCom_Tx_Number_NL) refers to dispcom.o(.text.DispCom_Tx_NL) for DispCom_Tx_NL
+    dispcom.o(.text.DispCom_Tx_Number_NL) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
+    dispcom.o(.text.DispCom_Tx_Number_NL) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_NL) refers to dispcom.o(.text.DispCom_Tx_Number_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_SP) refers to dispcom.o(.text.DispCom_Tx_Number) for DispCom_Tx_Number
-    dispcom.o(.text.DispCom_Tx_Number_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
+    dispcom.o(.text.DispCom_Tx_Number_SP) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
+    dispcom.o(.text.DispCom_Tx_Number_SP) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_SP) refers to dispcom.o(.text.DispCom_Tx_Number_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_CM) refers to dispcom.o(.text.DispCom_Tx_Number) for DispCom_Tx_Number
-    dispcom.o(.text.DispCom_Tx_Number_CM) refers to dispcom.o(.text.DispCom_Tx_CM) for DispCom_Tx_CM
+    dispcom.o(.text.DispCom_Tx_Number_CM) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
+    dispcom.o(.text.DispCom_Tx_Number_CM) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_CM) refers to dispcom.o(.text.DispCom_Tx_Number_CM) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Hex_NL) refers to dispcom.o(.text.DispCom_Tx_Number_Hex) for DispCom_Tx_Number_Hex
-    dispcom.o(.text.DispCom_Tx_Number_Hex_NL) refers to dispcom.o(.text.DispCom_Tx_NL) for DispCom_Tx_NL
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex_NL) refers to dispcom.o(.text.DispCom_Tx_Number_Hex_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Hex_SP) refers to dispcom.o(.text.DispCom_Tx_Number_Hex) for DispCom_Tx_Number_Hex
-    dispcom.o(.text.DispCom_Tx_Number_Hex_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex_SP) refers to dispcom.o(.text.DispCom_Tx_Number_Hex_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Hex_CM) refers to dispcom.o(.text.DispCom_Tx_Number_Hex) for DispCom_Tx_Number_Hex
-    dispcom.o(.text.DispCom_Tx_Number_Hex_CM) refers to dispcom.o(.text.DispCom_Tx_CM) for DispCom_Tx_CM
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex_CM) refers to dispcom.o(.text.DispCom_Tx_Number_Hex_CM) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Bin_NL) refers to dispcom.o(.text.DispCom_Tx_Number_Bin) for DispCom_Tx_Number_Bin
-    dispcom.o(.text.DispCom_Tx_Number_Bin_NL) refers to dispcom.o(.text.DispCom_Tx_NL) for DispCom_Tx_NL
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin_NL) refers to dispcom.o(.text.DispCom_Tx_Number_Bin_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Bin_SP) refers to dispcom.o(.text.DispCom_Tx_Number_Bin) for DispCom_Tx_Number_Bin
-    dispcom.o(.text.DispCom_Tx_Number_Bin_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin_SP) refers to dispcom.o(.text.DispCom_Tx_Number_Bin_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Number_Bin_CM) refers to dispcom.o(.text.DispCom_Tx_Number_Bin) for DispCom_Tx_Number_Bin
-    dispcom.o(.text.DispCom_Tx_Number_Bin_CM) refers to dispcom.o(.text.DispCom_Tx_CM) for DispCom_Tx_CM
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin_CM) refers to dispcom.o(.text.DispCom_Tx_Number_Bin_CM) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_NL) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_NL) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
     dispcom.o(.text.DispCom_Tx_Parameter_NL) refers to dispcom.o(.text.DispCom_Tx_Number_NL) for DispCom_Tx_Number_NL
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_NL) refers to dispcom.o(.text.DispCom_Tx_Parameter_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_SP) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
-    dispcom.o(.text.DispCom_Tx_Parameter_SP) refers to dispcom.o(.text.DispCom_Tx_Number_SP) for DispCom_Tx_Number_SP
+    dispcom.o(.text.DispCom_Tx_Parameter_SP) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
+    dispcom.o(.text.DispCom_Tx_Parameter_SP) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_SP) refers to dispcom.o(.text.DispCom_Tx_Parameter_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_CM) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_CM) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
-    dispcom.o(.text.DispCom_Tx_Parameter_CM) refers to dispcom.o(.text.DispCom_Tx_Number_CM) for DispCom_Tx_Number_CM
+    dispcom.o(.text.DispCom_Tx_Parameter_CM) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
+    dispcom.o(.text.DispCom_Tx_Parameter_CM) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_CM) refers to dispcom.o(.text.DispCom_Tx_Parameter_CM) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_NL) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_NL) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
     dispcom.o(.text.DispCom_Tx_Parameter_Hex_NL) refers to dispcom.o(.text.DispCom_Tx_Number_Hex_NL) for DispCom_Tx_Number_Hex_NL
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Hex_NL) refers to dispcom.o(.text.DispCom_Tx_Parameter_Hex_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_SP) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_SP) refers to dispcom.o(.text.DispCom_Tx_Number_Hex_SP) for DispCom_Tx_Number_Hex_SP
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Hex_SP) refers to dispcom.o(.text.DispCom_Tx_Parameter_Hex_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_CM) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_CM) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
-    dispcom.o(.text.DispCom_Tx_Parameter_Hex_CM) refers to dispcom.o(.text.DispCom_Tx_Number_Hex_CM) for DispCom_Tx_Number_Hex_CM
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Hex_CM) refers to dispcom.o(.text.DispCom_Tx_Parameter_Hex_CM) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_NL) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_NL) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
     dispcom.o(.text.DispCom_Tx_Parameter_Bin_NL) refers to dispcom.o(.text.DispCom_Tx_Number_Bin_NL) for DispCom_Tx_Number_Bin_NL
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Bin_NL) refers to dispcom.o(.text.DispCom_Tx_Parameter_Bin_NL) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_SP) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_SP) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_SP) refers to dispcom.o(.text.DispCom_Tx_Number_Bin_SP) for DispCom_Tx_Number_Bin_SP
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Bin_SP) refers to dispcom.o(.text.DispCom_Tx_Parameter_Bin_SP) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_CM) refers to dispcom.o(.text.DispCom_Tx_Text) for DispCom_Tx_Text
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_CM) refers to dispcom.o(.text.DispCom_Tx_SP) for DispCom_Tx_SP
-    dispcom.o(.text.DispCom_Tx_Parameter_Bin_CM) refers to dispcom.o(.text.DispCom_Tx_Number_Bin_CM) for DispCom_Tx_Number_Bin_CM
     dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Bin_CM) refers to dispcom.o(.text.DispCom_Tx_Parameter_Bin_CM) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Buf_Flush) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Buf_Flush) refers to dispcom.o(.text.DispCom_Buf_Flush) for [Anonymous Symbol]
@@ -182,7 +117,7 @@ Section Cross References
     dispcom.o(.ARM.exidx.text.DispCom_Buf_Get_Index) refers to dispcom.o(.text.DispCom_Buf_Get_Index) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Data_Available) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Data_Available) refers to dispcom.o(.text.DispCom_Data_Available) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Data_Len_Get) refers to dispcom.o(.text.DispCom_Buf_Get_Index) for DispCom_Buf_Get_Index
+    dispcom.o(.text.DispCom_Data_Len_Get) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Data_Len_Get) refers to dispcom.o(.text.DispCom_Data_Len_Get) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Data_Calculated_CRC_Get) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Data_Calculated_CRC_Get) refers to dispcom.o(.text.DispCom_Data_Calculated_CRC_Get) for [Anonymous Symbol]
@@ -194,74 +129,52 @@ Section Cross References
     dispcom.o(.ARM.exidx.text.DispCom_Data_Read_Complete_Status) refers to dispcom.o(.text.DispCom_Data_Read_Complete_Status) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Data_Clear_Available_Flag) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Data_Clear_Available_Flag) refers to dispcom.o(.text.DispCom_Data_Clear_Available_Flag) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Data_Clear_Read_Complete_Flag) refers to dispcom.o(.text.DispCom_Buf_Flush) for DispCom_Buf_Flush
     dispcom.o(.text.DispCom_Data_Clear_Read_Complete_Flag) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Data_Clear_Read_Complete_Flag) refers to dispcom.o(.text.DispCom_Data_Clear_Read_Complete_Flag) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Data_Copy_Buf) refers to dispcom.o(.text.DispCom_Data_Len_Get) for DispCom_Data_Len_Get
-    dispcom.o(.text.DispCom_Data_Copy_Buf) refers to dispcom.o(.text.DispCom_Buf_Get) for DispCom_Buf_Get
+    dispcom.o(.text.DispCom_Data_Copy_Buf) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Data_Copy_Buf) refers to dispcom.o(.text.DispCom_Data_Copy_Buf) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Data_Print_Buf) refers to dispcom.o(.text.DispCom_Data_Len_Get) for DispCom_Data_Len_Get
+    dispcom.o(.text.DispCom_Data_Print_Buf) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Data_Print_Buf) refers to dispcom.o(.text.DispCom_Data_Print_Buf) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Error_Code_Get) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Error_Code_Get) refers to dispcom.o(.text.DispCom_Error_Code_Get) for [Anonymous Symbol]
     dispcom.o(.text.DispCom_Error_Code_Clear) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Error_Code_Clear) refers to dispcom.o(.text.DispCom_Error_Code_Clear) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_RX_Packet_CRC_Check) refers to dispcom.o(.text.DispCom_Data_Len_Get) for DispCom_Data_Len_Get
-    dispcom.o(.text.DispCom_RX_Packet_CRC_Check) refers to dispcom.o(.text.DispCom_CRC_Calculate_Block) for DispCom_CRC_Calculate_Block
-    dispcom.o(.text.DispCom_RX_Packet_CRC_Check) refers to dispcom.o(.text.DispCom_Buf_Get) for DispCom_Buf_Get
     dispcom.o(.text.DispCom_RX_Packet_CRC_Check) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_RX_Packet_CRC_Check) refers to dispcom.o(.text.DispCom_RX_Packet_CRC_Check) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_RxPacket_StsRead_Set) for Protocol_RxPacket_StsRead_Set
-    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to sevensegment.o(.text.SevenSegment_Set_Value) for SevenSegment_Set_Value
-    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to ldr.o(.text.LDR_Automic_Brightness_Off) for LDR_Automic_Brightness_Off
-    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to ldr.o(.text.LDR_Automic_Brightness_On) for LDR_Automic_Brightness_On
-    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to ldr.o(.text.LDR_Manual_Brightness_Set) for LDR_Manual_Brightness_Set
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Function_Enable) for Protocol_Response_Function_Enable
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Display_Status) for Protocol_Response_Display_Status
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Digit_Single) for Protocol_Response_Digit_Single
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Digit_Multiple) for Protocol_Response_Digit_Multiple
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Decimal_Point_Single) for Protocol_Response_Decimal_Point_Single
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) for Protocol_Response_Decimal_Point_Multiple
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Manual_Brightness) for Protocol_Response_Manual_Brightness
+    dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to protocol.o(.text.Protocol_Response_Auto_Brightness_ADC) for Protocol_Response_Auto_Brightness_ADC
     dispcom.o(.text.DispCom_RX_Packet_Disassemble) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_RX_Packet_Disassemble) refers to dispcom.o(.text.DispCom_RX_Packet_Disassemble) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_CRC_Calculate_Byte) refers to dispcom.o(.text.DispCom_CRC_Calculate_Byte) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_CRC_Calculate_Block) refers to dispcom.o(.text.DispCom_CRC_Calculate_Byte) for DispCom_CRC_Calculate_Byte
     dispcom.o(.ARM.exidx.text.DispCom_CRC_Calculate_Block) refers to dispcom.o(.text.DispCom_CRC_Calculate_Block) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_RX_Packet_Read_Complete) refers to dispcom.o(.text.DispCom_Buf_Flush) for DispCom_Buf_Flush
-    dispcom.o(.text.DispCom_RX_Packet_Read_Complete) refers to dispcom.o(.text.DispCom_Data_Clear_Available_Flag) for DispCom_Data_Clear_Available_Flag
-    dispcom.o(.text.DispCom_RX_Packet_Read_Complete) refers to dispcom.o(.text.DispCom_Data_Clear_Read_Complete_Flag) for DispCom_Data_Clear_Read_Complete_Flag
-    dispcom.o(.text.DispCom_RX_Packet_Read_Complete) refers to dispcom.o(.text.DispCom_Error_Code_Clear) for DispCom_Error_Code_Clear
+    dispcom.o(.text.DispCom_RX_Packet_Read_Complete) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_RX_Packet_Read_Complete) refers to dispcom.o(.text.DispCom_RX_Packet_Read_Complete) for [Anonymous Symbol]
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Struct_Init) for DispCom_Struct_Init
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_RX_Packet_Struct_Init) for DispCom_RX_Packet_Struct_Init
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Timer_Struct_Init) for DispCom_Timer_Struct_Init
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Config_GPIO) for DispCom_Config_GPIO
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Config_Clock) for DispCom_Config_Clock
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Config_BAUD_Rate) for DispCom_Config_BAUD_Rate
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Config_Tx) for DispCom_Config_Tx
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Config_Rx) for DispCom_Config_Rx
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Config_Rx_Interrupt) for DispCom_Config_Rx_Interrupt
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Timer_Init) for DispCom_Timer_Init
-    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Buf_Flush) for DispCom_Buf_Flush
+    dispcom.o(.text.DispCom_Init) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
+    dispcom.o(.text.DispCom_Init) refers to dispcom.o(.bss.DispCom) for [Anonymous Symbol]
     dispcom.o(.ARM.exidx.text.DispCom_Init) refers to dispcom.o(.text.DispCom_Init) for [Anonymous Symbol]
     sevensegment.o(.text.SevenSegment_Struct_Init) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Struct_Init) refers to sevensegment.o(.text.SevenSegment_Struct_Init) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_GPIO_Init) refers to sevensegment.o(.text.SevenSegment_GPIO_Init) for [Anonymous Symbol]
     sevensegment.o(.text.SevenSegment_Timer_Init) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_uidiv
-    sevensegment.o(.text.SevenSegment_Timer_Init) refers to sevensegment.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
-    sevensegment.o(.text.SevenSegment_Timer_Init) refers to sevensegment.o(.text.__NVIC_SetPriority) for __NVIC_SetPriority
     sevensegment.o(.ARM.exidx.text.SevenSegment_Timer_Init) refers to sevensegment.o(.text.SevenSegment_Timer_Init) for [Anonymous Symbol]
-    sevensegment.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to sevensegment.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
-    sevensegment.o(.ARM.exidx.text.__NVIC_SetPriority) refers to sevensegment.o(.text.__NVIC_SetPriority) for [Anonymous Symbol]
-    sevensegment.o(.text.TIM14_IRQHandler) refers to sevensegment.o(.text.SevenSegment_ISR_Executables) for SevenSegment_ISR_Executables
+    sevensegment.o(.text.TIM14_IRQHandler) refers to sevensegment.o(.text.SevenSegment_Brightness_Handler) for SevenSegment_Brightness_Handler
     sevensegment.o(.ARM.exidx.text.TIM14_IRQHandler) refers to sevensegment.o(.text.TIM14_IRQHandler) for [Anonymous Symbol]
     sevensegment.o(.text.SevenSegment_ISR_Executables) refers to sevensegment.o(.text.SevenSegment_Brightness_Handler) for SevenSegment_Brightness_Handler
     sevensegment.o(.ARM.exidx.text.SevenSegment_ISR_Executables) refers to sevensegment.o(.text.SevenSegment_ISR_Executables) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Set_Segment_Pins) refers to sevensegment.o(.text.SevenSegment_Set_Segment_Pins) for [Anonymous Symbol]
-    sevensegment.o(.text.SevenSegment_Assign_Segment_Value) refers to sevensegment.o(.text.SevenSegment_Set_Segment_Pins) for SevenSegment_Set_Segment_Pins
     sevensegment.o(.text.SevenSegment_Assign_Segment_Value) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Assign_Segment_Value) refers to sevensegment.o(.text.SevenSegment_Assign_Segment_Value) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Activate_Digit) refers to sevensegment.o(.text.SevenSegment_Activate_Digit) for [Anonymous Symbol]
-    sevensegment.o(.text.SevenSegment_Assign_Digit_Value) refers to sevensegment.o(.text.SevenSegment_Assign_Segment_Value) for SevenSegment_Assign_Segment_Value
     sevensegment.o(.text.SevenSegment_Assign_Digit_Value) refers to sevensegment.o(.text.SevenSegment_Activate_Digit) for SevenSegment_Activate_Digit
+    sevensegment.o(.text.SevenSegment_Assign_Digit_Value) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Assign_Digit_Value) refers to sevensegment.o(.text.SevenSegment_Assign_Digit_Value) for [Anonymous Symbol]
-    sevensegment.o(.text.SevenSegment_Brightness_Handler) refers to sevensegment.o(.text.SevenSegment_Set_Segment_Pins) for SevenSegment_Set_Segment_Pins
     sevensegment.o(.text.SevenSegment_Brightness_Handler) refers to sevensegment.o(.text.SevenSegment_Activate_Digit) for SevenSegment_Activate_Digit
-    sevensegment.o(.text.SevenSegment_Brightness_Handler) refers to sevensegment.o(.text.SevenSegment_Assign_Digit_Value) for SevenSegment_Assign_Digit_Value
     sevensegment.o(.text.SevenSegment_Brightness_Handler) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Brightness_Handler) refers to sevensegment.o(.text.SevenSegment_Brightness_Handler) for [Anonymous Symbol]
     sevensegment.o(.text.SevenSegment_Set_Dp) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
@@ -276,15 +189,14 @@ Section Cross References
     sevensegment.o(.ARM.exidx.text.SevenSegment_Segment_Char_Values_Get) refers to sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get) for [Anonymous Symbol]
     sevensegment.o(.text.SevenSegment_Dp_Values_Get) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Dp_Values_Get) refers to sevensegment.o(.text.SevenSegment_Dp_Values_Get) for [Anonymous Symbol]
-    sevensegment.o(.text.SevenSegment_Dp_Byte_Get) refers to sevensegment.o(.text.SevenSegment_Dp_Values_Get) for SevenSegment_Dp_Values_Get
+    sevensegment.o(.text.SevenSegment_Dp_Byte_Get) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Dp_Byte_Get) refers to sevensegment.o(.text.SevenSegment_Dp_Byte_Get) for [Anonymous Symbol]
     sevensegment.o(.text.SevenSegment_Display_Enable_Internally) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Display_Enable_Internally) refers to sevensegment.o(.text.SevenSegment_Display_Enable_Internally) for [Anonymous Symbol]
     sevensegment.o(.text.SevenSegment_Display_Disable_Internally) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Display_Disable_Internally) refers to sevensegment.o(.text.SevenSegment_Display_Disable_Internally) for [Anonymous Symbol]
-    sevensegment.o(.text.SevenSegment_Init) refers to sevensegment.o(.text.SevenSegment_Struct_Init) for SevenSegment_Struct_Init
     sevensegment.o(.text.SevenSegment_Init) refers to sevensegment.o(.text.SevenSegment_GPIO_Init) for SevenSegment_GPIO_Init
-    sevensegment.o(.text.SevenSegment_Init) refers to sevensegment.o(.text.SevenSegment_Timer_Init) for SevenSegment_Timer_Init
+    sevensegment.o(.text.SevenSegment_Init) refers to sevensegment.o(.bss.SevenSegment) for [Anonymous Symbol]
     sevensegment.o(.ARM.exidx.text.SevenSegment_Init) refers to sevensegment.o(.text.SevenSegment_Init) for [Anonymous Symbol]
     adc.o(.ARM.exidx.text.ADC_Struct_Init) refers to adc.o(.text.ADC_Struct_Init) for [Anonymous Symbol]
     adc.o(.ARM.exidx.text.ADC_Reg_Init) refers to adc.o(.text.ADC_Reg_Init) for [Anonymous Symbol]
@@ -306,8 +218,8 @@ Section Cross References
     ldr.o(.text.LDR_Read_Brightness) refers to adc.o(.text.ADC_Read_Channel) for ADC_Read_Channel
     ldr.o(.text.LDR_Read_Brightness) refers to lpf.o(.text.LPF_Get_Filtered_Value) for LPF_Get_Filtered_Value
     ldr.o(.ARM.exidx.text.LDR_Read_Brightness) refers to ldr.o(.text.LDR_Read_Brightness) for [Anonymous Symbol]
-    ldr.o(.text.LDR_Control_Brightness) refers to ldr.o(.text.LDR_Read_Brightness) for LDR_Read_Brightness
-    ldr.o(.text.LDR_Control_Brightness) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_idiv
+    ldr.o(.text.LDR_Control_Brightness) refers to adc.o(.text.ADC_Read_Channel) for ADC_Read_Channel
+    ldr.o(.text.LDR_Control_Brightness) refers to lpf.o(.text.LPF_Get_Filtered_Value) for LPF_Get_Filtered_Value
     ldr.o(.text.LDR_Control_Brightness) refers to sevensegment.o(.text.SevenSegment_Set_Brightness) for SevenSegment_Set_Brightness
     ldr.o(.text.LDR_Control_Brightness) refers to ldr.o(.bss.LDR.6) for [Anonymous Symbol]
     ldr.o(.text.LDR_Control_Brightness) refers to ldr.o(.bss.LDR.3) for [Anonymous Symbol]
@@ -335,11 +247,17 @@ Section Cross References
     ldr.o(.ARM.exidx.text.LDR_Manual_Brightness_Get) refers to ldr.o(.text.LDR_Manual_Brightness_Get) for [Anonymous Symbol]
     ldr.o(.text.LDR_Max_Brightness_Set) refers to ldr.o(.bss.LDR.7) for [Anonymous Symbol]
     ldr.o(.ARM.exidx.text.LDR_Max_Brightness_Set) refers to ldr.o(.text.LDR_Max_Brightness_Set) for [Anonymous Symbol]
-    ldr.o(.text.LDR_Init) refers to ldr.o(.text.LDR_Struct_Init) for LDR_Struct_Init
-    ldr.o(.text.LDR_Init) refers to ldr.o(.text.LDR_GPIO_Init) for LDR_GPIO_Init
-    ldr.o(.text.LDR_Init) refers to ldr.o(.text.LDR_Reg_Init) for LDR_Reg_Init
+    ldr.o(.text.LDR_Init) refers to adc.o(.text.ADC_Init) for ADC_Init
+    ldr.o(.text.LDR_Init) refers to adc.o(.text.ADC_Read_Channel) for ADC_Read_Channel
     ldr.o(.text.LDR_Init) refers to lpf.o(.text.LPF_Init) for LPF_Init
     ldr.o(.text.LDR_Init) refers to lpf.o(.text.LPF_Set_Alpha) for LPF_Set_Alpha
+    ldr.o(.text.LDR_Init) refers to ldr.o(.bss.LDR.1) for [Anonymous Symbol]
+    ldr.o(.text.LDR_Init) refers to ldr.o(.bss.LDR.0) for [Anonymous Symbol]
+    ldr.o(.text.LDR_Init) refers to ldr.o(.bss.LDR.2) for [Anonymous Symbol]
+    ldr.o(.text.LDR_Init) refers to ldr.o(.bss.LDR.3) for [Anonymous Symbol]
+    ldr.o(.text.LDR_Init) refers to ldr.o(.bss.LDR.5) for [Anonymous Symbol]
+    ldr.o(.text.LDR_Init) refers to ldr.o(.bss.LDR.6) for [Anonymous Symbol]
+    ldr.o(.text.LDR_Init) refers to ldr.o(.bss.LDR.7) for [Anonymous Symbol]
     ldr.o(.ARM.exidx.text.LDR_Init) refers to ldr.o(.text.LDR_Init) for [Anonymous Symbol]
     lpf.o(.text.LPF_Struct_Init) refers to lpf.o(.bss.LPF) for [Anonymous Symbol]
     lpf.o(.ARM.exidx.text.LPF_Struct_Init) refers to lpf.o(.text.LPF_Struct_Init) for [Anonymous Symbol]
@@ -347,31 +265,24 @@ Section Cross References
     lpf.o(.ARM.exidx.text.LPF_Set_Alpha) refers to lpf.o(.text.LPF_Set_Alpha) for [Anonymous Symbol]
     lpf.o(.text.LPF_Get_Alpha) refers to lpf.o(.bss.LPF) for [Anonymous Symbol]
     lpf.o(.ARM.exidx.text.LPF_Get_Alpha) refers to lpf.o(.text.LPF_Get_Alpha) for [Anonymous Symbol]
-    lpf.o(.text.LPF_Get_Filtered_Value) refers to lpf.o(.text.LPF_Get_Alpha) for LPF_Get_Alpha
     lpf.o(.text.LPF_Get_Filtered_Value) refers to aeabi_sdivfast.o(.text_divfast) for __aeabi_idiv
     lpf.o(.text.LPF_Get_Filtered_Value) refers to lpf.o(.bss.LPF) for [Anonymous Symbol]
     lpf.o(.ARM.exidx.text.LPF_Get_Filtered_Value) refers to lpf.o(.text.LPF_Get_Filtered_Value) for [Anonymous Symbol]
-    lpf.o(.text.LPF_Init) refers to lpf.o(.text.LPF_Struct_Init) for LPF_Struct_Init
+    lpf.o(.text.LPF_Init) refers to lpf.o(.bss.LPF) for [Anonymous Symbol]
     lpf.o(.ARM.exidx.text.LPF_Init) refers to lpf.o(.text.LPF_Init) for [Anonymous Symbol]
     protocol.o(.text.Protocol_Struct_Init) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Struct_Init) refers to protocol.o(.text.Protocol_Struct_Init) for [Anonymous Symbol]
     protocol.o(.text.Protocol_Disp_Sts_Get) refers to ldr.o(.text.LDR_Automic_Brightness_Sts_Get) for LDR_Automic_Brightness_Sts_Get
     protocol.o(.ARM.exidx.text.Protocol_Disp_Sts_Get) refers to protocol.o(.text.Protocol_Disp_Sts_Get) for [Anonymous Symbol]
-    protocol.o(.text.Protocol_RxPacket_StsRead_Get) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
-    protocol.o(.ARM.exidx.text.Protocol_RxPacket_StsRead_Get) refers to protocol.o(.text.Protocol_RxPacket_StsRead_Get) for [Anonymous Symbol]
-    protocol.o(.text.Protocol_RxPacket_StsRead_Set) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
-    protocol.o(.ARM.exidx.text.Protocol_RxPacket_StsRead_Set) refers to protocol.o(.text.Protocol_RxPacket_StsRead_Set) for [Anonymous Symbol]
-    protocol.o(.text.Protocol_RxPacket_StsRead_Clear) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
-    protocol.o(.ARM.exidx.text.Protocol_RxPacket_StsRead_Clear) refers to protocol.o(.text.Protocol_RxPacket_StsRead_Clear) for [Anonymous Symbol]
     protocol.o(.text.Protocol_Build_Status_Packet) refers to sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get) for SevenSegment_Segment_Char_Values_Get
     protocol.o(.text.Protocol_Build_Status_Packet) refers to sevensegment.o(.text.SevenSegment_Dp_Byte_Get) for SevenSegment_Dp_Byte_Get
     protocol.o(.text.Protocol_Build_Status_Packet) refers to ldr.o(.text.LDR_Get_ADC_Val) for LDR_Get_ADC_Val
     protocol.o(.text.Protocol_Build_Status_Packet) refers to ldr.o(.text.LDR_Get_Current_Brightness) for LDR_Get_Current_Brightness
-    protocol.o(.text.Protocol_Build_Status_Packet) refers to protocol.o(.text.Protocol_Disp_Sts_Get) for Protocol_Disp_Sts_Get
+    protocol.o(.text.Protocol_Build_Status_Packet) refers to ldr.o(.text.LDR_Automic_Brightness_Sts_Get) for LDR_Automic_Brightness_Sts_Get
     protocol.o(.text.Protocol_Build_Status_Packet) refers to dispcom.o(.text.DispCom_CRC_Calculate_Block) for DispCom_CRC_Calculate_Block
     protocol.o(.text.Protocol_Build_Status_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Build_Status_Packet) refers to protocol.o(.text.Protocol_Build_Status_Packet) for [Anonymous Symbol]
-    protocol.o(.text.Protocol_Build_Func_En_Packet) refers to protocol.o(.text.Protocol_Disp_Sts_Get) for Protocol_Disp_Sts_Get
+    protocol.o(.text.Protocol_Build_Func_En_Packet) refers to ldr.o(.text.LDR_Automic_Brightness_Sts_Get) for LDR_Automic_Brightness_Sts_Get
     protocol.o(.text.Protocol_Build_Func_En_Packet) refers to dispcom.o(.text.DispCom_CRC_Calculate_Block) for DispCom_CRC_Calculate_Block
     protocol.o(.text.Protocol_Build_Func_En_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Build_Func_En_Packet) refers to protocol.o(.text.Protocol_Build_Func_En_Packet) for [Anonymous Symbol]
@@ -390,7 +301,38 @@ Section Cross References
     protocol.o(.text.Protocol_Transmit_Packet) refers to dispcom.o(.text.DispCom_Tx_Buf) for DispCom_Tx_Buf
     protocol.o(.text.Protocol_Transmit_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Transmit_Packet) refers to protocol.o(.text.Protocol_Transmit_Packet) for [Anonymous Symbol]
-    protocol.o(.text.Protocol_Init) refers to protocol.o(.text.Protocol_Struct_Init) for Protocol_Struct_Init
+    protocol.o(.text.Protocol_Response_Display_Status) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Display_Status) refers to protocol.o(.text.Protocol_Response_Display_Status) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Function_Enable) refers to ldr.o(.text.LDR_Automic_Brightness_Off) for LDR_Automic_Brightness_Off
+    protocol.o(.text.Protocol_Response_Function_Enable) refers to ldr.o(.text.LDR_Automic_Brightness_On) for LDR_Automic_Brightness_On
+    protocol.o(.text.Protocol_Response_Function_Enable) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Function_Enable) refers to protocol.o(.text.Protocol_Response_Function_Enable) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Digit_Single) refers to sevensegment.o(.text.SevenSegment_Set_Value) for SevenSegment_Set_Value
+    protocol.o(.text.Protocol_Response_Digit_Single) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Digit_Single) refers to protocol.o(.text.Protocol_Response_Digit_Single) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Digit_Multiple) refers to sevensegment.o(.text.SevenSegment_Set_Value) for SevenSegment_Set_Value
+    protocol.o(.text.Protocol_Response_Digit_Multiple) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Digit_Multiple) refers to protocol.o(.text.Protocol_Response_Digit_Multiple) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Decimal_Point_Single) refers to sevensegment.o(.text.SevenSegment_Set_Dp) for SevenSegment_Set_Dp
+    protocol.o(.text.Protocol_Response_Decimal_Point_Single) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Decimal_Point_Single) refers to protocol.o(.text.Protocol_Response_Decimal_Point_Single) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) refers to sevensegment.o(.text.SevenSegment_Set_Dp) for SevenSegment_Set_Dp
+    protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Decimal_Point_Multiple) refers to protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Manual_Brightness) refers to ldr.o(.text.LDR_Manual_Brightness_Set) for LDR_Manual_Brightness_Set
+    protocol.o(.text.Protocol_Response_Manual_Brightness) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Manual_Brightness) refers to protocol.o(.text.Protocol_Response_Manual_Brightness) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Auto_Brightness_ADC) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Auto_Brightness_ADC) refers to protocol.o(.text.Protocol_Response_Auto_Brightness_ADC) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Status_Packet) for Protocol_Build_Status_Packet
+    protocol.o(.text.Protocol_Response_Mainloop) refers to dispcom.o(.text.DispCom_Tx_Buf) for DispCom_Tx_Buf
+    protocol.o(.text.Protocol_Response_Mainloop) refers to ldr.o(.text.LDR_Automic_Brightness_Sts_Get) for LDR_Automic_Brightness_Sts_Get
+    protocol.o(.text.Protocol_Response_Mainloop) refers to dispcom.o(.text.DispCom_CRC_Calculate_Block) for DispCom_CRC_Calculate_Block
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet) for Protocol_Build_Manual_Brightness_Val_Packet
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet) for Protocol_Build_Auto_Brightness_ADC_Val_Packet
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Response_Mainloop) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Init) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Init) refers to protocol.o(.text.Protocol_Init) for [Anonymous Symbol]
     startup_stm32g030xx.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32g030xx.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -439,27 +381,28 @@ Section Cross References
     defsig_fpe_outer.o(.text) refers to defsig_fpe_inner.o(.text) for __rt_SIGFPE_inner
     defsig_fpe_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
     defsig_fpe_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_alloca_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_argv_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_atexit_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_clock_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_cpp_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000034) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_exceptions_1
     libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_fp_trap_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_getenv_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_heap_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_collate_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_ctype_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_monetary_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_numeric_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_time_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_preinit_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_rand_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000033) for __rt_lib_init_return
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_signal_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_stdio_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_user_alloc_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000006) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000010) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_relocate_pie_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000035) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000027) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_user_alloc_1
     libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
     rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
     rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
@@ -472,13 +415,13 @@ Section Cross References
     rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
     defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
     defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
-    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
-    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
-    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
-    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
-    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
-    libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.text) for __ARM_argv_veneer
-    libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$0000001A) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000028) refers to argv_veneer.o(.text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000029) refers to argv_veneer.o(.text) for __ARM_argv_veneer
     sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
     sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
     sys_exit_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
@@ -537,101 +480,121 @@ Removing Unused input sections from the image.
     Removing wdt.o(.ARM.exidx.text.WDT_Init), (8 bytes).
     Removing wdt.o(.ARM.exidx.text.WDT_Reload), (8 bytes).
     Removing dispcom.o(.text), (0 bytes).
+    Removing dispcom.o(.text.DispCom_Struct_Init), (68 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Struct_Init), (8 bytes).
+    Removing dispcom.o(.text.DispCom_RX_Packet_Struct_Init), (24 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_RX_Packet_Struct_Init), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Config_GPIO), (68 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Config_GPIO), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Config_Clock), (20 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Config_Clock), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Config_BAUD_Rate), (40 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Config_BAUD_Rate), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Config_Tx), (32 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Config_Tx), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Config_Rx), (32 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Config_Rx), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Config_Rx_Interrupt), (48 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Config_Rx_Interrupt), (8 bytes).
-    Removing dispcom.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
-    Removing dispcom.o(.ARM.exidx.text.__NVIC_SetPriority), (8 bytes).
     Removing dispcom.o(.text.DispCom_Clear_Interrupt_Flag), (2 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Clear_Interrupt_Flag), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Byte), (28 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Byte), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Rx_Byte), (24 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Rx_Byte), (8 bytes).
     Removing dispcom.o(.ARM.exidx.text.USART1_IRQHandler), (8 bytes).
+    Removing dispcom.o(.text.DispCom_ISR_Handler), (104 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_ISR_Handler), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Timer_Struct_Init), (20 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Struct_Init), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Timer_Init), (72 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Init), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Timer_Enable), (16 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Enable), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Timer_Disable), (16 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Disable), (8 bytes).
     Removing dispcom.o(.text.DispCom_Timer_Get_Status), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Get_Status), (8 bytes).
     Removing dispcom.o(.text.DispCom_Timer_Get_Val), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Get_Val), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Timer_Value_Reset), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Value_Reset), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Timer_Clear_Interrupt_Flag), (24 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_Clear_Interrupt_Flag), (8 bytes).
     Removing dispcom.o(.ARM.exidx.text.TIM16_IRQHandler), (8 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Timer_ISR_Handler), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Buf), (44 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Buf), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_NL), (16 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_NL), (44 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_SP), (10 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_SP), (28 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_CM), (10 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_CM), (28 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_CM), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Text), (30 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Text), (48 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Text), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Text_NL), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Text_NL), (84 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Text_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Text_SP), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Text_SP), (68 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Text_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Text_CM), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Text_CM), (68 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Text_CM), (8 bytes).
     Removing dispcom.o(.text.DispCom_Determine_Digit_Numbers), (64 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Determine_Digit_Numbers), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Digits), (32 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Digits), (56 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Digits), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number), (28 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number), (140 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Hex), (104 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Hex), (144 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Bin), (68 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Bin), (108 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_NL), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_NL), (176 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_SP), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_SP), (160 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_CM), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_CM), (160 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_CM), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Hex_NL), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Hex_NL), (180 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Hex_SP), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Hex_SP), (164 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Hex_CM), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Hex_CM), (164 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Hex_CM), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Bin_NL), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Bin_NL), (140 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Bin_SP), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Bin_SP), (124 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Number_Bin_CM), (12 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Number_Bin_CM), (124 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Number_Bin_CM), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_NL), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_NL), (72 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_SP), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_SP), (204 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_CM), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_CM), (204 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_CM), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_Hex_NL), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_Hex_NL), (72 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Hex_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_Hex_SP), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_Hex_SP), (224 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Hex_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_Hex_CM), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_Hex_CM), (224 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Hex_CM), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_Bin_NL), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_Bin_NL), (72 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Bin_NL), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_Bin_SP), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_Bin_SP), (180 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Bin_SP), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Tx_Parameter_Bin_CM), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Tx_Parameter_Bin_CM), (180 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Tx_Parameter_Bin_CM), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Buf_Flush), (28 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Buf_Flush), (8 bytes).
     Removing dispcom.o(.text.DispCom_Buf_Set), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Buf_Set), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Buf_Get), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Buf_Get), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Buf_Get_Index), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Buf_Get_Index), (8 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Available), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Data_Len_Get), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Len_Get), (8 bytes).
     Removing dispcom.o(.text.DispCom_Data_Calculated_CRC_Get), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Calculated_CRC_Get), (8 bytes).
@@ -641,32 +604,42 @@ Removing Unused input sections from the image.
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_CRC_Status_Get), (8 bytes).
     Removing dispcom.o(.text.DispCom_Data_Read_Complete_Status), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Read_Complete_Status), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Data_Clear_Available_Flag), (16 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Clear_Available_Flag), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Data_Clear_Read_Complete_Flag), (36 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Clear_Read_Complete_Flag), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Data_Copy_Buf), (34 bytes).
+    Removing dispcom.o(.text.DispCom_Data_Copy_Buf), (36 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Copy_Buf), (8 bytes).
-    Removing dispcom.o(.text.DispCom_Data_Print_Buf), (20 bytes).
+    Removing dispcom.o(.text.DispCom_Data_Print_Buf), (24 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Data_Print_Buf), (8 bytes).
     Removing dispcom.o(.text.DispCom_Error_Code_Get), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Error_Code_Get), (8 bytes).
+    Removing dispcom.o(.text.DispCom_Error_Code_Clear), (12 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Error_Code_Clear), (8 bytes).
+    Removing dispcom.o(.text.DispCom_RX_Packet_CRC_Check), (148 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_RX_Packet_CRC_Check), (8 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_RX_Packet_Disassemble), (8 bytes).
+    Removing dispcom.o(.text.DispCom_CRC_Calculate_Byte), (40 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_CRC_Calculate_Byte), (8 bytes).
+    Removing dispcom.o(.text.DispCom_CRC_Calculate_Block), (68 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_CRC_Calculate_Block), (8 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_RX_Packet_Read_Complete), (8 bytes).
     Removing dispcom.o(.ARM.exidx.text.DispCom_Init), (8 bytes).
     Removing sevensegment.o(.text), (0 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Struct_Init), (88 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Struct_Init), (8 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_GPIO_Init), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Timer_Init), (84 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Timer_Init), (8 bytes).
-    Removing sevensegment.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
-    Removing sevensegment.o(.ARM.exidx.text.__NVIC_SetPriority), (8 bytes).
     Removing sevensegment.o(.ARM.exidx.text.TIM14_IRQHandler), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_ISR_Executables), (8 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_ISR_Executables), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Set_Segment_Pins), (20 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Set_Segment_Pins), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Assign_Segment_Value), (44 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Assign_Segment_Value), (8 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Activate_Digit), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Assign_Digit_Value), (48 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Assign_Digit_Value), (8 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Brightness_Handler), (8 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Set_Dp), (8 bytes).
@@ -674,8 +647,11 @@ Removing Unused input sections from the image.
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Set_Brightness), (8 bytes).
     Removing sevensegment.o(.text.SevenSegment_Segment_Values_Get), (12 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Segment_Values_Get), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get), (12 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Segment_Char_Values_Get), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Dp_Values_Get), (12 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Dp_Values_Get), (8 bytes).
+    Removing sevensegment.o(.text.SevenSegment_Dp_Byte_Get), (32 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Dp_Byte_Get), (8 bytes).
     Removing sevensegment.o(.text.SevenSegment_Display_Enable_Internally), (32 bytes).
     Removing sevensegment.o(.ARM.exidx.text.SevenSegment_Display_Enable_Internally), (8 bytes).
@@ -689,15 +665,22 @@ Removing Unused input sections from the image.
     Removing adc.o(.ARM.exidx.text.ADC_Read_Channel), (8 bytes).
     Removing adc.o(.ARM.exidx.text.ADC_Init), (8 bytes).
     Removing ldr.o(.text), (0 bytes).
+    Removing ldr.o(.text.LDR_Struct_Init), (64 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Struct_Init), (8 bytes).
+    Removing ldr.o(.text.LDR_GPIO_Init), (32 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_GPIO_Init), (8 bytes).
+    Removing ldr.o(.text.LDR_Reg_Init), (14 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Reg_Init), (8 bytes).
+    Removing ldr.o(.text.LDR_Read_Brightness), (20 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Read_Brightness), (8 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Control_Brightness), (8 bytes).
+    Removing ldr.o(.text.LDR_Get_ADC_Val), (12 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Get_ADC_Val), (8 bytes).
+    Removing ldr.o(.text.LDR_Get_Current_Brightness), (12 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Get_Current_Brightness), (8 bytes).
     Removing ldr.o(.text.LDR_Get_Calculated_Brightness), (12 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Get_Calculated_Brightness), (8 bytes).
+    Removing ldr.o(.text.LDR_Automic_Brightness_Sts_Get), (12 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Automic_Brightness_Sts_Get), (8 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Automic_Brightness_On), (8 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Automic_Brightness_Off), (8 bytes).
@@ -707,23 +690,25 @@ Removing Unused input sections from the image.
     Removing ldr.o(.ARM.exidx.text.LDR_Max_Brightness_Set), (8 bytes).
     Removing ldr.o(.ARM.exidx.text.LDR_Init), (8 bytes).
     Removing lpf.o(.text), (0 bytes).
+    Removing lpf.o(.text.LPF_Struct_Init), (28 bytes).
     Removing lpf.o(.ARM.exidx.text.LPF_Struct_Init), (8 bytes).
     Removing lpf.o(.ARM.exidx.text.LPF_Set_Alpha), (8 bytes).
+    Removing lpf.o(.text.LPF_Get_Alpha), (16 bytes).
     Removing lpf.o(.ARM.exidx.text.LPF_Get_Alpha), (8 bytes).
     Removing lpf.o(.ARM.exidx.text.LPF_Get_Filtered_Value), (8 bytes).
     Removing lpf.o(.ARM.exidx.text.LPF_Init), (8 bytes).
     Removing protocol.o(.text), (0 bytes).
+    Removing protocol.o(.text.Protocol_Struct_Init), (72 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Struct_Init), (8 bytes).
+    Removing protocol.o(.text.Protocol_Disp_Sts_Get), (12 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Disp_Sts_Get), (8 bytes).
-    Removing protocol.o(.ARM.exidx.text.Protocol_RxPacket_StsRead_Get), (8 bytes).
-    Removing protocol.o(.ARM.exidx.text.Protocol_RxPacket_StsRead_Set), (8 bytes).
-    Removing protocol.o(.ARM.exidx.text.Protocol_RxPacket_StsRead_Clear), (8 bytes).
+    Removing protocol.o(.text.Protocol_Build_Status_Packet), (116 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Status_Packet), (8 bytes).
     Removing protocol.o(.text.Protocol_Build_Func_En_Packet), (56 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Func_En_Packet), (8 bytes).
     Removing protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet), (56 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Manual_Brightness_Val_Packet), (8 bytes).
-    Removing protocol.o(.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet), (60 bytes).
+    Removing protocol.o(.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet), (64 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet), (8 bytes).
     Removing protocol.o(.text.Protocol_Build_Auto_Brightness_Slope_ADCH_Packet), (2 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Auto_Brightness_Slope_ADCH_Packet), (8 bytes).
@@ -733,7 +718,18 @@ Removing Unused input sections from the image.
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Auto_Brightness_Slope_ValH_Packet), (8 bytes).
     Removing protocol.o(.text.Protocol_Build_Auto_Brightness_Slope_ValL_Packet), (2 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Auto_Brightness_Slope_ValL_Packet), (8 bytes).
+    Removing protocol.o(.text.Protocol_Transmit_Packet), (20 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Transmit_Packet), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Display_Status), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Function_Enable), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Digit_Single), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Digit_Multiple), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Decimal_Point_Single), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Decimal_Point_Multiple), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Manual_Brightness), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Auto_Brightness_ADC), (8 bytes).
+    Removing protocol.o(.text.Protocol_Response_Mainloop), (240 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Response_Mainloop), (8 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Init), (8 bytes).
     Removing system_stm32g0xx.o(.text), (0 bytes).
     Removing system_stm32g0xx.o(.ARM.exidx.text.SystemInit), (8 bytes).
@@ -743,7 +739,7 @@ Removing Unused input sections from the image.
     Removing system_stm32g0xx.o(.rodata.AHBPrescTable), (64 bytes).
     Removing system_stm32g0xx.o(.rodata.APBPrescTable), (32 bytes).
 
-215 unused section(s) (total 2544 bytes) removed from the image.
+268 unused section(s) (total 7682 bytes) removed from the image.
 
 ==============================================================================
 
@@ -824,210 +820,156 @@ Image Symbol Table
     wdt.c                                    0x00000000   Number         0  wdt.o ABSOLUTE
     RESET                                    0x08000000   Section      192  startup_stm32g030xx.o(RESET)
     !!!main                                  0x080000c0   Section        8  __main.o(!!!main)
-    !!!scatter                               0x080000c8   Section       60  __scatter.o(!!!scatter)
-    !!handler_zi                             0x08000104   Section       28  __scatter_zi.o(!!handler_zi)
-    .ARM.Collect$$libinit$$00000000          0x08000120   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
-    .ARM.Collect$$libinit$$00000002          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000002)
-    .ARM.Collect$$libinit$$00000004          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
-    .ARM.Collect$$libinit$$0000000A          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
-    .ARM.Collect$$libinit$$0000000C          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
-    .ARM.Collect$$libinit$$0000000E          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
-    .ARM.Collect$$libinit$$00000011          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000011)
-    .ARM.Collect$$libinit$$00000013          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
-    .ARM.Collect$$libinit$$00000015          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
-    .ARM.Collect$$libinit$$00000017          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
-    .ARM.Collect$$libinit$$00000019          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
-    .ARM.Collect$$libinit$$0000001B          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
-    .ARM.Collect$$libinit$$0000001D          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
-    .ARM.Collect$$libinit$$0000001F          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
-    .ARM.Collect$$libinit$$00000021          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
-    .ARM.Collect$$libinit$$00000023          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
-    .ARM.Collect$$libinit$$00000025          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
-    .ARM.Collect$$libinit$$0000002C          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
-    .ARM.Collect$$libinit$$0000002E          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
-    .ARM.Collect$$libinit$$00000030          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
-    .ARM.Collect$$libinit$$00000032          0x08000122   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
-    .ARM.Collect$$libinit$$00000033          0x08000122   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000033)
-    .ARM.Collect$$libshutdown$$00000000      0x08000124   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
-    .ARM.Collect$$libshutdown$$00000002      0x08000126   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
-    .ARM.Collect$$libshutdown$$00000004      0x08000126   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
-    .ARM.Collect$$libshutdown$$00000007      0x08000126   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
-    .ARM.Collect$$libshutdown$$0000000A      0x08000126   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
-    .ARM.Collect$$libshutdown$$0000000C      0x08000126   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
-    .ARM.Collect$$libshutdown$$0000000F      0x08000126   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
-    .ARM.Collect$$libshutdown$$00000010      0x08000126   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
-    .ARM.Collect$$rtentry$$00000000          0x08000128   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
-    .ARM.Collect$$rtentry$$00000002          0x08000128   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
-    .ARM.Collect$$rtentry$$00000004          0x08000128   Section        6  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
-    .ARM.Collect$$rtentry$$00000009          0x0800012e   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
-    .ARM.Collect$$rtentry$$0000000A          0x0800012e   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
-    .ARM.Collect$$rtentry$$0000000C          0x08000132   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
-    .ARM.Collect$$rtentry$$0000000D          0x08000132   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
-    .ARM.Collect$$rtexit$$00000000           0x0800013a   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
-    .ARM.Collect$$rtexit$$00000002           0x0800013c   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
-    .ARM.Collect$$rtexit$$00000003           0x0800013c   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
-    .ARM.Collect$$rtexit$$00000004           0x08000140   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
-    .text                                    0x08000148   Section       56  startup_stm32g030xx.o(.text)
-    .text                                    0x08000180   Section        0  heapauxi.o(.text)
-    .text                                    0x08000186   Section       62  sys_stackheap_outer.o(.text)
-    .text                                    0x080001c4   Section        0  exit.o(.text)
-    .text                                    0x080001d4   Section        8  libspace.o(.text)
-    .text                                    0x080001dc   Section        0  sys_exit.o(.text)
-    .text                                    0x080001e8   Section        2  use_no_semi.o(.text)
-    [Anonymous Symbol]                       0x080001ea   Section        0  adc.o(.text.ADC_Init)
-    .text                                    0x080001ea   Section        0  indicate_semi.o(.text)
-    [Anonymous Symbol]                       0x080001f4   Section        0  adc.o(.text.ADC_Read_Channel)
-    __arm_cp.2_0                             0x0800021c   Number         4  adc.o(.text.ADC_Read_Channel)
-    [Anonymous Symbol]                       0x08000220   Section        0  adc.o(.text.ADC_Reg_Init)
-    __arm_cp.1_0                             0x080002c0   Number         4  adc.o(.text.ADC_Reg_Init)
-    __arm_cp.1_1                             0x080002c4   Number         4  adc.o(.text.ADC_Reg_Init)
-    __arm_cp.1_2                             0x080002c8   Number         4  adc.o(.text.ADC_Reg_Init)
-    __arm_cp.1_3                             0x080002cc   Number         4  adc.o(.text.ADC_Reg_Init)
-    [Anonymous Symbol]                       0x080002d0   Section        0  app.o(.text.App_Config)
-    [Anonymous Symbol]                       0x08000330   Section        0  app.o(.text.App_Mainloop)
-    __arm_cp.1_0                             0x08000360   Number         4  app.o(.text.App_Mainloop)
-    [Anonymous Symbol]                       0x08000364   Section        0  dispcom.o(.text.DispCom_Buf_Flush)
-    [Anonymous Symbol]                       0x0800037c   Section        0  dispcom.o(.text.DispCom_Buf_Get)
-    [Anonymous Symbol]                       0x08000384   Section        0  dispcom.o(.text.DispCom_Buf_Get_Index)
-    [Anonymous Symbol]                       0x0800038c   Section        0  dispcom.o(.text.DispCom_CRC_Calculate_Block)
-    [Anonymous Symbol]                       0x080003b0   Section        0  dispcom.o(.text.DispCom_CRC_Calculate_Byte)
-    __arm_cp.74_0                            0x080003d4   Number         4  dispcom.o(.text.DispCom_CRC_Calculate_Byte)
-    [Anonymous Symbol]                       0x080003d8   Section        0  dispcom.o(.text.DispCom_Config_BAUD_Rate)
-    __arm_cp.4_1                             0x080003f8   Number         4  dispcom.o(.text.DispCom_Config_BAUD_Rate)
-    [Anonymous Symbol]                       0x080003fc   Section        0  dispcom.o(.text.DispCom_Config_Clock)
-    [Anonymous Symbol]                       0x0800040c   Section        0  dispcom.o(.text.DispCom_Config_GPIO)
-    __arm_cp.2_0                             0x08000448   Number         4  dispcom.o(.text.DispCom_Config_GPIO)
-    __arm_cp.2_1                             0x0800044c   Number         4  dispcom.o(.text.DispCom_Config_GPIO)
-    [Anonymous Symbol]                       0x08000450   Section        0  dispcom.o(.text.DispCom_Config_Rx)
-    [Anonymous Symbol]                       0x0800046c   Section        0  dispcom.o(.text.DispCom_Config_Rx_Interrupt)
-    [Anonymous Symbol]                       0x0800048c   Section        0  dispcom.o(.text.DispCom_Config_Tx)
-    __arm_cp.5_0                             0x080004a8   Number         4  dispcom.o(.text.DispCom_Config_Tx)
-    [Anonymous Symbol]                       0x080004ac   Section        0  dispcom.o(.text.DispCom_Data_Available)
-    [Anonymous Symbol]                       0x080004b4   Section        0  dispcom.o(.text.DispCom_Data_Clear_Available_Flag)
-    [Anonymous Symbol]                       0x080004c0   Section        0  dispcom.o(.text.DispCom_Data_Clear_Read_Complete_Flag)
-    [Anonymous Symbol]                       0x080004d0   Section        0  dispcom.o(.text.DispCom_Data_Len_Get)
-    [Anonymous Symbol]                       0x080004d8   Section        0  dispcom.o(.text.DispCom_Error_Code_Clear)
-    [Anonymous Symbol]                       0x080004e0   Section        0  dispcom.o(.text.DispCom_ISR_Handler)
-    [Anonymous Symbol]                       0x0800052c   Section        0  dispcom.o(.text.DispCom_Init)
-    [Anonymous Symbol]                       0x08000560   Section        0  dispcom.o(.text.DispCom_RX_Packet_CRC_Check)
-    [Anonymous Symbol]                       0x080005bc   Section        0  dispcom.o(.text.DispCom_RX_Packet_Disassemble)
-    [Anonymous Symbol]                       0x08000670   Section        0  dispcom.o(.text.DispCom_RX_Packet_Read_Complete)
-    [Anonymous Symbol]                       0x08000684   Section        0  dispcom.o(.text.DispCom_RX_Packet_Struct_Init)
-    [Anonymous Symbol]                       0x0800069c   Section        0  dispcom.o(.text.DispCom_Rx_Byte)
-    __arm_cp.12_0                            0x080006b0   Number         4  dispcom.o(.text.DispCom_Rx_Byte)
-    [Anonymous Symbol]                       0x080006b4   Section        0  dispcom.o(.text.DispCom_Struct_Init)
-    __arm_cp.0_0                             0x080006f4   Number         4  dispcom.o(.text.DispCom_Struct_Init)
-    [Anonymous Symbol]                       0x080006f8   Section        0  dispcom.o(.text.DispCom_Timer_Clear_Interrupt_Flag)
-    __arm_cp.22_0                            0x0800070c   Number         4  dispcom.o(.text.DispCom_Timer_Clear_Interrupt_Flag)
-    [Anonymous Symbol]                       0x08000710   Section        0  dispcom.o(.text.DispCom_Timer_Disable)
-    [Anonymous Symbol]                       0x0800071c   Section        0  dispcom.o(.text.DispCom_Timer_Enable)
-    __arm_cp.17_0                            0x08000728   Number         4  dispcom.o(.text.DispCom_Timer_Enable)
-    [Anonymous Symbol]                       0x0800072c   Section        0  dispcom.o(.text.DispCom_Timer_ISR_Handler)
-    [Anonymous Symbol]                       0x0800077c   Section        0  dispcom.o(.text.DispCom_Timer_Init)
-    __arm_cp.16_0                            0x080007ac   Number         4  dispcom.o(.text.DispCom_Timer_Init)
-    __arm_cp.16_1                            0x080007b0   Number         4  dispcom.o(.text.DispCom_Timer_Init)
-    __arm_cp.16_2                            0x080007b4   Number         4  dispcom.o(.text.DispCom_Timer_Init)
-    [Anonymous Symbol]                       0x080007b8   Section        0  dispcom.o(.text.DispCom_Timer_Struct_Init)
-    __arm_cp.15_0                            0x080007c8   Number         4  dispcom.o(.text.DispCom_Timer_Struct_Init)
-    [Anonymous Symbol]                       0x080007cc   Section        0  dispcom.o(.text.DispCom_Timer_Value_Reset)
-    __arm_cp.21_0                            0x080007d4   Number         4  dispcom.o(.text.DispCom_Timer_Value_Reset)
-    [Anonymous Symbol]                       0x080007d8   Section        0  dispcom.o(.text.DispCom_Tx_Buf)
-    [Anonymous Symbol]                       0x080007f4   Section        0  dispcom.o(.text.DispCom_Tx_Byte)
-    __arm_cp.11_0                            0x0800080c   Number         4  dispcom.o(.text.DispCom_Tx_Byte)
-    [Anonymous Symbol]                       0x08000810   Section        0  ldr.o(.text.LDR_Automic_Brightness_Off)
-    [Anonymous Symbol]                       0x08000818   Section        0  ldr.o(.text.LDR_Automic_Brightness_On)
-    [Anonymous Symbol]                       0x08000820   Section        0  ldr.o(.text.LDR_Automic_Brightness_Sts_Get)
-    [Anonymous Symbol]                       0x08000828   Section        0  ldr.o(.text.LDR_Control_Brightness)
-    [Anonymous Symbol]                       0x080008d8   Section        0  ldr.o(.text.LDR_GPIO_Init)
-    __arm_cp.1_0                             0x080008f0   Number         4  ldr.o(.text.LDR_GPIO_Init)
-    __arm_cp.1_1                             0x080008f4   Number         4  ldr.o(.text.LDR_GPIO_Init)
-    [Anonymous Symbol]                       0x080008f8   Section        0  ldr.o(.text.LDR_Get_ADC_Val)
-    [Anonymous Symbol]                       0x08000900   Section        0  ldr.o(.text.LDR_Get_Current_Brightness)
-    [Anonymous Symbol]                       0x08000908   Section        0  ldr.o(.text.LDR_Init)
-    [Anonymous Symbol]                       0x08000924   Section        0  ldr.o(.text.LDR_Manual_Brightness_Set)
-    [Anonymous Symbol]                       0x0800092c   Section        0  ldr.o(.text.LDR_Max_Brightness_Set)
-    [Anonymous Symbol]                       0x0800093c   Section        0  ldr.o(.text.LDR_Read_Brightness)
-    [Anonymous Symbol]                       0x08000950   Section        0  ldr.o(.text.LDR_Reg_Init)
-    [Anonymous Symbol]                       0x08000960   Section        0  ldr.o(.text.LDR_Struct_Init)
-    __arm_cp.0_0                             0x08000984   Number         4  ldr.o(.text.LDR_Struct_Init)
-    __arm_cp.0_1                             0x08000988   Number         4  ldr.o(.text.LDR_Struct_Init)
-    __arm_cp.0_2                             0x0800098c   Number         4  ldr.o(.text.LDR_Struct_Init)
-    __arm_cp.0_3                             0x08000990   Number         4  ldr.o(.text.LDR_Struct_Init)
-    __arm_cp.0_4                             0x08000994   Number         4  ldr.o(.text.LDR_Struct_Init)
-    __arm_cp.0_5                             0x08000998   Number         4  ldr.o(.text.LDR_Struct_Init)
-    __arm_cp.0_6                             0x0800099c   Number         4  ldr.o(.text.LDR_Struct_Init)
-    [Anonymous Symbol]                       0x080009a0   Section        0  lpf.o(.text.LPF_Get_Alpha)
-    [Anonymous Symbol]                       0x080009ac   Section        0  lpf.o(.text.LPF_Get_Filtered_Value)
-    [Anonymous Symbol]                       0x080009d4   Section        0  lpf.o(.text.LPF_Init)
-    [Anonymous Symbol]                       0x080009dc   Section        0  lpf.o(.text.LPF_Set_Alpha)
-    [Anonymous Symbol]                       0x080009e8   Section        0  lpf.o(.text.LPF_Struct_Init)
-    __arm_cp.0_0                             0x08000a00   Number         4  lpf.o(.text.LPF_Struct_Init)
-    [Anonymous Symbol]                       0x08000a04   Section        0  protocol.o(.text.Protocol_Build_Status_Packet)
-    [Anonymous Symbol]                       0x08000a70   Section        0  protocol.o(.text.Protocol_Disp_Sts_Get)
-    [Anonymous Symbol]                       0x08000a7c   Section        0  protocol.o(.text.Protocol_Init)
-    [Anonymous Symbol]                       0x08000a84   Section        0  protocol.o(.text.Protocol_RxPacket_StsRead_Clear)
-    [Anonymous Symbol]                       0x08000a8c   Section        0  protocol.o(.text.Protocol_RxPacket_StsRead_Get)
-    [Anonymous Symbol]                       0x08000a94   Section        0  protocol.o(.text.Protocol_RxPacket_StsRead_Set)
-    [Anonymous Symbol]                       0x08000a9c   Section        0  protocol.o(.text.Protocol_Struct_Init)
-    [Anonymous Symbol]                       0x08000ac8   Section        0  protocol.o(.text.Protocol_Transmit_Packet)
-    __arm_cp.13_0                            0x08000ad8   Number         4  protocol.o(.text.Protocol_Transmit_Packet)
-    [Anonymous Symbol]                       0x08000adc   Section        0  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    __arm_cp.9_1                             0x08000bb0   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    __arm_cp.9_2                             0x08000bb4   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    [Anonymous Symbol]                       0x08000bb8   Section        0  sevensegment.o(.text.SevenSegment_Assign_Digit_Value)
-    [Anonymous Symbol]                       0x08000bc8   Section        0  sevensegment.o(.text.SevenSegment_Assign_Segment_Value)
-    [Anonymous Symbol]                       0x08000be4   Section        0  sevensegment.o(.text.SevenSegment_Brightness_Handler)
-    [Anonymous Symbol]                       0x08000c3c   Section        0  sevensegment.o(.text.SevenSegment_Dp_Byte_Get)
-    [Anonymous Symbol]                       0x08000c68   Section        0  sevensegment.o(.text.SevenSegment_Dp_Values_Get)
-    [Anonymous Symbol]                       0x08000c70   Section        0  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_0                             0x08000dc4   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_1                             0x08000dc8   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_2                             0x08000dcc   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_3                             0x08000dd0   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    [Anonymous Symbol]                       0x08000dd4   Section        0  sevensegment.o(.text.SevenSegment_ISR_Executables)
-    [Anonymous Symbol]                       0x08000ddc   Section        0  sevensegment.o(.text.SevenSegment_Init)
-    __arm_cp.21_0                            0x08000df0   Number         4  sevensegment.o(.text.SevenSegment_Init)
-    [Anonymous Symbol]                       0x08000df4   Section        0  sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get)
-    [Anonymous Symbol]                       0x08000dfc   Section        0  sevensegment.o(.text.SevenSegment_Set_Brightness)
-    [Anonymous Symbol]                       0x08000e20   Section        0  sevensegment.o(.text.SevenSegment_Set_Dp)
-    [Anonymous Symbol]                       0x08000e50   Section        0  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
-    __arm_cp.7_0                             0x08000e60   Number         4  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
-    [Anonymous Symbol]                       0x08000e64   Section        0  sevensegment.o(.text.SevenSegment_Set_Value)
-    __arm_cp.13_0                            0x08000e88   Number         4  sevensegment.o(.text.SevenSegment_Set_Value)
-    segment_val                              0x08000e8c   Number         0  sevensegment.o(.text.SevenSegment_Set_Value)
-    [Anonymous Symbol]                       0x08000ea4   Section        0  sevensegment.o(.text.SevenSegment_Struct_Init)
-    __arm_cp.0_0                             0x08000ef8   Number         4  sevensegment.o(.text.SevenSegment_Struct_Init)
-    [Anonymous Symbol]                       0x08000efc   Section        0  sevensegment.o(.text.SevenSegment_Timer_Init)
-    __arm_cp.2_0                             0x08000f30   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
-    __arm_cp.2_1                             0x08000f34   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
-    __arm_cp.2_2                             0x08000f38   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
-    [Anonymous Symbol]                       0x08000f3c   Section        0  system_stm32g0xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08000f40   Section        0  sevensegment.o(.text.TIM14_IRQHandler)
-    __arm_cp.5_0                             0x08000f54   Number         4  sevensegment.o(.text.TIM14_IRQHandler)
-    [Anonymous Symbol]                       0x08000f58   Section        0  dispcom.o(.text.TIM16_IRQHandler)
-    [Anonymous Symbol]                       0x08000f60   Section        0  dispcom.o(.text.USART1_IRQHandler)
-    [Anonymous Symbol]                       0x08000f68   Section        0  wdt.o(.text.WDT_Init)
-    __arm_cp.0_0                             0x08000fa8   Number         4  wdt.o(.text.WDT_Init)
-    __arm_cp.0_2                             0x08000fac   Number         4  wdt.o(.text.WDT_Init)
-    __arm_cp.0_3                             0x08000fb0   Number         4  wdt.o(.text.WDT_Init)
-    [Anonymous Symbol]                       0x08000fb4   Section        0  wdt.o(.text.WDT_Reload)
-    __arm_cp.1_0                             0x08000fc4   Number         4  wdt.o(.text.WDT_Reload)
-    __arm_cp.1_1                             0x08000fc8   Number         4  wdt.o(.text.WDT_Reload)
-    __NVIC_EnableIRQ                         0x08000fcd   Thumb Code    16  dispcom.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000fcc   Section        0  dispcom.o(.text.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x08000fdd   Thumb Code    12  sevensegment.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000fdc   Section        0  sevensegment.o(.text.__NVIC_EnableIRQ)
-    __arm_cp.3_0                             0x08000fe8   Number         4  sevensegment.o(.text.__NVIC_EnableIRQ)
-    __NVIC_SetPriority                       0x08000fed   Thumb Code    36  dispcom.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08000fec   Section        0  dispcom.o(.text.__NVIC_SetPriority)
-    __arm_cp.9_0                             0x08001010   Number         4  dispcom.o(.text.__NVIC_SetPriority)
-    __NVIC_SetPriority                       0x08001015   Thumb Code    16  sevensegment.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08001014   Section        0  sevensegment.o(.text.__NVIC_SetPriority)
-    __arm_cp.4_0                             0x08001024   Number         4  sevensegment.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08001028   Section        0  main.o(.text.main)
-    __arm_cp.0_0                             0x08001044   Number         4  main.o(.text.main)
-    __arm_cp.0_1                             0x08001048   Number         4  main.o(.text.main)
-    .text_divfast                            0x0800104c   Section      502  aeabi_sdivfast.o(.text_divfast)
+    !!!scatter                               0x080000c8   Section       84  __scatter.o(!!!scatter)
+    !!handler_null                           0x0800011c   Section        2  __scatter.o(!!handler_null)
+    !!handler_zi                             0x08000120   Section       28  __scatter_zi.o(!!handler_zi)
+    .ARM.Collect$$libinit$$00000000          0x0800013c   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
+    .ARM.Collect$$libinit$$00000002          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    .ARM.Collect$$libinit$$00000004          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    .ARM.Collect$$libinit$$00000006          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000006)
+    .ARM.Collect$$libinit$$0000000C          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    .ARM.Collect$$libinit$$0000000E          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    .ARM.Collect$$libinit$$00000010          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000010)
+    .ARM.Collect$$libinit$$00000013          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    .ARM.Collect$$libinit$$00000015          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    .ARM.Collect$$libinit$$00000017          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    .ARM.Collect$$libinit$$00000019          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    .ARM.Collect$$libinit$$0000001B          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    .ARM.Collect$$libinit$$0000001D          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    .ARM.Collect$$libinit$$0000001F          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    .ARM.Collect$$libinit$$00000021          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    .ARM.Collect$$libinit$$00000023          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    .ARM.Collect$$libinit$$00000025          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    .ARM.Collect$$libinit$$00000027          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000027)
+    .ARM.Collect$$libinit$$0000002E          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    .ARM.Collect$$libinit$$00000030          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    .ARM.Collect$$libinit$$00000032          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    .ARM.Collect$$libinit$$00000034          0x0800013e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000034)
+    .ARM.Collect$$libinit$$00000035          0x0800013e   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000035)
+    .ARM.Collect$$libshutdown$$00000000      0x08000140   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    .ARM.Collect$$libshutdown$$00000002      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    .ARM.Collect$$libshutdown$$00000004      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    .ARM.Collect$$libshutdown$$00000007      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    .ARM.Collect$$libshutdown$$0000000A      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    .ARM.Collect$$libshutdown$$0000000C      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    .ARM.Collect$$libshutdown$$0000000F      0x08000142   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    .ARM.Collect$$libshutdown$$00000010      0x08000142   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    .ARM.Collect$$rtentry$$00000000          0x08000144   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    .ARM.Collect$$rtentry$$00000002          0x08000144   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    .ARM.Collect$$rtentry$$00000004          0x08000144   Section        6  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    .ARM.Collect$$rtentry$$00000009          0x0800014a   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    .ARM.Collect$$rtentry$$0000000A          0x0800014a   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    .ARM.Collect$$rtentry$$0000000C          0x0800014e   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    .ARM.Collect$$rtentry$$0000000D          0x0800014e   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    .ARM.Collect$$rtexit$$00000000           0x08000156   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    .ARM.Collect$$rtexit$$00000002           0x08000158   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    .ARM.Collect$$rtexit$$00000003           0x08000158   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    .ARM.Collect$$rtexit$$00000004           0x0800015c   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    .text                                    0x08000164   Section       56  startup_stm32g030xx.o(.text)
+    .text                                    0x0800019c   Section        0  heapauxi.o(.text)
+    .text                                    0x080001a2   Section       62  sys_stackheap_outer.o(.text)
+    .text                                    0x080001e0   Section        0  exit.o(.text)
+    .text                                    0x080001f0   Section        8  libspace.o(.text)
+    .text                                    0x080001f8   Section        0  sys_exit.o(.text)
+    .text                                    0x08000204   Section        2  use_no_semi.o(.text)
+    [Anonymous Symbol]                       0x08000206   Section        0  adc.o(.text.ADC_Init)
+    .text                                    0x08000206   Section        0  indicate_semi.o(.text)
+    [Anonymous Symbol]                       0x08000210   Section        0  adc.o(.text.ADC_Read_Channel)
+    __arm_cp.2_0                             0x08000238   Number         4  adc.o(.text.ADC_Read_Channel)
+    [Anonymous Symbol]                       0x0800023c   Section        0  adc.o(.text.ADC_Reg_Init)
+    __arm_cp.1_0                             0x080002dc   Number         4  adc.o(.text.ADC_Reg_Init)
+    __arm_cp.1_1                             0x080002e0   Number         4  adc.o(.text.ADC_Reg_Init)
+    __arm_cp.1_2                             0x080002e4   Number         4  adc.o(.text.ADC_Reg_Init)
+    __arm_cp.1_3                             0x080002e8   Number         4  adc.o(.text.ADC_Reg_Init)
+    [Anonymous Symbol]                       0x080002ec   Section        0  app.o(.text.App_Config)
+    [Anonymous Symbol]                       0x0800034c   Section        0  app.o(.text.App_Mainloop)
+    __arm_cp.1_0                             0x08000368   Number         4  app.o(.text.App_Mainloop)
+    [Anonymous Symbol]                       0x0800036c   Section        0  dispcom.o(.text.DispCom_Data_Available)
+    [Anonymous Symbol]                       0x08000374   Section        0  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_1                            0x080004b8   Number         4  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_2                            0x080004bc   Number         4  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_3                            0x080004c0   Number         4  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_4                            0x080004c4   Number         4  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_5                            0x080004c8   Number         4  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_6                            0x080004cc   Number         4  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_7                            0x080004d0   Number         4  dispcom.o(.text.DispCom_Init)
+    __arm_cp.75_8                            0x080004d4   Number         4  dispcom.o(.text.DispCom_Init)
+    [Anonymous Symbol]                       0x080004d8   Section        0  dispcom.o(.text.DispCom_RX_Packet_Disassemble)
+    [Anonymous Symbol]                       0x08000598   Section        0  dispcom.o(.text.DispCom_RX_Packet_Read_Complete)
+    [Anonymous Symbol]                       0x080005d0   Section        0  dispcom.o(.text.DispCom_Timer_ISR_Handler)
+    __arm_cp.22_0                            0x080006bc   Number         4  dispcom.o(.text.DispCom_Timer_ISR_Handler)
+    __arm_cp.22_1                            0x080006c0   Number         4  dispcom.o(.text.DispCom_Timer_ISR_Handler)
+    __arm_cp.22_2                            0x080006c4   Number         4  dispcom.o(.text.DispCom_Timer_ISR_Handler)
+    [Anonymous Symbol]                       0x080006c8   Section        0  ldr.o(.text.LDR_Automic_Brightness_Off)
+    [Anonymous Symbol]                       0x080006d0   Section        0  ldr.o(.text.LDR_Automic_Brightness_On)
+    [Anonymous Symbol]                       0x080006d8   Section        0  ldr.o(.text.LDR_Control_Brightness)
+    __arm_cp.4_3                             0x08000790   Number         4  ldr.o(.text.LDR_Control_Brightness)
+    __arm_cp.4_6                             0x08000794   Number         4  ldr.o(.text.LDR_Control_Brightness)
+    [Anonymous Symbol]                       0x08000798   Section        0  ldr.o(.text.LDR_Init)
+    __arm_cp.14_0                            0x080007e8   Number         4  ldr.o(.text.LDR_Init)
+    __arm_cp.14_1                            0x080007ec   Number         4  ldr.o(.text.LDR_Init)
+    __arm_cp.14_2                            0x080007f0   Number         4  ldr.o(.text.LDR_Init)
+    __arm_cp.14_3                            0x080007f4   Number         4  ldr.o(.text.LDR_Init)
+    __arm_cp.14_5                            0x080007f8   Number         4  ldr.o(.text.LDR_Init)
+    __arm_cp.14_6                            0x080007fc   Number         4  ldr.o(.text.LDR_Init)
+    __arm_cp.14_8                            0x08000800   Number         4  ldr.o(.text.LDR_Init)
+    [Anonymous Symbol]                       0x08000804   Section        0  ldr.o(.text.LDR_Manual_Brightness_Set)
+    __arm_cp.11_0                            0x0800080c   Number         4  ldr.o(.text.LDR_Manual_Brightness_Set)
+    [Anonymous Symbol]                       0x08000810   Section        0  ldr.o(.text.LDR_Max_Brightness_Set)
+    __arm_cp.13_0                            0x08000820   Number         4  ldr.o(.text.LDR_Max_Brightness_Set)
+    [Anonymous Symbol]                       0x08000824   Section        0  lpf.o(.text.LPF_Get_Filtered_Value)
+    [Anonymous Symbol]                       0x08000848   Section        0  lpf.o(.text.LPF_Init)
+    [Anonymous Symbol]                       0x08000860   Section        0  lpf.o(.text.LPF_Set_Alpha)
+    __arm_cp.1_0                             0x0800086c   Number         4  lpf.o(.text.LPF_Set_Alpha)
+    [Anonymous Symbol]                       0x08000870   Section        0  protocol.o(.text.Protocol_Init)
+    [Anonymous Symbol]                       0x080008b4   Section        0  protocol.o(.text.Protocol_Response_Auto_Brightness_ADC)
+    [Anonymous Symbol]                       0x080008c0   Section        0  protocol.o(.text.Protocol_Response_Decimal_Point_Multiple)
+    [Anonymous Symbol]                       0x080008f8   Section        0  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
+    [Anonymous Symbol]                       0x08000914   Section        0  protocol.o(.text.Protocol_Response_Digit_Multiple)
+    [Anonymous Symbol]                       0x0800094c   Section        0  protocol.o(.text.Protocol_Response_Digit_Single)
+    [Anonymous Symbol]                       0x08000968   Section        0  protocol.o(.text.Protocol_Response_Display_Status)
+    [Anonymous Symbol]                       0x08000974   Section        0  protocol.o(.text.Protocol_Response_Function_Enable)
+    [Anonymous Symbol]                       0x08000998   Section        0  protocol.o(.text.Protocol_Response_Manual_Brightness)
+    __arm_cp.17_0                            0x080009b4   Number         4  protocol.o(.text.Protocol_Response_Manual_Brightness)
+    [Anonymous Symbol]                       0x080009b8   Section        0  sevensegment.o(.text.SevenSegment_Activate_Digit)
+    [Anonymous Symbol]                       0x08000a90   Section        0  sevensegment.o(.text.SevenSegment_Brightness_Handler)
+    __arm_cp.9_1                             0x08000b2c   Number         4  sevensegment.o(.text.SevenSegment_Brightness_Handler)
+    __arm_cp.9_2                             0x08000b30   Number         4  sevensegment.o(.text.SevenSegment_Brightness_Handler)
+    __arm_cp.9_3                             0x08000b34   Number         4  sevensegment.o(.text.SevenSegment_Brightness_Handler)
+    [Anonymous Symbol]                       0x08000b38   Section        0  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_0                             0x08000c8c   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_1                             0x08000c90   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_2                             0x08000c94   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_3                             0x08000c98   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    [Anonymous Symbol]                       0x08000c9c   Section        0  sevensegment.o(.text.SevenSegment_Init)
+    __arm_cp.19_1                            0x08000d28   Number         4  sevensegment.o(.text.SevenSegment_Init)
+    __arm_cp.19_2                            0x08000d2c   Number         4  sevensegment.o(.text.SevenSegment_Init)
+    __arm_cp.19_3                            0x08000d30   Number         4  sevensegment.o(.text.SevenSegment_Init)
+    __arm_cp.19_4                            0x08000d34   Number         4  sevensegment.o(.text.SevenSegment_Init)
+    [Anonymous Symbol]                       0x08000d38   Section        0  sevensegment.o(.text.SevenSegment_Set_Brightness)
+    [Anonymous Symbol]                       0x08000d5c   Section        0  sevensegment.o(.text.SevenSegment_Set_Dp)
+    [Anonymous Symbol]                       0x08000d8c   Section        0  sevensegment.o(.text.SevenSegment_Set_Value)
+    __arm_cp.11_0                            0x08000db0   Number         4  sevensegment.o(.text.SevenSegment_Set_Value)
+    segment_val                              0x08000db4   Number         0  sevensegment.o(.text.SevenSegment_Set_Value)
+    [Anonymous Symbol]                       0x08000dcc   Section        0  system_stm32g0xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x08000dd0   Section        0  sevensegment.o(.text.TIM14_IRQHandler)
+    __arm_cp.3_0                             0x08000de4   Number         4  sevensegment.o(.text.TIM14_IRQHandler)
+    [Anonymous Symbol]                       0x08000de8   Section        0  dispcom.o(.text.TIM16_IRQHandler)
+    [Anonymous Symbol]                       0x08000df0   Section        0  dispcom.o(.text.USART1_IRQHandler)
+    __arm_cp.11_0                            0x08000e4c   Number         4  dispcom.o(.text.USART1_IRQHandler)
+    __arm_cp.11_1                            0x08000e50   Number         4  dispcom.o(.text.USART1_IRQHandler)
+    __arm_cp.11_2                            0x08000e54   Number         4  dispcom.o(.text.USART1_IRQHandler)
+    [Anonymous Symbol]                       0x08000e58   Section        0  wdt.o(.text.WDT_Init)
+    __arm_cp.0_0                             0x08000e98   Number         4  wdt.o(.text.WDT_Init)
+    __arm_cp.0_2                             0x08000e9c   Number         4  wdt.o(.text.WDT_Init)
+    __arm_cp.0_3                             0x08000ea0   Number         4  wdt.o(.text.WDT_Init)
+    [Anonymous Symbol]                       0x08000ea4   Section        0  wdt.o(.text.WDT_Reload)
+    __arm_cp.1_0                             0x08000eb4   Number         4  wdt.o(.text.WDT_Reload)
+    __arm_cp.1_1                             0x08000eb8   Number         4  wdt.o(.text.WDT_Reload)
+    [Anonymous Symbol]                       0x08000ebc   Section        0  main.o(.text.main)
+    __arm_cp.0_0                             0x08000ed8   Number         4  main.o(.text.main)
+    __arm_cp.0_1                             0x08000edc   Number         4  main.o(.text.main)
+    .text_divfast                            0x08000ee0   Section      502  aeabi_sdivfast.o(.text_divfast)
     .bss                                     0x20000000   Section       96  libspace.o(.bss)
     DispCom                                  0x20000060   Data          92  dispcom.o(.bss.DispCom)
     [Anonymous Symbol]                       0x20000060   Section        0  dispcom.o(.bss.DispCom)
@@ -1047,15 +989,15 @@ Image Symbol Table
     [Anonymous Symbol]                       0x200000c8   Section        0  ldr.o(.bss.LDR.7)
     LPF                                      0x200000cc   Data          24  lpf.o(.bss.LPF)
     [Anonymous Symbol]                       0x200000cc   Section        0  lpf.o(.bss.LPF)
-    Protocol                                 0x200000e4   Data          56  protocol.o(.bss.Protocol)
+    Protocol                                 0x200000e4   Data          76  protocol.o(.bss.Protocol)
     [Anonymous Symbol]                       0x200000e4   Section        0  protocol.o(.bss.Protocol)
-    SevenSegment                             0x2000011c   Data          38  sevensegment.o(.bss.SevenSegment)
-    [Anonymous Symbol]                       0x2000011c   Section        0  sevensegment.o(.bss.SevenSegment)
-    Heap_Mem                                 0x20000148   Data         512  startup_stm32g030xx.o(HEAP)
-    HEAP                                     0x20000148   Section      512  startup_stm32g030xx.o(HEAP)
-    Stack_Mem                                0x20000348   Data        1024  startup_stm32g030xx.o(STACK)
-    STACK                                    0x20000348   Section     1024  startup_stm32g030xx.o(STACK)
-    __initial_sp                             0x20000748   Data           0  startup_stm32g030xx.o(STACK)
+    SevenSegment                             0x20000130   Data          38  sevensegment.o(.bss.SevenSegment)
+    [Anonymous Symbol]                       0x20000130   Section        0  sevensegment.o(.bss.SevenSegment)
+    Heap_Mem                                 0x20000158   Data         512  startup_stm32g030xx.o(HEAP)
+    HEAP                                     0x20000158   Section      512  startup_stm32g030xx.o(HEAP)
+    Stack_Mem                                0x20000358   Data        1024  startup_stm32g030xx.o(STACK)
+    STACK                                    0x20000358   Section     1024  startup_stm32g030xx.o(STACK)
+    __initial_sp                             0x20000758   Data           0  startup_stm32g030xx.o(STACK)
 
     Global Symbols
 
@@ -1065,6 +1007,7 @@ Image Symbol Table
     __ARM_exceptions_init                     - Undefined Weak Reference
     __alloca_initialize                       - Undefined Weak Reference
     __arm_preinit_                            - Undefined Weak Reference
+    __arm_relocate_pie_                       - Undefined Weak Reference
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
     __rt_locale                               - Undefined Weak Reference
@@ -1095,181 +1038,138 @@ Image Symbol Table
     __Vectors_End                            0x080000c0   Data           0  startup_stm32g030xx.o(RESET)
     __main                                   0x080000c1   Thumb Code     8  __main.o(!!!main)
     __scatterload                            0x080000c9   Thumb Code     0  __scatter.o(!!!scatter)
-    __scatterload_rt2                        0x080000c9   Thumb Code    52  __scatter.o(!!!scatter)
+    __scatterload_rt2                        0x080000c9   Thumb Code    74  __scatter.o(!!!scatter)
     __scatterload_rt2_thumb_only             0x080000c9   Thumb Code     0  __scatter.o(!!!scatter)
-    __scatterload_null                       0x080000d9   Thumb Code     0  __scatter.o(!!!scatter)
-    __scatterload_zeroinit                   0x08000105   Thumb Code    28  __scatter_zi.o(!!handler_zi)
-    __rt_lib_init                            0x08000121   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
-    __rt_lib_init_alloca_1                   0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
-    __rt_lib_init_argv_1                     0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002C)
-    __rt_lib_init_atexit_1                   0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
-    __rt_lib_init_clock_1                    0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
-    __rt_lib_init_cpp_1                      0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
-    __rt_lib_init_exceptions_1               0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
-    __rt_lib_init_fp_1                       0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000002)
-    __rt_lib_init_fp_trap_1                  0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
-    __rt_lib_init_getenv_1                   0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
-    __rt_lib_init_heap_1                     0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000A)
-    __rt_lib_init_lc_collate_1               0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000011)
-    __rt_lib_init_lc_ctype_1                 0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
-    __rt_lib_init_lc_monetary_1              0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
-    __rt_lib_init_lc_numeric_1               0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
-    __rt_lib_init_lc_time_1                  0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
-    __rt_lib_init_preinit_1                  0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
-    __rt_lib_init_rand_1                     0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
-    __rt_lib_init_return                     0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000033)
-    __rt_lib_init_signal_1                   0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
-    __rt_lib_init_stdio_1                    0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
-    __rt_lib_init_user_alloc_1               0x08000123   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
-    __rt_lib_shutdown                        0x08000125   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
-    __rt_lib_shutdown_cpp_1                  0x08000127   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
-    __rt_lib_shutdown_fp_trap_1              0x08000127   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
-    __rt_lib_shutdown_heap_1                 0x08000127   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
-    __rt_lib_shutdown_return                 0x08000127   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
-    __rt_lib_shutdown_signal_1               0x08000127   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
-    __rt_lib_shutdown_stdio_1                0x08000127   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
-    __rt_lib_shutdown_user_alloc_1           0x08000127   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
-    __rt_entry                               0x08000129   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
-    __rt_entry_presh_1                       0x08000129   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
-    __rt_entry_sh                            0x08000129   Thumb Code     0  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
-    __rt_entry_li                            0x0800012f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
-    __rt_entry_postsh_1                      0x0800012f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
-    __rt_entry_main                          0x08000133   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
-    __rt_entry_postli_1                      0x08000133   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
-    __rt_exit                                0x0800013b   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
-    __rt_exit_ls                             0x0800013d   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
-    __rt_exit_prels_1                        0x0800013d   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
-    __rt_exit_exit                           0x08000141   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
-    Reset_Handler                            0x08000149   Thumb Code     8  startup_stm32g030xx.o(.text)
-    NMI_Handler                              0x08000151   Thumb Code     2  startup_stm32g030xx.o(.text)
-    HardFault_Handler                        0x08000153   Thumb Code     2  startup_stm32g030xx.o(.text)
-    SVC_Handler                              0x08000155   Thumb Code     2  startup_stm32g030xx.o(.text)
-    PendSV_Handler                           0x08000157   Thumb Code     2  startup_stm32g030xx.o(.text)
-    SysTick_Handler                          0x08000159   Thumb Code     2  startup_stm32g030xx.o(.text)
-    ADC1_IRQHandler                          0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    DMA1_Ch4_5_DMAMUX1_OVR_IRQHandler        0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    DMA1_Channel1_IRQHandler                 0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    DMA1_Channel2_3_IRQHandler               0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    EXTI0_1_IRQHandler                       0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    EXTI2_3_IRQHandler                       0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    EXTI4_15_IRQHandler                      0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    FLASH_IRQHandler                         0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    I2C1_IRQHandler                          0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    I2C2_IRQHandler                          0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    RCC_IRQHandler                           0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    RTC_TAMP_IRQHandler                      0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    SPI1_IRQHandler                          0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    SPI2_IRQHandler                          0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    TIM17_IRQHandler                         0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    TIM1_BRK_UP_TRG_COM_IRQHandler           0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    TIM1_CC_IRQHandler                       0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    TIM3_IRQHandler                          0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    USART2_IRQHandler                        0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    WWDG_IRQHandler                          0x0800015b   Thumb Code     0  startup_stm32g030xx.o(.text)
-    __user_initial_stackheap                 0x0800015d   Thumb Code     0  startup_stm32g030xx.o(.text)
-    __use_two_region_memory                  0x08000181   Thumb Code     2  heapauxi.o(.text)
-    __rt_heap_escrow$2region                 0x08000183   Thumb Code     2  heapauxi.o(.text)
-    __rt_heap_expand$2region                 0x08000185   Thumb Code     2  heapauxi.o(.text)
-    __user_setup_stackheap                   0x08000187   Thumb Code    62  sys_stackheap_outer.o(.text)
-    exit                                     0x080001c5   Thumb Code    16  exit.o(.text)
-    __user_libspace                          0x080001d5   Thumb Code     8  libspace.o(.text)
-    __user_perproc_libspace                  0x080001d5   Thumb Code     0  libspace.o(.text)
-    __user_perthread_libspace                0x080001d5   Thumb Code     0  libspace.o(.text)
-    _sys_exit                                0x080001dd   Thumb Code     8  sys_exit.o(.text)
-    __I$use$semihosting                      0x080001e9   Thumb Code     0  use_no_semi.o(.text)
-    __use_no_semihosting_swi                 0x080001e9   Thumb Code     2  use_no_semi.o(.text)
-    ADC_Init                                 0x080001eb   Thumb Code     8  adc.o(.text.ADC_Init)
-    __semihosting_library_function           0x080001eb   Thumb Code     0  indicate_semi.o(.text)
-    ADC_Read_Channel                         0x080001f5   Thumb Code    40  adc.o(.text.ADC_Read_Channel)
-    ADC_Reg_Init                             0x08000221   Thumb Code   160  adc.o(.text.ADC_Reg_Init)
-    App_Config                               0x080002d1   Thumb Code    94  app.o(.text.App_Config)
-    App_Mainloop                             0x08000331   Thumb Code    48  app.o(.text.App_Mainloop)
-    DispCom_Buf_Flush                        0x08000365   Thumb Code    24  dispcom.o(.text.DispCom_Buf_Flush)
-    DispCom_Buf_Get                          0x0800037d   Thumb Code     8  dispcom.o(.text.DispCom_Buf_Get)
-    DispCom_Buf_Get_Index                    0x08000385   Thumb Code     8  dispcom.o(.text.DispCom_Buf_Get_Index)
-    DispCom_CRC_Calculate_Block              0x0800038d   Thumb Code    34  dispcom.o(.text.DispCom_CRC_Calculate_Block)
-    DispCom_CRC_Calculate_Byte               0x080003b1   Thumb Code    36  dispcom.o(.text.DispCom_CRC_Calculate_Byte)
-    DispCom_Config_BAUD_Rate                 0x080003d9   Thumb Code    32  dispcom.o(.text.DispCom_Config_BAUD_Rate)
-    DispCom_Config_Clock                     0x080003fd   Thumb Code    16  dispcom.o(.text.DispCom_Config_Clock)
-    DispCom_Config_GPIO                      0x0800040d   Thumb Code    60  dispcom.o(.text.DispCom_Config_GPIO)
-    DispCom_Config_Rx                        0x08000451   Thumb Code    28  dispcom.o(.text.DispCom_Config_Rx)
-    DispCom_Config_Rx_Interrupt              0x0800046d   Thumb Code    32  dispcom.o(.text.DispCom_Config_Rx_Interrupt)
-    DispCom_Config_Tx                        0x0800048d   Thumb Code    28  dispcom.o(.text.DispCom_Config_Tx)
-    DispCom_Data_Available                   0x080004ad   Thumb Code     8  dispcom.o(.text.DispCom_Data_Available)
-    DispCom_Data_Clear_Available_Flag        0x080004b5   Thumb Code    12  dispcom.o(.text.DispCom_Data_Clear_Available_Flag)
-    DispCom_Data_Clear_Read_Complete_Flag    0x080004c1   Thumb Code    16  dispcom.o(.text.DispCom_Data_Clear_Read_Complete_Flag)
-    DispCom_Data_Len_Get                     0x080004d1   Thumb Code     8  dispcom.o(.text.DispCom_Data_Len_Get)
-    DispCom_Error_Code_Clear                 0x080004d9   Thumb Code     8  dispcom.o(.text.DispCom_Error_Code_Clear)
-    DispCom_ISR_Handler                      0x080004e1   Thumb Code    76  dispcom.o(.text.DispCom_ISR_Handler)
-    DispCom_Init                             0x0800052d   Thumb Code    52  dispcom.o(.text.DispCom_Init)
-    DispCom_RX_Packet_CRC_Check              0x08000561   Thumb Code    92  dispcom.o(.text.DispCom_RX_Packet_CRC_Check)
-    DispCom_RX_Packet_Disassemble            0x080005bd   Thumb Code   180  dispcom.o(.text.DispCom_RX_Packet_Disassemble)
-    DispCom_RX_Packet_Read_Complete          0x08000671   Thumb Code    20  dispcom.o(.text.DispCom_RX_Packet_Read_Complete)
-    DispCom_RX_Packet_Struct_Init            0x08000685   Thumb Code    24  dispcom.o(.text.DispCom_RX_Packet_Struct_Init)
-    DispCom_Rx_Byte                          0x0800069d   Thumb Code    20  dispcom.o(.text.DispCom_Rx_Byte)
-    DispCom_Struct_Init                      0x080006b5   Thumb Code    64  dispcom.o(.text.DispCom_Struct_Init)
-    DispCom_Timer_Clear_Interrupt_Flag       0x080006f9   Thumb Code    20  dispcom.o(.text.DispCom_Timer_Clear_Interrupt_Flag)
-    DispCom_Timer_Disable                    0x08000711   Thumb Code    12  dispcom.o(.text.DispCom_Timer_Disable)
-    DispCom_Timer_Enable                     0x0800071d   Thumb Code    12  dispcom.o(.text.DispCom_Timer_Enable)
-    DispCom_Timer_ISR_Handler                0x0800072d   Thumb Code    80  dispcom.o(.text.DispCom_Timer_ISR_Handler)
-    DispCom_Timer_Init                       0x0800077d   Thumb Code    48  dispcom.o(.text.DispCom_Timer_Init)
-    DispCom_Timer_Struct_Init                0x080007b9   Thumb Code    16  dispcom.o(.text.DispCom_Timer_Struct_Init)
-    DispCom_Timer_Value_Reset                0x080007cd   Thumb Code     8  dispcom.o(.text.DispCom_Timer_Value_Reset)
-    DispCom_Tx_Buf                           0x080007d9   Thumb Code    26  dispcom.o(.text.DispCom_Tx_Buf)
-    DispCom_Tx_Byte                          0x080007f5   Thumb Code    24  dispcom.o(.text.DispCom_Tx_Byte)
-    LDR_Automic_Brightness_Off               0x08000811   Thumb Code     8  ldr.o(.text.LDR_Automic_Brightness_Off)
-    LDR_Automic_Brightness_On                0x08000819   Thumb Code     8  ldr.o(.text.LDR_Automic_Brightness_On)
-    LDR_Automic_Brightness_Sts_Get           0x08000821   Thumb Code     8  ldr.o(.text.LDR_Automic_Brightness_Sts_Get)
-    LDR_Control_Brightness                   0x08000829   Thumb Code   176  ldr.o(.text.LDR_Control_Brightness)
-    LDR_GPIO_Init                            0x080008d9   Thumb Code    24  ldr.o(.text.LDR_GPIO_Init)
-    LDR_Get_ADC_Val                          0x080008f9   Thumb Code     8  ldr.o(.text.LDR_Get_ADC_Val)
-    LDR_Get_Current_Brightness               0x08000901   Thumb Code     8  ldr.o(.text.LDR_Get_Current_Brightness)
-    LDR_Init                                 0x08000909   Thumb Code    28  ldr.o(.text.LDR_Init)
-    LDR_Manual_Brightness_Set                0x08000925   Thumb Code     8  ldr.o(.text.LDR_Manual_Brightness_Set)
-    LDR_Max_Brightness_Set                   0x0800092d   Thumb Code    16  ldr.o(.text.LDR_Max_Brightness_Set)
-    LDR_Read_Brightness                      0x0800093d   Thumb Code    20  ldr.o(.text.LDR_Read_Brightness)
-    LDR_Reg_Init                             0x08000951   Thumb Code    14  ldr.o(.text.LDR_Reg_Init)
-    LDR_Struct_Init                          0x08000961   Thumb Code    36  ldr.o(.text.LDR_Struct_Init)
-    LPF_Get_Alpha                            0x080009a1   Thumb Code    12  lpf.o(.text.LPF_Get_Alpha)
-    LPF_Get_Filtered_Value                   0x080009ad   Thumb Code    40  lpf.o(.text.LPF_Get_Filtered_Value)
-    LPF_Init                                 0x080009d5   Thumb Code     8  lpf.o(.text.LPF_Init)
-    LPF_Set_Alpha                            0x080009dd   Thumb Code    12  lpf.o(.text.LPF_Set_Alpha)
-    LPF_Struct_Init                          0x080009e9   Thumb Code    24  lpf.o(.text.LPF_Struct_Init)
-    Protocol_Build_Status_Packet             0x08000a05   Thumb Code   108  protocol.o(.text.Protocol_Build_Status_Packet)
-    Protocol_Disp_Sts_Get                    0x08000a71   Thumb Code    12  protocol.o(.text.Protocol_Disp_Sts_Get)
-    Protocol_Init                            0x08000a7d   Thumb Code     8  protocol.o(.text.Protocol_Init)
-    Protocol_RxPacket_StsRead_Clear          0x08000a85   Thumb Code     8  protocol.o(.text.Protocol_RxPacket_StsRead_Clear)
-    Protocol_RxPacket_StsRead_Get            0x08000a8d   Thumb Code     8  protocol.o(.text.Protocol_RxPacket_StsRead_Get)
-    Protocol_RxPacket_StsRead_Set            0x08000a95   Thumb Code     8  protocol.o(.text.Protocol_RxPacket_StsRead_Set)
-    Protocol_Struct_Init                     0x08000a9d   Thumb Code    44  protocol.o(.text.Protocol_Struct_Init)
-    Protocol_Transmit_Packet                 0x08000ac9   Thumb Code    16  protocol.o(.text.Protocol_Transmit_Packet)
-    SevenSegment_Activate_Digit              0x08000add   Thumb Code   212  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    SevenSegment_Assign_Digit_Value          0x08000bb9   Thumb Code    16  sevensegment.o(.text.SevenSegment_Assign_Digit_Value)
-    SevenSegment_Assign_Segment_Value        0x08000bc9   Thumb Code    28  sevensegment.o(.text.SevenSegment_Assign_Segment_Value)
-    SevenSegment_Brightness_Handler          0x08000be5   Thumb Code    88  sevensegment.o(.text.SevenSegment_Brightness_Handler)
-    SevenSegment_Dp_Byte_Get                 0x08000c3d   Thumb Code    44  sevensegment.o(.text.SevenSegment_Dp_Byte_Get)
-    SevenSegment_Dp_Values_Get               0x08000c69   Thumb Code     8  sevensegment.o(.text.SevenSegment_Dp_Values_Get)
-    SevenSegment_GPIO_Init                   0x08000c71   Thumb Code   340  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    SevenSegment_ISR_Executables             0x08000dd5   Thumb Code     8  sevensegment.o(.text.SevenSegment_ISR_Executables)
-    SevenSegment_Init                        0x08000ddd   Thumb Code    20  sevensegment.o(.text.SevenSegment_Init)
-    SevenSegment_Segment_Char_Values_Get     0x08000df5   Thumb Code     8  sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get)
-    SevenSegment_Set_Brightness              0x08000dfd   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Brightness)
-    SevenSegment_Set_Dp                      0x08000e21   Thumb Code    48  sevensegment.o(.text.SevenSegment_Set_Dp)
-    SevenSegment_Set_Segment_Pins            0x08000e51   Thumb Code    16  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
-    SevenSegment_Set_Value                   0x08000e65   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Value)
-    SevenSegment_Struct_Init                 0x08000ea5   Thumb Code    84  sevensegment.o(.text.SevenSegment_Struct_Init)
-    SevenSegment_Timer_Init                  0x08000efd   Thumb Code    52  sevensegment.o(.text.SevenSegment_Timer_Init)
-    SystemInit                               0x08000f3d   Thumb Code     2  system_stm32g0xx.o(.text.SystemInit)
-    TIM14_IRQHandler                         0x08000f41   Thumb Code    20  sevensegment.o(.text.TIM14_IRQHandler)
-    TIM16_IRQHandler                         0x08000f59   Thumb Code     8  dispcom.o(.text.TIM16_IRQHandler)
-    USART1_IRQHandler                        0x08000f61   Thumb Code     8  dispcom.o(.text.USART1_IRQHandler)
-    WDT_Init                                 0x08000f69   Thumb Code    64  wdt.o(.text.WDT_Init)
-    WDT_Reload                               0x08000fb5   Thumb Code    16  wdt.o(.text.WDT_Reload)
-    main                                     0x08001029   Thumb Code    28  main.o(.text.main)
-    __aeabi_uidiv                            0x0800104d   Thumb Code    68  aeabi_sdivfast.o(.text_divfast)
-    __aeabi_idiv                             0x08001091   Thumb Code   434  aeabi_sdivfast.o(.text_divfast)
-    Region$$Table$$Base                      0x08001244   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001254   Number         0  anon$$obj.o(Region$$Table)
+    __scatterload_loop                       0x080000d3   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_null                       0x0800011d   Thumb Code     2  __scatter.o(!!handler_null)
+    __scatterload_zeroinit                   0x08000121   Thumb Code    28  __scatter_zi.o(!!handler_zi)
+    __rt_lib_init                            0x0800013d   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
+    __rt_lib_init_alloca_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    __rt_lib_init_argv_1                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    __rt_lib_init_atexit_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    __rt_lib_init_clock_1                    0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    __rt_lib_init_cpp_1                      0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000034)
+    __rt_lib_init_exceptions_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    __rt_lib_init_fp_1                       0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    __rt_lib_init_fp_trap_1                  0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    __rt_lib_init_getenv_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    __rt_lib_init_heap_1                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    __rt_lib_init_lc_collate_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    __rt_lib_init_lc_ctype_1                 0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    __rt_lib_init_lc_monetary_1              0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    __rt_lib_init_lc_numeric_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    __rt_lib_init_lc_time_1                  0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    __rt_lib_init_preinit_1                  0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000006)
+    __rt_lib_init_rand_1                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000010)
+    __rt_lib_init_relocate_pie_1             0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    __rt_lib_init_return                     0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000035)
+    __rt_lib_init_signal_1                   0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    __rt_lib_init_stdio_1                    0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000027)
+    __rt_lib_init_user_alloc_1               0x0800013f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    __rt_lib_shutdown                        0x08000141   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    __rt_lib_shutdown_cpp_1                  0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    __rt_lib_shutdown_fp_trap_1              0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    __rt_lib_shutdown_heap_1                 0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    __rt_lib_shutdown_return                 0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    __rt_lib_shutdown_signal_1               0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    __rt_lib_shutdown_stdio_1                0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    __rt_lib_shutdown_user_alloc_1           0x08000143   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    __rt_entry                               0x08000145   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    __rt_entry_presh_1                       0x08000145   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    __rt_entry_sh                            0x08000145   Thumb Code     0  __rtentry4.o(.ARM.Collect$$rtentry$$00000004)
+    __rt_entry_li                            0x0800014b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    __rt_entry_postsh_1                      0x0800014b   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    __rt_entry_main                          0x0800014f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __rt_entry_postli_1                      0x0800014f   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    __rt_exit                                0x08000157   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    __rt_exit_ls                             0x08000159   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    __rt_exit_prels_1                        0x08000159   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    __rt_exit_exit                           0x0800015d   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    Reset_Handler                            0x08000165   Thumb Code     8  startup_stm32g030xx.o(.text)
+    NMI_Handler                              0x0800016d   Thumb Code     2  startup_stm32g030xx.o(.text)
+    HardFault_Handler                        0x0800016f   Thumb Code     2  startup_stm32g030xx.o(.text)
+    SVC_Handler                              0x08000171   Thumb Code     2  startup_stm32g030xx.o(.text)
+    PendSV_Handler                           0x08000173   Thumb Code     2  startup_stm32g030xx.o(.text)
+    SysTick_Handler                          0x08000175   Thumb Code     2  startup_stm32g030xx.o(.text)
+    ADC1_IRQHandler                          0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    DMA1_Ch4_5_DMAMUX1_OVR_IRQHandler        0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    DMA1_Channel1_IRQHandler                 0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    DMA1_Channel2_3_IRQHandler               0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    EXTI0_1_IRQHandler                       0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    EXTI2_3_IRQHandler                       0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    EXTI4_15_IRQHandler                      0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    FLASH_IRQHandler                         0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    I2C1_IRQHandler                          0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    I2C2_IRQHandler                          0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    RCC_IRQHandler                           0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    RTC_TAMP_IRQHandler                      0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    SPI1_IRQHandler                          0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    SPI2_IRQHandler                          0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    TIM17_IRQHandler                         0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    TIM1_BRK_UP_TRG_COM_IRQHandler           0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    TIM1_CC_IRQHandler                       0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    TIM3_IRQHandler                          0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    USART2_IRQHandler                        0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    WWDG_IRQHandler                          0x08000177   Thumb Code     0  startup_stm32g030xx.o(.text)
+    __user_initial_stackheap                 0x08000179   Thumb Code     0  startup_stm32g030xx.o(.text)
+    __use_two_region_memory                  0x0800019d   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_escrow$2region                 0x0800019f   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_expand$2region                 0x080001a1   Thumb Code     2  heapauxi.o(.text)
+    __user_setup_stackheap                   0x080001a3   Thumb Code    62  sys_stackheap_outer.o(.text)
+    exit                                     0x080001e1   Thumb Code    16  exit.o(.text)
+    __user_libspace                          0x080001f1   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x080001f1   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x080001f1   Thumb Code     0  libspace.o(.text)
+    _sys_exit                                0x080001f9   Thumb Code     8  sys_exit.o(.text)
+    __I$use$semihosting                      0x08000205   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x08000205   Thumb Code     2  use_no_semi.o(.text)
+    ADC_Init                                 0x08000207   Thumb Code     8  adc.o(.text.ADC_Init)
+    __semihosting_library_function           0x08000207   Thumb Code     0  indicate_semi.o(.text)
+    ADC_Read_Channel                         0x08000211   Thumb Code    40  adc.o(.text.ADC_Read_Channel)
+    ADC_Reg_Init                             0x0800023d   Thumb Code   160  adc.o(.text.ADC_Reg_Init)
+    App_Config                               0x080002ed   Thumb Code    94  app.o(.text.App_Config)
+    App_Mainloop                             0x0800034d   Thumb Code    28  app.o(.text.App_Mainloop)
+    DispCom_Data_Available                   0x0800036d   Thumb Code     8  dispcom.o(.text.DispCom_Data_Available)
+    DispCom_Init                             0x08000375   Thumb Code   324  dispcom.o(.text.DispCom_Init)
+    DispCom_RX_Packet_Disassemble            0x080004d9   Thumb Code   192  dispcom.o(.text.DispCom_RX_Packet_Disassemble)
+    DispCom_RX_Packet_Read_Complete          0x08000599   Thumb Code    56  dispcom.o(.text.DispCom_RX_Packet_Read_Complete)
+    DispCom_Timer_ISR_Handler                0x080005d1   Thumb Code   236  dispcom.o(.text.DispCom_Timer_ISR_Handler)
+    LDR_Automic_Brightness_Off               0x080006c9   Thumb Code     8  ldr.o(.text.LDR_Automic_Brightness_Off)
+    LDR_Automic_Brightness_On                0x080006d1   Thumb Code     8  ldr.o(.text.LDR_Automic_Brightness_On)
+    LDR_Control_Brightness                   0x080006d9   Thumb Code   184  ldr.o(.text.LDR_Control_Brightness)
+    LDR_Init                                 0x08000799   Thumb Code    80  ldr.o(.text.LDR_Init)
+    LDR_Manual_Brightness_Set                0x08000805   Thumb Code     8  ldr.o(.text.LDR_Manual_Brightness_Set)
+    LDR_Max_Brightness_Set                   0x08000811   Thumb Code    16  ldr.o(.text.LDR_Max_Brightness_Set)
+    LPF_Get_Filtered_Value                   0x08000825   Thumb Code    36  lpf.o(.text.LPF_Get_Filtered_Value)
+    LPF_Init                                 0x08000849   Thumb Code    24  lpf.o(.text.LPF_Init)
+    LPF_Set_Alpha                            0x08000861   Thumb Code    12  lpf.o(.text.LPF_Set_Alpha)
+    Protocol_Init                            0x08000871   Thumb Code    68  protocol.o(.text.Protocol_Init)
+    Protocol_Response_Auto_Brightness_ADC    0x080008b5   Thumb Code    12  protocol.o(.text.Protocol_Response_Auto_Brightness_ADC)
+    Protocol_Response_Decimal_Point_Multiple 0x080008c1   Thumb Code    56  protocol.o(.text.Protocol_Response_Decimal_Point_Multiple)
+    Protocol_Response_Decimal_Point_Single   0x080008f9   Thumb Code    28  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
+    Protocol_Response_Digit_Multiple         0x08000915   Thumb Code    56  protocol.o(.text.Protocol_Response_Digit_Multiple)
+    Protocol_Response_Digit_Single           0x0800094d   Thumb Code    28  protocol.o(.text.Protocol_Response_Digit_Single)
+    Protocol_Response_Display_Status         0x08000969   Thumb Code    12  protocol.o(.text.Protocol_Response_Display_Status)
+    Protocol_Response_Function_Enable        0x08000975   Thumb Code    36  protocol.o(.text.Protocol_Response_Function_Enable)
+    Protocol_Response_Manual_Brightness      0x08000999   Thumb Code    28  protocol.o(.text.Protocol_Response_Manual_Brightness)
+    SevenSegment_Activate_Digit              0x080009b9   Thumb Code   216  sevensegment.o(.text.SevenSegment_Activate_Digit)
+    SevenSegment_Brightness_Handler          0x08000a91   Thumb Code   156  sevensegment.o(.text.SevenSegment_Brightness_Handler)
+    SevenSegment_GPIO_Init                   0x08000b39   Thumb Code   340  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    SevenSegment_Init                        0x08000c9d   Thumb Code   140  sevensegment.o(.text.SevenSegment_Init)
+    SevenSegment_Set_Brightness              0x08000d39   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Brightness)
+    SevenSegment_Set_Dp                      0x08000d5d   Thumb Code    48  sevensegment.o(.text.SevenSegment_Set_Dp)
+    SevenSegment_Set_Value                   0x08000d8d   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Value)
+    SystemInit                               0x08000dcd   Thumb Code     2  system_stm32g0xx.o(.text.SystemInit)
+    TIM14_IRQHandler                         0x08000dd1   Thumb Code    20  sevensegment.o(.text.TIM14_IRQHandler)
+    TIM16_IRQHandler                         0x08000de9   Thumb Code     8  dispcom.o(.text.TIM16_IRQHandler)
+    USART1_IRQHandler                        0x08000df1   Thumb Code    92  dispcom.o(.text.USART1_IRQHandler)
+    WDT_Init                                 0x08000e59   Thumb Code    64  wdt.o(.text.WDT_Init)
+    WDT_Reload                               0x08000ea5   Thumb Code    16  wdt.o(.text.WDT_Reload)
+    main                                     0x08000ebd   Thumb Code    28  main.o(.text.main)
+    __aeabi_uidiv                            0x08000ee1   Thumb Code    68  aeabi_sdivfast.o(.text_divfast)
+    __aeabi_idiv                             0x08000f25   Thumb Code   434  aeabi_sdivfast.o(.text_divfast)
+    Region$$Table$$Base                      0x080010d8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080010e8   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x20000000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000060   Data           0  libspace.o(.bss)
 
@@ -1279,197 +1179,148 @@ Image Symbol Table
 
 Memory Map of the image
 
-  Image Entry point : 0x08000149
+  Image Entry point : 0x08000165
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00001254, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x000010e8, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001254, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000010e8, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x000000c0   Data   RO          372    RESET               startup_stm32g030xx.o
-    0x080000c0   0x080000c0   0x00000008   Code   RO          406  * !!!main             c_p.l(__main.o)
-    0x080000c8   0x080000c8   0x0000003c   Code   RO          581    !!!scatter          c_p.l(__scatter.o)
-    0x08000104   0x08000104   0x0000001c   Code   RO          583    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x08000120   0x08000120   0x00000002   Code   RO          444    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          458    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          460    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          463    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          465    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          467    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          470    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          472    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          474    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          476    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          478    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          480    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          482    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          484    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          486    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          488    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          490    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          494    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          496    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          498    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          500    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000002   Code   RO          501    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
-    0x08000124   0x08000124   0x00000002   Code   RO          536    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          564    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          566    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          569    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          572    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          574    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          577    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000002   Code   RO          578    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x08000128   0x08000128   0x00000000   Code   RO          408    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x08000128   0x08000128   0x00000000   Code   RO          414    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x08000128   0x08000128   0x00000006   Code   RO          426    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0800012e   0x0800012e   0x00000000   Code   RO          416    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0800012e   0x0800012e   0x00000004   Code   RO          417    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x08000132   0x08000132   0x00000000   Code   RO          419    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x08000132   0x08000132   0x00000008   Code   RO          420    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x0800013a   0x0800013a   0x00000002   Code   RO          449    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x0800013c   0x0800013c   0x00000000   Code   RO          507    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x0800013c   0x0800013c   0x00000004   Code   RO          508    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x08000140   0x08000140   0x00000006   Code   RO          509    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
-    0x08000146   0x08000146   0x00000002   PAD
-    0x08000148   0x08000148   0x00000038   Code   RO          373  * .text               startup_stm32g030xx.o
-    0x08000180   0x08000180   0x00000006   Code   RO          404    .text               c_p.l(heapauxi.o)
-    0x08000186   0x08000186   0x0000003e   Code   RO          430    .text               c_p.l(sys_stackheap_outer.o)
-    0x080001c4   0x080001c4   0x00000010   Code   RO          433    .text               c_p.l(exit.o)
-    0x080001d4   0x080001d4   0x00000008   Code   RO          445    .text               c_p.l(libspace.o)
-    0x080001dc   0x080001dc   0x0000000c   Code   RO          502    .text               c_p.l(sys_exit.o)
-    0x080001e8   0x080001e8   0x00000002   Code   RO          525    .text               c_p.l(use_no_semi.o)
-    0x080001ea   0x080001ea   0x00000000   Code   RO          527    .text               c_p.l(indicate_semi.o)
-    0x080001ea   0x080001ea   0x00000008   Code   RO          258    .text.ADC_Init      adc.o
-    0x080001f2   0x080001f2   0x00000002   PAD
-    0x080001f4   0x080001f4   0x0000002c   Code   RO          256    .text.ADC_Read_Channel  adc.o
-    0x08000220   0x08000220   0x000000b0   Code   RO          254    .text.ADC_Reg_Init  adc.o
-    0x080002d0   0x080002d0   0x0000005e   Code   RO           11    .text.App_Config    app.o
-    0x0800032e   0x0800032e   0x00000002   PAD
-    0x08000330   0x08000330   0x00000034   Code   RO           13    .text.App_Mainloop  app.o
-    0x08000364   0x08000364   0x00000018   Code   RO          146    .text.DispCom_Buf_Flush  dispcom.o
-    0x0800037c   0x0800037c   0x00000008   Code   RO          150    .text.DispCom_Buf_Get  dispcom.o
-    0x08000384   0x08000384   0x00000008   Code   RO          152    .text.DispCom_Buf_Get_Index  dispcom.o
-    0x0800038c   0x0800038c   0x00000022   Code   RO          184    .text.DispCom_CRC_Calculate_Block  dispcom.o
-    0x080003ae   0x080003ae   0x00000002   PAD
-    0x080003b0   0x080003b0   0x00000028   Code   RO          182    .text.DispCom_CRC_Calculate_Byte  dispcom.o
-    0x080003d8   0x080003d8   0x00000024   Code   RO           42    .text.DispCom_Config_BAUD_Rate  dispcom.o
-    0x080003fc   0x080003fc   0x00000010   Code   RO           40    .text.DispCom_Config_Clock  dispcom.o
-    0x0800040c   0x0800040c   0x00000044   Code   RO           38    .text.DispCom_Config_GPIO  dispcom.o
-    0x08000450   0x08000450   0x0000001c   Code   RO           46    .text.DispCom_Config_Rx  dispcom.o
-    0x0800046c   0x0800046c   0x00000020   Code   RO           48    .text.DispCom_Config_Rx_Interrupt  dispcom.o
-    0x0800048c   0x0800048c   0x00000020   Code   RO           44    .text.DispCom_Config_Tx  dispcom.o
-    0x080004ac   0x080004ac   0x00000008   Code   RO          154    .text.DispCom_Data_Available  dispcom.o
-    0x080004b4   0x080004b4   0x0000000c   Code   RO          166    .text.DispCom_Data_Clear_Available_Flag  dispcom.o
-    0x080004c0   0x080004c0   0x00000010   Code   RO          168    .text.DispCom_Data_Clear_Read_Complete_Flag  dispcom.o
-    0x080004d0   0x080004d0   0x00000008   Code   RO          156    .text.DispCom_Data_Len_Get  dispcom.o
-    0x080004d8   0x080004d8   0x00000008   Code   RO          176    .text.DispCom_Error_Code_Clear  dispcom.o
-    0x080004e0   0x080004e0   0x0000004c   Code   RO           62    .text.DispCom_ISR_Handler  dispcom.o
-    0x0800052c   0x0800052c   0x00000034   Code   RO          188    .text.DispCom_Init  dispcom.o
-    0x08000560   0x08000560   0x0000005c   Code   RO          178    .text.DispCom_RX_Packet_CRC_Check  dispcom.o
-    0x080005bc   0x080005bc   0x000000b4   Code   RO          180    .text.DispCom_RX_Packet_Disassemble  dispcom.o
-    0x08000670   0x08000670   0x00000014   Code   RO          186    .text.DispCom_RX_Packet_Read_Complete  dispcom.o
-    0x08000684   0x08000684   0x00000018   Code   RO           36    .text.DispCom_RX_Packet_Struct_Init  dispcom.o
-    0x0800069c   0x0800069c   0x00000018   Code   RO           58    .text.DispCom_Rx_Byte  dispcom.o
-    0x080006b4   0x080006b4   0x00000044   Code   RO           34    .text.DispCom_Struct_Init  dispcom.o
-    0x080006f8   0x080006f8   0x00000018   Code   RO           78    .text.DispCom_Timer_Clear_Interrupt_Flag  dispcom.o
-    0x08000710   0x08000710   0x0000000c   Code   RO           70    .text.DispCom_Timer_Disable  dispcom.o
-    0x0800071c   0x0800071c   0x00000010   Code   RO           68    .text.DispCom_Timer_Enable  dispcom.o
-    0x0800072c   0x0800072c   0x00000050   Code   RO           82    .text.DispCom_Timer_ISR_Handler  dispcom.o
-    0x0800077c   0x0800077c   0x0000003c   Code   RO           66    .text.DispCom_Timer_Init  dispcom.o
-    0x080007b8   0x080007b8   0x00000014   Code   RO           64    .text.DispCom_Timer_Struct_Init  dispcom.o
-    0x080007cc   0x080007cc   0x0000000c   Code   RO           76    .text.DispCom_Timer_Value_Reset  dispcom.o
-    0x080007d8   0x080007d8   0x0000001a   Code   RO           84    .text.DispCom_Tx_Buf  dispcom.o
-    0x080007f2   0x080007f2   0x00000002   PAD
-    0x080007f4   0x080007f4   0x0000001c   Code   RO           56    .text.DispCom_Tx_Byte  dispcom.o
-    0x08000810   0x08000810   0x00000008   Code   RO          288    .text.LDR_Automic_Brightness_Off  ldr.o
-    0x08000818   0x08000818   0x00000008   Code   RO          286    .text.LDR_Automic_Brightness_On  ldr.o
-    0x08000820   0x08000820   0x00000008   Code   RO          284    .text.LDR_Automic_Brightness_Sts_Get  ldr.o
-    0x08000828   0x08000828   0x000000b0   Code   RO          276    .text.LDR_Control_Brightness  ldr.o
-    0x080008d8   0x080008d8   0x00000020   Code   RO          270    .text.LDR_GPIO_Init  ldr.o
-    0x080008f8   0x080008f8   0x00000008   Code   RO          278    .text.LDR_Get_ADC_Val  ldr.o
-    0x08000900   0x08000900   0x00000008   Code   RO          280    .text.LDR_Get_Current_Brightness  ldr.o
-    0x08000908   0x08000908   0x0000001c   Code   RO          296    .text.LDR_Init      ldr.o
-    0x08000924   0x08000924   0x00000008   Code   RO          290    .text.LDR_Manual_Brightness_Set  ldr.o
-    0x0800092c   0x0800092c   0x00000010   Code   RO          294    .text.LDR_Max_Brightness_Set  ldr.o
-    0x0800093c   0x0800093c   0x00000014   Code   RO          274    .text.LDR_Read_Brightness  ldr.o
-    0x08000950   0x08000950   0x0000000e   Code   RO          272    .text.LDR_Reg_Init  ldr.o
-    0x0800095e   0x0800095e   0x00000002   PAD
-    0x08000960   0x08000960   0x00000040   Code   RO          268    .text.LDR_Struct_Init  ldr.o
-    0x080009a0   0x080009a0   0x0000000c   Code   RO          317    .text.LPF_Get_Alpha  lpf.o
-    0x080009ac   0x080009ac   0x00000028   Code   RO          319    .text.LPF_Get_Filtered_Value  lpf.o
-    0x080009d4   0x080009d4   0x00000008   Code   RO          321    .text.LPF_Init      lpf.o
-    0x080009dc   0x080009dc   0x0000000c   Code   RO          315    .text.LPF_Set_Alpha  lpf.o
-    0x080009e8   0x080009e8   0x0000001c   Code   RO          313    .text.LPF_Struct_Init  lpf.o
-    0x08000a04   0x08000a04   0x0000006c   Code   RO          342    .text.Protocol_Build_Status_Packet  protocol.o
-    0x08000a70   0x08000a70   0x0000000c   Code   RO          334    .text.Protocol_Disp_Sts_Get  protocol.o
-    0x08000a7c   0x08000a7c   0x00000008   Code   RO          360    .text.Protocol_Init  protocol.o
-    0x08000a84   0x08000a84   0x00000008   Code   RO          340    .text.Protocol_RxPacket_StsRead_Clear  protocol.o
-    0x08000a8c   0x08000a8c   0x00000008   Code   RO          336    .text.Protocol_RxPacket_StsRead_Get  protocol.o
-    0x08000a94   0x08000a94   0x00000008   Code   RO          338    .text.Protocol_RxPacket_StsRead_Set  protocol.o
-    0x08000a9c   0x08000a9c   0x0000002c   Code   RO          332    .text.Protocol_Struct_Init  protocol.o
-    0x08000ac8   0x08000ac8   0x00000014   Code   RO          358    .text.Protocol_Transmit_Packet  protocol.o
-    0x08000adc   0x08000adc   0x000000dc   Code   RO          217    .text.SevenSegment_Activate_Digit  sevensegment.o
-    0x08000bb8   0x08000bb8   0x00000010   Code   RO          219    .text.SevenSegment_Assign_Digit_Value  sevensegment.o
-    0x08000bc8   0x08000bc8   0x0000001c   Code   RO          215    .text.SevenSegment_Assign_Segment_Value  sevensegment.o
-    0x08000be4   0x08000be4   0x00000058   Code   RO          221    .text.SevenSegment_Brightness_Handler  sevensegment.o
-    0x08000c3c   0x08000c3c   0x0000002c   Code   RO          235    .text.SevenSegment_Dp_Byte_Get  sevensegment.o
-    0x08000c68   0x08000c68   0x00000008   Code   RO          233    .text.SevenSegment_Dp_Values_Get  sevensegment.o
-    0x08000c70   0x08000c70   0x00000164   Code   RO          201    .text.SevenSegment_GPIO_Init  sevensegment.o
-    0x08000dd4   0x08000dd4   0x00000008   Code   RO          211    .text.SevenSegment_ISR_Executables  sevensegment.o
-    0x08000ddc   0x08000ddc   0x00000018   Code   RO          241    .text.SevenSegment_Init  sevensegment.o
-    0x08000df4   0x08000df4   0x00000008   Code   RO          231    .text.SevenSegment_Segment_Char_Values_Get  sevensegment.o
-    0x08000dfc   0x08000dfc   0x00000024   Code   RO          227    .text.SevenSegment_Set_Brightness  sevensegment.o
-    0x08000e20   0x08000e20   0x00000030   Code   RO          223    .text.SevenSegment_Set_Dp  sevensegment.o
-    0x08000e50   0x08000e50   0x00000014   Code   RO          213    .text.SevenSegment_Set_Segment_Pins  sevensegment.o
-    0x08000e64   0x08000e64   0x00000040   Code   RO          225    .text.SevenSegment_Set_Value  sevensegment.o
-    0x08000ea4   0x08000ea4   0x00000058   Code   RO          199    .text.SevenSegment_Struct_Init  sevensegment.o
-    0x08000efc   0x08000efc   0x00000040   Code   RO          203    .text.SevenSegment_Timer_Init  sevensegment.o
-    0x08000f3c   0x08000f3c   0x00000002   Code   RO          380    .text.SystemInit    system_stm32g0xx.o
-    0x08000f3e   0x08000f3e   0x00000002   PAD
-    0x08000f40   0x08000f40   0x00000018   Code   RO          209    .text.TIM14_IRQHandler  sevensegment.o
-    0x08000f58   0x08000f58   0x00000008   Code   RO           80    .text.TIM16_IRQHandler  dispcom.o
-    0x08000f60   0x08000f60   0x00000008   Code   RO           60    .text.USART1_IRQHandler  dispcom.o
-    0x08000f68   0x08000f68   0x0000004c   Code   RO           22    .text.WDT_Init      wdt.o
-    0x08000fb4   0x08000fb4   0x00000018   Code   RO           24    .text.WDT_Reload    wdt.o
-    0x08000fcc   0x08000fcc   0x00000010   Code   RO           50    .text.__NVIC_EnableIRQ  dispcom.o
-    0x08000fdc   0x08000fdc   0x00000010   Code   RO          205    .text.__NVIC_EnableIRQ  sevensegment.o
-    0x08000fec   0x08000fec   0x00000028   Code   RO           52    .text.__NVIC_SetPriority  dispcom.o
-    0x08001014   0x08001014   0x00000014   Code   RO          207    .text.__NVIC_SetPriority  sevensegment.o
-    0x08001028   0x08001028   0x00000024   Code   RO            2    .text.main          main.o
-    0x0800104c   0x0800104c   0x000001f6   Code   RO          397    .text_divfast       c_p.l(aeabi_sdivfast.o)
-    0x08001242   0x08001242   0x00000002   PAD
-    0x08001244   0x08001244   0x00000010   Data   RO          580    Region$$Table       anon$$obj.o
+    0x08000000   0x08000000   0x000000c0   Data   RO          378    RESET               startup_stm32g030xx.o
+    0x080000c0   0x080000c0   0x00000008   Code   RO          412  * !!!main             c_p.l(__main.o)
+    0x080000c8   0x080000c8   0x00000054   Code   RO          589    !!!scatter          c_p.l(__scatter.o)
+    0x0800011c   0x0800011c   0x00000002   Code   RO          590    !!handler_null      c_p.l(__scatter.o)
+    0x0800011e   0x0800011e   0x00000002   PAD
+    0x08000120   0x08000120   0x0000001c   Code   RO          593    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x0800013c   0x0800013c   0x00000002   Code   RO          450    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          464    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          466    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          468    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          471    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          473    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          475    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          478    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          480    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          482    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          484    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          486    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          488    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          490    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          492    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          494    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          496    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          498    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          502    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          504    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          506    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO          508    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000002   Code   RO          509    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
+    0x08000140   0x08000140   0x00000002   Code   RO          544    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x08000142   0x08000142   0x00000000   Code   RO          572    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO          574    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO          577    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO          580    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO          582    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO          585    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x08000142   0x08000142   0x00000002   Code   RO          586    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x08000144   0x08000144   0x00000000   Code   RO          414    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x08000144   0x08000144   0x00000000   Code   RO          420    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x08000144   0x08000144   0x00000006   Code   RO          432    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0800014a   0x0800014a   0x00000000   Code   RO          422    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0800014a   0x0800014a   0x00000004   Code   RO          423    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x0800014e   0x0800014e   0x00000000   Code   RO          425    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x0800014e   0x0800014e   0x00000008   Code   RO          426    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x08000156   0x08000156   0x00000002   Code   RO          455    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x08000158   0x08000158   0x00000000   Code   RO          515    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x08000158   0x08000158   0x00000004   Code   RO          516    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x0800015c   0x0800015c   0x00000006   Code   RO          517    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x08000162   0x08000162   0x00000002   PAD
+    0x08000164   0x08000164   0x00000038   Code   RO          379  * .text               startup_stm32g030xx.o
+    0x0800019c   0x0800019c   0x00000006   Code   RO          410    .text               c_p.l(heapauxi.o)
+    0x080001a2   0x080001a2   0x0000003e   Code   RO          436    .text               c_p.l(sys_stackheap_outer.o)
+    0x080001e0   0x080001e0   0x00000010   Code   RO          439    .text               c_p.l(exit.o)
+    0x080001f0   0x080001f0   0x00000008   Code   RO          451    .text               c_p.l(libspace.o)
+    0x080001f8   0x080001f8   0x0000000c   Code   RO          510    .text               c_p.l(sys_exit.o)
+    0x08000204   0x08000204   0x00000002   Code   RO          533    .text               c_p.l(use_no_semi.o)
+    0x08000206   0x08000206   0x00000000   Code   RO          535    .text               c_p.l(indicate_semi.o)
+    0x08000206   0x08000206   0x00000008   Code   RO          252    .text.ADC_Init      adc.o
+    0x0800020e   0x0800020e   0x00000002   PAD
+    0x08000210   0x08000210   0x0000002c   Code   RO          250    .text.ADC_Read_Channel  adc.o
+    0x0800023c   0x0800023c   0x000000b0   Code   RO          248    .text.ADC_Reg_Init  adc.o
+    0x080002ec   0x080002ec   0x0000005e   Code   RO           12    .text.App_Config    app.o
+    0x0800034a   0x0800034a   0x00000002   PAD
+    0x0800034c   0x0800034c   0x00000020   Code   RO           14    .text.App_Mainloop  app.o
+    0x0800036c   0x0800036c   0x00000008   Code   RO          152    .text.DispCom_Data_Available  dispcom.o
+    0x08000374   0x08000374   0x00000164   Code   RO          186    .text.DispCom_Init  dispcom.o
+    0x080004d8   0x080004d8   0x000000c0   Code   RO          178    .text.DispCom_RX_Packet_Disassemble  dispcom.o
+    0x08000598   0x08000598   0x00000038   Code   RO          184    .text.DispCom_RX_Packet_Read_Complete  dispcom.o
+    0x080005d0   0x080005d0   0x000000f8   Code   RO           80    .text.DispCom_Timer_ISR_Handler  dispcom.o
+    0x080006c8   0x080006c8   0x00000008   Code   RO          282    .text.LDR_Automic_Brightness_Off  ldr.o
+    0x080006d0   0x080006d0   0x00000008   Code   RO          280    .text.LDR_Automic_Brightness_On  ldr.o
+    0x080006d8   0x080006d8   0x000000c0   Code   RO          270    .text.LDR_Control_Brightness  ldr.o
+    0x08000798   0x08000798   0x0000006c   Code   RO          290    .text.LDR_Init      ldr.o
+    0x08000804   0x08000804   0x0000000c   Code   RO          284    .text.LDR_Manual_Brightness_Set  ldr.o
+    0x08000810   0x08000810   0x00000014   Code   RO          288    .text.LDR_Max_Brightness_Set  ldr.o
+    0x08000824   0x08000824   0x00000024   Code   RO          313    .text.LPF_Get_Filtered_Value  lpf.o
+    0x08000848   0x08000848   0x00000018   Code   RO          315    .text.LPF_Init      lpf.o
+    0x08000860   0x08000860   0x00000010   Code   RO          309    .text.LPF_Set_Alpha  lpf.o
+    0x08000870   0x08000870   0x00000044   Code   RO          366    .text.Protocol_Init  protocol.o
+    0x080008b4   0x080008b4   0x0000000c   Code   RO          362    .text.Protocol_Response_Auto_Brightness_ADC  protocol.o
+    0x080008c0   0x080008c0   0x00000038   Code   RO          358    .text.Protocol_Response_Decimal_Point_Multiple  protocol.o
+    0x080008f8   0x080008f8   0x0000001c   Code   RO          356    .text.Protocol_Response_Decimal_Point_Single  protocol.o
+    0x08000914   0x08000914   0x00000038   Code   RO          354    .text.Protocol_Response_Digit_Multiple  protocol.o
+    0x0800094c   0x0800094c   0x0000001c   Code   RO          352    .text.Protocol_Response_Digit_Single  protocol.o
+    0x08000968   0x08000968   0x0000000c   Code   RO          348    .text.Protocol_Response_Display_Status  protocol.o
+    0x08000974   0x08000974   0x00000024   Code   RO          350    .text.Protocol_Response_Function_Enable  protocol.o
+    0x08000998   0x08000998   0x00000020   Code   RO          360    .text.Protocol_Response_Manual_Brightness  protocol.o
+    0x080009b8   0x080009b8   0x000000d8   Code   RO          211    .text.SevenSegment_Activate_Digit  sevensegment.o
+    0x08000a90   0x08000a90   0x000000a8   Code   RO          215    .text.SevenSegment_Brightness_Handler  sevensegment.o
+    0x08000b38   0x08000b38   0x00000164   Code   RO          199    .text.SevenSegment_GPIO_Init  sevensegment.o
+    0x08000c9c   0x08000c9c   0x0000009c   Code   RO          235    .text.SevenSegment_Init  sevensegment.o
+    0x08000d38   0x08000d38   0x00000024   Code   RO          221    .text.SevenSegment_Set_Brightness  sevensegment.o
+    0x08000d5c   0x08000d5c   0x00000030   Code   RO          217    .text.SevenSegment_Set_Dp  sevensegment.o
+    0x08000d8c   0x08000d8c   0x00000040   Code   RO          219    .text.SevenSegment_Set_Value  sevensegment.o
+    0x08000dcc   0x08000dcc   0x00000002   Code   RO          386    .text.SystemInit    system_stm32g0xx.o
+    0x08000dce   0x08000dce   0x00000002   PAD
+    0x08000dd0   0x08000dd0   0x00000018   Code   RO          203    .text.TIM14_IRQHandler  sevensegment.o
+    0x08000de8   0x08000de8   0x00000008   Code   RO           78    .text.TIM16_IRQHandler  dispcom.o
+    0x08000df0   0x08000df0   0x00000068   Code   RO           58    .text.USART1_IRQHandler  dispcom.o
+    0x08000e58   0x08000e58   0x0000004c   Code   RO           24    .text.WDT_Init      wdt.o
+    0x08000ea4   0x08000ea4   0x00000018   Code   RO           26    .text.WDT_Reload    wdt.o
+    0x08000ebc   0x08000ebc   0x00000024   Code   RO            2    .text.main          main.o
+    0x08000ee0   0x08000ee0   0x000001f6   Code   RO          403    .text_divfast       c_p.l(aeabi_sdivfast.o)
+    0x080010d6   0x080010d6   0x00000002   PAD
+    0x080010d8   0x080010d8   0x00000010   Data   RO          588    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08001254, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x080010e8, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x08001254, Size: 0x00000748, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x080010e8, Size: 0x00000758, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000        -       0x00000060   Zero   RW          446    .bss                c_p.l(libspace.o)
-    0x20000060        -       0x0000005c   Zero   RW          190    .bss.DispCom        dispcom.o
-    0x200000bc        -       0x00000002   Zero   RW          298    .bss.LDR.0          ldr.o
-    0x200000be        -       0x00000002   Zero   RW          299    .bss.LDR.1          ldr.o
-    0x200000c0        -       0x00000002   Zero   RW          300    .bss.LDR.2          ldr.o
-    0x200000c2        -       0x00000002   Zero   RW          301    .bss.LDR.3          ldr.o
-    0x200000c4        -       0x00000001   Zero   RW          302    .bss.LDR.5          ldr.o
-    0x200000c5   0x08001254   0x00000001   PAD
-    0x200000c6        -       0x00000001   Zero   RW          303    .bss.LDR.6          ldr.o
-    0x200000c7   0x08001254   0x00000001   PAD
-    0x200000c8        -       0x00000002   Zero   RW          304    .bss.LDR.7          ldr.o
-    0x200000ca   0x08001254   0x00000002   PAD
-    0x200000cc        -       0x00000018   Zero   RW          323    .bss.LPF            lpf.o
-    0x200000e4        -       0x00000038   Zero   RW          362    .bss.Protocol       protocol.o
-    0x2000011c        -       0x00000026   Zero   RW          243    .bss.SevenSegment   sevensegment.o
-    0x20000142   0x08001254   0x00000006   PAD
-    0x20000148        -       0x00000200   Zero   RW          371    HEAP                startup_stm32g030xx.o
-    0x20000348        -       0x00000400   Zero   RW          370    STACK               startup_stm32g030xx.o
+    0x20000000        -       0x00000060   Zero   RW          452    .bss                c_p.l(libspace.o)
+    0x20000060        -       0x0000005c   Zero   RW          188    .bss.DispCom        dispcom.o
+    0x200000bc        -       0x00000002   Zero   RW          292    .bss.LDR.0          ldr.o
+    0x200000be        -       0x00000002   Zero   RW          293    .bss.LDR.1          ldr.o
+    0x200000c0        -       0x00000002   Zero   RW          294    .bss.LDR.2          ldr.o
+    0x200000c2        -       0x00000002   Zero   RW          295    .bss.LDR.3          ldr.o
+    0x200000c4        -       0x00000001   Zero   RW          296    .bss.LDR.5          ldr.o
+    0x200000c5   0x080010e8   0x00000001   PAD
+    0x200000c6        -       0x00000001   Zero   RW          297    .bss.LDR.6          ldr.o
+    0x200000c7   0x080010e8   0x00000001   PAD
+    0x200000c8        -       0x00000002   Zero   RW          298    .bss.LDR.7          ldr.o
+    0x200000ca   0x080010e8   0x00000002   PAD
+    0x200000cc        -       0x00000018   Zero   RW          317    .bss.LPF            lpf.o
+    0x200000e4        -       0x0000004c   Zero   RW          368    .bss.Protocol       protocol.o
+    0x20000130        -       0x00000026   Zero   RW          237    .bss.SevenSegment   sevensegment.o
+    0x20000156   0x080010e8   0x00000002   PAD
+    0x20000158        -       0x00000200   Zero   RW          377    HEAP                startup_stm32g030xx.o
+    0x20000358        -       0x00000400   Zero   RW          376    STACK               startup_stm32g030xx.o
 
 
 ==============================================================================
@@ -1479,22 +1330,22 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       228         20          0          0          0       2459   adc.o
-       146          4          0          0          0        716   app.o
-      1264         64          0          0         92      18400   dispcom.o
-       398         36          0          0         12       3814   ldr.o
-       100          4          0          0         24       1700   lpf.o
-        36          8          0          0          0        536   main.o
-       216          4          0          0         56       2925   protocol.o
-      1180        104          0          0         38       8290   sevensegment.o
-        56         26        192          0       1536        676   startup_stm32g030xx.o
-         2          0          0          0          0       2027   system_stm32g0xx.o
-       100         20          0          0          0       1584   wdt.o
+       228         20          0          0          0       2548   adc.o
+       126          4          0          0          0        813   app.o
+       972         56          0          0         92      34988   dispcom.o
+       348         44          0          0         12       4117   ldr.o
+        76          4          0          0         24       2083   lpf.o
+        36          8          0          0          0        634   main.o
+       328          4          0          0         76       6754   protocol.o
+      1068         80          0          0         38       9337   sevensegment.o
+        56         26        192          0       1536        688   startup_stm32g030xx.o
+         2          0          0          0          0       2081   system_stm32g0xx.o
+       100         20          0          0          0       1620   wdt.o
 
     ----------------------------------------------------------------------
-      3738        290        208          0       1768      43127   Object Totals
+      3346        266        208          0       1784      65663   Object Totals
          0          0         16          0          0          0   (incl. Generated)
-        12          0          0          0         10          0   (incl. Padding)
+         6          0          0          0          6          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1504,7 +1355,7 @@ Image component sizes
          0          0          0          0          0          0   __rtentry.o
         12          0          0          0          0          0   __rtentry2.o
          6          0          0          0          0          0   __rtentry4.o
-        60          8          0          0          0          0   __scatter.o
+        86         10          0          0          0          0   __scatter.o
         28          0          0          0          0          0   __scatter_zi.o
        502          0          0          0          0         92   aeabi_sdivfast.o
         16          0          0          0          0         68   exit.o
@@ -1522,17 +1373,17 @@ Image component sizes
          2          0          0          0          0         68   use_no_semi.o
 
     ----------------------------------------------------------------------
-       746         16          0          0         96        640   Library Totals
-         4          0          0          0          0          0   (incl. Padding)
+       774         18          0          0         96        640   Library Totals
+         6          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       742         16          0          0         96        640   c_p.l
+       768         18          0          0         96        640   c_p.l
 
     ----------------------------------------------------------------------
-       746         16          0          0         96        640   Library Totals
+       774         18          0          0         96        640   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1541,15 +1392,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4484        306        208          0       1864      43375   Grand Totals
-      4484        306        208          0       1864      43375   ELF Image Totals
-      4484        306        208          0          0          0   ROM Totals
+      4120        284        208          0       1880      65979   Grand Totals
+      4120        284        208          0       1880      65979   ELF Image Totals
+      4120        284        208          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 4692 (   4.58kB)
-    Total RW  Size (RW Data + ZI Data)              1864 (   1.82kB)
-    Total ROM Size (Code + RO Data + RW Data)       4692 (   4.58kB)
+    Total RO  Size (Code + RO Data)                 4328 (   4.23kB)
+    Total RW  Size (RW Data + ZI Data)              1880 (   1.84kB)
+    Total ROM Size (Code + RO Data + RW Data)       4328 (   4.23kB)
 
 ==============================================================================
 

@@ -891,45 +891,28 @@ void DispCom_RX_Packet_CRC_Check(void){
 
 void DispCom_RX_Packet_Disassemble(void){
 	if(DispCom.Buf[3] == REG_DISPLAY_STATUS){
-	  if(DispCom.Buf[2] == CMD_READ_REG){
-			Protocol_RxPacket_StsRead_Set();
-		}
+	  Protocol_Response_Display_Status(DispCom.Buf[2]);
 	}
 	else if(DispCom.Buf[3] == REG_FUNC_ENABLE){
-	  if(DispCom.Buf[2] == CMD_WRITE_REG){
-			if(DispCom.Buf[4] & (1<<1)){
-				LDR_Automic_Brightness_On();
-			}
-			else{
-				LDR_Automic_Brightness_Off();
-			}
-		}
+		Protocol_Response_Function_Enable(DispCom.Buf[2], DispCom.Buf[4]);
 	}
 	else if(DispCom.Buf[3] == REG_DIGIT_SINGLE){
-	  if(DispCom.Buf[2] == CMD_WRITE_REG){
-			SevenSegment_Set_Value(DispCom.Buf[4],DispCom.Buf[5]);
-		}
+		Protocol_Response_Digit_Single(DispCom.Buf[2], DispCom.Buf[4], DispCom.Buf[5]);
 	}
 	else if(DispCom.Buf[3] == REG_DIGIT_MULTIPLE){
-		if(DispCom.Buf[2] == CMD_WRITE_REG){
-			SevenSegment_Set_Value(0,DispCom.Buf[4]);
-			SevenSegment_Set_Value(1,DispCom.Buf[5]);
-			SevenSegment_Set_Value(2,DispCom.Buf[6]);
-			SevenSegment_Set_Value(3,DispCom.Buf[7]);
-		}
+		Protocol_Response_Digit_Multiple(DispCom.Buf[2], DispCom.Buf[4], DispCom.Buf[5], DispCom.Buf[6], DispCom.Buf[7]);
 	}
-	else if(DispCom.Buf[3] == REG_DECIMAL_POINTS){
-	  if(DispCom.Buf[2] == CMD_WRITE_REG){
-			
-		}
+	else if(DispCom.Buf[3] == REG_DECIMAL_POINTS_SINGLE){
+		Protocol_Response_Decimal_Point_Single(DispCom.Buf[2], DispCom.Buf[4], DispCom.Buf[5]);
+	}
+	else if(DispCom.Buf[3] == REG_DECIMAL_POINTS_MULTIPLE){
+	  Protocol_Response_Decimal_Point_Multiple(DispCom.Buf[2], DispCom.Buf[4], DispCom.Buf[5], DispCom.Buf[6], DispCom.Buf[7]);
 	}
 	else if(DispCom.Buf[3] == REG_MANUAL_BRGHTNSS_VAL){
-	  if(DispCom.Buf[2] == CMD_WRITE_REG){
-			LDR_Manual_Brightness_Set(DispCom.Buf[4]);
-		}
+		Protocol_Response_Manual_Brightness(DispCom.Buf[2], DispCom.Buf[4]);
 	}
 	else if(DispCom.Buf[3] == REG_AUTO_BRGHTNSS_ADC_VAL){
-	  
+	  Protocol_Response_Auto_Brightness_ADC(DispCom.Buf[2]);
 	}
 	else if(DispCom.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_ADCH){
 	  
