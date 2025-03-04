@@ -64,6 +64,8 @@ void     Protocol_Response_Manual_Brightness(uint8_t cmd, uint8_t data);
 void     Protocol_Response_Auto_Brightness_ADC(uint8_t cmd);
 
 
+void     Protocol_Response_Mainloop(void);
+
 void     Protocol_Init(void);
 
 

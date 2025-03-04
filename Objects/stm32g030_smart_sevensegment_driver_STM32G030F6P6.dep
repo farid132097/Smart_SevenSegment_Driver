@@ -8,14 +8,14 @@ F (.\sevensegment.h)(0x67C56C88)()
 F (.\adc.h)(0x67B6A0E4)()
 F (.\ldr.h)(0x67C67DAA)()
 F (.\lpf.h)(0x67B45C31)()
-F (.\protocol.h)(0x67C6CB63)()
+F (.\protocol.h)(0x67C6D50F)()
 F (.\main.c)(0x67B1AB5F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_STM32G030F6P6-IC:/Users/WALTON/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/WALTON/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="541" -DSTM32G030xx -D_RTE_-o ./objects/main.o -MMD)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x66BDC117)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x66BDC117)
 I (app.h)(0x67B1AB5F)
 I (wdt.h)(0x67B1AB5F)
-F (.\app.c)(0x67C6CDA5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_STM32G030F6P6-IC:/Users/WALTON/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/WALTON/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="541" -DSTM32G030xx -D_RTE_-o ./objects/app.o -MMD)
+F (.\app.c)(0x67C6D50D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_STM32G030F6P6-IC:/Users/WALTON/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/WALTON/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="541" -DSTM32G030xx -D_RTE_-o ./objects/app.o -MMD)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x66BDC117)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x66BDC117)
@@ -24,7 +24,7 @@ I (defs.h)(0x67B1AB5F)
 I (ldr.h)(0x67C67DAA)
 I (dispcom.h)(0x67C57F53)
 I (sevensegment.h)(0x67C56C88)
-I (protocol.h)(0x67C6CB63)
+I (protocol.h)(0x67C6D50F)
 F (.\wdt.c)(0x67B1AB5F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_STM32G030F6P6-IC:/Users/WALTON/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/WALTON/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="541" -DSTM32G030xx -D_RTE_-o ./objects/wdt.o -MMD)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x66BDC117)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
@@ -35,7 +35,7 @@ I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSI
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x66BDC117)
 I (dispcom.h)(0x67C57F53)
-I (protocol.h)(0x67C6CB63)
+I (protocol.h)(0x67C6D50F)
 I (sevensegment.h)(0x67C56C88)
 I (ldr.h)(0x67C67DAA)
 F (.\sevensegment.c)(0x67C57DB8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_STM32G030F6P6-IC:/Users/WALTON/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/WALTON/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="541" -DSTM32G030xx -D_RTE_-o ./objects/sevensegment.o -MMD)
@@ -67,7 +67,7 @@ F (.\protocol.c)(0x67C6CF5A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=corte
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x66BDC117)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
 I (C:\Users\WALTON\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x66BDC117)
-I (protocol.h)(0x67C6CB63)
+I (protocol.h)(0x67C6D50F)
 I (sevensegment.h)(0x67C56C88)
 I (dispcom.h)(0x67C57F53)
 I (ldr.h)(0x67C67DAA)

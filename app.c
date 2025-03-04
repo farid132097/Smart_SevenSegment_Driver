@@ -36,7 +36,7 @@ void App_Mainloop(void){
 		__NOP();
 	}
 	if(DispCom_Data_Available()){
-		
+		Protocol_Response_Mainloop();
 	  DispCom_RX_Packet_Read_Complete();
 	}
 	LDR_Control_Brightness();
