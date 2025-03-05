@@ -25,6 +25,8 @@ typedef struct packet_t{
 	volatile uint8_t  Len;
 	volatile uint8_t  CMD;
 	volatile uint8_t  Reg;
+	volatile uint8_t  AckReturn;
+	volatile uint8_t  NackReturn;
 	volatile uint8_t  ReadDisplaySts;
 	volatile uint8_t  ReadFuncEnable;
 	volatile uint8_t  ReadDigitSingle;
@@ -59,25 +61,45 @@ void Protocol_Struct_Init(void){
 	Protocol.TxPacket.CMD     = 0x00;
 	Protocol.TxPacket.CRC16   = 0x00;
 	
-	Protocol.RxPacket.ReadDisplaySts = 0x00;
-	Protocol.RxPacket.ReadFuncEnable = 0x00;
-	Protocol.RxPacket.ReadDigitSingle = 0x00;
-	Protocol.RxPacket.ReadDigitMultiple = 0x00;
-	Protocol.RxPacket.ReadDpSingle = 0x00;
-	Protocol.RxPacket.ReadDpMultiple = 0x00;
-	Protocol.RxPacket.ReadManualBrightness = 0x00;
-	Protocol.RxPacket.ReadBrightnessADC = 0x00;
-	Protocol.RxPacket.ReadBrightnessSlopeADCH = 0x00;
-	Protocol.RxPacket.ReadBrightnessSlopeADCL = 0x00;
-	Protocol.RxPacket.ReadBrightnessValADCH = 0x00;
-	Protocol.RxPacket.ReadBrightnessValADCL = 0x00;
+	Protocol.RxPacket.AckReturn = FALSE;
+	Protocol.RxPacket.NackReturn = FALSE;
+	Protocol.RxPacket.ReadDisplaySts = FALSE;
+	Protocol.RxPacket.ReadFuncEnable = FALSE;
+	Protocol.RxPacket.ReadDigitSingle = FALSE;
+	Protocol.RxPacket.ReadDigitMultiple = FALSE;
+	Protocol.RxPacket.ReadDpSingle = FALSE;
+	Protocol.RxPacket.ReadDpMultiple = FALSE;
+	Protocol.RxPacket.ReadManualBrightness = FALSE;
+	Protocol.RxPacket.ReadBrightnessADC = FALSE;
+	Protocol.RxPacket.ReadBrightnessSlopeADCH = FALSE;
+	Protocol.RxPacket.ReadBrightnessSlopeADCL = FALSE;
+	Protocol.RxPacket.ReadBrightnessValADCH = FALSE;
+	Protocol.RxPacket.ReadBrightnessValADCL = FALSE;
 }
 
 uint8_t Protocol_Disp_Sts_Get(void){
-	return (uint8_t)(LDR_Automic_Brightness_Sts_Get()<<1);
+	return (uint8_t)((LDR_Automic_Brightness_Sts_Get()<<1) | SevenSegment_Display_Enable_Sts());
 }
 
+void Protocol_Build_Ack_Packet(void){
+	Protocol.TxBuf[0]  = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1]  = 5;
+	Protocol.TxBuf[2]  = 0x01;
+	
+	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 3);
+	Protocol.TxBuf[3]  = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[4]  = (Protocol.TxPacket.CRC16 & 0xFF);
+}
 
+void Protocol_Build_Nack_Packet(void){
+	Protocol.TxBuf[0]  = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1]  = 5;
+	Protocol.TxBuf[2]  = 0x00;
+	
+	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 3);
+	Protocol.TxBuf[3]  = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[4]  = (Protocol.TxPacket.CRC16 & 0xFF);
+}
 
 void Protocol_Build_Status_Packet(void){
 	Protocol.TxBuf[0]  = Protocol.TxPacket.Header;
@@ -156,6 +178,7 @@ void Protocol_Transmit_Packet(void){
 void Protocol_Response_Display_Status(uint8_t cmd){
 	if(cmd == CMD_WRITE_REG){
 		//No Write Access
+		Protocol.RxPacket.NackReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadDisplaySts = TRUE;
@@ -165,10 +188,10 @@ void Protocol_Response_Display_Status(uint8_t cmd){
 void Protocol_Response_Function_Enable(uint8_t cmd, uint8_t data){
 	if(cmd == CMD_WRITE_REG){
 		if(data & (1<<0)){
-			//Display on
+			SevenSegment_Display_Enable();
 		}
 		else{
-			//Display off
+			SevenSegment_Display_Disable();
 		}
 		if(data & (1<<1)){
 			LDR_Automic_Brightness_On();
@@ -176,6 +199,7 @@ void Protocol_Response_Function_Enable(uint8_t cmd, uint8_t data){
 		else{
 			LDR_Automic_Brightness_Off();
 		}
+		Protocol.RxPacket.AckReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadFuncEnable = TRUE;
@@ -185,6 +209,7 @@ void Protocol_Response_Function_Enable(uint8_t cmd, uint8_t data){
 void Protocol_Response_Digit_Single(uint8_t cmd, uint8_t data1, uint8_t data2){
 	if(cmd == CMD_WRITE_REG){
 		SevenSegment_Set_Value(data1, data2);
+		Protocol.RxPacket.AckReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadDigitSingle = TRUE;
@@ -197,6 +222,7 @@ void Protocol_Response_Digit_Multiple(uint8_t cmd, uint8_t data1, uint8_t data2,
 		SevenSegment_Set_Value(1, data2);
 		SevenSegment_Set_Value(2, data3);
 		SevenSegment_Set_Value(3, data4);
+		Protocol.RxPacket.AckReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadDigitMultiple = TRUE;
@@ -206,6 +232,7 @@ void Protocol_Response_Digit_Multiple(uint8_t cmd, uint8_t data1, uint8_t data2,
 void Protocol_Response_Decimal_Point_Single(uint8_t cmd, uint8_t data1, uint8_t data2){
 	if(cmd == CMD_WRITE_REG){
 		SevenSegment_Set_Dp(data1, data2);
+		Protocol.RxPacket.AckReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadDpSingle = TRUE;
@@ -218,6 +245,7 @@ void Protocol_Response_Decimal_Point_Multiple(uint8_t cmd, uint8_t data1, uint8_
 		SevenSegment_Set_Dp(1, data2);
 		SevenSegment_Set_Dp(2, data3);
 		SevenSegment_Set_Dp(3, data4);
+		Protocol.RxPacket.AckReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadDpMultiple = TRUE;
@@ -227,6 +255,7 @@ void Protocol_Response_Decimal_Point_Multiple(uint8_t cmd, uint8_t data1, uint8_
 void Protocol_Response_Manual_Brightness(uint8_t cmd, uint8_t data){
 	if(cmd == CMD_WRITE_REG){
 		LDR_Manual_Brightness_Set(data);
+		Protocol.RxPacket.AckReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadManualBrightness = TRUE;
@@ -236,6 +265,7 @@ void Protocol_Response_Manual_Brightness(uint8_t cmd, uint8_t data){
 void Protocol_Response_Auto_Brightness_ADC(uint8_t cmd){
 	if(cmd == CMD_WRITE_REG){
 		//No Write Access
+		Protocol.RxPacket.NackReturn = TRUE;
 	}
 	else if(cmd == CMD_READ_REG){
 		Protocol.RxPacket.ReadBrightnessADC = TRUE;
@@ -245,7 +275,17 @@ void Protocol_Response_Auto_Brightness_ADC(uint8_t cmd){
 
 
 void Protocol_Response_Mainloop(void){
-	if(Protocol.RxPacket.ReadDisplaySts == TRUE){
+	if(Protocol.RxPacket.AckReturn == TRUE){
+		Protocol_Build_Ack_Packet();
+		Protocol_Transmit_Packet();
+		Protocol.RxPacket.AckReturn = FALSE;
+	}
+	else if(Protocol.RxPacket.NackReturn == TRUE){
+		Protocol_Build_Nack_Packet();
+		Protocol_Transmit_Packet();
+		Protocol.RxPacket.NackReturn = FALSE;
+	}
+	else if(Protocol.RxPacket.ReadDisplaySts == TRUE){
 		Protocol_Build_Status_Packet();
 		Protocol_Transmit_Packet();
 		Protocol.RxPacket.ReadDisplaySts = FALSE;

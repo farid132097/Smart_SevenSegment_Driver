@@ -3,6 +3,7 @@
 #include "stm32g030xx.h"
 #include "sevensegment.h"
 #include "defs.h"
+#include "ldr.h"
 
 //Not implemented yet
 #define  SEVENSEGMENT_DISP_TYPE_CA
@@ -13,10 +14,11 @@
 //Uncomment if Common Pins are driven by PNP BJTs
 #define  SEVENSEGMENT_DIG_DRV_INV
 
-#define  SEVENSEGMENT_TOTAL_DIGITS      (   4U)
-#define  SEVENSEGMENT_INV_DIGITS_STRT   (   2U)
-#define  SEVENSEGMENT_INT_PRIORITY      (   0U)
-#define  SEVENSEGMENT_VAL_OFFSET        (  12U)
+#define  SEVENSEGMENT_TOTAL_DIGITS          (   4U)
+#define  SEVENSEGMENT_INV_DIGITS_STRT       (   2U)
+#define  SEVENSEGMENT_INT_PRIORITY          (   0U)
+#define  SEVENSEGMENT_BRGHTNSS_INT_PRIORITY (   3U)
+#define  SEVENSEGMENT_VAL_OFFSET            (  12U)
 
 
 
@@ -62,7 +64,7 @@ typedef struct seven_segment_t{
 	volatile uint8_t  DpValues[4];
 	volatile uint8_t  BackupValues[4];
 	volatile uint8_t  BackupDpValues[4];
-	volatile uint8_t  DisplayEn;
+	volatile uint8_t  DisplayEnable;
 	volatile uint8_t  ColdStart;
 }seven_segment_t;
 
@@ -95,19 +97,7 @@ void SevenSegment_Struct_Init(void){
 	SevenSegment.DpValues[2] = 0;
 	SevenSegment.DpValues[3] = 0;
 	
-	
-	SevenSegment.BackupValues[0]   = 0;
-	SevenSegment.BackupValues[1]   = 0;
-	SevenSegment.BackupValues[2]   = 0;
-	SevenSegment.BackupValues[3]   = 0;
-	
-	SevenSegment.BackupDpValues[0] = 0;
-	SevenSegment.BackupDpValues[1] = 0;
-	SevenSegment.BackupDpValues[2] = 0;
-	SevenSegment.BackupDpValues[3] = 0;
-	
-	SevenSegment.DisplayEn         = FALSE;
-	SevenSegment.ColdStart         = TRUE;
+	SevenSegment.DisplayEnable = FALSE;
 }
 
 void SevenSegment_GPIO_Init(void){
@@ -202,7 +192,22 @@ void TIM14_IRQHandler(void){
 }
 
 
+void SevenSegment_Auto_Brightness_Timer_Init(uint32_t update_rate){
+  RCC->APBENR2 |= RCC_APBENR2_TIM17EN;
+	TIM17->PSC    = 1599;
+	//Need to update according to core clock
+	TIM17->ARR    = (10000/update_rate);
+	TIM17->DIER  |= TIM_DIER_UIE;
+	TIM17->CR1   |= TIM_CR1_CEN;
+	NVIC_EnableIRQ(TIM17_IRQn);
+	NVIC_SetPriority(TIM17_IRQn, SEVENSEGMENT_BRGHTNSS_INT_PRIORITY);
+}
 
+
+void TIM17_IRQHandler(void){
+	TIM17->SR &=~ TIM_SR_UIF;
+  LDR_Control_Brightness();
+}
 
 
 
@@ -306,6 +311,7 @@ void SevenSegment_Assign_Digit_Value(uint8_t index){
 
 void SevenSegment_Brightness_Handler(void){
 	
+	
 	if(SevenSegment.InterruptTickCount <= 1){
 		//Anti-ghosting
 		SevenSegment_Set_Segment_Pins(0);
@@ -313,7 +319,9 @@ void SevenSegment_Brightness_Handler(void){
 	}
 	else if(SevenSegment.InterruptTickCount <= SevenSegment.AntiGhostingCycle){
 		//Assign new value
-		SevenSegment_Assign_Digit_Value(SevenSegment.CurrentDigitIndex);
+		if(SevenSegment.DisplayEnable == TRUE){
+		  SevenSegment_Assign_Digit_Value(SevenSegment.CurrentDigitIndex);
+		}
 	}
 	else if(SevenSegment.InterruptTickCount >= SevenSegment.DigitBrightness[SevenSegment.CurrentDigitIndex]){
 		//Turn off current digit
@@ -333,7 +341,6 @@ void SevenSegment_Brightness_Handler(void){
 		//Reset Tick Counter
 		SevenSegment.InterruptTickCount = 0;
 	}
-	
 }
 
 
@@ -407,22 +414,17 @@ uint8_t SevenSegment_Dp_Byte_Get(void){
 	return temp;
 }
 
-void SevenSegment_Display_Enable_Internally(void){
-	for(uint8_t i=0; i<4; i++){
-	  SevenSegment.SegmentValues[i] = SevenSegment.BackupValues[i];
-		SevenSegment.DpValues[i] = SevenSegment.BackupDpValues[i];
-	}
+uint8_t SevenSegment_Display_Enable_Sts(void){
+	return SevenSegment.DisplayEnable;
 }
 
-void SevenSegment_Display_Disable_Internally(void){
-	for(uint8_t i=0; i<4; i++){
-		SevenSegment.BackupValues[i] = SevenSegment.SegmentValues[i];
-		SevenSegment.BackupDpValues[i] = SevenSegment.DpValues[i];
-		SevenSegment.SegmentValues[i] = 0;
-		SevenSegment.DpValues[i] = 0;
-	}
+void SevenSegment_Display_Enable(void){
+	SevenSegment.DisplayEnable = TRUE;
 }
 
+void SevenSegment_Display_Disable(void){
+	SevenSegment.DisplayEnable = FALSE;
+}
 
 
 void SevenSegment_Init(void){
@@ -434,6 +436,7 @@ void SevenSegment_Init(void){
 	SevenSegment_Struct_Init();
 	SevenSegment_GPIO_Init();
 	SevenSegment_Timer_Init(48000);
+	SevenSegment_Auto_Brightness_Timer_Init(50);
 }
 
 

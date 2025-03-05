@@ -40,6 +40,8 @@ void     Protocol_Struct_Init(void);
 
 uint8_t  Protocol_Disp_Sts_Get(void);
 
+void     Protocol_Build_Ack_Packet(void);
+void     Protocol_Build_Nack_Packet(void);
 void     Protocol_Build_Status_Packet(void);
 void     Protocol_Build_Func_En_Packet(void);
 void     Protocol_Build_Manual_Brightness_Val_Packet(void);

@@ -45,7 +45,6 @@ void     TIM16_IRQHandler(void);
 
 void     DispCom_Tx_Buf(uint8_t *data, uint8_t len);
 
-
 void     DispCom_Tx_NL(void);
 void     DispCom_Tx_SP(void);
 void     DispCom_Tx_CM(void);
