@@ -628,7 +628,7 @@ void DispCom_Tx_Parameter_Bin_CM(char *name, uint32_t num){
 
 void DispCom_Buf_Flush(void){
   for(uint8_t i = 0; i < DISPCOM_BUFFER_SIZE; i++){
-	DispCom.Buf[i] = 0;
+	  DispCom.Buf[i] = 0;
   }
   DispCom.BufIndex = 0;
 }
@@ -686,7 +686,6 @@ void DispCom_Data_Clear_Available_Flag(void){
 }
 
 void DispCom_Data_Clear_Read_Complete_Flag(void){
-  DispCom_Buf_Flush();
   DispCom.RxPacket.DataReadComplete = DISPCOM_TRUE;
 }
 
@@ -769,7 +768,6 @@ void DispCom_Timer_ISR_Handler(void){
   }
   
   if(DispCom_Buf_Get_Index() != DISPCOM_NULL){
-    
 	  if(DispCom.RxPacket.DataReadComplete == DISPCOM_FALSE){
 	    DispCom.Error = DISPCOM_RX_ERR_READ_INCOMPLETE;
 	  }
@@ -780,7 +778,7 @@ void DispCom_Timer_ISR_Handler(void){
 	    DispCom.RxPacket.DataAvailable = DISPCOM_TRUE;
 	  }
 	  else{
-	    DispCom_Buf_Flush();
+	    DispCom_RX_Packet_Read_Complete();
 	    DispCom.RxPacket.DataAvailable = DISPCOM_FALSE;
 	  }
 	  #else
