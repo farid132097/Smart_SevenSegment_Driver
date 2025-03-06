@@ -227,7 +227,8 @@ void DispCom_Timer_Init(void){
 	TIM16->DIER  |= TIM_DIER_UIE;
 	NVIC_EnableIRQ(TIM16_IRQn);
 	NVIC_SetPriority(TIM16_IRQn, DISPCOM_TIMEOUT_INT_PRIORITY);
-	
+	TIM16->SR &=~ TIM_SR_CC1IF;
+	TIM16->SR &=~ TIM_SR_UIF;
 	/*
   #if DISPCOM_RX_PCKT_CMPLT_DELAY<20U
     #warning DISPCOM_RX_PCKT_CMPLT_DELAY value < 20
@@ -765,6 +766,7 @@ void DispCom_Timer_ISR_Handler(void){
   if(DispCom.Timer.Enabled == DISPCOM_TRUE){
     DispCom_Timer_Disable();
 	  DispCom.Timer.Enabled = DISPCOM_FALSE;
+		DispCom_Tx_Byte(0x06);///////////////////////////////
   }
   
   if(DispCom_Buf_Get_Index() != DISPCOM_NULL){
@@ -869,22 +871,21 @@ uint16_t DispCom_CRC_Calculate_Block(uint8_t *buf, uint8_t len){
 void DispCom_RX_Packet_CRC_Check(void){
 	uint8_t  temp = 0;
   uint16_t crc_calc = 0, crc_recv = 0;
-  if( DispCom_Data_Len_Get() >= 2){
+	DispCom.RxPacket.CRCStatus = DISPCOM_FALSE;
+  if( DispCom_Data_Len_Get() > 2){
 		temp  = (uint8_t)DispCom_Data_Len_Get();
 		temp -= 2;
     crc_calc   =  DispCom_CRC_Calculate_Block((volatile uint8_t*)DispCom.Buf, temp);
     crc_recv   =  DispCom_Buf_Get(DispCom_Data_Len_Get() - 2);
     crc_recv <<= 8;
     crc_recv  |= DispCom_Buf_Get(DispCom_Data_Len_Get() - 1);
+		DispCom.RxPacket.CalculatedCRC = crc_calc;
+    DispCom.RxPacket.ReceivedCRC = crc_recv;
+    if( DispCom.RxPacket.CalculatedCRC == DispCom.RxPacket.ReceivedCRC ){
+      DispCom.RxPacket.CRCStatus = DISPCOM_TRUE;
+	  }
   }
-  DispCom.RxPacket.CalculatedCRC = crc_calc;
-  DispCom.RxPacket.ReceivedCRC = crc_recv;
-  if( DispCom.RxPacket.CalculatedCRC == DispCom.RxPacket.ReceivedCRC ){
-    DispCom.RxPacket.CRCStatus = DISPCOM_TRUE;
-	}
-	else{
-		DispCom.RxPacket.CRCStatus = DISPCOM_FALSE;
-	}
+  
 }
 
 void DispCom_RX_Packet_Disassemble(void){

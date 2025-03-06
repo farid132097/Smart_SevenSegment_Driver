@@ -24,7 +24,6 @@ void App_Mainloop(void){
   
 	if(DispCom_Data_Available()){
 		Protocol_Response_Mainloop();
-		DispCom_Tx_Byte(0x06);
 	  DispCom_RX_Packet_Read_Complete();
 	}
 	
