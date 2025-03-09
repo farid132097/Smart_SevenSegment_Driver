@@ -400,11 +400,6 @@
               <FilePath>.\wdt.h</FilePath>
             </File>
             <File>
-              <FileName>dispcom.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\dispcom.h</FilePath>
-            </File>
-            <File>
               <FileName>sevensegment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\sevensegment.h</FilePath>
@@ -429,6 +424,11 @@
               <FileType>5</FileType>
               <FilePath>.\protocol.h</FilePath>
             </File>
+            <File>
+              <FileName>comm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\comm.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -448,11 +448,6 @@
               <FileName>wdt.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\wdt.c</FilePath>
-            </File>
-            <File>
-              <FileName>dispcom.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\dispcom.c</FilePath>
             </File>
             <File>
               <FileName>sevensegment.c</FileName>
@@ -478,6 +473,11 @@
               <FileName>protocol.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>comm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\comm.c</FilePath>
             </File>
           </Files>
         </Group>

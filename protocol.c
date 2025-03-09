@@ -3,7 +3,7 @@
 #include "stm32g030xx.h"
 #include "protocol.h"
 #include "sevensegment.h"
-#include "dispcom.h"
+#include "comm.h"
 #include "ldr.h"
 #include "defs.h"
 
@@ -86,7 +86,7 @@ void Protocol_Build_Ack_Packet(void){
 	Protocol.TxBuf[1]  = 5;
 	Protocol.TxBuf[2]  = 0x01;
 	
-	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 3);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
 	Protocol.TxBuf[3]  = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[4]  = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -96,7 +96,7 @@ void Protocol_Build_Nack_Packet(void){
 	Protocol.TxBuf[1]  = 5;
 	Protocol.TxBuf[2]  = 0x00;
 	
-	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 3);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
 	Protocol.TxBuf[3]  = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[4]  = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -114,7 +114,7 @@ void Protocol_Build_Status_Packet(void){
 	Protocol.TxBuf[9]  = (LDR_Get_Current_Brightness() & 0xFF);
 	Protocol.TxBuf[10] = Protocol_Disp_Sts_Get();
 	
-	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 10);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 10);
 	Protocol.TxBuf[11] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[12] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -124,7 +124,7 @@ void Protocol_Build_Func_En_Packet(void){
 	Protocol.TxBuf[1] = 5;
 	Protocol.TxBuf[2] = Protocol_Disp_Sts_Get();
 
-	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 3);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
 	Protocol.TxBuf[3] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -134,7 +134,7 @@ void Protocol_Build_Manual_Brightness_Val_Packet(void){
 	Protocol.TxBuf[1] = 5;
 	Protocol.TxBuf[2] = (uint8_t)LDR_Manual_Brightness_Get();
 
-	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 3);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
 	Protocol.TxBuf[3] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -145,7 +145,7 @@ void Protocol_Build_Auto_Brightness_ADC_Val_Packet(void){
 	Protocol.TxBuf[2] = (uint8_t)(LDR_Get_ADC_Val() >> 8);
 	Protocol.TxBuf[3] = (LDR_Get_ADC_Val() & 0xFF);
 
-	Protocol.TxPacket.CRC16 = DispCom_CRC_Calculate_Block(Protocol.TxBuf, 3);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
 	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -167,7 +167,7 @@ void Protocol_Build_Auto_Brightness_Slope_ValL_Packet(void){
 }
 
 void Protocol_Transmit_Packet(void){
-	DispCom_Tx_Buf((uint8_t*)Protocol.TxBuf, Protocol.TxBuf[1]);
+	COMM_Tx_Buf((uint8_t*)Protocol.TxBuf, Protocol.TxBuf[1]);
 }
 
 
