@@ -3,78 +3,115 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.41.0.0
-Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: faridul islam
-NA
-User-based license: Keil MDK Community (non-commercial free of charge)
-Valid until: Jun 1 2033. Cached until: Mar 15 2025
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Faridul Islam, NA, LIC=----
  
 Tool Versions:
-Toolchain:       Keil MDK Community (non-commercial free of charge  Version: 5.41.0.0
-Toolchain Path:  C:\Keil\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.22
-Assembler:       Armasm.exe V6.22
-Linker/Locator:  ArmLink.exe V6.22
-Library Manager: ArmAr.exe V6.22
-Hex Converter:   FromElf.exe V6.22
-CPU DLL:         SARMCM3.DLL V5.41.0.0
-Dialog DLL:      DARMCM1.DLL V1.19.6.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.0.0
-Dialog DLL:      TARMCM1.DLL V1.14.6.0
+Toolchain:       MDK-Lite  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.16
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.4.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
-E:\Embedded Projects\Running\Keil Projects\Smart_SevenSegment_Driver\stm32g030_smart_sevensegment_driver.uvprojx
-Project File Date:  03/09/2025
+D:\Projects\Embedded Projects\Personal\Keil\Smart_SevenSegment_Driver\stm32g030_smart_sevensegment_driver.uvprojx
+Project File Date:  03/10/2025
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.22', folder: 'C:\Keil\ARM\ARMCLANG\Bin'
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'STM32G030F6P6'
-assembling startup_stm32g030xx.s...
-compiling adc.c...
-compiling protocol.c...
+compiling app.c...
 compiling main.c...
 compiling lpf.c...
 compiling wdt.c...
-compiling app.c...
-compiling sevensegment.c...
+protocol.c(99): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+  Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
+                                                               ^
+protocol.c(109): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+        Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
+                                                                     ^
+protocol.c(127): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+        Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 10);
+                                                                     ^
+protocol.c(137): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+        Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
+                                                                     ^
+protocol.c(147): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+        Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
+                                                                     ^
+protocol.c(158): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+        Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
+                                                                     ^
+protocol.c(180): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+        COMM_Tx_Buf((uint8_t*)Protocol.TxBuf, Protocol.TxBuf[1]);
+                              ^
+7 warnings generated.
+compiling protocol.c...
+compiling adc.c...
 compiling ldr.c...
+compiling sevensegment.c...
+assembling startup_stm32g030xx.s...
 compiling system_stm32g0xx.c...
+comm.c(196): warning: no previous prototype for function 'USART1_IRQHandler' [-Wmissing-prototypes]
+void USART1_IRQHandler(void){
+     ^
+comm.c(196): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void USART1_IRQHandler(void){
+^
+static 
+comm.c(266): warning: no previous prototype for function 'TIM16_IRQHandler' [-Wmissing-prototypes]
+void TIM16_IRQHandler(void){
+     ^
+comm.c(266): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM16_IRQHandler(void){
+^
+static 
+comm.c(867): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+    crc_calc   =  COMM_CRC_Calculate_Block((uint8_t*)COMM.Buf, temp);
+                                                     ^
+3 warnings generated.
 compiling comm.c...
 linking...
-Program Size: Code=5024 RO-data=208 RW-data=0 ZI-data=1880  
-".\Objects\stm32g030_smart_sevensegment_driver.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=5428 RO-data=208 RW-data=0 ZI-data=1880  
+".\Objects\stm32g030_smart_sevensegment_driver.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
                 https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
-                ARM::CMSIS@6.1.0
+                ARM.CMSIS.6.1.0
                 CMSIS (Common Microcontroller Software Interface Standard)
    * Component: CORE Version: 6.1.0
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32G0xx_DFP.1.5.0.pack
-                Keil::STM32G0xx_DFP@1.5.0
+                Keil.STM32G0xx_DFP.1.5.0
                 STMicroelectronics STM32G0 Series Device Support
    * Component: Startup Version: 1.4.2
 
 <h2>Collection of Component include folders:</h2>
-  ./RTE/_STM32G030F6P6
-  C:/Keil/ARM/CMSIS/6.1.0/CMSIS/Core/Include
-  C:/Keil/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include
+  .\RTE\_STM32G030F6P6
+  C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include
+  C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE@6.1.0
+   * Component: ARM::CMSIS:CORE:6.1.0
 
-   * Component: Keil::Device:Startup@1.4.2
-      Source file:   MDK/Device/Source/ARM/STM32G0x0_SB_OPT.s
-      Source file:   Drivers/CMSIS/Device/ST/STM32G0xx/Source/Templates/arm/startup_stm32g030xx.s
-      Source file:   MDK/Device/Source/ARM/STM32G0x0_DB_OPT.s
-      Include file:  Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h
-      Source file:   Drivers/CMSIS/Device/ST/STM32G0xx/Source/Templates/system_stm32g0xx.c
-Build Time Elapsed:  00:00:00
+   * Component: Keil::Device:Startup:1.4.2
+      Source file:   MDK\Device\Source\ARM\STM32G0x0_SB_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32G0x0_DB_OPT.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g0xx.h
+      Source file:   Drivers\CMSIS\Device\ST\STM32G0xx\Source\Templates\arm\startup_stm32g030xx.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32G0xx\Source\Templates\system_stm32g0xx.c
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

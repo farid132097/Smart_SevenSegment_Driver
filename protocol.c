@@ -18,6 +18,16 @@ Data         : Variable
 CRC16        : 2 Byte
 */
 
+enum{
+	PROTOCOL_ERROR_CRC_MISMATCH      = 0x01,
+	PROTOCOL_ERROR_INVALID_CMD       = 0x02,
+	PROTOCOL_ERROR_LEN_MISMATCH      = 0x04,
+	PROTOCOL_ERROR_HEADER_MISMATCH   = 0x08,
+	PROTOCOL_ERROR_DATA_OUT_OF_RANGE = 0x10,
+	PROTOCOL_ERROR_INVALID_PARAMETER = 0x20
+};
+
+
 
 
 typedef struct packet_t{
@@ -86,7 +96,7 @@ void Protocol_Build_Ack_Packet(void){
 	Protocol.TxBuf[1]  = 5;
 	Protocol.TxBuf[2]  = 0x01;
 	
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
+  Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
 	Protocol.TxBuf[3]  = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[4]  = (Protocol.TxPacket.CRC16 & 0xFF);
 }
