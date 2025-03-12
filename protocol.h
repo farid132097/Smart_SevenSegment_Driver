@@ -51,10 +51,7 @@ void     Protocol_Build_Auto_Brightness_Slope_ADCL_Packet(void);
 void     Protocol_Build_Auto_Brightness_Slope_ValH_Packet(void);
 void     Protocol_Build_Auto_Brightness_Slope_ValL_Packet(void);
 
-
 void     Protocol_Transmit_Packet(void);
-
-
 
 void     Protocol_Response_Display_Status(uint8_t cmd);
 void     Protocol_Response_Function_Enable(uint8_t cmd, uint8_t data);
@@ -64,7 +61,6 @@ void     Protocol_Response_Decimal_Point_Single(uint8_t cmd, uint8_t data1, uint
 void     Protocol_Response_Decimal_Point_Multiple(uint8_t cmd, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4);
 void     Protocol_Response_Manual_Brightness(uint8_t cmd, uint8_t data);
 void     Protocol_Response_Auto_Brightness_ADC(uint8_t cmd);
-
 
 void     Protocol_Response_Mainloop(void);
 
