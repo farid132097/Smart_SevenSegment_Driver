@@ -27,37 +27,37 @@ Project File Date:  03/10/2025
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'STM32G030F6P6'
-compiling wdt.c...
 compiling app.c...
-compiling lpf.c...
-compiling main.c...
+compiling wdt.c...
 compiling adc.c...
+compiling main.c...
+compiling lpf.c...
 compiling ldr.c...
-protocol.c(100): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+compiling sevensegment.c...
+assembling startup_stm32g030xx.s...
+protocol.c(93): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
   Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
                                                                ^
-protocol.c(110): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+protocol.c(103): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
         Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
                                                                      ^
-protocol.c(128): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
-        Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 10);
+protocol.c(122): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+        Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 11);
                                                                      ^
-protocol.c(138): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+protocol.c(132): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
         Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
                                                                      ^
-protocol.c(148): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+protocol.c(142): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
         Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
                                                                      ^
-protocol.c(159): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+protocol.c(153): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
         Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
                                                                      ^
-protocol.c(181): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
+protocol.c(175): warning: cast from 'volatile unsigned char *' to 'unsigned char *' drops volatile qualifier [-Wcast-qual]
         COMM_Tx_Buf((uint8_t*)Protocol.TxBuf, Protocol.TxBuf[1]);
                               ^
 7 warnings generated.
 compiling protocol.c...
-compiling sevensegment.c...
-assembling startup_stm32g030xx.s...
 compiling system_stm32g0xx.c...
 comm.c(196): warning: no previous prototype for function 'USART1_IRQHandler' [-Wmissing-prototypes]
 void USART1_IRQHandler(void){
@@ -79,7 +79,7 @@ comm.c(867): warning: cast from 'volatile unsigned char *' to 'unsigned char *' 
 3 warnings generated.
 compiling comm.c...
 linking...
-Program Size: Code=5428 RO-data=208 RW-data=0 ZI-data=1880  
+Program Size: Code=5768 RO-data=208 RW-data=0 ZI-data=1888  
 ".\Objects\stm32g030_smart_sevensegment_driver.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -106,10 +106,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:6.1.0
 
    * Component: Keil::Device:Startup:1.4.2
-      Source file:   MDK\Device\Source\ARM\STM32G0x0_SB_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32G0xx\Source\Templates\arm\startup_stm32g030xx.s
-      Source file:   MDK\Device\Source\ARM\STM32G0x0_DB_OPT.s
       Include file:  Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g0xx.h
+      Source file:   MDK\Device\Source\ARM\STM32G0x0_DB_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32G0x0_SB_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32G0xx\Source\Templates\system_stm32g0xx.c
 Build Time Elapsed:  00:00:01
 </pre>

@@ -16,23 +16,33 @@ CRC16        : 2 Byte
 
 
 enum{
-	CMD_WRITE_REG                = 0x00U,
-	CMD_READ_REG                 = 0x01U
+	PROTOCOL_CMD_WRITE_REG                    = 0x00U,
+	PROTOCOL_CMD_READ_REG                     = 0x01U
 };
 
 enum{
-	REG_DISPLAY_STATUS           = 0x00U,
-	REG_FUNC_ENABLE              = 0x01U,
-	REG_DIGIT_SINGLE             = 0x02U,
-	REG_DIGIT_MULTIPLE           = 0x03U,
-	REG_DECIMAL_POINTS_SINGLE    = 0x04U,
-	REG_DECIMAL_POINTS_MULTIPLE  = 0x05U,
-	REG_MANUAL_BRGHTNSS_VAL      = 0x06U,
-	REG_AUTO_BRGHTNSS_ADC_VAL    = 0x07U,
-	REG_AUTO_BRGHTNSS_SLOPE_ADCH = 0x08U,
-	REG_AUTO_BRGHTNSS_SLOPE_ADCL = 0x09U,
-	REG_AUTO_BRGHTNSS_SLOPE_VALH = 0x0AU,
-	REG_AUTO_BRGHTNSS_SLOPE_VALL = 0x0BU,
+	PROTOCOL_ERROR_NO_ERROR                   = 0x00,
+	PROTOCOL_ERROR_CRC_MISMATCH               = 0x01,
+	PROTOCOL_ERROR_INVALID_CMD                = 0x02,
+	PROTOCOL_ERROR_LEN_MISMATCH               = 0x04,
+	PROTOCOL_ERROR_HEADER_MISMATCH            = 0x08,
+	PROTOCOL_ERROR_DATA_OUT_OF_RANGE          = 0x10,
+	PROTOCOL_ERROR_INVALID_PARAMETER          = 0x20
+};
+
+enum{
+	PROTOCOL_REG_DISPLAY_STATUS               = 0x00U,
+	PROTOCOL_REG_FUNC_ENABLE                  = 0x01U,
+	PROTOCOL_REG_DIGIT_SINGLE                 = 0x02U,
+	PROTOCOL_REG_DIGIT_MULTIPLE               = 0x03U,
+	PROTOCOL_REG_DECIMAL_POINTS_SINGLE        = 0x04U,
+	PROTOCOL_REG_DECIMAL_POINTS_MULTIPLE      = 0x05U,
+	PROTOCOL_REG_MANUAL_BRGHTNSS_VAL          = 0x06U,
+	PROTOCOL_REG_AUTO_BRGHTNSS_ADC_VAL        = 0x07U,
+	PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_ADCH     = 0x08U,
+	PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_ADCL     = 0x09U,
+	PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_VALH     = 0x0AU,
+	PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_VALL     = 0x0BU,
 };
 
 
@@ -62,6 +72,8 @@ void     Protocol_Response_Decimal_Point_Multiple(uint8_t cmd, uint8_t data1, ui
 void     Protocol_Response_Manual_Brightness(uint8_t cmd, uint8_t data);
 void     Protocol_Response_Auto_Brightness_ADC(uint8_t cmd);
 
+void     Protocol_Error_Check(void);
+void     Protocol_Disassemble_Packet(void);
 void     Protocol_Response_Mainloop(void);
 
 void     Protocol_Init(void);

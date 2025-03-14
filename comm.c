@@ -877,42 +877,7 @@ void COMM_RX_Packet_CRC_Check(void){
 }
 
 void COMM_RX_Packet_Disassemble(void){
-	if(COMM.Buf[3] == REG_DISPLAY_STATUS){
-	  Protocol_Response_Display_Status(COMM.Buf[2]);
-	}
-	else if(COMM.Buf[3] == REG_FUNC_ENABLE){
-		Protocol_Response_Function_Enable(COMM.Buf[2], COMM.Buf[4]);
-	}
-	else if(COMM.Buf[3] == REG_DIGIT_SINGLE){
-		Protocol_Response_Digit_Single(COMM.Buf[2], COMM.Buf[4], COMM.Buf[5]);
-	}
-	else if(COMM.Buf[3] == REG_DIGIT_MULTIPLE){
-		Protocol_Response_Digit_Multiple(COMM.Buf[2], COMM.Buf[4], COMM.Buf[5], COMM.Buf[6], COMM.Buf[7]);
-	}
-	else if(COMM.Buf[3] == REG_DECIMAL_POINTS_SINGLE){
-		Protocol_Response_Decimal_Point_Single(COMM.Buf[2], COMM.Buf[4], COMM.Buf[5]);
-	}
-	else if(COMM.Buf[3] == REG_DECIMAL_POINTS_MULTIPLE){
-	  Protocol_Response_Decimal_Point_Multiple(COMM.Buf[2], COMM.Buf[4], COMM.Buf[5], COMM.Buf[6], COMM.Buf[7]);
-	}
-	else if(COMM.Buf[3] == REG_MANUAL_BRGHTNSS_VAL){
-		Protocol_Response_Manual_Brightness(COMM.Buf[2], COMM.Buf[4]);
-	}
-	else if(COMM.Buf[3] == REG_AUTO_BRGHTNSS_ADC_VAL){
-	  Protocol_Response_Auto_Brightness_ADC(COMM.Buf[2]);
-	}
-	else if(COMM.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_ADCH){
-	  
-	}
-	else if(COMM.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_ADCL){
-	  
-	}
-	else if(COMM.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_VALH){
-	  
-	}
-	else if(COMM.Buf[3] == REG_AUTO_BRGHTNSS_SLOPE_VALL){
-	  
-	}
+	Protocol_Disassemble_Packet();
 }
 
 
