@@ -388,6 +388,11 @@ void Protocol_Disassemble_Packet(void){
 
 
 void Protocol_Response_Mainloop(void){
+	
+	if(COMM_Data_CRC_Status_Get() == FALSE){
+		COMM_RX_Packet_Read_Complete();
+	}
+	
 	if( (Protocol.RxPacket.AckReturn == TRUE) || (Protocol.RxPacket.NackReturn == TRUE)){
 		Protocol_Build_Ack_Nack_Packet();
 		Protocol_Transmit_Packet();

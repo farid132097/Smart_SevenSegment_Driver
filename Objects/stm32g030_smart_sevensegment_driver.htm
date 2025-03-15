@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\stm32g030_smart_sevensegment_driver.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\stm32g030_smart_sevensegment_driver.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Sat Mar 15 12:55:12 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Sat Mar 15 16:42:56 2025
 <BR><P>
 <H3>Maximum Stack Usage =        112 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -407,6 +407,7 @@ Global Symbols
 
 <P><STRONG><a name="[5d]"></a>COMM_Data_CRC_Status_Get</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, comm.o(.text.COMM_Data_CRC_Status_Get))
 <BR><BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Error_Check
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Response_Mainloop
 </UL>
 
 <P><STRONG><a name="[5e]"></a>COMM_Data_Len_Get</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, comm.o(.text.COMM_Data_Len_Get))
@@ -422,10 +423,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[3e]"></a>COMM_RX_Packet_Read_Complete</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, comm.o(.text.COMM_RX_Packet_Read_Complete))
-<BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Mainloop
+<BR><BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Response_Mainloop
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Mainloop
 </UL>
 
-<P><STRONG><a name="[40]"></a>COMM_Timer_ISR_Handler</STRONG> (Thumb, 256 bytes, Stack size 40 bytes, comm.o(.text.COMM_Timer_ISR_Handler))
+<P><STRONG><a name="[40]"></a>COMM_Timer_ISR_Handler</STRONG> (Thumb, 216 bytes, Stack size 40 bytes, comm.o(.text.COMM_Timer_ISR_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = COMM_Timer_ISR_Handler &rArr; Protocol_Disassemble_Packet &rArr; Protocol_Response_Decimal_Point_Multiple &rArr; SevenSegment_Set_Dp
 </UL>
 <BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Disassemble_Packet
@@ -593,16 +595,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Disassemble_Packet
 </UL>
 
-<P><STRONG><a name="[3d]"></a>Protocol_Response_Mainloop</STRONG> (Thumb, 324 bytes, Stack size 24 bytes, protocol.o(.text.Protocol_Response_Mainloop))
+<P><STRONG><a name="[3d]"></a>Protocol_Response_Mainloop</STRONG> (Thumb, 336 bytes, Stack size 24 bytes, protocol.o(.text.Protocol_Response_Mainloop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = Protocol_Response_Mainloop &rArr; Protocol_Build_Auto_Brightness_ADC_Val_Packet &rArr; COMM_CRC_Calculate_Block
 </UL>
-<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Tx_Buf
+<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Data_CRC_Status_Get
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Tx_Buf
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Build_Auto_Brightness_ADC_Val_Packet
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Build_Manual_Brightness_Val_Packet
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Build_Status_Packet
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_CRC_Calculate_Block
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LDR_Automic_Brightness_Sts_Get
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SevenSegment_Display_Enable_Sts
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_RX_Packet_Read_Complete
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Mainloop
 </UL>
