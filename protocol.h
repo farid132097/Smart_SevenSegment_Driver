@@ -5,6 +5,7 @@
 
 #include "stm32g030xx.h"
 
+
 /*
 Frame Format : Header (1 byte), Len (1 byte), CMD (1 byte), Reg (1 Byte), Data, CRC16 (2 byte)
 Header       : 1 Byte (Master 0xA5, Slave 0x5A)
@@ -17,7 +18,9 @@ CRC16        : 2 Byte
 
 enum{
 	PROTOCOL_CMD_WRITE_REG                    = 0x00U,
-	PROTOCOL_CMD_READ_REG                     = 0x01U
+	PROTOCOL_CMD_READ_REG                     = 0x01U,
+	PROTOCOL_HEADER_MASTER                    = 0xA5U,
+	PROTOCOL_HEADER_SLAVE                     = 0x5AU
 };
 
 enum{
@@ -50,8 +53,7 @@ void     Protocol_Struct_Init(void);
 
 uint8_t  Protocol_Disp_Sts_Get(void);
 
-void     Protocol_Build_Ack_Packet(void);
-void     Protocol_Build_Nack_Packet(void);
+void     Protocol_Build_Ack_Nack_Packet(void);
 void     Protocol_Build_Status_Packet(void);
 void     Protocol_Build_Func_En_Packet(void);
 void     Protocol_Build_Manual_Brightness_Val_Packet(void);
