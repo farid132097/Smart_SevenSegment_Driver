@@ -167,6 +167,22 @@ Section Cross References
     protocol.o(.text.Protocol_Build_Func_En_Packet) refers to comm.o(.text.COMM_CRC_Calculate_Block) for COMM_CRC_Calculate_Block
     protocol.o(.text.Protocol_Build_Func_En_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Build_Func_En_Packet) refers to protocol.o(.text.Protocol_Build_Func_En_Packet) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Build_Digit_Single_Packet) refers to sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get) for SevenSegment_Segment_Char_Values_Get
+    protocol.o(.text.Protocol_Build_Digit_Single_Packet) refers to comm.o(.text.COMM_CRC_Calculate_Block) for COMM_CRC_Calculate_Block
+    protocol.o(.text.Protocol_Build_Digit_Single_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Build_Digit_Single_Packet) refers to protocol.o(.text.Protocol_Build_Digit_Single_Packet) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Build_Digit_Multiple_Packet) refers to sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get) for SevenSegment_Segment_Char_Values_Get
+    protocol.o(.text.Protocol_Build_Digit_Multiple_Packet) refers to comm.o(.text.COMM_CRC_Calculate_Block) for COMM_CRC_Calculate_Block
+    protocol.o(.text.Protocol_Build_Digit_Multiple_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Build_Digit_Multiple_Packet) refers to protocol.o(.text.Protocol_Build_Digit_Multiple_Packet) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Build_Dp_Single_Packet) refers to sevensegment.o(.text.SevenSegment_Dp_Values_Get) for SevenSegment_Dp_Values_Get
+    protocol.o(.text.Protocol_Build_Dp_Single_Packet) refers to comm.o(.text.COMM_CRC_Calculate_Block) for COMM_CRC_Calculate_Block
+    protocol.o(.text.Protocol_Build_Dp_Single_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Build_Dp_Single_Packet) refers to protocol.o(.text.Protocol_Build_Dp_Single_Packet) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Build_Dp_Multiple_Packet) refers to sevensegment.o(.text.SevenSegment_Dp_Values_Get) for SevenSegment_Dp_Values_Get
+    protocol.o(.text.Protocol_Build_Dp_Multiple_Packet) refers to comm.o(.text.COMM_CRC_Calculate_Block) for COMM_CRC_Calculate_Block
+    protocol.o(.text.Protocol_Build_Dp_Multiple_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
+    protocol.o(.ARM.exidx.text.Protocol_Build_Dp_Multiple_Packet) refers to protocol.o(.text.Protocol_Build_Dp_Multiple_Packet) for [Anonymous Symbol]
     protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet) refers to ldr.o(.text.LDR_Manual_Brightness_Get) for LDR_Manual_Brightness_Get
     protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet) refers to comm.o(.text.COMM_CRC_Calculate_Block) for COMM_CRC_Calculate_Block
     protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
@@ -182,29 +198,37 @@ Section Cross References
     protocol.o(.text.Protocol_Transmit_Packet) refers to comm.o(.text.COMM_Tx_Buf) for COMM_Tx_Buf
     protocol.o(.text.Protocol_Transmit_Packet) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Transmit_Packet) refers to protocol.o(.text.Protocol_Transmit_Packet) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Display_Status) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Display_Status) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Display_Status) refers to protocol.o(.text.Protocol_Response_Display_Status) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Function_Enable) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Function_Enable) refers to sevensegment.o(.text.SevenSegment_Display_Disable) for SevenSegment_Display_Disable
     protocol.o(.text.Protocol_Response_Function_Enable) refers to ldr.o(.text.LDR_Automic_Brightness_On) for LDR_Automic_Brightness_On
     protocol.o(.text.Protocol_Response_Function_Enable) refers to sevensegment.o(.text.SevenSegment_Display_Enable) for SevenSegment_Display_Enable
     protocol.o(.text.Protocol_Response_Function_Enable) refers to ldr.o(.text.LDR_Automic_Brightness_Off) for LDR_Automic_Brightness_Off
     protocol.o(.text.Protocol_Response_Function_Enable) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Function_Enable) refers to protocol.o(.text.Protocol_Response_Function_Enable) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Digit_Single) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Digit_Single) refers to sevensegment.o(.text.SevenSegment_Set_Value) for SevenSegment_Set_Value
     protocol.o(.text.Protocol_Response_Digit_Single) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Digit_Single) refers to protocol.o(.text.Protocol_Response_Digit_Single) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Digit_Multiple) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Digit_Multiple) refers to sevensegment.o(.text.SevenSegment_Set_Value) for SevenSegment_Set_Value
     protocol.o(.text.Protocol_Response_Digit_Multiple) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Digit_Multiple) refers to protocol.o(.text.Protocol_Response_Digit_Multiple) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Decimal_Point_Single) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Decimal_Point_Single) refers to sevensegment.o(.text.SevenSegment_Set_Dp) for SevenSegment_Set_Dp
     protocol.o(.text.Protocol_Response_Decimal_Point_Single) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Decimal_Point_Single) refers to protocol.o(.text.Protocol_Response_Decimal_Point_Single) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) refers to sevensegment.o(.text.SevenSegment_Set_Dp) for SevenSegment_Set_Dp
     protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Decimal_Point_Multiple) refers to protocol.o(.text.Protocol_Response_Decimal_Point_Multiple) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Manual_Brightness) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Manual_Brightness) refers to ldr.o(.text.LDR_Manual_Brightness_Set) for LDR_Manual_Brightness_Set
     protocol.o(.text.Protocol_Response_Manual_Brightness) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Manual_Brightness) refers to protocol.o(.text.Protocol_Response_Manual_Brightness) for [Anonymous Symbol]
+    protocol.o(.text.Protocol_Response_Auto_Brightness_ADC) refers to comm.o(.text.COMM_Buf_Get) for COMM_Buf_Get
     protocol.o(.text.Protocol_Response_Auto_Brightness_ADC) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Response_Auto_Brightness_ADC) refers to protocol.o(.text.Protocol_Response_Auto_Brightness_ADC) for [Anonymous Symbol]
     protocol.o(.text.Protocol_Error_Check) refers to comm.o(.text.COMM_Data_CRC_Status_Get) for COMM_Data_CRC_Status_Get
@@ -230,6 +254,10 @@ Section Cross References
     protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Transmit_Packet) for Protocol_Transmit_Packet
     protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Status_Packet) for Protocol_Build_Status_Packet
     protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Func_En_Packet) for Protocol_Build_Func_En_Packet
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Digit_Single_Packet) for Protocol_Build_Digit_Single_Packet
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Digit_Multiple_Packet) for Protocol_Build_Digit_Multiple_Packet
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Dp_Single_Packet) for Protocol_Build_Dp_Single_Packet
+    protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Dp_Multiple_Packet) for Protocol_Build_Dp_Multiple_Packet
     protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet) for Protocol_Build_Manual_Brightness_Val_Packet
     protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet) for Protocol_Build_Auto_Brightness_ADC_Val_Packet
     protocol.o(.text.Protocol_Response_Mainloop) refers to protocol.o(.bss.Protocol) for [Anonymous Symbol]
@@ -648,6 +676,10 @@ Removing Unused input sections from the image.
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Ack_Nack_Packet), (8 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Status_Packet), (8 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Func_En_Packet), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Build_Digit_Single_Packet), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Build_Digit_Multiple_Packet), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Build_Dp_Single_Packet), (8 bytes).
+    Removing protocol.o(.ARM.exidx.text.Protocol_Build_Dp_Multiple_Packet), (8 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Manual_Brightness_Val_Packet), (8 bytes).
     Removing protocol.o(.ARM.exidx.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet), (8 bytes).
     Removing protocol.o(.text.Protocol_Build_Auto_Brightness_Slope_ADCH_Packet), (2 bytes).
@@ -796,7 +828,7 @@ Removing Unused input sections from the image.
     Removing system_stm32g0xx.o(.rodata.AHBPrescTable), (64 bytes).
     Removing system_stm32g0xx.o(.rodata.APBPrescTable), (32 bytes).
 
-218 unused section(s) (total 2372 bytes) removed from the image.
+222 unused section(s) (total 2404 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1017,96 +1049,106 @@ Image Symbol Table
     __arm_cp.0_0                             0x08000918   Number         4  lpf.o(.text.LPF_Struct_Init)
     [Anonymous Symbol]                       0x0800091c   Section        0  protocol.o(.text.Protocol_Build_Ack_Nack_Packet)
     [Anonymous Symbol]                       0x0800094c   Section        0  protocol.o(.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet)
-    [Anonymous Symbol]                       0x0800098c   Section        0  protocol.o(.text.Protocol_Build_Func_En_Packet)
-    [Anonymous Symbol]                       0x080009c4   Section        0  protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet)
-    [Anonymous Symbol]                       0x080009fc   Section        0  protocol.o(.text.Protocol_Build_Status_Packet)
-    [Anonymous Symbol]                       0x08000a6c   Section        0  protocol.o(.text.Protocol_Disassemble_Packet)
-    [Anonymous Symbol]                       0x08000b9c   Section        0  protocol.o(.text.Protocol_Disp_Sts_Get)
-    [Anonymous Symbol]                       0x08000bb0   Section        0  protocol.o(.text.Protocol_Error_Check)
-    [Anonymous Symbol]                       0x08000c10   Section        0  protocol.o(.text.Protocol_Init)
-    [Anonymous Symbol]                       0x08000c18   Section        0  protocol.o(.text.Protocol_Response_Auto_Brightness_ADC)
-    [Anonymous Symbol]                       0x08000c34   Section        0  protocol.o(.text.Protocol_Response_Decimal_Point_Multiple)
-    [Anonymous Symbol]                       0x08000c8c   Section        0  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
-    __arm_cp.16_0                            0x08000cc0   Number         4  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
-    [Anonymous Symbol]                       0x08000cc4   Section        0  protocol.o(.text.Protocol_Response_Digit_Multiple)
-    __arm_cp.15_0                            0x08000d1c   Number         4  protocol.o(.text.Protocol_Response_Digit_Multiple)
-    [Anonymous Symbol]                       0x08000d20   Section        0  protocol.o(.text.Protocol_Response_Digit_Single)
-    __arm_cp.14_0                            0x08000d54   Number         4  protocol.o(.text.Protocol_Response_Digit_Single)
-    [Anonymous Symbol]                       0x08000d58   Section        0  protocol.o(.text.Protocol_Response_Display_Status)
-    __arm_cp.12_0                            0x08000d78   Number         4  protocol.o(.text.Protocol_Response_Display_Status)
-    [Anonymous Symbol]                       0x08000d7c   Section        0  protocol.o(.text.Protocol_Response_Function_Enable)
-    __arm_cp.13_0                            0x08000dc8   Number         4  protocol.o(.text.Protocol_Response_Function_Enable)
-    [Anonymous Symbol]                       0x08000dcc   Section        0  protocol.o(.text.Protocol_Response_Mainloop)
-    [Anonymous Symbol]                       0x08000e9c   Section        0  protocol.o(.text.Protocol_Response_Manual_Brightness)
-    [Anonymous Symbol]                       0x08000ed0   Section        0  protocol.o(.text.Protocol_Struct_Init)
-    [Anonymous Symbol]                       0x08000f24   Section        0  protocol.o(.text.Protocol_Transmit_Packet)
-    __arm_cp.11_0                            0x08000f34   Number         4  protocol.o(.text.Protocol_Transmit_Packet)
-    [Anonymous Symbol]                       0x08000f38   Section        0  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    __arm_cp.11_0                            0x0800100c   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    __arm_cp.11_1                            0x08001010   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    __arm_cp.11_2                            0x08001014   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    [Anonymous Symbol]                       0x08001018   Section        0  sevensegment.o(.text.SevenSegment_Assign_Digit_Value)
-    [Anonymous Symbol]                       0x08001028   Section        0  sevensegment.o(.text.SevenSegment_Assign_Segment_Value)
-    [Anonymous Symbol]                       0x08001044   Section        0  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
-    __arm_cp.7_1                             0x08001080   Number         4  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
-    __arm_cp.7_2                             0x08001084   Number         4  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
-    __arm_cp.7_3                             0x08001088   Number         4  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
-    [Anonymous Symbol]                       0x0800108c   Section        0  sevensegment.o(.text.SevenSegment_Brightness_Handler)
-    [Anonymous Symbol]                       0x080010ec   Section        0  sevensegment.o(.text.SevenSegment_Display_Disable)
-    [Anonymous Symbol]                       0x080010f8   Section        0  sevensegment.o(.text.SevenSegment_Display_Enable)
-    [Anonymous Symbol]                       0x08001104   Section        0  sevensegment.o(.text.SevenSegment_Display_Enable_Sts)
-    [Anonymous Symbol]                       0x0800110c   Section        0  sevensegment.o(.text.SevenSegment_Dp_Byte_Get)
-    [Anonymous Symbol]                       0x08001138   Section        0  sevensegment.o(.text.SevenSegment_Dp_Values_Get)
-    [Anonymous Symbol]                       0x08001140   Section        0  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_0                             0x08001294   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_1                             0x08001298   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_2                             0x0800129c   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    __arm_cp.1_3                             0x080012a0   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    [Anonymous Symbol]                       0x080012a4   Section        0  sevensegment.o(.text.SevenSegment_ISR_Executables)
-    [Anonymous Symbol]                       0x080012ac   Section        0  sevensegment.o(.text.SevenSegment_Init)
-    __arm_cp.24_0                            0x080012c4   Number         4  sevensegment.o(.text.SevenSegment_Init)
-    [Anonymous Symbol]                       0x080012c8   Section        0  sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get)
-    [Anonymous Symbol]                       0x080012d0   Section        0  sevensegment.o(.text.SevenSegment_Set_Brightness)
-    [Anonymous Symbol]                       0x080012f4   Section        0  sevensegment.o(.text.SevenSegment_Set_Dp)
-    [Anonymous Symbol]                       0x08001324   Section        0  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
-    __arm_cp.9_0                             0x08001334   Number         4  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
-    [Anonymous Symbol]                       0x08001338   Section        0  sevensegment.o(.text.SevenSegment_Set_Value)
-    __arm_cp.15_0                            0x0800135c   Number         4  sevensegment.o(.text.SevenSegment_Set_Value)
-    segment_val                              0x08001360   Number         0  sevensegment.o(.text.SevenSegment_Set_Value)
-    [Anonymous Symbol]                       0x08001378   Section        0  sevensegment.o(.text.SevenSegment_Struct_Init)
-    __arm_cp.0_0                             0x080013b0   Number         4  sevensegment.o(.text.SevenSegment_Struct_Init)
-    [Anonymous Symbol]                       0x080013b4   Section        0  sevensegment.o(.text.SevenSegment_Timer_Init)
-    __arm_cp.2_0                             0x080013f0   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
-    __arm_cp.2_1                             0x080013f4   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
-    __arm_cp.2_2                             0x080013f8   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
-    [Anonymous Symbol]                       0x080013fc   Section        0  system_stm32g0xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08001400   Section        0  sevensegment.o(.text.TIM14_IRQHandler)
-    __arm_cp.5_0                             0x08001414   Number         4  sevensegment.o(.text.TIM14_IRQHandler)
-    [Anonymous Symbol]                       0x08001418   Section        0  comm.o(.text.TIM16_IRQHandler)
-    [Anonymous Symbol]                       0x08001420   Section        0  sevensegment.o(.text.TIM17_IRQHandler)
-    __arm_cp.8_0                             0x08001434   Number         4  sevensegment.o(.text.TIM17_IRQHandler)
-    [Anonymous Symbol]                       0x08001438   Section        0  comm.o(.text.USART1_IRQHandler)
-    [Anonymous Symbol]                       0x08001440   Section        0  wdt.o(.text.WDT_Init)
-    __arm_cp.0_0                             0x08001480   Number         4  wdt.o(.text.WDT_Init)
-    __arm_cp.0_2                             0x08001484   Number         4  wdt.o(.text.WDT_Init)
-    __arm_cp.0_3                             0x08001488   Number         4  wdt.o(.text.WDT_Init)
-    [Anonymous Symbol]                       0x0800148c   Section        0  wdt.o(.text.WDT_Reload)
-    __arm_cp.1_0                             0x0800149c   Number         4  wdt.o(.text.WDT_Reload)
-    __arm_cp.1_1                             0x080014a0   Number         4  wdt.o(.text.WDT_Reload)
-    __NVIC_EnableIRQ                         0x080014a5   Thumb Code    16  sevensegment.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x080014a4   Section        0  sevensegment.o(.text.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x080014b5   Thumb Code    16  comm.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x080014b4   Section        0  comm.o(.text.__NVIC_EnableIRQ)
-    __arm_cp.8_0                             0x080014c4   Number         4  comm.o(.text.__NVIC_EnableIRQ)
-    __NVIC_SetPriority                       0x080014c9   Thumb Code    36  sevensegment.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x080014c8   Section        0  sevensegment.o(.text.__NVIC_SetPriority)
-    __NVIC_SetPriority                       0x080014ed   Thumb Code    36  comm.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x080014ec   Section        0  comm.o(.text.__NVIC_SetPriority)
-    __arm_cp.9_0                             0x08001510   Number         4  comm.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08001514   Section        0  main.o(.text.main)
-    __arm_cp.0_0                             0x08001530   Number         4  main.o(.text.main)
-    __arm_cp.0_1                             0x08001534   Number         4  main.o(.text.main)
-    .text_divfast                            0x08001538   Section      502  aeabi_sdivfast.o(.text_divfast)
+    [Anonymous Symbol]                       0x0800098c   Section        0  protocol.o(.text.Protocol_Build_Digit_Multiple_Packet)
+    [Anonymous Symbol]                       0x080009dc   Section        0  protocol.o(.text.Protocol_Build_Digit_Single_Packet)
+    [Anonymous Symbol]                       0x08000a18   Section        0  protocol.o(.text.Protocol_Build_Dp_Multiple_Packet)
+    [Anonymous Symbol]                       0x08000a68   Section        0  protocol.o(.text.Protocol_Build_Dp_Single_Packet)
+    [Anonymous Symbol]                       0x08000aa4   Section        0  protocol.o(.text.Protocol_Build_Func_En_Packet)
+    [Anonymous Symbol]                       0x08000adc   Section        0  protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet)
+    [Anonymous Symbol]                       0x08000b14   Section        0  protocol.o(.text.Protocol_Build_Status_Packet)
+    [Anonymous Symbol]                       0x08000b84   Section        0  protocol.o(.text.Protocol_Disassemble_Packet)
+    __arm_cp.25_0                            0x08000cb4   Number         4  protocol.o(.text.Protocol_Disassemble_Packet)
+    [Anonymous Symbol]                       0x08000cb8   Section        0  protocol.o(.text.Protocol_Disp_Sts_Get)
+    [Anonymous Symbol]                       0x08000ccc   Section        0  protocol.o(.text.Protocol_Error_Check)
+    __arm_cp.24_0                            0x08000d2c   Number         4  protocol.o(.text.Protocol_Error_Check)
+    [Anonymous Symbol]                       0x08000d30   Section        0  protocol.o(.text.Protocol_Init)
+    [Anonymous Symbol]                       0x08000d38   Section        0  protocol.o(.text.Protocol_Response_Auto_Brightness_ADC)
+    __arm_cp.23_0                            0x08000d64   Number         4  protocol.o(.text.Protocol_Response_Auto_Brightness_ADC)
+    [Anonymous Symbol]                       0x08000d68   Section        0  protocol.o(.text.Protocol_Response_Decimal_Point_Multiple)
+    __arm_cp.21_0                            0x08000e04   Number         4  protocol.o(.text.Protocol_Response_Decimal_Point_Multiple)
+    [Anonymous Symbol]                       0x08000e08   Section        0  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
+    __arm_cp.20_0                            0x08000e74   Number         4  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
+    [Anonymous Symbol]                       0x08000e78   Section        0  protocol.o(.text.Protocol_Response_Digit_Multiple)
+    __arm_cp.19_0                            0x08000f10   Number         4  protocol.o(.text.Protocol_Response_Digit_Multiple)
+    [Anonymous Symbol]                       0x08000f14   Section        0  protocol.o(.text.Protocol_Response_Digit_Single)
+    __arm_cp.18_0                            0x08000f80   Number         4  protocol.o(.text.Protocol_Response_Digit_Single)
+    [Anonymous Symbol]                       0x08000f84   Section        0  protocol.o(.text.Protocol_Response_Display_Status)
+    [Anonymous Symbol]                       0x08000fbc   Section        0  protocol.o(.text.Protocol_Response_Function_Enable)
+    __arm_cp.17_0                            0x08001028   Number         4  protocol.o(.text.Protocol_Response_Function_Enable)
+    [Anonymous Symbol]                       0x0800102c   Section        0  protocol.o(.text.Protocol_Response_Mainloop)
+    __arm_cp.26_0                            0x0800111c   Number         4  protocol.o(.text.Protocol_Response_Mainloop)
+    [Anonymous Symbol]                       0x08001120   Section        0  protocol.o(.text.Protocol_Response_Manual_Brightness)
+    __arm_cp.22_0                            0x08001184   Number         4  protocol.o(.text.Protocol_Response_Manual_Brightness)
+    [Anonymous Symbol]                       0x08001188   Section        0  protocol.o(.text.Protocol_Struct_Init)
+    __arm_cp.0_0                             0x080011e0   Number         4  protocol.o(.text.Protocol_Struct_Init)
+    [Anonymous Symbol]                       0x080011e4   Section        0  protocol.o(.text.Protocol_Transmit_Packet)
+    __arm_cp.15_0                            0x080011f4   Number         4  protocol.o(.text.Protocol_Transmit_Packet)
+    [Anonymous Symbol]                       0x080011f8   Section        0  sevensegment.o(.text.SevenSegment_Activate_Digit)
+    __arm_cp.11_0                            0x080012cc   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
+    __arm_cp.11_1                            0x080012d0   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
+    __arm_cp.11_2                            0x080012d4   Number         4  sevensegment.o(.text.SevenSegment_Activate_Digit)
+    [Anonymous Symbol]                       0x080012d8   Section        0  sevensegment.o(.text.SevenSegment_Assign_Digit_Value)
+    [Anonymous Symbol]                       0x080012e8   Section        0  sevensegment.o(.text.SevenSegment_Assign_Segment_Value)
+    [Anonymous Symbol]                       0x08001304   Section        0  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
+    __arm_cp.7_1                             0x08001340   Number         4  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
+    __arm_cp.7_2                             0x08001344   Number         4  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
+    __arm_cp.7_3                             0x08001348   Number         4  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
+    [Anonymous Symbol]                       0x0800134c   Section        0  sevensegment.o(.text.SevenSegment_Brightness_Handler)
+    [Anonymous Symbol]                       0x080013ac   Section        0  sevensegment.o(.text.SevenSegment_Display_Disable)
+    [Anonymous Symbol]                       0x080013b8   Section        0  sevensegment.o(.text.SevenSegment_Display_Enable)
+    [Anonymous Symbol]                       0x080013c4   Section        0  sevensegment.o(.text.SevenSegment_Display_Enable_Sts)
+    [Anonymous Symbol]                       0x080013cc   Section        0  sevensegment.o(.text.SevenSegment_Dp_Byte_Get)
+    [Anonymous Symbol]                       0x080013f8   Section        0  sevensegment.o(.text.SevenSegment_Dp_Values_Get)
+    [Anonymous Symbol]                       0x08001400   Section        0  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_0                             0x08001554   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_1                             0x08001558   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_2                             0x0800155c   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    __arm_cp.1_3                             0x08001560   Number         4  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    [Anonymous Symbol]                       0x08001564   Section        0  sevensegment.o(.text.SevenSegment_ISR_Executables)
+    [Anonymous Symbol]                       0x0800156c   Section        0  sevensegment.o(.text.SevenSegment_Init)
+    __arm_cp.24_0                            0x08001584   Number         4  sevensegment.o(.text.SevenSegment_Init)
+    [Anonymous Symbol]                       0x08001588   Section        0  sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get)
+    [Anonymous Symbol]                       0x08001590   Section        0  sevensegment.o(.text.SevenSegment_Set_Brightness)
+    [Anonymous Symbol]                       0x080015b4   Section        0  sevensegment.o(.text.SevenSegment_Set_Dp)
+    [Anonymous Symbol]                       0x080015e4   Section        0  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
+    __arm_cp.9_0                             0x080015f4   Number         4  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
+    [Anonymous Symbol]                       0x080015f8   Section        0  sevensegment.o(.text.SevenSegment_Set_Value)
+    __arm_cp.15_0                            0x0800161c   Number         4  sevensegment.o(.text.SevenSegment_Set_Value)
+    segment_val                              0x08001620   Number         0  sevensegment.o(.text.SevenSegment_Set_Value)
+    [Anonymous Symbol]                       0x08001638   Section        0  sevensegment.o(.text.SevenSegment_Struct_Init)
+    __arm_cp.0_0                             0x08001670   Number         4  sevensegment.o(.text.SevenSegment_Struct_Init)
+    [Anonymous Symbol]                       0x08001674   Section        0  sevensegment.o(.text.SevenSegment_Timer_Init)
+    __arm_cp.2_0                             0x080016b0   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
+    __arm_cp.2_1                             0x080016b4   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
+    __arm_cp.2_2                             0x080016b8   Number         4  sevensegment.o(.text.SevenSegment_Timer_Init)
+    [Anonymous Symbol]                       0x080016bc   Section        0  system_stm32g0xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x080016c0   Section        0  sevensegment.o(.text.TIM14_IRQHandler)
+    __arm_cp.5_0                             0x080016d4   Number         4  sevensegment.o(.text.TIM14_IRQHandler)
+    [Anonymous Symbol]                       0x080016d8   Section        0  comm.o(.text.TIM16_IRQHandler)
+    [Anonymous Symbol]                       0x080016e0   Section        0  sevensegment.o(.text.TIM17_IRQHandler)
+    __arm_cp.8_0                             0x080016f4   Number         4  sevensegment.o(.text.TIM17_IRQHandler)
+    [Anonymous Symbol]                       0x080016f8   Section        0  comm.o(.text.USART1_IRQHandler)
+    [Anonymous Symbol]                       0x08001700   Section        0  wdt.o(.text.WDT_Init)
+    __arm_cp.0_0                             0x08001740   Number         4  wdt.o(.text.WDT_Init)
+    __arm_cp.0_2                             0x08001744   Number         4  wdt.o(.text.WDT_Init)
+    __arm_cp.0_3                             0x08001748   Number         4  wdt.o(.text.WDT_Init)
+    [Anonymous Symbol]                       0x0800174c   Section        0  wdt.o(.text.WDT_Reload)
+    __arm_cp.1_0                             0x0800175c   Number         4  wdt.o(.text.WDT_Reload)
+    __arm_cp.1_1                             0x08001760   Number         4  wdt.o(.text.WDT_Reload)
+    __NVIC_EnableIRQ                         0x08001765   Thumb Code    16  sevensegment.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08001764   Section        0  sevensegment.o(.text.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x08001775   Thumb Code    16  comm.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08001774   Section        0  comm.o(.text.__NVIC_EnableIRQ)
+    __arm_cp.8_0                             0x08001784   Number         4  comm.o(.text.__NVIC_EnableIRQ)
+    __NVIC_SetPriority                       0x08001789   Thumb Code    36  sevensegment.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08001788   Section        0  sevensegment.o(.text.__NVIC_SetPriority)
+    __NVIC_SetPriority                       0x080017ad   Thumb Code    36  comm.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x080017ac   Section        0  comm.o(.text.__NVIC_SetPriority)
+    __arm_cp.9_0                             0x080017d0   Number         4  comm.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x080017d4   Section        0  main.o(.text.main)
+    __arm_cp.0_0                             0x080017f0   Number         4  main.o(.text.main)
+    __arm_cp.0_1                             0x080017f4   Number         4  main.o(.text.main)
+    .text_divfast                            0x080017f8   Section      502  aeabi_sdivfast.o(.text_divfast)
     .bss                                     0x20000000   Section       96  libspace.o(.bss)
     COMM                                     0x20000060   Data          90  comm.o(.bss.COMM)
     [Anonymous Symbol]                       0x20000060   Section        0  comm.o(.bss.COMM)
@@ -1317,56 +1359,60 @@ Image Symbol Table
     LPF_Struct_Init                          0x08000901   Thumb Code    24  lpf.o(.text.LPF_Struct_Init)
     Protocol_Build_Ack_Nack_Packet           0x0800091d   Thumb Code    48  protocol.o(.text.Protocol_Build_Ack_Nack_Packet)
     Protocol_Build_Auto_Brightness_ADC_Val_Packet 0x0800094d   Thumb Code    64  protocol.o(.text.Protocol_Build_Auto_Brightness_ADC_Val_Packet)
-    Protocol_Build_Func_En_Packet            0x0800098d   Thumb Code    56  protocol.o(.text.Protocol_Build_Func_En_Packet)
-    Protocol_Build_Manual_Brightness_Val_Packet 0x080009c5   Thumb Code    56  protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet)
-    Protocol_Build_Status_Packet             0x080009fd   Thumb Code   112  protocol.o(.text.Protocol_Build_Status_Packet)
-    Protocol_Disassemble_Packet              0x08000a6d   Thumb Code   304  protocol.o(.text.Protocol_Disassemble_Packet)
-    Protocol_Disp_Sts_Get                    0x08000b9d   Thumb Code    18  protocol.o(.text.Protocol_Disp_Sts_Get)
-    Protocol_Error_Check                     0x08000bb1   Thumb Code    96  protocol.o(.text.Protocol_Error_Check)
-    Protocol_Init                            0x08000c11   Thumb Code     8  protocol.o(.text.Protocol_Init)
-    Protocol_Response_Auto_Brightness_ADC    0x08000c19   Thumb Code    28  protocol.o(.text.Protocol_Response_Auto_Brightness_ADC)
-    Protocol_Response_Decimal_Point_Multiple 0x08000c35   Thumb Code    88  protocol.o(.text.Protocol_Response_Decimal_Point_Multiple)
-    Protocol_Response_Decimal_Point_Single   0x08000c8d   Thumb Code    52  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
-    Protocol_Response_Digit_Multiple         0x08000cc5   Thumb Code    88  protocol.o(.text.Protocol_Response_Digit_Multiple)
-    Protocol_Response_Digit_Single           0x08000d21   Thumb Code    52  protocol.o(.text.Protocol_Response_Digit_Single)
-    Protocol_Response_Display_Status         0x08000d59   Thumb Code    32  protocol.o(.text.Protocol_Response_Display_Status)
-    Protocol_Response_Function_Enable        0x08000d7d   Thumb Code    76  protocol.o(.text.Protocol_Response_Function_Enable)
-    Protocol_Response_Mainloop               0x08000dcd   Thumb Code   208  protocol.o(.text.Protocol_Response_Mainloop)
-    Protocol_Response_Manual_Brightness      0x08000e9d   Thumb Code    52  protocol.o(.text.Protocol_Response_Manual_Brightness)
-    Protocol_Struct_Init                     0x08000ed1   Thumb Code    84  protocol.o(.text.Protocol_Struct_Init)
-    Protocol_Transmit_Packet                 0x08000f25   Thumb Code    16  protocol.o(.text.Protocol_Transmit_Packet)
-    SevenSegment_Activate_Digit              0x08000f39   Thumb Code   212  sevensegment.o(.text.SevenSegment_Activate_Digit)
-    SevenSegment_Assign_Digit_Value          0x08001019   Thumb Code    16  sevensegment.o(.text.SevenSegment_Assign_Digit_Value)
-    SevenSegment_Assign_Segment_Value        0x08001029   Thumb Code    28  sevensegment.o(.text.SevenSegment_Assign_Segment_Value)
-    SevenSegment_Auto_Brightness_Timer_Init  0x08001045   Thumb Code    60  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
-    SevenSegment_Brightness_Handler          0x0800108d   Thumb Code    96  sevensegment.o(.text.SevenSegment_Brightness_Handler)
-    SevenSegment_Display_Disable             0x080010ed   Thumb Code    12  sevensegment.o(.text.SevenSegment_Display_Disable)
-    SevenSegment_Display_Enable              0x080010f9   Thumb Code    12  sevensegment.o(.text.SevenSegment_Display_Enable)
-    SevenSegment_Display_Enable_Sts          0x08001105   Thumb Code     8  sevensegment.o(.text.SevenSegment_Display_Enable_Sts)
-    SevenSegment_Dp_Byte_Get                 0x0800110d   Thumb Code    44  sevensegment.o(.text.SevenSegment_Dp_Byte_Get)
-    SevenSegment_Dp_Values_Get               0x08001139   Thumb Code     8  sevensegment.o(.text.SevenSegment_Dp_Values_Get)
-    SevenSegment_GPIO_Init                   0x08001141   Thumb Code   340  sevensegment.o(.text.SevenSegment_GPIO_Init)
-    SevenSegment_ISR_Executables             0x080012a5   Thumb Code     8  sevensegment.o(.text.SevenSegment_ISR_Executables)
-    SevenSegment_Init                        0x080012ad   Thumb Code    24  sevensegment.o(.text.SevenSegment_Init)
-    SevenSegment_Segment_Char_Values_Get     0x080012c9   Thumb Code     8  sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get)
-    SevenSegment_Set_Brightness              0x080012d1   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Brightness)
-    SevenSegment_Set_Dp                      0x080012f5   Thumb Code    48  sevensegment.o(.text.SevenSegment_Set_Dp)
-    SevenSegment_Set_Segment_Pins            0x08001325   Thumb Code    16  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
-    SevenSegment_Set_Value                   0x08001339   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Value)
-    SevenSegment_Struct_Init                 0x08001379   Thumb Code    56  sevensegment.o(.text.SevenSegment_Struct_Init)
-    SevenSegment_Timer_Init                  0x080013b5   Thumb Code    60  sevensegment.o(.text.SevenSegment_Timer_Init)
-    SystemInit                               0x080013fd   Thumb Code     2  system_stm32g0xx.o(.text.SystemInit)
-    TIM14_IRQHandler                         0x08001401   Thumb Code    20  sevensegment.o(.text.TIM14_IRQHandler)
-    TIM16_IRQHandler                         0x08001419   Thumb Code     8  comm.o(.text.TIM16_IRQHandler)
-    TIM17_IRQHandler                         0x08001421   Thumb Code    20  sevensegment.o(.text.TIM17_IRQHandler)
-    USART1_IRQHandler                        0x08001439   Thumb Code     8  comm.o(.text.USART1_IRQHandler)
-    WDT_Init                                 0x08001441   Thumb Code    64  wdt.o(.text.WDT_Init)
-    WDT_Reload                               0x0800148d   Thumb Code    16  wdt.o(.text.WDT_Reload)
-    main                                     0x08001515   Thumb Code    28  main.o(.text.main)
-    __aeabi_uidiv                            0x08001539   Thumb Code    68  aeabi_sdivfast.o(.text_divfast)
-    __aeabi_idiv                             0x0800157d   Thumb Code   434  aeabi_sdivfast.o(.text_divfast)
-    Region$$Table$$Base                      0x08001730   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001740   Number         0  anon$$obj.o(Region$$Table)
+    Protocol_Build_Digit_Multiple_Packet     0x0800098d   Thumb Code    80  protocol.o(.text.Protocol_Build_Digit_Multiple_Packet)
+    Protocol_Build_Digit_Single_Packet       0x080009dd   Thumb Code    60  protocol.o(.text.Protocol_Build_Digit_Single_Packet)
+    Protocol_Build_Dp_Multiple_Packet        0x08000a19   Thumb Code    80  protocol.o(.text.Protocol_Build_Dp_Multiple_Packet)
+    Protocol_Build_Dp_Single_Packet          0x08000a69   Thumb Code    60  protocol.o(.text.Protocol_Build_Dp_Single_Packet)
+    Protocol_Build_Func_En_Packet            0x08000aa5   Thumb Code    56  protocol.o(.text.Protocol_Build_Func_En_Packet)
+    Protocol_Build_Manual_Brightness_Val_Packet 0x08000add   Thumb Code    56  protocol.o(.text.Protocol_Build_Manual_Brightness_Val_Packet)
+    Protocol_Build_Status_Packet             0x08000b15   Thumb Code   112  protocol.o(.text.Protocol_Build_Status_Packet)
+    Protocol_Disassemble_Packet              0x08000b85   Thumb Code   304  protocol.o(.text.Protocol_Disassemble_Packet)
+    Protocol_Disp_Sts_Get                    0x08000cb9   Thumb Code    18  protocol.o(.text.Protocol_Disp_Sts_Get)
+    Protocol_Error_Check                     0x08000ccd   Thumb Code    96  protocol.o(.text.Protocol_Error_Check)
+    Protocol_Init                            0x08000d31   Thumb Code     8  protocol.o(.text.Protocol_Init)
+    Protocol_Response_Auto_Brightness_ADC    0x08000d39   Thumb Code    44  protocol.o(.text.Protocol_Response_Auto_Brightness_ADC)
+    Protocol_Response_Decimal_Point_Multiple 0x08000d69   Thumb Code   156  protocol.o(.text.Protocol_Response_Decimal_Point_Multiple)
+    Protocol_Response_Decimal_Point_Single   0x08000e09   Thumb Code   108  protocol.o(.text.Protocol_Response_Decimal_Point_Single)
+    Protocol_Response_Digit_Multiple         0x08000e79   Thumb Code   152  protocol.o(.text.Protocol_Response_Digit_Multiple)
+    Protocol_Response_Digit_Single           0x08000f15   Thumb Code   108  protocol.o(.text.Protocol_Response_Digit_Single)
+    Protocol_Response_Display_Status         0x08000f85   Thumb Code    56  protocol.o(.text.Protocol_Response_Display_Status)
+    Protocol_Response_Function_Enable        0x08000fbd   Thumb Code   108  protocol.o(.text.Protocol_Response_Function_Enable)
+    Protocol_Response_Mainloop               0x0800102d   Thumb Code   240  protocol.o(.text.Protocol_Response_Mainloop)
+    Protocol_Response_Manual_Brightness      0x08001121   Thumb Code   100  protocol.o(.text.Protocol_Response_Manual_Brightness)
+    Protocol_Struct_Init                     0x08001189   Thumb Code    88  protocol.o(.text.Protocol_Struct_Init)
+    Protocol_Transmit_Packet                 0x080011e5   Thumb Code    16  protocol.o(.text.Protocol_Transmit_Packet)
+    SevenSegment_Activate_Digit              0x080011f9   Thumb Code   212  sevensegment.o(.text.SevenSegment_Activate_Digit)
+    SevenSegment_Assign_Digit_Value          0x080012d9   Thumb Code    16  sevensegment.o(.text.SevenSegment_Assign_Digit_Value)
+    SevenSegment_Assign_Segment_Value        0x080012e9   Thumb Code    28  sevensegment.o(.text.SevenSegment_Assign_Segment_Value)
+    SevenSegment_Auto_Brightness_Timer_Init  0x08001305   Thumb Code    60  sevensegment.o(.text.SevenSegment_Auto_Brightness_Timer_Init)
+    SevenSegment_Brightness_Handler          0x0800134d   Thumb Code    96  sevensegment.o(.text.SevenSegment_Brightness_Handler)
+    SevenSegment_Display_Disable             0x080013ad   Thumb Code    12  sevensegment.o(.text.SevenSegment_Display_Disable)
+    SevenSegment_Display_Enable              0x080013b9   Thumb Code    12  sevensegment.o(.text.SevenSegment_Display_Enable)
+    SevenSegment_Display_Enable_Sts          0x080013c5   Thumb Code     8  sevensegment.o(.text.SevenSegment_Display_Enable_Sts)
+    SevenSegment_Dp_Byte_Get                 0x080013cd   Thumb Code    44  sevensegment.o(.text.SevenSegment_Dp_Byte_Get)
+    SevenSegment_Dp_Values_Get               0x080013f9   Thumb Code     8  sevensegment.o(.text.SevenSegment_Dp_Values_Get)
+    SevenSegment_GPIO_Init                   0x08001401   Thumb Code   340  sevensegment.o(.text.SevenSegment_GPIO_Init)
+    SevenSegment_ISR_Executables             0x08001565   Thumb Code     8  sevensegment.o(.text.SevenSegment_ISR_Executables)
+    SevenSegment_Init                        0x0800156d   Thumb Code    24  sevensegment.o(.text.SevenSegment_Init)
+    SevenSegment_Segment_Char_Values_Get     0x08001589   Thumb Code     8  sevensegment.o(.text.SevenSegment_Segment_Char_Values_Get)
+    SevenSegment_Set_Brightness              0x08001591   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Brightness)
+    SevenSegment_Set_Dp                      0x080015b5   Thumb Code    48  sevensegment.o(.text.SevenSegment_Set_Dp)
+    SevenSegment_Set_Segment_Pins            0x080015e5   Thumb Code    16  sevensegment.o(.text.SevenSegment_Set_Segment_Pins)
+    SevenSegment_Set_Value                   0x080015f9   Thumb Code    36  sevensegment.o(.text.SevenSegment_Set_Value)
+    SevenSegment_Struct_Init                 0x08001639   Thumb Code    56  sevensegment.o(.text.SevenSegment_Struct_Init)
+    SevenSegment_Timer_Init                  0x08001675   Thumb Code    60  sevensegment.o(.text.SevenSegment_Timer_Init)
+    SystemInit                               0x080016bd   Thumb Code     2  system_stm32g0xx.o(.text.SystemInit)
+    TIM14_IRQHandler                         0x080016c1   Thumb Code    20  sevensegment.o(.text.TIM14_IRQHandler)
+    TIM16_IRQHandler                         0x080016d9   Thumb Code     8  comm.o(.text.TIM16_IRQHandler)
+    TIM17_IRQHandler                         0x080016e1   Thumb Code    20  sevensegment.o(.text.TIM17_IRQHandler)
+    USART1_IRQHandler                        0x080016f9   Thumb Code     8  comm.o(.text.USART1_IRQHandler)
+    WDT_Init                                 0x08001701   Thumb Code    64  wdt.o(.text.WDT_Init)
+    WDT_Reload                               0x0800174d   Thumb Code    16  wdt.o(.text.WDT_Reload)
+    main                                     0x080017d5   Thumb Code    28  main.o(.text.main)
+    __aeabi_uidiv                            0x080017f9   Thumb Code    68  aeabi_sdivfast.o(.text_divfast)
+    __aeabi_idiv                             0x0800183d   Thumb Code   434  aeabi_sdivfast.o(.text_divfast)
+    Region$$Table$$Base                      0x080019f0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001a00   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x20000000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000060   Data           0  libspace.o(.bss)
 
@@ -1378,108 +1424,108 @@ Memory Map of the image
 
   Image Entry point : 0x08000149
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00001740, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00001a00, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001740, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001a00, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x000000c0   Data   RO          394    RESET               startup_stm32g030xx.o
-    0x080000c0   0x080000c0   0x00000008   Code   RO          428  * !!!main             c_p.l(__main.o)
-    0x080000c8   0x080000c8   0x0000003c   Code   RO          603    !!!scatter          c_p.l(__scatter.o)
-    0x08000104   0x08000104   0x0000001c   Code   RO          605    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x08000120   0x08000120   0x00000002   Code   RO          466    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          480    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          482    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          485    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          487    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          489    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          492    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          494    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          496    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          498    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          500    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          502    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          504    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          506    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          508    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          510    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          512    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          516    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          518    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          520    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000000   Code   RO          522    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x08000122   0x08000122   0x00000002   Code   RO          523    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
-    0x08000124   0x08000124   0x00000002   Code   RO          558    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          586    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          588    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          591    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          594    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          596    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000000   Code   RO          599    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x08000126   0x08000126   0x00000002   Code   RO          600    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x08000128   0x08000128   0x00000000   Code   RO          430    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x08000128   0x08000128   0x00000000   Code   RO          436    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x08000128   0x08000128   0x00000006   Code   RO          448    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0800012e   0x0800012e   0x00000000   Code   RO          438    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0800012e   0x0800012e   0x00000004   Code   RO          439    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x08000132   0x08000132   0x00000000   Code   RO          441    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x08000132   0x08000132   0x00000008   Code   RO          442    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x0800013a   0x0800013a   0x00000002   Code   RO          471    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x0800013c   0x0800013c   0x00000000   Code   RO          529    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x0800013c   0x0800013c   0x00000004   Code   RO          530    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x08000140   0x08000140   0x00000006   Code   RO          531    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x08000000   0x08000000   0x000000c0   Data   RO          402    RESET               startup_stm32g030xx.o
+    0x080000c0   0x080000c0   0x00000008   Code   RO          436  * !!!main             c_p.l(__main.o)
+    0x080000c8   0x080000c8   0x0000003c   Code   RO          611    !!!scatter          c_p.l(__scatter.o)
+    0x08000104   0x08000104   0x0000001c   Code   RO          613    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x08000120   0x08000120   0x00000002   Code   RO          474    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          488    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          490    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          493    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          495    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          497    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          500    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          502    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          504    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          506    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          508    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          510    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          512    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          514    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          516    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          518    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          520    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          524    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          526    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          528    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000000   Code   RO          530    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x08000122   0x08000122   0x00000002   Code   RO          531    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
+    0x08000124   0x08000124   0x00000002   Code   RO          566    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x08000126   0x08000126   0x00000000   Code   RO          594    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x08000126   0x08000126   0x00000000   Code   RO          596    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x08000126   0x08000126   0x00000000   Code   RO          599    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x08000126   0x08000126   0x00000000   Code   RO          602    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x08000126   0x08000126   0x00000000   Code   RO          604    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x08000126   0x08000126   0x00000000   Code   RO          607    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x08000126   0x08000126   0x00000002   Code   RO          608    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x08000128   0x08000128   0x00000000   Code   RO          438    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x08000128   0x08000128   0x00000000   Code   RO          444    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x08000128   0x08000128   0x00000006   Code   RO          456    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0800012e   0x0800012e   0x00000000   Code   RO          446    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0800012e   0x0800012e   0x00000004   Code   RO          447    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x08000132   0x08000132   0x00000000   Code   RO          449    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x08000132   0x08000132   0x00000008   Code   RO          450    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x0800013a   0x0800013a   0x00000002   Code   RO          479    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0800013c   0x0800013c   0x00000000   Code   RO          537    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0800013c   0x0800013c   0x00000004   Code   RO          538    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x08000140   0x08000140   0x00000006   Code   RO          539    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
     0x08000146   0x08000146   0x00000002   PAD
-    0x08000148   0x08000148   0x00000038   Code   RO          395  * .text               startup_stm32g030xx.o
-    0x08000180   0x08000180   0x00000006   Code   RO          426    .text               c_p.l(heapauxi.o)
-    0x08000186   0x08000186   0x0000003e   Code   RO          452    .text               c_p.l(sys_stackheap_outer.o)
-    0x080001c4   0x080001c4   0x00000010   Code   RO          455    .text               c_p.l(exit.o)
-    0x080001d4   0x080001d4   0x00000008   Code   RO          467    .text               c_p.l(libspace.o)
-    0x080001dc   0x080001dc   0x0000000c   Code   RO          524    .text               c_p.l(sys_exit.o)
-    0x080001e8   0x080001e8   0x00000002   Code   RO          547    .text               c_p.l(use_no_semi.o)
-    0x080001ea   0x080001ea   0x00000000   Code   RO          549    .text               c_p.l(indicate_semi.o)
+    0x08000148   0x08000148   0x00000038   Code   RO          403  * .text               startup_stm32g030xx.o
+    0x08000180   0x08000180   0x00000006   Code   RO          434    .text               c_p.l(heapauxi.o)
+    0x08000186   0x08000186   0x0000003e   Code   RO          460    .text               c_p.l(sys_stackheap_outer.o)
+    0x080001c4   0x080001c4   0x00000010   Code   RO          463    .text               c_p.l(exit.o)
+    0x080001d4   0x080001d4   0x00000008   Code   RO          475    .text               c_p.l(libspace.o)
+    0x080001dc   0x080001dc   0x0000000c   Code   RO          532    .text               c_p.l(sys_exit.o)
+    0x080001e8   0x080001e8   0x00000002   Code   RO          555    .text               c_p.l(use_no_semi.o)
+    0x080001ea   0x080001ea   0x00000000   Code   RO          557    .text               c_p.l(indicate_semi.o)
     0x080001ea   0x080001ea   0x00000008   Code   RO           99    .text.ADC_Init      adc.o
     0x080001f2   0x080001f2   0x00000002   PAD
     0x080001f4   0x080001f4   0x0000002c   Code   RO           97    .text.ADC_Read_Channel  adc.o
     0x08000220   0x08000220   0x000000b0   Code   RO           95    .text.ADC_Reg_Init  adc.o
     0x080002d0   0x080002d0   0x00000028   Code   RO           11    .text.App_Config    app.o
     0x080002f8   0x080002f8   0x00000014   Code   RO           13    .text.App_Mainloop  app.o
-    0x0800030c   0x0800030c   0x00000018   Code   RO          342    .text.COMM_Buf_Flush  comm.o
-    0x08000324   0x08000324   0x00000008   Code   RO          344    .text.COMM_Buf_Get  comm.o
-    0x0800032c   0x0800032c   0x00000008   Code   RO          346    .text.COMM_Buf_Get_Index  comm.o
-    0x08000334   0x08000334   0x00000022   Code   RO          378    .text.COMM_CRC_Calculate_Block  comm.o
+    0x0800030c   0x0800030c   0x00000018   Code   RO          350    .text.COMM_Buf_Flush  comm.o
+    0x08000324   0x08000324   0x00000008   Code   RO          352    .text.COMM_Buf_Get  comm.o
+    0x0800032c   0x0800032c   0x00000008   Code   RO          354    .text.COMM_Buf_Get_Index  comm.o
+    0x08000334   0x08000334   0x00000022   Code   RO          386    .text.COMM_CRC_Calculate_Block  comm.o
     0x08000356   0x08000356   0x00000002   PAD
-    0x08000358   0x08000358   0x00000028   Code   RO          376    .text.COMM_CRC_Calculate_Byte  comm.o
-    0x08000380   0x08000380   0x00000024   Code   RO          238    .text.COMM_Config_BAUD_Rate  comm.o
-    0x080003a4   0x080003a4   0x00000010   Code   RO          236    .text.COMM_Config_Clock  comm.o
-    0x080003b4   0x080003b4   0x00000044   Code   RO          234    .text.COMM_Config_GPIO  comm.o
-    0x080003f8   0x080003f8   0x0000001c   Code   RO          242    .text.COMM_Config_Rx  comm.o
-    0x08000414   0x08000414   0x00000020   Code   RO          244    .text.COMM_Config_Rx_Interrupt  comm.o
-    0x08000434   0x08000434   0x00000020   Code   RO          240    .text.COMM_Config_Tx  comm.o
-    0x08000454   0x08000454   0x00000008   Code   RO          348    .text.COMM_Data_Available  comm.o
-    0x0800045c   0x0800045c   0x00000008   Code   RO          356    .text.COMM_Data_CRC_Status_Get  comm.o
-    0x08000464   0x08000464   0x0000000c   Code   RO          360    .text.COMM_Data_Clear_Available_Flag  comm.o
-    0x08000470   0x08000470   0x0000000c   Code   RO          362    .text.COMM_Data_Clear_Read_Complete_Flag  comm.o
-    0x0800047c   0x0800047c   0x00000008   Code   RO          350    .text.COMM_Data_Len_Get  comm.o
-    0x08000484   0x08000484   0x00000008   Code   RO          370    .text.COMM_Error_Code_Clear  comm.o
-    0x0800048c   0x0800048c   0x0000004c   Code   RO          258    .text.COMM_ISR_Handler  comm.o
-    0x080004d8   0x080004d8   0x0000003c   Code   RO          382    .text.COMM_Init     comm.o
-    0x08000514   0x08000514   0x00000060   Code   RO          372    .text.COMM_RX_Packet_CRC_Check  comm.o
-    0x08000574   0x08000574   0x00000008   Code   RO          374    .text.COMM_RX_Packet_Disassemble  comm.o
-    0x0800057c   0x0800057c   0x00000014   Code   RO          380    .text.COMM_RX_Packet_Read_Complete  comm.o
-    0x08000590   0x08000590   0x0000001c   Code   RO          232    .text.COMM_RX_Packet_Struct_Init  comm.o
-    0x080005ac   0x080005ac   0x00000018   Code   RO          254    .text.COMM_Rx_Byte  comm.o
-    0x080005c4   0x080005c4   0x00000040   Code   RO          230    .text.COMM_Struct_Init  comm.o
-    0x08000604   0x08000604   0x00000014   Code   RO          274    .text.COMM_Timer_Clear_Interrupt_Flag  comm.o
-    0x08000618   0x08000618   0x0000000c   Code   RO          266    .text.COMM_Timer_Disable  comm.o
-    0x08000624   0x08000624   0x00000010   Code   RO          264    .text.COMM_Timer_Enable  comm.o
-    0x08000634   0x08000634   0x00000044   Code   RO          278    .text.COMM_Timer_ISR_Handler  comm.o
-    0x08000678   0x08000678   0x00000050   Code   RO          262    .text.COMM_Timer_Init  comm.o
-    0x080006c8   0x080006c8   0x00000014   Code   RO          260    .text.COMM_Timer_Struct_Init  comm.o
-    0x080006dc   0x080006dc   0x0000000c   Code   RO          272    .text.COMM_Timer_Value_Reset  comm.o
-    0x080006e8   0x080006e8   0x0000001a   Code   RO          280    .text.COMM_Tx_Buf   comm.o
+    0x08000358   0x08000358   0x00000028   Code   RO          384    .text.COMM_CRC_Calculate_Byte  comm.o
+    0x08000380   0x08000380   0x00000024   Code   RO          246    .text.COMM_Config_BAUD_Rate  comm.o
+    0x080003a4   0x080003a4   0x00000010   Code   RO          244    .text.COMM_Config_Clock  comm.o
+    0x080003b4   0x080003b4   0x00000044   Code   RO          242    .text.COMM_Config_GPIO  comm.o
+    0x080003f8   0x080003f8   0x0000001c   Code   RO          250    .text.COMM_Config_Rx  comm.o
+    0x08000414   0x08000414   0x00000020   Code   RO          252    .text.COMM_Config_Rx_Interrupt  comm.o
+    0x08000434   0x08000434   0x00000020   Code   RO          248    .text.COMM_Config_Tx  comm.o
+    0x08000454   0x08000454   0x00000008   Code   RO          356    .text.COMM_Data_Available  comm.o
+    0x0800045c   0x0800045c   0x00000008   Code   RO          364    .text.COMM_Data_CRC_Status_Get  comm.o
+    0x08000464   0x08000464   0x0000000c   Code   RO          368    .text.COMM_Data_Clear_Available_Flag  comm.o
+    0x08000470   0x08000470   0x0000000c   Code   RO          370    .text.COMM_Data_Clear_Read_Complete_Flag  comm.o
+    0x0800047c   0x0800047c   0x00000008   Code   RO          358    .text.COMM_Data_Len_Get  comm.o
+    0x08000484   0x08000484   0x00000008   Code   RO          378    .text.COMM_Error_Code_Clear  comm.o
+    0x0800048c   0x0800048c   0x0000004c   Code   RO          266    .text.COMM_ISR_Handler  comm.o
+    0x080004d8   0x080004d8   0x0000003c   Code   RO          390    .text.COMM_Init     comm.o
+    0x08000514   0x08000514   0x00000060   Code   RO          380    .text.COMM_RX_Packet_CRC_Check  comm.o
+    0x08000574   0x08000574   0x00000008   Code   RO          382    .text.COMM_RX_Packet_Disassemble  comm.o
+    0x0800057c   0x0800057c   0x00000014   Code   RO          388    .text.COMM_RX_Packet_Read_Complete  comm.o
+    0x08000590   0x08000590   0x0000001c   Code   RO          240    .text.COMM_RX_Packet_Struct_Init  comm.o
+    0x080005ac   0x080005ac   0x00000018   Code   RO          262    .text.COMM_Rx_Byte  comm.o
+    0x080005c4   0x080005c4   0x00000040   Code   RO          238    .text.COMM_Struct_Init  comm.o
+    0x08000604   0x08000604   0x00000014   Code   RO          282    .text.COMM_Timer_Clear_Interrupt_Flag  comm.o
+    0x08000618   0x08000618   0x0000000c   Code   RO          274    .text.COMM_Timer_Disable  comm.o
+    0x08000624   0x08000624   0x00000010   Code   RO          272    .text.COMM_Timer_Enable  comm.o
+    0x08000634   0x08000634   0x00000044   Code   RO          286    .text.COMM_Timer_ISR_Handler  comm.o
+    0x08000678   0x08000678   0x00000050   Code   RO          270    .text.COMM_Timer_Init  comm.o
+    0x080006c8   0x080006c8   0x00000014   Code   RO          268    .text.COMM_Timer_Struct_Init  comm.o
+    0x080006dc   0x080006dc   0x0000000c   Code   RO          280    .text.COMM_Timer_Value_Reset  comm.o
+    0x080006e8   0x080006e8   0x0000001a   Code   RO          288    .text.COMM_Tx_Buf   comm.o
     0x08000702   0x08000702   0x00000002   PAD
-    0x08000704   0x08000704   0x0000001c   Code   RO          252    .text.COMM_Tx_Byte  comm.o
+    0x08000704   0x08000704   0x0000001c   Code   RO          260    .text.COMM_Tx_Byte  comm.o
     0x08000720   0x08000720   0x00000008   Code   RO          129    .text.LDR_Automic_Brightness_Off  ldr.o
     0x08000728   0x08000728   0x00000008   Code   RO          127    .text.LDR_Automic_Brightness_On  ldr.o
     0x08000730   0x08000730   0x00000008   Code   RO          125    .text.LDR_Automic_Brightness_Sts_Get  ldr.o
@@ -1501,90 +1547,94 @@ Memory Map of the image
     0x080008f4   0x080008f4   0x0000000c   Code   RO          156    .text.LPF_Set_Alpha  lpf.o
     0x08000900   0x08000900   0x0000001c   Code   RO          154    .text.LPF_Struct_Init  lpf.o
     0x0800091c   0x0800091c   0x00000030   Code   RO          177    .text.Protocol_Build_Ack_Nack_Packet  protocol.o
-    0x0800094c   0x0800094c   0x00000040   Code   RO          185    .text.Protocol_Build_Auto_Brightness_ADC_Val_Packet  protocol.o
-    0x0800098c   0x0800098c   0x00000038   Code   RO          181    .text.Protocol_Build_Func_En_Packet  protocol.o
-    0x080009c4   0x080009c4   0x00000038   Code   RO          183    .text.Protocol_Build_Manual_Brightness_Val_Packet  protocol.o
-    0x080009fc   0x080009fc   0x00000070   Code   RO          179    .text.Protocol_Build_Status_Packet  protocol.o
-    0x08000a6c   0x08000a6c   0x00000130   Code   RO          215    .text.Protocol_Disassemble_Packet  protocol.o
-    0x08000b9c   0x08000b9c   0x00000012   Code   RO          175    .text.Protocol_Disp_Sts_Get  protocol.o
-    0x08000bae   0x08000bae   0x00000002   PAD
-    0x08000bb0   0x08000bb0   0x00000060   Code   RO          213    .text.Protocol_Error_Check  protocol.o
-    0x08000c10   0x08000c10   0x00000008   Code   RO          219    .text.Protocol_Init  protocol.o
-    0x08000c18   0x08000c18   0x0000001c   Code   RO          211    .text.Protocol_Response_Auto_Brightness_ADC  protocol.o
-    0x08000c34   0x08000c34   0x00000058   Code   RO          207    .text.Protocol_Response_Decimal_Point_Multiple  protocol.o
-    0x08000c8c   0x08000c8c   0x00000038   Code   RO          205    .text.Protocol_Response_Decimal_Point_Single  protocol.o
-    0x08000cc4   0x08000cc4   0x0000005c   Code   RO          203    .text.Protocol_Response_Digit_Multiple  protocol.o
-    0x08000d20   0x08000d20   0x00000038   Code   RO          201    .text.Protocol_Response_Digit_Single  protocol.o
-    0x08000d58   0x08000d58   0x00000024   Code   RO          197    .text.Protocol_Response_Display_Status  protocol.o
-    0x08000d7c   0x08000d7c   0x00000050   Code   RO          199    .text.Protocol_Response_Function_Enable  protocol.o
-    0x08000dcc   0x08000dcc   0x000000d0   Code   RO          217    .text.Protocol_Response_Mainloop  protocol.o
-    0x08000e9c   0x08000e9c   0x00000034   Code   RO          209    .text.Protocol_Response_Manual_Brightness  protocol.o
-    0x08000ed0   0x08000ed0   0x00000054   Code   RO          173    .text.Protocol_Struct_Init  protocol.o
-    0x08000f24   0x08000f24   0x00000014   Code   RO          195    .text.Protocol_Transmit_Packet  protocol.o
-    0x08000f38   0x08000f38   0x000000e0   Code   RO           56    .text.SevenSegment_Activate_Digit  sevensegment.o
-    0x08001018   0x08001018   0x00000010   Code   RO           58    .text.SevenSegment_Assign_Digit_Value  sevensegment.o
-    0x08001028   0x08001028   0x0000001c   Code   RO           54    .text.SevenSegment_Assign_Segment_Value  sevensegment.o
-    0x08001044   0x08001044   0x00000048   Code   RO           48    .text.SevenSegment_Auto_Brightness_Timer_Init  sevensegment.o
-    0x0800108c   0x0800108c   0x00000060   Code   RO           60    .text.SevenSegment_Brightness_Handler  sevensegment.o
-    0x080010ec   0x080010ec   0x0000000c   Code   RO           80    .text.SevenSegment_Display_Disable  sevensegment.o
-    0x080010f8   0x080010f8   0x0000000c   Code   RO           78    .text.SevenSegment_Display_Enable  sevensegment.o
-    0x08001104   0x08001104   0x00000008   Code   RO           76    .text.SevenSegment_Display_Enable_Sts  sevensegment.o
-    0x0800110c   0x0800110c   0x0000002c   Code   RO           74    .text.SevenSegment_Dp_Byte_Get  sevensegment.o
-    0x08001138   0x08001138   0x00000008   Code   RO           72    .text.SevenSegment_Dp_Values_Get  sevensegment.o
-    0x08001140   0x08001140   0x00000164   Code   RO           36    .text.SevenSegment_GPIO_Init  sevensegment.o
-    0x080012a4   0x080012a4   0x00000008   Code   RO           46    .text.SevenSegment_ISR_Executables  sevensegment.o
-    0x080012ac   0x080012ac   0x0000001c   Code   RO           82    .text.SevenSegment_Init  sevensegment.o
-    0x080012c8   0x080012c8   0x00000008   Code   RO           70    .text.SevenSegment_Segment_Char_Values_Get  sevensegment.o
-    0x080012d0   0x080012d0   0x00000024   Code   RO           66    .text.SevenSegment_Set_Brightness  sevensegment.o
-    0x080012f4   0x080012f4   0x00000030   Code   RO           62    .text.SevenSegment_Set_Dp  sevensegment.o
-    0x08001324   0x08001324   0x00000014   Code   RO           52    .text.SevenSegment_Set_Segment_Pins  sevensegment.o
-    0x08001338   0x08001338   0x00000040   Code   RO           64    .text.SevenSegment_Set_Value  sevensegment.o
-    0x08001378   0x08001378   0x0000003c   Code   RO           34    .text.SevenSegment_Struct_Init  sevensegment.o
-    0x080013b4   0x080013b4   0x00000048   Code   RO           38    .text.SevenSegment_Timer_Init  sevensegment.o
-    0x080013fc   0x080013fc   0x00000002   Code   RO          402    .text.SystemInit    system_stm32g0xx.o
-    0x080013fe   0x080013fe   0x00000002   PAD
-    0x08001400   0x08001400   0x00000018   Code   RO           44    .text.TIM14_IRQHandler  sevensegment.o
-    0x08001418   0x08001418   0x00000008   Code   RO          276    .text.TIM16_IRQHandler  comm.o
-    0x08001420   0x08001420   0x00000018   Code   RO           50    .text.TIM17_IRQHandler  sevensegment.o
-    0x08001438   0x08001438   0x00000008   Code   RO          256    .text.USART1_IRQHandler  comm.o
-    0x08001440   0x08001440   0x0000004c   Code   RO           22    .text.WDT_Init      wdt.o
-    0x0800148c   0x0800148c   0x00000018   Code   RO           24    .text.WDT_Reload    wdt.o
-    0x080014a4   0x080014a4   0x00000010   Code   RO           40    .text.__NVIC_EnableIRQ  sevensegment.o
-    0x080014b4   0x080014b4   0x00000014   Code   RO          246    .text.__NVIC_EnableIRQ  comm.o
-    0x080014c8   0x080014c8   0x00000024   Code   RO           42    .text.__NVIC_SetPriority  sevensegment.o
-    0x080014ec   0x080014ec   0x00000028   Code   RO          248    .text.__NVIC_SetPriority  comm.o
-    0x08001514   0x08001514   0x00000024   Code   RO            2    .text.main          main.o
-    0x08001538   0x08001538   0x000001f6   Code   RO          419    .text_divfast       c_p.l(aeabi_sdivfast.o)
-    0x0800172e   0x0800172e   0x00000002   PAD
-    0x08001730   0x08001730   0x00000010   Data   RO          602    Region$$Table       anon$$obj.o
+    0x0800094c   0x0800094c   0x00000040   Code   RO          193    .text.Protocol_Build_Auto_Brightness_ADC_Val_Packet  protocol.o
+    0x0800098c   0x0800098c   0x00000050   Code   RO          185    .text.Protocol_Build_Digit_Multiple_Packet  protocol.o
+    0x080009dc   0x080009dc   0x0000003c   Code   RO          183    .text.Protocol_Build_Digit_Single_Packet  protocol.o
+    0x08000a18   0x08000a18   0x00000050   Code   RO          189    .text.Protocol_Build_Dp_Multiple_Packet  protocol.o
+    0x08000a68   0x08000a68   0x0000003c   Code   RO          187    .text.Protocol_Build_Dp_Single_Packet  protocol.o
+    0x08000aa4   0x08000aa4   0x00000038   Code   RO          181    .text.Protocol_Build_Func_En_Packet  protocol.o
+    0x08000adc   0x08000adc   0x00000038   Code   RO          191    .text.Protocol_Build_Manual_Brightness_Val_Packet  protocol.o
+    0x08000b14   0x08000b14   0x00000070   Code   RO          179    .text.Protocol_Build_Status_Packet  protocol.o
+    0x08000b84   0x08000b84   0x00000134   Code   RO          223    .text.Protocol_Disassemble_Packet  protocol.o
+    0x08000cb8   0x08000cb8   0x00000012   Code   RO          175    .text.Protocol_Disp_Sts_Get  protocol.o
+    0x08000cca   0x08000cca   0x00000002   PAD
+    0x08000ccc   0x08000ccc   0x00000064   Code   RO          221    .text.Protocol_Error_Check  protocol.o
+    0x08000d30   0x08000d30   0x00000008   Code   RO          227    .text.Protocol_Init  protocol.o
+    0x08000d38   0x08000d38   0x00000030   Code   RO          219    .text.Protocol_Response_Auto_Brightness_ADC  protocol.o
+    0x08000d68   0x08000d68   0x000000a0   Code   RO          215    .text.Protocol_Response_Decimal_Point_Multiple  protocol.o
+    0x08000e08   0x08000e08   0x00000070   Code   RO          213    .text.Protocol_Response_Decimal_Point_Single  protocol.o
+    0x08000e78   0x08000e78   0x0000009c   Code   RO          211    .text.Protocol_Response_Digit_Multiple  protocol.o
+    0x08000f14   0x08000f14   0x00000070   Code   RO          209    .text.Protocol_Response_Digit_Single  protocol.o
+    0x08000f84   0x08000f84   0x00000038   Code   RO          205    .text.Protocol_Response_Display_Status  protocol.o
+    0x08000fbc   0x08000fbc   0x00000070   Code   RO          207    .text.Protocol_Response_Function_Enable  protocol.o
+    0x0800102c   0x0800102c   0x000000f4   Code   RO          225    .text.Protocol_Response_Mainloop  protocol.o
+    0x08001120   0x08001120   0x00000068   Code   RO          217    .text.Protocol_Response_Manual_Brightness  protocol.o
+    0x08001188   0x08001188   0x0000005c   Code   RO          173    .text.Protocol_Struct_Init  protocol.o
+    0x080011e4   0x080011e4   0x00000014   Code   RO          203    .text.Protocol_Transmit_Packet  protocol.o
+    0x080011f8   0x080011f8   0x000000e0   Code   RO           56    .text.SevenSegment_Activate_Digit  sevensegment.o
+    0x080012d8   0x080012d8   0x00000010   Code   RO           58    .text.SevenSegment_Assign_Digit_Value  sevensegment.o
+    0x080012e8   0x080012e8   0x0000001c   Code   RO           54    .text.SevenSegment_Assign_Segment_Value  sevensegment.o
+    0x08001304   0x08001304   0x00000048   Code   RO           48    .text.SevenSegment_Auto_Brightness_Timer_Init  sevensegment.o
+    0x0800134c   0x0800134c   0x00000060   Code   RO           60    .text.SevenSegment_Brightness_Handler  sevensegment.o
+    0x080013ac   0x080013ac   0x0000000c   Code   RO           80    .text.SevenSegment_Display_Disable  sevensegment.o
+    0x080013b8   0x080013b8   0x0000000c   Code   RO           78    .text.SevenSegment_Display_Enable  sevensegment.o
+    0x080013c4   0x080013c4   0x00000008   Code   RO           76    .text.SevenSegment_Display_Enable_Sts  sevensegment.o
+    0x080013cc   0x080013cc   0x0000002c   Code   RO           74    .text.SevenSegment_Dp_Byte_Get  sevensegment.o
+    0x080013f8   0x080013f8   0x00000008   Code   RO           72    .text.SevenSegment_Dp_Values_Get  sevensegment.o
+    0x08001400   0x08001400   0x00000164   Code   RO           36    .text.SevenSegment_GPIO_Init  sevensegment.o
+    0x08001564   0x08001564   0x00000008   Code   RO           46    .text.SevenSegment_ISR_Executables  sevensegment.o
+    0x0800156c   0x0800156c   0x0000001c   Code   RO           82    .text.SevenSegment_Init  sevensegment.o
+    0x08001588   0x08001588   0x00000008   Code   RO           70    .text.SevenSegment_Segment_Char_Values_Get  sevensegment.o
+    0x08001590   0x08001590   0x00000024   Code   RO           66    .text.SevenSegment_Set_Brightness  sevensegment.o
+    0x080015b4   0x080015b4   0x00000030   Code   RO           62    .text.SevenSegment_Set_Dp  sevensegment.o
+    0x080015e4   0x080015e4   0x00000014   Code   RO           52    .text.SevenSegment_Set_Segment_Pins  sevensegment.o
+    0x080015f8   0x080015f8   0x00000040   Code   RO           64    .text.SevenSegment_Set_Value  sevensegment.o
+    0x08001638   0x08001638   0x0000003c   Code   RO           34    .text.SevenSegment_Struct_Init  sevensegment.o
+    0x08001674   0x08001674   0x00000048   Code   RO           38    .text.SevenSegment_Timer_Init  sevensegment.o
+    0x080016bc   0x080016bc   0x00000002   Code   RO          410    .text.SystemInit    system_stm32g0xx.o
+    0x080016be   0x080016be   0x00000002   PAD
+    0x080016c0   0x080016c0   0x00000018   Code   RO           44    .text.TIM14_IRQHandler  sevensegment.o
+    0x080016d8   0x080016d8   0x00000008   Code   RO          284    .text.TIM16_IRQHandler  comm.o
+    0x080016e0   0x080016e0   0x00000018   Code   RO           50    .text.TIM17_IRQHandler  sevensegment.o
+    0x080016f8   0x080016f8   0x00000008   Code   RO          264    .text.USART1_IRQHandler  comm.o
+    0x08001700   0x08001700   0x0000004c   Code   RO           22    .text.WDT_Init      wdt.o
+    0x0800174c   0x0800174c   0x00000018   Code   RO           24    .text.WDT_Reload    wdt.o
+    0x08001764   0x08001764   0x00000010   Code   RO           40    .text.__NVIC_EnableIRQ  sevensegment.o
+    0x08001774   0x08001774   0x00000014   Code   RO          254    .text.__NVIC_EnableIRQ  comm.o
+    0x08001788   0x08001788   0x00000024   Code   RO           42    .text.__NVIC_SetPriority  sevensegment.o
+    0x080017ac   0x080017ac   0x00000028   Code   RO          256    .text.__NVIC_SetPriority  comm.o
+    0x080017d4   0x080017d4   0x00000024   Code   RO            2    .text.main          main.o
+    0x080017f8   0x080017f8   0x000001f6   Code   RO          427    .text_divfast       c_p.l(aeabi_sdivfast.o)
+    0x080019ee   0x080019ee   0x00000002   PAD
+    0x080019f0   0x080019f0   0x00000010   Data   RO          610    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08001740, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08001a00, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x08001740, Size: 0x00000760, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x08001a00, Size: 0x00000760, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000        -       0x00000060   Zero   RW          468    .bss                c_p.l(libspace.o)
-    0x20000060        -       0x0000005a   Zero   RW          384    .bss.COMM           comm.o
+    0x20000000        -       0x00000060   Zero   RW          476    .bss                c_p.l(libspace.o)
+    0x20000060        -       0x0000005a   Zero   RW          392    .bss.COMM           comm.o
     0x200000ba        -       0x00000002   Zero   RW          139    .bss.LDR.0          ldr.o
     0x200000bc        -       0x00000002   Zero   RW          140    .bss.LDR.1          ldr.o
     0x200000be        -       0x00000002   Zero   RW          141    .bss.LDR.2          ldr.o
     0x200000c0        -       0x00000002   Zero   RW          142    .bss.LDR.3          ldr.o
     0x200000c2        -       0x00000001   Zero   RW          143    .bss.LDR.5          ldr.o
-    0x200000c3   0x08001740   0x00000001   PAD
+    0x200000c3   0x08001a00   0x00000001   PAD
     0x200000c4        -       0x00000001   Zero   RW          144    .bss.LDR.6          ldr.o
-    0x200000c5   0x08001740   0x00000001   PAD
+    0x200000c5   0x08001a00   0x00000001   PAD
     0x200000c6        -       0x00000002   Zero   RW          145    .bss.LDR.7          ldr.o
     0x200000c8        -       0x00000018   Zero   RW          164    .bss.LPF            lpf.o
-    0x200000e0        -       0x00000054   Zero   RW          221    .bss.Protocol       protocol.o
+    0x200000e0        -       0x00000054   Zero   RW          229    .bss.Protocol       protocol.o
     0x20000134        -       0x00000026   Zero   RW           84    .bss.SevenSegment   sevensegment.o
-    0x2000015a   0x08001740   0x00000006   PAD
-    0x20000160        -       0x00000200   Zero   RW          393    HEAP                startup_stm32g030xx.o
-    0x20000360        -       0x00000400   Zero   RW          392    STACK               startup_stm32g030xx.o
+    0x2000015a   0x08001a00   0x00000006   PAD
+    0x20000160        -       0x00000200   Zero   RW          401    HEAP                startup_stm32g030xx.o
+    0x20000360        -       0x00000400   Zero   RW          400    STACK               startup_stm32g030xx.o
 
 
 ==============================================================================
@@ -1600,14 +1650,14 @@ Image component sizes
        406         36          0          0         12       3814   ldr.o
        100          4          0          0         24       1700   lpf.o
         36          8          0          0          0        536   main.o
-      1562         32          0          0         84       8045   protocol.o
+      2266         56          0          0         84       9293   protocol.o
       1320        116          0          0         38       8674   sevensegment.o
         56         26        192          0       1536        676   startup_stm32g030xx.o
          2          0          0          0          0       2027   system_stm32g0xx.o
        100         20          0          0          0       1584   wdt.o
 
     ----------------------------------------------------------------------
-      4998        326        208          0       1792      47228   Object Totals
+      5702        350        208          0       1792      48476   Object Totals
          0          0         16          0          0          0   (incl. Generated)
         12          0          0          0          8          0   (incl. Padding)
 
@@ -1656,15 +1706,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5744        342        208          0       1888      47476   Grand Totals
-      5744        342        208          0       1888      47476   ELF Image Totals
-      5744        342        208          0          0          0   ROM Totals
+      6448        366        208          0       1888      48724   Grand Totals
+      6448        366        208          0       1888      48724   ELF Image Totals
+      6448        366        208          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 5952 (   5.81kB)
+    Total RO  Size (Code + RO Data)                 6656 (   6.50kB)
     Total RW  Size (RW Data + ZI Data)              1888 (   1.84kB)
-    Total ROM Size (Code + RO Data + RW Data)       5952 (   5.81kB)
+    Total ROM Size (Code + RO Data + RW Data)       6656 (   6.50kB)
 
 ==============================================================================
 

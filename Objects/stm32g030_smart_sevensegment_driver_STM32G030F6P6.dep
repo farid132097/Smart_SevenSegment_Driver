@@ -1,13 +1,13 @@
 Dependencies for Project 'stm32g030_smart_sevensegment_driver', Target 'STM32G030F6P6': (DO NOT MODIFY !)
 CompilerVersion: 6160000::V6.16::ARMCLANG
 F (.\app.h)(0x67B050F8)()
-F (.\defs.h)(0x67B0510A)()
+F (.\defs.h)(0x67F95FA9)()
 F (.\wdt.h)(0x67B05298)()
 F (.\sevensegment.h)(0x67C9CBEC)()
 F (.\adc.h)(0x67B600A3)()
 F (.\ldr.h)(0x67C5D921)()
 F (.\lpf.h)(0x67B5FA90)()
-F (.\protocol.h)(0x67D59D98)()
+F (.\protocol.h)(0x67F962D0)()
 F (.\comm.h)(0x67F94097)()
 F (.\main.c)(0x67B0AB4C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/main.o -MD)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x65128684)
@@ -22,7 +22,7 @@ I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x65128684)
 I (app.h)(0x67B050F8)
 I (wdt.h)(0x67B05298)
-F (.\app.c)(0x67CE798B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/app.o -MD)
+F (.\app.c)(0x67F94C1E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/app.o -MD)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x65128684)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035E8D0)
@@ -34,11 +34,11 @@ I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x65128684)
 I (app.h)(0x67B050F8)
-I (defs.h)(0x67B0510A)
+I (defs.h)(0x67F95FA9)
 I (ldr.h)(0x67C5D921)
 I (comm.h)(0x67F94097)
 I (sevensegment.h)(0x67C9CBEC)
-I (protocol.h)(0x67D59D98)
+I (protocol.h)(0x67F962D0)
 F (.\wdt.c)(0x67B0528A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/wdt.o -MD)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x65128684)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
@@ -63,7 +63,7 @@ I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x65128684)
 I (sevensegment.h)(0x67C9CBEC)
-I (defs.h)(0x67B0510A)
+I (defs.h)(0x67F95FA9)
 I (ldr.h)(0x67C5D921)
 F (.\adc.c)(0x67B60753)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/adc.o -MD)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x65128684)
@@ -89,7 +89,7 @@ I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x65128684)
 I (sevensegment.h)(0x67C9CBEC)
-I (defs.h)(0x67B0510A)
+I (defs.h)(0x67F95FA9)
 I (ldr.h)(0x67C5D921)
 I (adc.h)(0x67B600A3)
 I (lpf.h)(0x67B5FA90)
@@ -105,7 +105,7 @@ I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-p
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x65128684)
 I (lpf.h)(0x67B5FA90)
-F (.\protocol.c)(0x67F9408B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/protocol.o -MD)
+F (.\protocol.c)(0x67F96624)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/protocol.o -MD)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x65128684)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035E8D0)
@@ -116,11 +116,11 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035E8C4)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\cmsis_armclang_m.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x65128684)
-I (protocol.h)(0x67D59D98)
+I (protocol.h)(0x67F962D0)
 I (sevensegment.h)(0x67C9CBEC)
 I (comm.h)(0x67F94097)
 I (ldr.h)(0x67C5D921)
-I (defs.h)(0x67B0510A)
+I (defs.h)(0x67F95FA9)
 F (.\comm.c)(0x67F940A4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/comm.o -MD)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\stm32g030xx.h)(0x65128684)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0plus.h)(0x664BF4A8)
@@ -132,7 +132,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035E8C4)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\cmsis_armclang_m.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\armv7m_mpu.h)(0x664BF4A8)
 I (C:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include\system_stm32g0xx.h)(0x65128684)
-I (protocol.h)(0x67D59D98)
+I (protocol.h)(0x67F962D0)
 I (comm.h)(0x67F94097)
 F (RTE\Device\STM32G030F6Px\startup_stm32g030xx.s)(0x65128684)(--cpu Cortex-M0+ --pd "__EVAL SETA 1" -g-I.\RTE\_STM32G030F6P6-IC:\Users\farid\AppData\Local\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Users\farid\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.5.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include--pd "__UVISION_VERSION SETA 536"--pd "_RTE_ SETA 1"--pd "STM32G030xx SETA 1"--pd "_RTE_ SETA 1"--list .\listings\startup_stm32g030xx.lst--xref -o .\objects\startup_stm32g030xx.o--depend .\objects\startup_stm32g030xx.d)
 F (RTE\Device\STM32G030F6Px\system_stm32g0xx.c)(0x65128684)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_STM32G030F6P6-IC:/Users/farid/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/farid/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/CMSIS/Device/ST/STM32G0xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G030xx -D_RTE_-o ./objects/system_stm32g0xx.o -MD)

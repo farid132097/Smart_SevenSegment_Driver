@@ -6,15 +6,6 @@
 #include "stm32g030xx.h"
 
 
-/*
-Frame Format : Header (1 byte), Len (1 byte), CMD (1 byte), Reg (1 Byte), Data, CRC16 (2 byte)
-Header       : 1 Byte (Master 0xA5, Slave 0x5A)
-Length       : N bytes + 3
-CMD          : 1 Byte
-Data         : Variable
-CRC16        : 2 Byte
-*/
-
 
 enum{
 	PROTOCOL_CMD_WRITE_REG                    = 0x00U,
@@ -56,6 +47,10 @@ uint8_t  Protocol_Disp_Sts_Get(void);
 void     Protocol_Build_Ack_Nack_Packet(void);
 void     Protocol_Build_Status_Packet(void);
 void     Protocol_Build_Func_En_Packet(void);
+void     Protocol_Build_Digit_Single_Packet(void);
+void     Protocol_Build_Digit_Multiple_Packet(void);
+void     Protocol_Build_Dp_Single_Packet(void);
+void     Protocol_Build_Dp_Multiple_Packet(void);
 void     Protocol_Build_Manual_Brightness_Val_Packet(void);
 void     Protocol_Build_Auto_Brightness_ADC_Val_Packet(void);
 void     Protocol_Build_Auto_Brightness_Slope_ADCH_Packet(void);

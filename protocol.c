@@ -10,13 +10,37 @@
 
 
 /*
-Frame Format : Header (1 byte), Len (1 byte), CMD (1 byte), Reg (1 Byte), Data, CRC16 (2 byte)
-Header       : 1 Byte (Master 0xA5, Slave 0x5A)
-Length       : N bytes + 3
-CMD          : 1 Byte
-Data         : Variable
-CRC16        : 2 Byte
-*/
+ * Transmit Frame Format : 
+ * Header (Byte0), Len (Byte1), CMD (Byte2), Reg (Byte3), Data (Byte4~ByteN) , CRC16 (ByteN+1~ByteN+2)
+ * 
+ * DispStatusReg       : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x00] [CRC16H] [CRC16L]
+ * DispStatusReg       : No Write Operation is allowed
+ *
+ * FuncEnReg           : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x01] [CRC16H] [CRC16L]
+ * FuncEnReg           : [Header: 0xA5] [Len: 0x07] [Write:0x00]  [RegAddress: 0x01] [Data0: 0x00~0x03] [CRC16H] [CRC16L]
+ * 
+ * DigitSingleReg      : [Header: 0xA5] [Len: 0x07] [Read: 0x01]  [RegAddress: 0x02] [Digit: 0x00~0x03] [CRC16H] [CRC16L]
+ * DigitSingleReg      : [Header: 0xA5] [Len: 0x08] [Write:0x00]  [RegAddress: 0x02] [Digit: 0x00~0x03] [Data0: 0x00~0x0A] [CRC16H] [CRC16L]
+ *
+ * DigitMultipleReg    : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x03] [CRC16H] [CRC16L]
+ * DigitMultipleReg    : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x03] [Data0: 0x00~0x0A] [Data1: 0x00~0x0A] [Data2: 0x00~0x0A] [Data3: 0x00~0x0A] [CRC16H] [CRC16L]
+ *
+ * DpSingleReg         : [Header: 0xA5] [Len: 0x07] [Read: 0x01]  [RegAddress: 0x04] [Digit: 0x00~0x03] [CRC16H] [CRC16L]
+ * DpSingleReg         : [Header: 0xA5] [Len: 0x08] [Write:0x00]  [RegAddress: 0x04] [Digit: 0x00~0x03] [Data0: 0x00~0x01] [CRC16H] [CRC16L]
+ * 
+ * DigitMultipleReg    : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x05] [CRC16H] [CRC16L]
+ * DigitMultipleReg    : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x05] [Data0: 0x00~0x01] [Data1: 0x00~0x01] [Data2: 0x00~0x01] [Data3: 0x00~0x01] [CRC16H] [CRC16L]
+ * 
+ * ManualBrightnessReg : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x06] [CRC16H] [CRC16L]
+ * ManualBrightnessReg : [Header: 0xA5] [Len: 0x07] [Write:0x00]  [RegAddress: 0x06] [Data0: 0x00~0x64] [CRC16H] [CRC16L]
+ * 
+ * AutoBrightnessADCReg: [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x07] [CRC16H] [CRC16L]
+ * AutoBrightnessADCReg: No Write Operation is allowed
+ *
+ *
+ * Response Packet Foramt : 
+ * Header (Byte0), Len (Byte1), Error (Byte2), Data (Byte3~ByteN) , CRC16 (ByteN+1~ByteN+2)
+ */
 
 
 
@@ -41,7 +65,7 @@ typedef struct packet_t{
 	volatile uint8_t  ReadBrightnessSlopeADCL;
 	volatile uint8_t  ReadBrightnessValADCH;
 	volatile uint8_t  ReadBrightnessValADCL;
-	volatile uint8_t  Reserved;
+	volatile uint8_t  SingleIndex;
 	volatile uint16_t CRC16;
 }packet_t;
 
@@ -79,6 +103,7 @@ void Protocol_Struct_Init(void){
 	Protocol.RxPacket.ReadBrightnessSlopeADCL = FALSE;
 	Protocol.RxPacket.ReadBrightnessValADCH = FALSE;
 	Protocol.RxPacket.ReadBrightnessValADCL = FALSE;
+	Protocol.RxPacket.SingleIndex = NULL;
 }
 
 uint8_t Protocol_Disp_Sts_Get(void){
@@ -123,6 +148,56 @@ void Protocol_Build_Func_En_Packet(void){
 	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
 	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Digit_Single_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 6;
+	Protocol.TxBuf[2] = 0x00;
+	Protocol.TxBuf[3] = SevenSegment_Segment_Char_Values_Get(Protocol.RxPacket.SingleIndex);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
+	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Digit_Multiple_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 9;
+	Protocol.TxBuf[2] = 0x00;
+	Protocol.TxBuf[3] = SevenSegment_Segment_Char_Values_Get(0);
+	Protocol.TxBuf[4] = SevenSegment_Segment_Char_Values_Get(1);
+	Protocol.TxBuf[5] = SevenSegment_Segment_Char_Values_Get(2);
+	Protocol.TxBuf[6] = SevenSegment_Segment_Char_Values_Get(3);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 7);
+	Protocol.TxBuf[7] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[8] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Dp_Single_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 6;
+	Protocol.TxBuf[2] = 0x00;
+	Protocol.TxBuf[3] = SevenSegment_Dp_Values_Get(Protocol.RxPacket.SingleIndex);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
+	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Dp_Multiple_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 9;
+	Protocol.TxBuf[2] = 0x00;
+	Protocol.TxBuf[3] = SevenSegment_Dp_Values_Get(0);
+	Protocol.TxBuf[4] = SevenSegment_Dp_Values_Get(1);
+	Protocol.TxBuf[5] = SevenSegment_Dp_Values_Get(2);
+	Protocol.TxBuf[6] = SevenSegment_Dp_Values_Get(3);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 7);
+	Protocol.TxBuf[7] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[8] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
 
 void Protocol_Build_Manual_Brightness_Val_Packet(void){
@@ -180,7 +255,14 @@ void Protocol_Response_Display_Status(uint8_t cmd){
 		Protocol.RxPacket.NackReturn = TRUE;
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadDisplaySts = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x06){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+		  Protocol.RxPacket.ReadDisplaySts = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -190,22 +272,36 @@ void Protocol_Response_Display_Status(uint8_t cmd){
 
 void Protocol_Response_Function_Enable(uint8_t cmd, uint8_t data){
 	if(cmd == PROTOCOL_CMD_WRITE_REG){
-		if(data & (1<<0)){
-			SevenSegment_Display_Enable();
+		//Check length is 7 bytes
+		if(COMM_Buf_Get(1) != 0x07){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
 		}
 		else{
-			SevenSegment_Display_Disable();
+		  if(data & (1<<0)){
+			  SevenSegment_Display_Enable();
+		  }
+		  else{
+			  SevenSegment_Display_Disable();
+		  }
+			if(data & (1<<1)){
+				LDR_Automic_Brightness_On();
+			}
+			else{
+				LDR_Automic_Brightness_Off();
+			}
+			Protocol.RxPacket.AckReturn = TRUE;
 		}
-		if(data & (1<<1)){
-			LDR_Automic_Brightness_On();
-		}
-		else{
-			LDR_Automic_Brightness_Off();
-		}
-		Protocol.RxPacket.AckReturn = TRUE;
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadFuncEnable = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x06){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+		  Protocol.RxPacket.ReadFuncEnable = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -215,11 +311,33 @@ void Protocol_Response_Function_Enable(uint8_t cmd, uint8_t data){
 
 void Protocol_Response_Digit_Single(uint8_t cmd, uint8_t data1, uint8_t data2){
 	if(cmd == PROTOCOL_CMD_WRITE_REG){
-		SevenSegment_Set_Value(data1, data2);
-		Protocol.RxPacket.AckReturn = TRUE;
+		//Check length is 8 bytes
+		if(COMM_Buf_Get(1) != 0x08){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			//digits are 0~3, values are 0~10 
+			if((data1 < 4) && (data2 <11)){
+				SevenSegment_Set_Value(data1, data2);
+		    Protocol.RxPacket.AckReturn = TRUE;
+			}
+			else{
+				Protocol.RxPacket.Status |= PROTOCOL_ERROR_DATA_OUT_OF_RANGE;
+				Protocol.RxPacket.NackReturn = TRUE;
+			}
+		}
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadDigitSingle = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x07){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			Protocol.RxPacket.SingleIndex = data1;
+			Protocol.RxPacket.ReadDigitSingle = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -229,14 +347,34 @@ void Protocol_Response_Digit_Single(uint8_t cmd, uint8_t data1, uint8_t data2){
 
 void Protocol_Response_Digit_Multiple(uint8_t cmd, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4){
 	if(cmd == PROTOCOL_CMD_WRITE_REG){
-		SevenSegment_Set_Value(0, data1);
-		SevenSegment_Set_Value(1, data2);
-		SevenSegment_Set_Value(2, data3);
-		SevenSegment_Set_Value(3, data4);
-		Protocol.RxPacket.AckReturn = TRUE;
+		//Check length is 10 bytes
+		if(COMM_Buf_Get(1) != 0x0A){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			if( (data1 < 11) && (data2 < 11) && (data3 < 11) && (data4 < 11) ){
+				SevenSegment_Set_Value(0, data1);
+				SevenSegment_Set_Value(1, data2);
+				SevenSegment_Set_Value(2, data3);
+				SevenSegment_Set_Value(3, data4);
+				Protocol.RxPacket.AckReturn = TRUE;
+			}
+			else{
+				Protocol.RxPacket.Status |= PROTOCOL_ERROR_DATA_OUT_OF_RANGE;
+				Protocol.RxPacket.NackReturn = TRUE;
+			}
+		}
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadDigitMultiple = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x06){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			Protocol.RxPacket.ReadDigitMultiple = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -246,11 +384,32 @@ void Protocol_Response_Digit_Multiple(uint8_t cmd, uint8_t data1, uint8_t data2,
 
 void Protocol_Response_Decimal_Point_Single(uint8_t cmd, uint8_t data1, uint8_t data2){
 	if(cmd == PROTOCOL_CMD_WRITE_REG){
-		SevenSegment_Set_Dp(data1, data2);
-		Protocol.RxPacket.AckReturn = TRUE;
+		//Check length is 8 bytes
+		if(COMM_Buf_Get(1) != 0x08){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			if((data1 < 4) && (data2 <11)){
+				SevenSegment_Set_Dp(data1, data2);
+				Protocol.RxPacket.AckReturn = TRUE;
+			}
+			else{
+				Protocol.RxPacket.Status |= PROTOCOL_ERROR_DATA_OUT_OF_RANGE;
+				Protocol.RxPacket.NackReturn = TRUE;
+			}
+		}
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadDpSingle = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x07){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			Protocol.RxPacket.SingleIndex = data1;
+			Protocol.RxPacket.ReadDpSingle = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -260,14 +419,34 @@ void Protocol_Response_Decimal_Point_Single(uint8_t cmd, uint8_t data1, uint8_t 
 
 void Protocol_Response_Decimal_Point_Multiple(uint8_t cmd, uint8_t data1, uint8_t data2, uint8_t data3, uint8_t data4){
 	if(cmd == PROTOCOL_CMD_WRITE_REG){
-		SevenSegment_Set_Dp(0, data1);
-		SevenSegment_Set_Dp(1, data2);
-		SevenSegment_Set_Dp(2, data3);
-		SevenSegment_Set_Dp(3, data4);
-		Protocol.RxPacket.AckReturn = TRUE;
+		//Check length is 10 bytes
+		if(COMM_Buf_Get(1) != 0x0A){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			if( (data1 < 11) && (data2 < 11) && (data3 < 11) && (data4 < 11) ){
+				SevenSegment_Set_Dp(0, data1);
+				SevenSegment_Set_Dp(1, data2);
+				SevenSegment_Set_Dp(2, data3);
+				SevenSegment_Set_Dp(3, data4);
+				Protocol.RxPacket.AckReturn = TRUE;
+			}
+			else{
+				Protocol.RxPacket.Status |= PROTOCOL_ERROR_DATA_OUT_OF_RANGE;
+				Protocol.RxPacket.NackReturn = TRUE;
+			}
+		}
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadDpMultiple = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x06){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			Protocol.RxPacket.ReadDpMultiple = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -277,11 +456,31 @@ void Protocol_Response_Decimal_Point_Multiple(uint8_t cmd, uint8_t data1, uint8_
 
 void Protocol_Response_Manual_Brightness(uint8_t cmd, uint8_t data){
 	if(cmd == PROTOCOL_CMD_WRITE_REG){
-		LDR_Manual_Brightness_Set(data);
-		Protocol.RxPacket.AckReturn = TRUE;
+		//Check length is 7 bytes
+		if(COMM_Buf_Get(1) != 0x07){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			if(data <= 100){
+				LDR_Manual_Brightness_Set(data);
+				Protocol.RxPacket.AckReturn = TRUE;
+			}
+			else{
+				Protocol.RxPacket.Status |= PROTOCOL_ERROR_DATA_OUT_OF_RANGE;
+				Protocol.RxPacket.NackReturn = TRUE;
+			}
+		}
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadManualBrightness = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x06){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			Protocol.RxPacket.ReadManualBrightness = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -296,7 +495,14 @@ void Protocol_Response_Auto_Brightness_ADC(uint8_t cmd){
 		Protocol.RxPacket.NackReturn = TRUE;
 	}
 	else if(cmd == PROTOCOL_CMD_READ_REG){
-		Protocol.RxPacket.ReadBrightnessADC = TRUE;
+		//if len didn't matched, nack, generate error
+		if(COMM_Buf_Get(1) != 0x06){
+			Protocol.RxPacket.Status |= PROTOCOL_ERROR_LEN_MISMATCH;
+			Protocol.RxPacket.NackReturn = TRUE;
+		}
+		else{
+			Protocol.RxPacket.ReadBrightnessADC = TRUE;
+		}
 	}
 	else{
 		Protocol.RxPacket.Status |= PROTOCOL_ERROR_INVALID_CMD;
@@ -423,19 +629,23 @@ void Protocol_Response_Mainloop(void){
 		Protocol.RxPacket.ReadFuncEnable = FALSE;
 	}
 	else if(Protocol.RxPacket.ReadDigitSingle == TRUE){
-		//add packet handler
+		Protocol_Build_Digit_Single_Packet();
+		Protocol_Transmit_Packet();
 		Protocol.RxPacket.ReadDigitSingle = FALSE;
 	}
 	else if(Protocol.RxPacket.ReadDigitMultiple == TRUE){
-		//add packet handler
+		Protocol_Build_Digit_Multiple_Packet();
+		Protocol_Transmit_Packet();
 		Protocol.RxPacket.ReadDigitMultiple = FALSE;
 	}
 	else if(Protocol.RxPacket.ReadDpSingle == TRUE){
-		//add packet handler
+		Protocol_Build_Dp_Single_Packet();
+		Protocol_Transmit_Packet();
 		Protocol.RxPacket.ReadDpSingle = FALSE;
 	}
 	else if(Protocol.RxPacket.ReadDpMultiple == TRUE){
-		//add packet handler
+		Protocol_Build_Dp_Multiple_Packet();
+		Protocol_Transmit_Packet();
 		Protocol.RxPacket.ReadDpMultiple = FALSE;
 	}
 	else if(Protocol.RxPacket.ReadManualBrightness == TRUE){
