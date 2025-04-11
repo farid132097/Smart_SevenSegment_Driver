@@ -89,7 +89,7 @@ void Protocol_Build_Ack_Nack_Packet(void){
 	Protocol.TxBuf[0]  = Protocol.TxPacket.Header;
 	Protocol.TxBuf[1]  = 5;
 	Protocol.TxBuf[2]  = Protocol.RxPacket.Status;
-  Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 3);
+  Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 3);
 	Protocol.TxBuf[3]  = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[4]  = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -109,7 +109,7 @@ void Protocol_Build_Status_Packet(void){
 	Protocol.TxBuf[10]  = (LDR_Get_Current_Brightness() & 0xFF);
 	Protocol.TxBuf[11] = Protocol_Disp_Sts_Get();
 	
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 12);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 12);
 	Protocol.TxBuf[12] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[13] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -120,7 +120,7 @@ void Protocol_Build_Func_En_Packet(void){
 	Protocol.TxBuf[2] = 0x00;
 	Protocol.TxBuf[3] = Protocol_Disp_Sts_Get();
 
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 4);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
 	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -131,7 +131,7 @@ void Protocol_Build_Manual_Brightness_Val_Packet(void){
 	Protocol.TxBuf[2] = 0x00;
 	Protocol.TxBuf[3] = (uint8_t)LDR_Manual_Brightness_Get();
 
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 4);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
 	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -143,7 +143,7 @@ void Protocol_Build_Auto_Brightness_ADC_Val_Packet(void){
 	Protocol.TxBuf[3] = (uint8_t)(LDR_Get_ADC_Val() >> 8);
 	Protocol.TxBuf[4] = (LDR_Get_ADC_Val() & 0xFF);
 
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block((uint8_t*)Protocol.TxBuf, 5);
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 5);
 	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[6] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
@@ -165,7 +165,7 @@ void Protocol_Build_Auto_Brightness_Slope_ValL_Packet(void){
 }
 
 void Protocol_Transmit_Packet(void){
-	COMM_Tx_Buf((uint8_t*)Protocol.TxBuf, Protocol.TxBuf[1]);
+	COMM_Tx_Buf(Protocol.TxBuf, Protocol.TxBuf[1]);
 }
 
 
@@ -342,41 +342,54 @@ void Protocol_Disassemble_Packet(void){
 	Protocol_Error_Check();
 	
 	if(Protocol.RxPacket.Status == 0x00){
-	  if(COMM_Buf_Get(3) == PROTOCOL_REG_DISPLAY_STATUS){
-	    Protocol_Response_Display_Status(COMM_Buf_Get(2));
-	  }
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_FUNC_ENABLE){
-			Protocol_Response_Function_Enable(COMM_Buf_Get(2), COMM_Buf_Get(4));
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_DIGIT_SINGLE){
-			Protocol_Response_Digit_Single(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5));
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_DIGIT_MULTIPLE){
-			Protocol_Response_Digit_Multiple(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5), COMM_Buf_Get(6), COMM_Buf_Get(7));
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_DECIMAL_POINTS_SINGLE){
-			Protocol_Response_Decimal_Point_Single(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5));
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_DECIMAL_POINTS_MULTIPLE){
-			Protocol_Response_Decimal_Point_Multiple(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5), COMM_Buf_Get(6), COMM_Buf_Get(7));
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_MANUAL_BRGHTNSS_VAL){
-			Protocol_Response_Manual_Brightness(COMM_Buf_Get(2), COMM_Buf_Get(4));
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_AUTO_BRGHTNSS_ADC_VAL){
-			Protocol_Response_Auto_Brightness_ADC(COMM_Buf_Get(2));
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_ADCH){
+		switch(COMM_Buf_Get(3)){
+			case PROTOCOL_REG_DISPLAY_STATUS:
+				Protocol_Response_Display_Status(COMM_Buf_Get(2));
+			  break;
 			
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_ADCL){
+			case PROTOCOL_REG_FUNC_ENABLE:
+				Protocol_Response_Function_Enable(COMM_Buf_Get(2), COMM_Buf_Get(4));
+			  break;
 			
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_VALH){
+			case PROTOCOL_REG_DIGIT_SINGLE:
+				Protocol_Response_Digit_Single(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5));
+			  break;
+		
+		  case PROTOCOL_REG_DIGIT_MULTIPLE:
+				Protocol_Response_Digit_Multiple(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5), COMM_Buf_Get(6), COMM_Buf_Get(7));
+			  break;
+
+		  case PROTOCOL_REG_DECIMAL_POINTS_SINGLE:
+				Protocol_Response_Decimal_Point_Single(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5));
+			  break;
 			
-		}
-		else if(COMM_Buf_Get(3) == PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_VALL){
+			case PROTOCOL_REG_DECIMAL_POINTS_MULTIPLE:
+				Protocol_Response_Decimal_Point_Multiple(COMM_Buf_Get(2), COMM_Buf_Get(4), COMM_Buf_Get(5), COMM_Buf_Get(6), COMM_Buf_Get(7));
+			  break;
+      
+			case PROTOCOL_REG_MANUAL_BRGHTNSS_VAL:
+				Protocol_Response_Manual_Brightness(COMM_Buf_Get(2), COMM_Buf_Get(4));
+			  break;
 			
+			case PROTOCOL_REG_AUTO_BRGHTNSS_ADC_VAL:
+				Protocol_Response_Auto_Brightness_ADC(COMM_Buf_Get(2));
+			  break;
+			
+			case PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_ADCH:
+				//add handler
+			  break;
+			
+			case PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_ADCL:
+				//add handler
+			  break;
+			
+			case PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_VALH:
+				//add handler
+			  break;
+			
+			case PROTOCOL_REG_AUTO_BRGHTNSS_SLOPE_VALL:
+				//add handler
+			  break;
 		}
 	}
 	if(Protocol.RxPacket.Status != 0x00){

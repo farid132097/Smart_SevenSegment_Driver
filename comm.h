@@ -29,7 +29,7 @@ void     COMM_Config_Rx_Interrupt(void);
 void     COMM_Clear_Interrupt_Flag(void);
 void     COMM_Tx_Byte(uint8_t val);
 uint8_t  COMM_Rx_Byte(void);
-
+void     USART1_IRQHandler(void);
 
 void     COMM_Timer_Struct_Init(void);
 void     COMM_Timer_Init(void);
@@ -39,8 +39,8 @@ uint8_t  COMM_Timer_Get_Status(void);
 uint16_t COMM_Timer_Get_Val(void);
 void     COMM_Timer_Value_Reset(void);
 void     COMM_Timer_Clear_Interrupt_Flag(void);
-
-void     COMM_Tx_Buf(uint8_t *data, uint8_t len);
+void     TIM16_IRQHandler(void);
+void     COMM_Tx_Buf(volatile uint8_t *data, uint8_t len);
 
 
 void     COMM_Tx_NL(void);
@@ -119,7 +119,7 @@ void     COMM_Timer_ISR_Handler(void);
 
 
 uint16_t COMM_CRC_Calculate_Byte(uint16_t crc, uint8_t data);
-uint16_t COMM_CRC_Calculate_Block(uint8_t *buf, uint8_t len);
+uint16_t COMM_CRC_Calculate_Block(volatile uint8_t *buf, uint8_t len);
 
 void     COMM_RX_Packet_CRC_Check(void);
 void     COMM_RX_Packet_Disassemble(void);

@@ -280,7 +280,7 @@ void TIM16_IRQHandler(void){
 
 /********************Buffer Tx Functions Start*******************/
 
-void COMM_Tx_Buf(uint8_t *data, uint8_t len){
+void COMM_Tx_Buf(volatile uint8_t *data, uint8_t len){
   for(uint16_t i = 0; i < len; i++){
 	COMM_Tx_Byte( data[i] );
   }
@@ -812,7 +812,7 @@ uint16_t COMM_CRC_Calculate_Byte(uint16_t crc, uint8_t data){
   return crc;
 }
 
-uint16_t COMM_CRC_Calculate_Block(uint8_t *buf, uint8_t len){
+uint16_t COMM_CRC_Calculate_Block(volatile uint8_t *buf, uint8_t len){
   uint16_t crc = 0;
   for(uint8_t i = 0; i < len; i++){
     crc = COMM_CRC_Calculate_Byte(crc,buf[i]);
@@ -831,7 +831,7 @@ uint16_t CRCTalbe[16] = {
 };
 
 
-uint16_t COMM_CRC_Calculate_Block(uint8_t *buf, uint8_t len){
+uint16_t COMM_CRC_Calculate_Block(volatile uint8_t *buf, uint8_t len){
  uint16_t crc = 0xFFFF, i;
  uint8_t  Data;
  for (i = 0; i < len; i++) {
@@ -864,7 +864,7 @@ void COMM_RX_Packet_CRC_Check(void){
   if( COMM_Data_Len_Get() > 2){
 		temp  = (uint8_t)COMM_Data_Len_Get();
 		temp -= 2;
-    crc_calc   =  COMM_CRC_Calculate_Block((uint8_t*)COMM.Buf, temp);
+    crc_calc   =  COMM_CRC_Calculate_Block(COMM.Buf, temp);
     crc_recv   =  COMM_Buf_Get(COMM_Data_Len_Get() - 2);
     crc_recv <<= 8;
     crc_recv  |= COMM_Buf_Get(COMM_Data_Len_Get() - 1);
