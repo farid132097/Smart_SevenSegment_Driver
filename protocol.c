@@ -18,7 +18,7 @@
  * DispStatusReg       : No Write Operation is allowed
  *
  * FuncEnReg           : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x01] [CRC16H] [CRC16L]
- * FuncEnReg           : [Header: 0xA5] [Len: 0x07] [Write:0x00]  [RegAddress: 0x01] [Data0: 0x00~0x03] [CRC16H] [CRC16L]
+ * FuncEnReg           : [Header: 0xA5] [Len: 0x07] [Write:0x00]  [RegAddress: 0x01] [Data0: 0x00~0x07] [CRC16H] [CRC16L]
  * 
  * DigitSingleReg      : [Header: 0xA5] [Len: 0x07] [Read: 0x01]  [RegAddress: 0x02] [Digit: 0x00~0x03] [CRC16H] [CRC16L]
  * DigitSingleReg      : [Header: 0xA5] [Len: 0x08] [Write:0x00]  [RegAddress: 0x02] [Digit: 0x00~0x03] [Data0: 0x00~0x0A] [CRC16H] [CRC16L]
@@ -45,10 +45,10 @@
  * ============================================================================================================================================================
  * Header (Byte0), Len (Byte1), ErrSts (Byte2), Data (Byte3~ByteN) , CRC16 (ByteN+1 ~ ByteN+2)
  *
- * DispStatusReg       : [Header: 0x5A] [Len: 0x0F] [ErrSts: 0x00] [RegAddress: 0x00] [FuncEn: 0x00~0x03] [Digit0Val: 0x00~0x0A] [Digit1Val: 0x00~0x0A] 
+ * DispStatusReg       : [Header: 0x5A] [Len: 0x0F] [ErrSts: 0x00] [RegAddress: 0x00] [FuncEn: 0x00~0x07] [Digit0Val: 0x00~0x0A] [Digit1Val: 0x00~0x0A] 
  *                       [Digit2Val: 0x00~0x0A] [Digit3Val: 0x00~0x0A] [DpVal: 0x00~0x0F] [LDRADCH: 0x00~0xFF] [LDRADCL: 0x00~0xFF] [CurrBrightness: 0x00~0x64] 
  *                       [CRC16H] [CRC16L]
- * FuncEnReg           : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x01] [FuncEn: 0x00~0x03] [CRC16H] [CRC16L]
+ * FuncEnReg           : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x01] [FuncEn: 0x00~0x07] [CRC16H] [CRC16L]
  * DigitSingleReg      : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x02] [DigitSingle: 0x00~0x0A] [CRC16H] [CRC16L]
  * DigitMultipleReg    : [Header: 0x5A] [Len: 0x0A] [ErrSts: 0x00] [RegAddress: 0x03] [Digit0Val: 0x00~0x0A] [Digit1Val: 0x00~0x0A] [Digit2Val: 0x00~0x0A] 
  *                       [Digit3Val: 0x00~0x0A] [CRC16H] [CRC16L]
@@ -321,6 +321,16 @@ void Protocol_Response_Function_Enable(uint8_t cmd, uint8_t data){
 			}
 			else{
 				LDR_Automic_Brightness_Off();
+			}
+			if(data & (1<<2)){
+				SevenSegment_Auto_Dp_Toggle_Enable();
+			}
+			else{
+				SevenSegment_Auto_Dp_Toggle_Disable();
+				SevenSegment_Set_Dp(0, 0);
+		    SevenSegment_Set_Dp(1, 0);
+		    SevenSegment_Set_Dp(2, 0);
+		    SevenSegment_Set_Dp(3, 0);
 			}
 			Protocol.RxPacket.AckReturn = TRUE;
 		}

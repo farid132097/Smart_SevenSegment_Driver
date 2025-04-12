@@ -54,7 +54,9 @@ static uint8_t segment_val[24] = {
 
 typedef struct seven_segment_t{
 	volatile uint8_t  CurrentDigitIndex;
-	volatile uint8_t  Reserved0;
+	volatile uint8_t  ClockDpCnt;
+	volatile uint8_t  ClockDpToggle;
+	volatile uint8_t  AutoDpToggle;
 	volatile uint16_t InterruptTickCount;
 	volatile uint16_t AntiGhostingCycle;
 	volatile uint16_t DigitBrightnessTopVal;
@@ -73,6 +75,9 @@ static seven_segment_t SevenSegment;
 
 void SevenSegment_Struct_Init(void){
 	SevenSegment.CurrentDigitIndex = 0;
+	SevenSegment.ClockDpCnt = 0;
+	SevenSegment.ClockDpToggle = 0;
+	SevenSegment.AutoDpToggle = FALSE;
 	SevenSegment.InterruptTickCount = 0;
 	SevenSegment.AntiGhostingCycle = 2;
 	SevenSegment.DigitBrightnessTopVal = 100;
@@ -207,6 +212,23 @@ void SevenSegment_Auto_Brightness_Timer_Init(uint32_t update_rate){
 void TIM17_IRQHandler(void){
 	TIM17->SR &=~ TIM_SR_UIF;
   LDR_Control_Brightness();
+	SevenSegment.ClockDpCnt++;
+	if(SevenSegment.ClockDpCnt > 50){
+		SevenSegment.ClockDpCnt = 0;
+		if(SevenSegment.ClockDpToggle == 0){
+			SevenSegment.ClockDpToggle = 1;
+		}
+		else{
+			SevenSegment.ClockDpToggle = 0;
+		}
+		
+		if(SevenSegment.AutoDpToggle == TRUE){
+		  SevenSegment_Set_Dp(0, 0);
+		  SevenSegment_Set_Dp(1, SevenSegment.ClockDpToggle);
+		  SevenSegment_Set_Dp(2, SevenSegment.ClockDpToggle);
+		  SevenSegment_Set_Dp(3, 0);
+		}
+	}
 }
 
 
@@ -424,6 +446,14 @@ void SevenSegment_Display_Enable(void){
 
 void SevenSegment_Display_Disable(void){
 	SevenSegment.DisplayEnable = FALSE;
+}
+
+void SevenSegment_Auto_Dp_Toggle_Enable(void){
+	SevenSegment.AutoDpToggle = TRUE;
+}
+
+void SevenSegment_Auto_Dp_Toggle_Disable(void){
+	SevenSegment.AutoDpToggle = FALSE;
 }
 
 

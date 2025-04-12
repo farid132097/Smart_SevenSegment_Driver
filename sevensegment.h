@@ -32,7 +32,8 @@ uint8_t  SevenSegment_Dp_Byte_Get(void);
 uint8_t  SevenSegment_Display_Enable_Sts(void);
 void     SevenSegment_Display_Enable(void);
 void     SevenSegment_Display_Disable(void);
-
+void     SevenSegment_Auto_Dp_Toggle_Enable(void);
+void     SevenSegment_Auto_Dp_Toggle_Disable(void);
 
 void     SevenSegment_Init(void);
 
