@@ -10,7 +10,8 @@
 
 
 /*
- * Transmit Frame Format : 
+ * Read/Write Transmit Frame Format (Data Sent from Master to Slave):
+ * ============================================================================================================================================================
  * Header (Byte0), Len (Byte1), CMD (Byte2), Reg (Byte3), Data (Byte4~ByteN) , CRC16 (ByteN+1~ByteN+2)
  * 
  * DispStatusReg       : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x00] [CRC16H] [CRC16L]
@@ -23,13 +24,15 @@
  * DigitSingleReg      : [Header: 0xA5] [Len: 0x08] [Write:0x00]  [RegAddress: 0x02] [Digit: 0x00~0x03] [Data0: 0x00~0x0A] [CRC16H] [CRC16L]
  *
  * DigitMultipleReg    : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x03] [CRC16H] [CRC16L]
- * DigitMultipleReg    : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x03] [Data0: 0x00~0x0A] [Data1: 0x00~0x0A] [Data2: 0x00~0x0A] [Data3: 0x00~0x0A] [CRC16H] [CRC16L]
+ * DigitMultipleReg    : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x03] [Data0: 0x00~0x0A] [Data1: 0x00~0x0A] 
+                         [Data2: 0x00~0x0A] [Data3: 0x00~0x0A] [CRC16H] [CRC16L]
  *
  * DpSingleReg         : [Header: 0xA5] [Len: 0x07] [Read: 0x01]  [RegAddress: 0x04] [Digit: 0x00~0x03] [CRC16H] [CRC16L]
  * DpSingleReg         : [Header: 0xA5] [Len: 0x08] [Write:0x00]  [RegAddress: 0x04] [Digit: 0x00~0x03] [Data0: 0x00~0x01] [CRC16H] [CRC16L]
  * 
- * DigitMultipleReg    : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x05] [CRC16H] [CRC16L]
- * DigitMultipleReg    : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x05] [Data0: 0x00~0x01] [Data1: 0x00~0x01] [Data2: 0x00~0x01] [Data3: 0x00~0x01] [CRC16H] [CRC16L]
+ * DpMultipleReg       : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x05] [CRC16H] [CRC16L]
+ * DpMultipleReg       : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x05] [Data0: 0x00~0x01] [Data1: 0x00~0x01] 
+                         [Data2: 0x00~0x01] [Data3: 0x00~0x01] [CRC16H] [CRC16L]
  * 
  * ManualBrightnessReg : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x06] [CRC16H] [CRC16L]
  * ManualBrightnessReg : [Header: 0xA5] [Len: 0x07] [Write:0x00]  [RegAddress: 0x06] [Data0: 0x00~0x64] [CRC16H] [CRC16L]
@@ -38,8 +41,28 @@
  * AutoBrightnessADCReg: No Write Operation is allowed
  *
  *
- * Response Packet Foramt : 
- * Header (Byte0), Len (Byte1), Error (Byte2), Data (Byte3~ByteN) , CRC16 (ByteN+1~ByteN+2)
+ * Read Response Packet Foramt (Data Sent from Slave to Master after a Read Request): 
+ * ============================================================================================================================================================
+ * Header (Byte0), Len (Byte1), ErrSts (Byte2), Data (Byte3~ByteN) , CRC16 (ByteN+1 ~ ByteN+2)
+ *
+ * DispStatusReg       : [Header: 0x5A] [Len: 0x0F] [ErrSts: 0x00] [RegAddress: 0x00] [FuncEn: 0x00~0x03] [Digit0Val: 0x00~0x0A] [Digit1Val: 0x00~0x0A] 
+ *                       [Digit2Val: 0x00~0x0A] [Digit3Val: 0x00~0x0A] [DpVal: 0x00~0x0F] [LDRADCH: 0x00~0xFF] [LDRADCL: 0x00~0xFF] [CurrBrightness: 0x00~0x64] 
+ *                       [CRC16H] [CRC16L]
+ * FuncEnReg           : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x01] [FuncEn: 0x00~0x03] [CRC16H] [CRC16L]
+ * DigitSingleReg      : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x02] [DigitSingle: 0x00~0x0A] [CRC16H] [CRC16L]
+ * DigitMultipleReg    : [Header: 0x5A] [Len: 0x0A] [ErrSts: 0x00] [RegAddress: 0x03] [Digit0Val: 0x00~0x0A] [Digit1Val: 0x00~0x0A] [Digit2Val: 0x00~0x0A] 
+ *                       [Digit3Val: 0x00~0x0A] [CRC16H] [CRC16L]
+ * DpSingleReg         : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x04] [DpVal: 0x00~0x01] [CRC16H] [CRC16L]
+ * DpMultipleReg       : [Header: 0x5A] [Len: 0x0A] [ErrSts: 0x00] [RegAddress: 0x05] [Dp0Val: 0x00~0x01] [Dp1Val: 0x00~0x01] [Dp2Val: 0x00~0x01] 
+ *                       [Dp3Val: 0x00~0x01] [CRC16H] [CRC16L]
+ * ManualBrightnessReg : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x06] [Brightness: 0x00~0x64] [CRC16H] [CRC16L]
+ * AutoBrightnessADCReg: [Header: 0x5A] [Len: 0x08] [ErrSts: 0x00] [RegAddress: 0x07] [ADCH: 0x00~0xFF] [ADCL: 0x00~0xFF] [CRC16H] [CRC16L]
+ * 
+ * 
+ * Write Response Packet Foramt (Data Sent from Slave to Master after a Write Reuest):
+ * ============================================================================================================================================================
+ * Header (Byte0), Len (Byte1), ErrSts (Byte2) , CRC16 (ByteN+1 ~ ByteN+2)
+ * Common Response     : [Header: 0x5A] [Len: 0x05] [ErrSts: 0x00] [CRC16H] [CRC16L]
  */
 
 
@@ -122,105 +145,114 @@ void Protocol_Build_Ack_Nack_Packet(void){
 
 void Protocol_Build_Status_Packet(void){
 	Protocol.TxBuf[0]  = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1]  = 14;
-	Protocol.TxBuf[2]  = 0x00;
-	Protocol.TxBuf[3]  = SevenSegment_Segment_Char_Values_Get(0);
-	Protocol.TxBuf[4]  = SevenSegment_Segment_Char_Values_Get(1);
-	Protocol.TxBuf[5]  = SevenSegment_Segment_Char_Values_Get(2);
-	Protocol.TxBuf[6]  = SevenSegment_Segment_Char_Values_Get(3);
-	Protocol.TxBuf[7]  = SevenSegment_Dp_Byte_Get();
-	Protocol.TxBuf[8]  = (uint8_t)(LDR_Get_ADC_Val() >> 8);
-	Protocol.TxBuf[9]  = (LDR_Get_ADC_Val() & 0xFF);
-	Protocol.TxBuf[10]  = (LDR_Get_Current_Brightness() & 0xFF);
-	Protocol.TxBuf[11] = Protocol_Disp_Sts_Get();
+	Protocol.TxBuf[1]  = 15;   //Len
+	Protocol.TxBuf[2]  = 0x00; //ErrSts
+	Protocol.TxBuf[3]  = 0x00; //Reg
+	Protocol.TxBuf[4]  = Protocol_Disp_Sts_Get();
+	Protocol.TxBuf[5]  = SevenSegment_Segment_Char_Values_Get(0);
+	Protocol.TxBuf[6]  = SevenSegment_Segment_Char_Values_Get(1);
+	Protocol.TxBuf[7]  = SevenSegment_Segment_Char_Values_Get(2);
+	Protocol.TxBuf[8]  = SevenSegment_Segment_Char_Values_Get(3);
+	Protocol.TxBuf[9]  = SevenSegment_Dp_Byte_Get();
+	Protocol.TxBuf[10] = (uint8_t)(LDR_Get_ADC_Val() >> 8);
+	Protocol.TxBuf[11] = (LDR_Get_ADC_Val() & 0xFF);
+	Protocol.TxBuf[12] = (LDR_Get_Current_Brightness() & 0xFF);
 	
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 12);
-	Protocol.TxBuf[12] = (Protocol.TxPacket.CRC16 >> 8);
-	Protocol.TxBuf[13] = (Protocol.TxPacket.CRC16 & 0xFF);
+	
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 13);
+	Protocol.TxBuf[13] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[14] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
 
 void Protocol_Build_Func_En_Packet(void){
 	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1] = 6;
-	Protocol.TxBuf[2] = 0x00;
-	Protocol.TxBuf[3] = Protocol_Disp_Sts_Get();
-
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
-	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
-	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
-}
-
-void Protocol_Build_Digit_Single_Packet(void){
-	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1] = 6;
-	Protocol.TxBuf[2] = 0x00;
-	Protocol.TxBuf[3] = SevenSegment_Segment_Char_Values_Get(Protocol.RxPacket.SingleIndex);
-
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
-	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
-	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
-}
-
-void Protocol_Build_Digit_Multiple_Packet(void){
-	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1] = 9;
-	Protocol.TxBuf[2] = 0x00;
-	Protocol.TxBuf[3] = SevenSegment_Segment_Char_Values_Get(0);
-	Protocol.TxBuf[4] = SevenSegment_Segment_Char_Values_Get(1);
-	Protocol.TxBuf[5] = SevenSegment_Segment_Char_Values_Get(2);
-	Protocol.TxBuf[6] = SevenSegment_Segment_Char_Values_Get(3);
-
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 7);
-	Protocol.TxBuf[7] = (Protocol.TxPacket.CRC16 >> 8);
-	Protocol.TxBuf[8] = (Protocol.TxPacket.CRC16 & 0xFF);
-}
-
-void Protocol_Build_Dp_Single_Packet(void){
-	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1] = 6;
-	Protocol.TxBuf[2] = 0x00;
-	Protocol.TxBuf[3] = SevenSegment_Dp_Values_Get(Protocol.RxPacket.SingleIndex);
-
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
-	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
-	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
-}
-
-void Protocol_Build_Dp_Multiple_Packet(void){
-	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1] = 9;
-	Protocol.TxBuf[2] = 0x00;
-	Protocol.TxBuf[3] = SevenSegment_Dp_Values_Get(0);
-	Protocol.TxBuf[4] = SevenSegment_Dp_Values_Get(1);
-	Protocol.TxBuf[5] = SevenSegment_Dp_Values_Get(2);
-	Protocol.TxBuf[6] = SevenSegment_Dp_Values_Get(3);
-
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 7);
-	Protocol.TxBuf[7] = (Protocol.TxPacket.CRC16 >> 8);
-	Protocol.TxBuf[8] = (Protocol.TxPacket.CRC16 & 0xFF);
-}
-
-void Protocol_Build_Manual_Brightness_Val_Packet(void){
-	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1] = 6;
-	Protocol.TxBuf[2] = 0x00;
-	Protocol.TxBuf[3] = (uint8_t)LDR_Manual_Brightness_Get();
-
-	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 4);
-	Protocol.TxBuf[4] = (Protocol.TxPacket.CRC16 >> 8);
-	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 & 0xFF);
-}
-
-void Protocol_Build_Auto_Brightness_ADC_Val_Packet(void){
-	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
-	Protocol.TxBuf[1] = 7;
-	Protocol.TxBuf[2] = 0x00;
-	Protocol.TxBuf[3] = (uint8_t)(LDR_Get_ADC_Val() >> 8);
-	Protocol.TxBuf[4] = (LDR_Get_ADC_Val() & 0xFF);
+	Protocol.TxBuf[1] = 7;    //Len
+	Protocol.TxBuf[2] = 0x00; //ErrSts
+	Protocol.TxBuf[3] = 0x01; //Reg
+	Protocol.TxBuf[4] = Protocol_Disp_Sts_Get();
 
 	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 5);
 	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 >> 8);
 	Protocol.TxBuf[6] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Digit_Single_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 7;    //Len
+	Protocol.TxBuf[2] = 0x00; //ErrSts
+	Protocol.TxBuf[3] = 0x02; //Reg
+	Protocol.TxBuf[4] = SevenSegment_Segment_Char_Values_Get(Protocol.RxPacket.SingleIndex);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 5);
+	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[6] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Digit_Multiple_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 10;   //Len
+	Protocol.TxBuf[2] = 0x00; //ErrSts
+	Protocol.TxBuf[3] = 0x03; //Reg
+	Protocol.TxBuf[4] = SevenSegment_Segment_Char_Values_Get(0);
+	Protocol.TxBuf[5] = SevenSegment_Segment_Char_Values_Get(1);
+	Protocol.TxBuf[6] = SevenSegment_Segment_Char_Values_Get(2);
+	Protocol.TxBuf[7] = SevenSegment_Segment_Char_Values_Get(3);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 8);
+	Protocol.TxBuf[8] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[9] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Dp_Single_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 7;    //Len
+	Protocol.TxBuf[2] = 0x00; //ErrSts
+	Protocol.TxBuf[3] = 0x04; //Reg
+	Protocol.TxBuf[4] = SevenSegment_Dp_Values_Get(Protocol.RxPacket.SingleIndex);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 5);
+	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[6] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Dp_Multiple_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 10;   //Len
+	Protocol.TxBuf[2] = 0x00; //ErrSts
+	Protocol.TxBuf[3] = 0x05; //Reg
+	Protocol.TxBuf[4] = SevenSegment_Dp_Values_Get(0);
+	Protocol.TxBuf[5] = SevenSegment_Dp_Values_Get(1);
+	Protocol.TxBuf[6] = SevenSegment_Dp_Values_Get(2);
+	Protocol.TxBuf[7] = SevenSegment_Dp_Values_Get(3);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 8);
+	Protocol.TxBuf[8] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[9] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Manual_Brightness_Val_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 7;    //Len
+	Protocol.TxBuf[2] = 0x00; //ErrSts
+	Protocol.TxBuf[3] = 0x06; //Reg
+	Protocol.TxBuf[4] = (uint8_t)LDR_Manual_Brightness_Get();
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 5);
+	Protocol.TxBuf[5] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[6] = (Protocol.TxPacket.CRC16 & 0xFF);
+}
+
+void Protocol_Build_Auto_Brightness_ADC_Val_Packet(void){
+	Protocol.TxBuf[0] = Protocol.TxPacket.Header;
+	Protocol.TxBuf[1] = 8;    //Len
+	Protocol.TxBuf[2] = 0x00; //ErrSts
+	Protocol.TxBuf[3] = 0x07; //Reg
+	Protocol.TxBuf[4] = (uint8_t)(LDR_Get_ADC_Val() >> 8);
+	Protocol.TxBuf[5] = (LDR_Get_ADC_Val() & 0xFF);
+
+	Protocol.TxPacket.CRC16 = COMM_CRC_Calculate_Block(Protocol.TxBuf, 6);
+	Protocol.TxBuf[6] = (Protocol.TxPacket.CRC16 >> 8);
+	Protocol.TxBuf[7] = (Protocol.TxPacket.CRC16 & 0xFF);
 }
 
 void Protocol_Build_Auto_Brightness_Slope_ADCH_Packet(void){
