@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\stm32g030_smart_sevensegment_driver.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\stm32g030_smart_sevensegment_driver.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Apr 12 23:14:13 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Wed Apr 23 06:16:23 2025
 <BR><P>
 <H3>Maximum Stack Usage =         88 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -549,7 +549,8 @@ Global Symbols
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Data_Clear_Available_Flag
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Buf_Flush
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Response_Mainloop
+<BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Timer_ISR_Handler
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Response_Mainloop
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Mainloop
 </UL>
 
@@ -582,7 +583,7 @@ Global Symbols
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Init
 </UL>
 
-<P><STRONG><a name="[5c]"></a>COMM_Timer_ISR_Handler</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, comm.o(.text.COMM_Timer_ISR_Handler))
+<P><STRONG><a name="[5c]"></a>COMM_Timer_ISR_Handler</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, comm.o(.text.COMM_Timer_ISR_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = COMM_Timer_ISR_Handler &rArr; COMM_RX_Packet_Disassemble &rArr; Protocol_Disassemble_Packet &rArr; Protocol_Response_Digit_Multiple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Timer_Disable
@@ -590,6 +591,7 @@ Global Symbols
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_RX_Packet_Disassemble
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_RX_Packet_CRC_Check
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_Buf_Get_Index
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;COMM_RX_Packet_Read_Complete
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM16_IRQHandler
 </UL>

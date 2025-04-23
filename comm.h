@@ -57,8 +57,14 @@ void     COMM_Tx_Text_CM(char *str);
 void     COMM_Determine_Digit_Numbers(uint32_t num);
 void     COMM_Tx_Number_Digits(void);
 void     COMM_Tx_Number(int32_t num);
-void     COMM_Tx_Number_Hex(uint32_t val);
-void     COMM_Tx_Number_Bin(uint32_t val);
+
+void     COMM_Tx_Number_Hex32_Raw(uint32_t val);
+void     COMM_Tx_Number_Hex32(uint32_t val);
+void     COMM_Tx_Number_Hex(uint64_t val);
+
+void     COMM_Tx_Number_Bin32_Raw(uint32_t val);
+void     COMM_Tx_Number_Bin32(uint32_t val);
+void     COMM_Tx_Number_Bin(uint64_t val);
 
 
 void     COMM_Tx_Number_NL(int32_t num);
@@ -66,14 +72,14 @@ void     COMM_Tx_Number_SP(int32_t num);
 void     COMM_Tx_Number_CM(int32_t num);
 
 
-void     COMM_Tx_Number_Hex_NL(uint32_t num);
-void     COMM_Tx_Number_Hex_SP(uint32_t num);
-void     COMM_Tx_Number_Hex_CM(uint32_t num);
+void     COMM_Tx_Number_Hex_NL(uint64_t num);
+void     COMM_Tx_Number_Hex_SP(uint64_t num);
+void     COMM_Tx_Number_Hex_CM(uint64_t num);
 
 
-void     COMM_Tx_Number_Bin_NL(uint32_t num);
-void     COMM_Tx_Number_Bin_SP(uint32_t num);
-void     COMM_Tx_Number_Bin_CM(uint32_t num);
+void     COMM_Tx_Number_Bin_NL(uint64_t num);
+void     COMM_Tx_Number_Bin_SP(uint64_t num);
+void     COMM_Tx_Number_Bin_CM(uint64_t num);
 
 
 void     COMM_Tx_Parameter_NL(char *name, int32_t num);
@@ -81,14 +87,14 @@ void     COMM_Tx_Parameter_SP(char *name, int32_t num);
 void     COMM_Tx_Parameter_CM(char *name, int32_t num);
 
 
-void     COMM_Tx_Parameter_Hex_NL(char *name, uint32_t num);
-void     COMM_Tx_Parameter_Hex_SP(char *name, uint32_t num);
-void     COMM_Tx_Parameter_Hex_CM(char *name, uint32_t num);
+void     COMM_Tx_Parameter_Hex_NL(char *name, uint64_t num);
+void     COMM_Tx_Parameter_Hex_SP(char *name, uint64_t num);
+void     COMM_Tx_Parameter_Hex_CM(char *name, uint64_t num);
 
 
-void     COMM_Tx_Parameter_Bin_NL(char *name, uint32_t num);
-void     COMM_Tx_Parameter_Bin_SP(char *name, uint32_t num);
-void     COMM_Tx_Parameter_Bin_CM(char *name, uint32_t num);
+void     COMM_Tx_Parameter_Bin_NL(char *name, uint64_t num);
+void     COMM_Tx_Parameter_Bin_SP(char *name, uint64_t num);
+void     COMM_Tx_Parameter_Bin_CM(char *name, uint64_t num);
 
 //Receiver Functions
 void     COMM_Buf_Flush(void);

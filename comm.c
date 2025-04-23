@@ -5,7 +5,7 @@
  * Author: MD. Faridul Islam
  * faridmdislam@gmail.com
  * LL Driver -> Communication Library (Based on UART)
- * Rev 3.2
+ * Rev 3.3
  * Created on December 12, 2024, 9:44 PM
  */
 
@@ -29,7 +29,7 @@
 #define  COMM_TIMEOUT_INT_PRIORITY      (   2U)
 
 
-//#define  COMM_CRC_ENABLE     //Uncomment if packet validation by CRC is needed
+#define  COMM_CRC_ENABLE     //Uncomment if packet validation by CRC is needed
 #define  COMM_CRC_XMODEM     //Uncomment if CRC is by X-MODEM Protocol
 //#define  COMM_CRC_ALTERNATE     //Uncomment if CRC is by Supplier Protocol
 
@@ -392,7 +392,7 @@ void COMM_Tx_Number(int32_t num){
   COMM_Tx_Number_Digits();
 }
 
-void COMM_Tx_Number_Hex(uint32_t val){
+void COMM_Tx_Number_Hex32_Raw(uint32_t val){
   uint16_t hex_digit, index = 0, loop_counter = 0;
   if(val <= 0xFF){
     index = 8;
@@ -404,8 +404,6 @@ void COMM_Tx_Number_Hex(uint32_t val){
     index = 32;
     loop_counter = 8;
   }
-  COMM_Tx_Byte('0');
-  COMM_Tx_Byte('x');
   for(uint8_t i = 0; i < loop_counter; i++){
 	index -= 4;
 	hex_digit = (uint8_t)((val>>index) & 0x0F);
@@ -419,7 +417,18 @@ void COMM_Tx_Number_Hex(uint32_t val){
   }
 }
 
-void COMM_Tx_Number_Bin(uint32_t val){
+void COMM_Tx_Number_Hex32(uint32_t val){
+  COMM_Tx_Byte('0');
+  COMM_Tx_Byte('x');
+  COMM_Tx_Number_Hex32_Raw(val);
+}
+
+void COMM_Tx_Number_Hex(uint64_t val){
+  COMM_Tx_Number_Hex32(val >> 32);
+  COMM_Tx_Number_Hex32_Raw(val & 0xFFFFFFFF);
+}
+
+void COMM_Tx_Number_Bin32_Raw(uint32_t val){
   uint8_t loop_counter = 0;
   if(val <= 0xFF){
     loop_counter = 7;
@@ -429,8 +438,6 @@ void COMM_Tx_Number_Bin(uint32_t val){
     loop_counter = 31;
   }
   
-  COMM_Tx_Byte('0');
-  COMM_Tx_Byte('b');
   for(int i = loop_counter; i >= 0; i--){
     if( (val>>i) & 1){
       COMM_Tx_Byte( 49 );   
@@ -438,6 +445,17 @@ void COMM_Tx_Number_Bin(uint32_t val){
       COMM_Tx_Byte( 48 );         
     }
   }
+}
+
+void COMM_Tx_Number_Bin32(uint32_t val){
+  COMM_Tx_Byte('0');
+  COMM_Tx_Byte('b');
+  COMM_Tx_Number_Bin32_Raw(val);
+}
+
+void COMM_Tx_Number_Bin(uint64_t val){
+  COMM_Tx_Number_Bin32(val >> 32);
+  COMM_Tx_Number_Bin32_Raw(val & 0xFFFFFFFF);
 }
 
 /*********************Number Functions End*********************/
@@ -479,17 +497,17 @@ void COMM_Tx_Number_CM(int32_t num){
 
 /**********Hex Number with End Char Functions Start************/
 
-void COMM_Tx_Number_Hex_NL(uint32_t num){
+void COMM_Tx_Number_Hex_NL(uint64_t num){
   COMM_Tx_Number_Hex(num);
   COMM_Tx_NL();
 }
 
-void COMM_Tx_Number_Hex_SP(uint32_t num){
+void COMM_Tx_Number_Hex_SP(uint64_t num){
   COMM_Tx_Number_Hex(num);
   COMM_Tx_SP();
 }
 
-void COMM_Tx_Number_Hex_CM(uint32_t num){
+void COMM_Tx_Number_Hex_CM(uint64_t num){
   COMM_Tx_Number_Hex(num);
   COMM_Tx_CM();
 }
@@ -506,17 +524,17 @@ void COMM_Tx_Number_Hex_CM(uint32_t num){
 
 /**********Bin Number with End Char Functions Start************/
 
-void COMM_Tx_Number_Bin_NL(uint32_t num){
+void COMM_Tx_Number_Bin_NL(uint64_t num){
   COMM_Tx_Number_Bin(num);
   COMM_Tx_NL();
 }
 
-void COMM_Tx_Number_Bin_SP(uint32_t num){
+void COMM_Tx_Number_Bin_SP(uint64_t num){
   COMM_Tx_Number_Bin(num);
   COMM_Tx_SP();
 }
 
-void COMM_Tx_Number_Bin_CM(uint32_t num){
+void COMM_Tx_Number_Bin_CM(uint64_t num){
   COMM_Tx_Number_Bin(num);
   COMM_Tx_CM();
 }
@@ -561,19 +579,19 @@ void COMM_Tx_Parameter_CM(char *name, int32_t num){
 
 /**********Hex Number with Parameter Functions Start***********/
 
-void COMM_Tx_Parameter_Hex_NL(char *name, uint32_t num){
+void COMM_Tx_Parameter_Hex_NL(char *name, uint64_t num){
   COMM_Tx_Text(name);
   COMM_Tx_SP();
   COMM_Tx_Number_Hex_NL(num);
 }
 
-void COMM_Tx_Parameter_Hex_SP(char *name, uint32_t num){
+void COMM_Tx_Parameter_Hex_SP(char *name, uint64_t num){
   COMM_Tx_Text(name);
   COMM_Tx_SP();
   COMM_Tx_Number_Hex_SP(num);
 }
 
-void COMM_Tx_Parameter_Hex_CM(char *name, uint32_t num){
+void COMM_Tx_Parameter_Hex_CM(char *name, uint64_t num){
   COMM_Tx_Text(name);
   COMM_Tx_SP();
   COMM_Tx_Number_Hex_CM(num);
@@ -591,19 +609,19 @@ void COMM_Tx_Parameter_Hex_CM(char *name, uint32_t num){
 
 /**********Bin Number with Parameter Functions Start***********/
 
-void COMM_Tx_Parameter_Bin_NL(char *name, uint32_t num){
+void COMM_Tx_Parameter_Bin_NL(char *name, uint64_t num){
   COMM_Tx_Text(name);
   COMM_Tx_SP();
   COMM_Tx_Number_Bin_NL(num);
 }
 
-void COMM_Tx_Parameter_Bin_SP(char *name, uint32_t num){
+void COMM_Tx_Parameter_Bin_SP(char *name, uint64_t num){
   COMM_Tx_Text(name);
   COMM_Tx_SP();
   COMM_Tx_Number_Bin_SP(num);
 }
 
-void COMM_Tx_Parameter_Bin_CM(char *name, uint32_t num){
+void COMM_Tx_Parameter_Bin_CM(char *name, uint64_t num){
   COMM_Tx_Text(name);
   COMM_Tx_SP();
   COMM_Tx_Number_Bin_CM(num);
