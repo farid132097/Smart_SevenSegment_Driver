@@ -5,7 +5,7 @@
  * Author: MD. Faridul Islam
  * faridmdislam@gmail.com
  * LL Driver -> Communication Library (Based on UART)
- * Rev 3.3
+ * Rev 3.3 (23 Apr, 2025)
  * Created on December 12, 2024, 9:44 PM
  */
 
