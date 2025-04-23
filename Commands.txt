@@ -1,3 +1,59 @@
+/*
+ * Read/Write Transmit Frame Format (Data Sent from Master to Slave):
+ * ============================================================================================================================================================
+ * Header (Byte0), Len (Byte1), CMD (Byte2), Reg (Byte3), Data (Byte4~ByteN) , CRC16 (ByteN+1~ByteN+2)
+ * 
+ * DispStatusReg       : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x00] [CRC16H] [CRC16L]
+ * DispStatusReg       : No Write Operation is allowed
+ *
+ * FuncEnReg           : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x01] [CRC16H] [CRC16L]
+ * FuncEnReg           : [Header: 0xA5] [Len: 0x07] [Write:0x00]  [RegAddress: 0x01] [Data0: 0x00~0x07] [CRC16H] [CRC16L]
+ * 
+ * DigitSingleReg      : [Header: 0xA5] [Len: 0x07] [Read: 0x01]  [RegAddress: 0x02] [Digit: 0x00~0x03] [CRC16H] [CRC16L]
+ * DigitSingleReg      : [Header: 0xA5] [Len: 0x08] [Write:0x00]  [RegAddress: 0x02] [Digit: 0x00~0x03] [Data0: 0x00~0x0A] [CRC16H] [CRC16L]
+ *
+ * DigitMultipleReg    : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x03] [CRC16H] [CRC16L]
+ * DigitMultipleReg    : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x03] [Data0: 0x00~0x0A] [Data1: 0x00~0x0A] 
+                         [Data2: 0x00~0x0A] [Data3: 0x00~0x0A] [CRC16H] [CRC16L]
+ *
+ * DpSingleReg         : [Header: 0xA5] [Len: 0x07] [Read: 0x01]  [RegAddress: 0x04] [Digit: 0x00~0x03] [CRC16H] [CRC16L]
+ * DpSingleReg         : [Header: 0xA5] [Len: 0x08] [Write:0x00]  [RegAddress: 0x04] [Digit: 0x00~0x03] [Data0: 0x00~0x01] [CRC16H] [CRC16L]
+ * 
+ * DpMultipleReg       : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x05] [CRC16H] [CRC16L]
+ * DpMultipleReg       : [Header: 0xA5] [Len: 0x0A] [Write:0x00]  [RegAddress: 0x05] [Data0: 0x00~0x01] [Data1: 0x00~0x01] 
+                         [Data2: 0x00~0x01] [Data3: 0x00~0x01] [CRC16H] [CRC16L]
+ * 
+ * ManualBrightnessReg : [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x06] [CRC16H] [CRC16L]
+ * ManualBrightnessReg : [Header: 0xA5] [Len: 0x07] [Write:0x00]  [RegAddress: 0x06] [Data0: 0x00~0x64] [CRC16H] [CRC16L]
+ * 
+ * AutoBrightnessADCReg: [Header: 0xA5] [Len: 0x06] [Read: 0x01]  [RegAddress: 0x07] [CRC16H] [CRC16L]
+ * AutoBrightnessADCReg: No Write Operation is allowed
+ *
+ *
+ * Read Response Packet Foramt (Data Sent from Slave to Master after a Read Request): 
+ * ============================================================================================================================================================
+ * Header (Byte0), Len (Byte1), ErrSts (Byte2), Data (Byte3~ByteN) , CRC16 (ByteN+1 ~ ByteN+2)
+ *
+ * DispStatusReg       : [Header: 0x5A] [Len: 0x0F] [ErrSts: 0x00] [RegAddress: 0x00] [FuncEn: 0x00~0x07] [Digit0Val: 0x00~0x0A] [Digit1Val: 0x00~0x0A] 
+ *                       [Digit2Val: 0x00~0x0A] [Digit3Val: 0x00~0x0A] [DpVal: 0x00~0x0F] [LDRADCH: 0x00~0xFF] [LDRADCL: 0x00~0xFF] [CurrBrightness: 0x00~0x64] 
+ *                       [CRC16H] [CRC16L]
+ * FuncEnReg           : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x01] [FuncEn: 0x00~0x07] [CRC16H] [CRC16L]
+ * DigitSingleReg      : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x02] [DigitSingle: 0x00~0x0A] [CRC16H] [CRC16L]
+ * DigitMultipleReg    : [Header: 0x5A] [Len: 0x0A] [ErrSts: 0x00] [RegAddress: 0x03] [Digit0Val: 0x00~0x0A] [Digit1Val: 0x00~0x0A] [Digit2Val: 0x00~0x0A] 
+ *                       [Digit3Val: 0x00~0x0A] [CRC16H] [CRC16L]
+ * DpSingleReg         : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x04] [DpVal: 0x00~0x01] [CRC16H] [CRC16L]
+ * DpMultipleReg       : [Header: 0x5A] [Len: 0x0A] [ErrSts: 0x00] [RegAddress: 0x05] [Dp0Val: 0x00~0x01] [Dp1Val: 0x00~0x01] [Dp2Val: 0x00~0x01] 
+ *                       [Dp3Val: 0x00~0x01] [CRC16H] [CRC16L]
+ * ManualBrightnessReg : [Header: 0x5A] [Len: 0x07] [ErrSts: 0x00] [RegAddress: 0x06] [Brightness: 0x00~0x64] [CRC16H] [CRC16L]
+ * AutoBrightnessADCReg: [Header: 0x5A] [Len: 0x08] [ErrSts: 0x00] [RegAddress: 0x07] [ADCH: 0x00~0xFF] [ADCL: 0x00~0xFF] [CRC16H] [CRC16L]
+ * 
+ * 
+ * Write Response Packet Foramt (Data Sent from Slave to Master after a Write Reuest):
+ * ============================================================================================================================================================
+ * Header (Byte0), Len (Byte1), ErrSts (Byte2) , CRC16 (ByteN+1 ~ ByteN+2)
+ * Common Response     : [Header: 0x5A] [Len: 0x05] [ErrSts: 0x00] [CRC16H] [CRC16L]
+ */
+
 0xA5 0x06 0x01 0x00 0xD7 0xA2                      Read Status Reg
 
 0xA5 0x07 0x00 0x01 0x03 0x5B 0x4C                 Write FuncEn Reg (Auto Brightness + Display On)
