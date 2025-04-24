@@ -29,7 +29,7 @@
 #define  COMM_TIMEOUT_INT_PRIORITY      (   2U)
 
 
-#define  COMM_CRC_ENABLE     //Uncomment if packet validation by CRC is needed
+//#define  COMM_CRC_ENABLE     //Uncomment if packet validation by CRC is needed
 #define  COMM_CRC_XMODEM     //Uncomment if CRC is by X-MODEM Protocol
 //#define  COMM_CRC_ALTERNATE     //Uncomment if CRC is by Supplier Protocol
 
